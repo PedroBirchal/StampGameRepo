@@ -1,22 +1,18 @@
 [gd_scene format=3 uid="uid://di6ne7kiyjw8c"]
 
-[ext_resource type="PackedScene" uid="uid://ubmka5rog14j" path="res://Models/Caixa_Carta.fbx" id="1_7c6ev"]
-[ext_resource type="PackedScene" uid="uid://cvyw2wtxjq15y" path="res://Models/Carta.fbx" id="2_cmimh"]
+[ext_resource type="PackedScene" uid="uid://oqbb3beoscau" path="res://Scenes/Carta.tscn" id="1_7c6ev"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_cmimh"]
 
 [node name="LetterGame" type="Node3D" unique_id=1734937759]
 
-[node name="Caixa_Carta" parent="." unique_id=1680271635 instance=ExtResource("1_7c6ev")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -0.994)
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=940881840]
 
-[node name="Caixa_Carta2" parent="." unique_id=1852174717 instance=ExtResource("1_7c6ev")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -0.994)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1415822254]
+shape = SubResource("WorldBoundaryShape3D_cmimh")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=285216592]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
-far = 50.0
+[node name="Carta" parent="StaticBody3D" unique_id=596546558 instance=ExtResource("1_7c6ev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5254793, 2.7238512, -0.20062661)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1797474766]
-transform = Transform3D(1, 0, 0, 0, 0.5567016, 0.83071256, 0, -0.83071256, 0.5567016, 0, 6.0199766, 4.427849)
-
-[node name="Carta" parent="." unique_id=213670458 instance=ExtResource("2_cmimh")]
-transform = Transform3D(1, 0, 0, 0, 0.82482743, -0.56538457, 0, 0.56538457, 0.82482743, 0, 0, 2.5)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1641170020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73676705, 4.279518)

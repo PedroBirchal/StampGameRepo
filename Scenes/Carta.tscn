@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://oqbb3beoscau"]
+
+[ext_resource type="PackedScene" uid="uid://cvyw2wtxjq15y" path="res://Models/Carta.fbx" id="1_6fjtb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vrd47"]
+size = Vector3(1, 0.058807373, 0.6135254)
+
+[node name="Carta" type="Node3D" unique_id=596546558]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=575250452]
+
+[node name="CartaMesh" parent="RigidBody3D" unique_id=213670458 instance=ExtResource("1_6fjtb")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=815702533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.030075073, -0.018188477)
+shape = SubResource("BoxShape3D_vrd47")
