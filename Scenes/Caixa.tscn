@@ -34,38 +34,38 @@ size = Vector3(1.4277344, 1.4257813, 1.451416)
 [node name="Caixa" type="Node3D" unique_id=1063090705]
 script = ExtResource("1_32808")
 
-[node name="caixa_mesh" parent="." unique_id=1680271635 instance=ExtResource("1_b2bjn")]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="caixa_mesh" unique_id=234718596]
+[node name="MarcaCaixa" type="MeshInstance3D" parent="." unique_id=234718596]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -0.67602926)
 material_override = SubResource("StandardMaterial3D_mfxl7")
 mesh = SubResource("QuadMesh_fl5pv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=874984710]
+[node name="MeshCaixa" parent="." unique_id=1680271635 instance=ExtResource("1_b2bjn")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1178096488]
+[node name="ColisoresCaixa" type="StaticBody3D" parent="." unique_id=874984710]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ColisoresCaixa" unique_id=1178096488]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00036621094, 0.79652405, -0.7380154)
 shape = SubResource("BoxShape3D_b2bjn")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=1063090167]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="ColisoresCaixa" unique_id=1063090167]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0.76004887, 0.79652405, 0.0018615715)
 shape = SubResource("BoxShape3D_32808")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1819724715]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="ColisoresCaixa" unique_id=1819724715]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -0.7599251, 0.79652405, 0.0018615731)
 shape = SubResource("BoxShape3D_mfxl7")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=251264507]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="ColisoresCaixa" unique_id=251264507]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.00036621094, 0.037711024, -3.1114363e-05)
 shape = SubResource("BoxShape3D_fl5pv")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1086475413]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ColisoresCaixa" unique_id=1086475413]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.00036621094, 1.5567856, -3.111271e-05)
 shape = SubResource("BoxShape3D_w6ce2")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=520040535]
+[node name="AreaCaxa" type="Area3D" parent="." unique_id=520040535]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=267400288]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaCaxa" unique_id=267400288]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7971339, 0.0501709)
 shape = SubResource("BoxShape3D_sjf0h")
 debug_color = Color(0.26674625, 0.63355845, 1.92523e-07, 0.41960785)
@@ -73,6 +73,6 @@ debug_color = Color(0.26674625, 0.63355845, 1.92523e-07, 0.41960785)
 [node name="AncoraIndicador" type="Node3D" parent="." unique_id=502202679]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 1)
 
-[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
-[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
-[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]
+[connection signal="input_event" from="AreaCaxa" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="AreaCaxa" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="AreaCaxa" to="." method="_on_area_3d_mouse_exited"]

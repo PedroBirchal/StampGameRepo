@@ -10,16 +10,18 @@
 
 [node name="LetterGame" type="Node3D" unique_id=1734937759 node_paths=PackedStringArray("caixas")]
 script = ExtResource("1_cb1fc")
-caixas = [NodePath("Caixa"), NodePath("Caixa2")]
+caixas = [NodePath("Caixas/Caixa"), NodePath("Caixas/Caixa2")]
+
+[node name="Caixas" type="Node3D" parent="." unique_id=1090944776]
+
+[node name="Caixa" parent="Caixas" unique_id=1063090705 instance=ExtResource("2_cmimh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="Caixa2" parent="Caixas" unique_id=763413760 instance=ExtResource("2_cmimh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="Carta" parent="." unique_id=596546558 instance=ExtResource("1_7c6ev")]
 transform = Transform3D(1, 0, 0, 0, 0.8211492, -0.5707136, 0, 0.5707136, 0.8211492, 0, -0.35, 2.25)
-
-[node name="Caixa" parent="." unique_id=1063090705 instance=ExtResource("2_cmimh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-
-[node name="Caixa2" parent="." unique_id=763413760 instance=ExtResource("2_cmimh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="Chao" type="StaticBody3D" parent="." unique_id=940881840]
 
