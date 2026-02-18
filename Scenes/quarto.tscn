@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dxegpb20kq7ku"]
+
+[ext_resource type="PackedScene" uid="uid://cyxhnos72oq3s" path="res://Scenes/player/jogador.tscn" id="1_uylpo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7gp2j"]
+size = Vector3(15, 1, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rpanf"]
+size = Vector3(15, 1, 15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g5rb4"]
+size = Vector3(1, 5, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g5rb4"]
+size = Vector3(1, 5, 15)
+
+[node name="Quarto" type="Node3D" unique_id=2017398307]
+
+[node name="Cenario" type="Node3D" parent="." unique_id=679741334]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Cenario" unique_id=12029303]
+transform = Transform3D(1, 0, 0, 0, -0.49448803, 0.86918443, 0, -0.86918443, -0.49448803, 0, 5.608338, 0)
+
+[node name="Estrutura" type="Node3D" parent="Cenario" unique_id=875460041]
+
+[node name="Chao" type="MeshInstance3D" parent="Cenario/Estrutura" unique_id=307199867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_7gp2j")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cenario/Estrutura/Chao" unique_id=1883937992]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cenario/Estrutura/Chao/StaticBody3D" unique_id=256172151]
+shape = SubResource("BoxShape3D_rpanf")
+
+[node name="Parede" type="MeshInstance3D" parent="Cenario/Estrutura" unique_id=795777389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.7280002, 0)
+mesh = SubResource("BoxMesh_g5rb4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cenario/Estrutura/Parede" unique_id=1305592444]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cenario/Estrutura/Parede/StaticBody3D" unique_id=1866278991]
+shape = SubResource("BoxShape3D_g5rb4")
+
+[node name="Parede2" type="MeshInstance3D" parent="Cenario/Estrutura" unique_id=557856252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.7280002, 0)
+mesh = SubResource("BoxMesh_g5rb4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cenario/Estrutura/Parede2" unique_id=1750029319]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cenario/Estrutura/Parede2/StaticBody3D" unique_id=1027485377]
+shape = SubResource("BoxShape3D_g5rb4")
+
+[node name="Jogador1Pessoa" parent="." unique_id=292964940 instance=ExtResource("1_uylpo")]

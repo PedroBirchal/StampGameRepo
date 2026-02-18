@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cyxhnos72oq3s"]
+
+[ext_resource type="Script" uid="uid://x4u0fq8avkbn" path="res://Scenes/player/jogador.gd" id="1_pubsf"]
+[ext_resource type="PackedScene" uid="uid://dnn6vvgemv81x" path="res://Models/MainCharPombinha.fbx" id="2_8dntd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_64pld"]
+
+[node name="Jogador1Pessoa" type="CharacterBody3D" unique_id=292964940 node_paths=PackedStringArray("pivot_camera")]
+script = ExtResource("1_pubsf")
+pivot_camera = NodePath("CameraPivot")
+
+[node name="MainCharPombinha" parent="." unique_id=1987979699 instance=ExtResource("2_8dntd")]
+transform = Transform3D(-0.665, 0, -5.813615e-08, 0, 0.665, 0, 5.813615e-08, 0, -0.665, 0, 0, 0)
+
+[node name="Cabeca_Passaro" parent="MainCharPombinha/Armature_Passaro/Skeleton3D" parent_id_path=PackedInt32Array(1987979699, 28127448) index="1" unique_id=1949781254]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=911539027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_64pld")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=999272099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.453, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1286262885]
+
+[editable path="MainCharPombinha"]
