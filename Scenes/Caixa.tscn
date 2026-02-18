@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bd6pkmjgafjce"]
 
+[ext_resource type="Script" uid="uid://843sbo06g4yq" path="res://Scripts/caixa.gd" id="1_32808"]
 [ext_resource type="PackedScene" uid="uid://ubmka5rog14j" path="res://Models/Caixa_Carta.fbx" id="1_b2bjn"]
 [ext_resource type="Texture2D" uid="uid://b7dpyudycdnoh" path="res://Sprites/Circle.png" id="2_w6ce2"]
 
@@ -31,6 +32,7 @@ size = Vector3(1.6105957, 1.6090393, 0.09233856)
 size = Vector3(1.4277344, 1.4257813, 1.451416)
 
 [node name="Caixa" type="Node3D" unique_id=1063090705]
+script = ExtResource("1_32808")
 
 [node name="caixa_mesh" parent="." unique_id=1680271635 instance=ExtResource("1_b2bjn")]
 
@@ -67,3 +69,10 @@ shape = SubResource("BoxShape3D_w6ce2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7971339, 0.0501709)
 shape = SubResource("BoxShape3D_sjf0h")
 debug_color = Color(0.26674625, 0.63355845, 1.92523e-07, 0.41960785)
+
+[node name="AncoraIndicador" type="Node3D" parent="." unique_id=502202679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 1)
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]

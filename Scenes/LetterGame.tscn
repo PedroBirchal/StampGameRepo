@@ -1,18 +1,37 @@
 [gd_scene format=3 uid="uid://di6ne7kiyjw8c"]
 
 [ext_resource type="PackedScene" uid="uid://oqbb3beoscau" path="res://Scenes/Carta.tscn" id="1_7c6ev"]
+[ext_resource type="Script" path="res://Scripts/letter_game.gd" id="1_cb1fc"]
+[ext_resource type="PackedScene" uid="uid://bd6pkmjgafjce" path="res://Scenes/Caixa.tscn" id="2_cmimh"]
+[ext_resource type="PackedScene" path="res://Scenes/Indicador.tscn" id="3_386f2"]
+[ext_resource type="Script" path="res://Scripts/indicador.gd" id="4_skee3"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_cmimh"]
 
-[node name="LetterGame" type="Node3D" unique_id=1734937759]
+[node name="LetterGame" type="Node3D" unique_id=1734937759 node_paths=PackedStringArray("caixas")]
+script = ExtResource("1_cb1fc")
+caixas = [NodePath("Caixa"), NodePath("Caixa2")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=940881840]
+[node name="Carta" parent="." unique_id=596546558 instance=ExtResource("1_7c6ev")]
+transform = Transform3D(1, 0, 0, 0, 0.8211492, -0.5707136, 0, 0.5707136, 0.8211492, 0, -0.35, 2.25)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1415822254]
+[node name="Caixa" parent="." unique_id=1063090705 instance=ExtResource("2_cmimh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="Caixa2" parent="." unique_id=763413760 instance=ExtResource("2_cmimh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="Chao" type="StaticBody3D" parent="." unique_id=940881840]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chao" unique_id=1415822254]
 shape = SubResource("WorldBoundaryShape3D_cmimh")
 
-[node name="Carta" parent="StaticBody3D" unique_id=596546558 instance=ExtResource("1_7c6ev")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5254793, 2.7238512, -0.20062661)
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1641170020]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73676705, 4.279518)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 4)
+
+[node name="Indicador" parent="." unique_id=17110399 instance=ExtResource("3_386f2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06418705, 0.5, 1.9300897)
+script = ExtResource("4_skee3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1382272556]
+transform = Transform3D(1, 0, 0, 0, 0.8530412, 0.5218436, 0, -0.5218436, 0.8530412, 0, 2.5987425, 3.5956457)
