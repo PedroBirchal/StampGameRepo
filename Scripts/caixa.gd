@@ -8,11 +8,9 @@ signal box_unhover
 var hovered : bool
 
 func _ready() -> void:
-	var material = marca.get_active_material(0)
-	print(material.albedo_color)
-	mudar_cor_da_marca(Color.INDIAN_RED)
-	material = marca.get_surface_override_material(0)
-	print(material.albedo_color)
+	print(marca.get_active_material(0).albedo_color)
+	mudar_cor_da_marca(Color.RED)
+	print(marca.get_active_material(0).albedo_color)
 
 func _on_area_3d_mouse_entered() -> void:
 	hovered = true
@@ -28,10 +26,9 @@ func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Ve
 			print(name)
 
 func mudar_marca() -> void:
-	
 	pass
 
 func mudar_cor_da_marca(color : Color) -> void:
-	var novo_material = StandardMaterial3D.new()
+	var novo_material = marca.material_override.duplicate()
 	novo_material.albedo_color = color
-	marca.set_surface_override_material(0, novo_material)
+	marca.material_override = novo_material
