@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cwspan5m0n7yg"]
+
+[ext_resource type="PackedScene" uid="uid://bw1ojqtg63gsa" path="res://Scenes/Carimbo.tscn" id="1_ct4lb"]
+[ext_resource type="Script" uid="uid://dc2ersi6xstuw" path="res://Scripts/DragHandler.gd" id="2_b2whg"]
+[ext_resource type="PackedScene" uid="uid://cvyw2wtxjq15y" path="res://Models/Carta.fbx" id="3_kbsuv"]
+[ext_resource type="Texture2D" uid="uid://c61a1egltj83d" path="res://Sprites/dashed_circle.png" id="4_idcxw"]
+[ext_resource type="Script" uid="uid://ds34qpsvr3j56" path="res://Scripts/Carimbo.gd" id="5_twa8t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hd5bx"]
+albedo_color = Color(0.35591912, 0.14386687, 0.040448435, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wn315"]
+material = SubResource("StandardMaterial3D_hd5bx")
+size = Vector3(3, 0.3, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6qq1"]
+albedo_color = Color(0.73357993, 0.24362117, 0.5782219, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qfolr"]
+material = SubResource("StandardMaterial3D_k6qq1")
+size = Vector3(0.5, 0.2, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v2yr6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uoop8"]
+albedo_color = Color(0.2819341, 0.42340097, 0.8796787, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l4d3b"]
+material = SubResource("StandardMaterial3D_uoop8")
+size = Vector3(0.5, 0.2, 0.5)
+
+[node name="CarimbadoraGame" type="Node3D" unique_id=1816590418]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1767140916]
+transform = Transform3D(1, 0, 0, 0, 0.18832417, 0.9821069, 0, -0.9821069, 0.18832417, 0, 1.8687484, 0.39284992)
+
+[node name="Mesa" type="MeshInstance3D" parent="." unique_id=1829313272]
+mesh = SubResource("BoxMesh_wn315")
+
+[node name="Carimbo" parent="." unique_id=56766804 node_paths=PackedStringArray("cam", "CarimboMesh") instance=ExtResource("1_ct4lb")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.7295816, 0.21533227, 0.058163702)
+script = ExtResource("2_b2whg")
+cam = NodePath("../Camera3D")
+CarimboMesh = NodePath(".")
+
+[node name="Carta" parent="." unique_id=194676282 instance=ExtResource("3_kbsuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37662363, 0.14142847, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Carta" unique_id=1459079085]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.35295796, 0.0739038, 0.058163702)
+axis = 1
+texture = ExtResource("4_idcxw")
+
+[node name="Carimbo1" type="MeshInstance3D" parent="." unique_id=1884354625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9659038, 0.24183297, -0.44004983)
+mesh = SubResource("BoxMesh_qfolr")
+script = ExtResource("5_twa8t")
+
+[node name="Area3D" type="Area3D" parent="Carimbo1" unique_id=901615535]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carimbo1/Area3D" unique_id=127680444]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_v2yr6")
+
+[node name="Carimbo2" type="MeshInstance3D" parent="." unique_id=2062959334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9659038, 0.24183297, 0.35033852)
+mesh = SubResource("BoxMesh_l4d3b")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=116007099]
+transform = Transform3D(1, 0, 0, 0, 0.7702017, 0.6378005, 0, -0.6378005, 0.7702017, 0.3927312, 1.542131, 3.0907345)
+light_color = Color(1, 1, 0.4392157, 1)
+
+[connection signal="input_event" from="Carimbo1/Area3D" to="Carimbo1" method="_on_area_3d_input_event"]

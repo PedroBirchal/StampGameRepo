@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bw1ojqtg63gsa"]
+
+[ext_resource type="Texture2D" uid="uid://c61a1egltj83d" path="res://Sprites/dashed_circle.png" id="1_10gvi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bshui"]
+albedo_color = Color(0.6900359, 0.31463647, 0.20974013, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oj1nn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbpbb"]
+albedo_color = Color(0.43949506, 0.40598664, 0.41846183, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pydgl"]
+
+[node name="Carimbo" type="Node3D" unique_id=56766804]
+
+[node name="CarimboMesh" type="MeshInstance3D" parent="." unique_id=804590019]
+transform = Transform3D(1, 0, 0, 0, 0.879997, -0.47497925, 0, 0.47497925, 0.879997, 0, 4.713735, 1.7390336)
+material_override = SubResource("StandardMaterial3D_bshui")
+mesh = SubResource("CapsuleMesh_oj1nn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CarimboMesh" unique_id=1336433620]
+transform = Transform3D(2, 0, 0, 0, 0.16000001, 0, 0, 0, 2, 0, -0.79837775, 0)
+material_override = SubResource("StandardMaterial3D_vbpbb")
+mesh = SubResource("CylinderMesh_pydgl")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103]
+modulate = Color(0.4509804, 0.7137255, 0.5254902, 1)
+axis = 1
+texture = ExtResource("1_10gvi")
