@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bvpi8dar6jail"]
+
+[ext_resource type="Texture2D" uid="uid://bxjp3na6nl1cd" path="res://Sprites/InnerMagicCircle.png" id="1_b2cup"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2cup"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("1_b2cup")
+
+[sub_resource type="QuadMesh" id="QuadMesh_711rn"]
+
+[node name="Indicador" type="Node3D" unique_id=17110399]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2019846685]
+material_override = SubResource("StandardMaterial3D_b2cup")
+mesh = SubResource("QuadMesh_711rn")
