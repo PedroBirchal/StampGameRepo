@@ -4,8 +4,10 @@ signal box_hover
 signal box_unhover
 signal box_clicked
 
+@export var destino : Singleton.Cidades = Singleton.Cidades.BICADAS
 @onready var ancora_indicador = $AncoraIndicador
 @onready var marca = $MarcaCaixa
+
 var hovered : bool
 
 

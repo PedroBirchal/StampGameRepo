@@ -1,6 +1,8 @@
 extends Node
 
-class_name Destino
-
-@export var nome : StringName
-@export var cor : Color
+enum Cidades {
+	BICADAS,
+	BELO_NINHO,
+	POUSO_VELHO,
+	AVIARIO,
+}
