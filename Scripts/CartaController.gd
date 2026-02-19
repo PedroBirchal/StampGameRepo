@@ -6,7 +6,6 @@ extends Node3D
 
 func on_target_clicked(target_position) -> void:
 	var direction = target_position - rb.global_position  
-	print(direction)
 	rb.apply_impulse(direction.normalized() * force)
 	instantiate_new_carta()
 

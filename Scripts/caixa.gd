@@ -3,6 +3,7 @@ extends Node3D
 signal box_hover
 signal box_unhover
 signal box_clicked
+signal pontuar
 
 @export var destino : Singleton.Cidades = Singleton.Cidades.BICADAS
 @onready var ancora_indicador = $AncoraIndicador
@@ -10,6 +11,8 @@ signal box_clicked
 
 var hovered : bool
 
+func _ready() -> void:
+	mudar_cor_da_marca(Singleton.cores[destino])
 
 func _on_area_3d_mouse_entered() -> void:
 	hovered = true
@@ -23,9 +26,13 @@ func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Ve
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			box_clicked.emit(ancora_indicador.global_position)
-			print(name)
 
-func mudar_marca() -> void:
+func _on_area_caxa_body_entered(body: Node3D) -> void:
+	if body is Carta :
+		if body.destino == destino:
+			pontuar.emit(body.valor)
+		else :
+			pontuar.emit(-body.valor)
 	pass
 
 func mudar_cor_da_marca(color : Color) -> void:

@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://ckpspcilmmx3c"]
 
-[ext_resource type="PackedScene" uid="uid://cvyw2wtxjq15y" path="res://Models/Carta.fbx" id="1_6fjtb"]
+[ext_resource type="Script" uid="uid://myh57fy7ibj8" path="res://Scripts/Carta.gd" id="1_vrd47"]
+[ext_resource type="PackedScene" uid="uid://bmvery5dh86xp" path="res://Models/carta.tscn" id="2_vrd47"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vrd47"]
 size = Vector3(1, 0.058807373, 0.6135254)
 
 [node name="Carta" type="RigidBody3D" unique_id=1512388856]
+script = ExtResource("1_vrd47")
 
-[node name="CartaMesh" parent="." unique_id=213670458 instance=ExtResource("1_6fjtb")]
+[node name="CartaMesh" parent="." unique_id=213670458 instance=ExtResource("2_vrd47")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2094649893]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.030075073, -0.018188477)
