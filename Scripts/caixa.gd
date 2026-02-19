@@ -8,8 +8,10 @@ signal pontuar
 @export var destino : Singleton.Cidades = Singleton.Cidades.BICADAS
 @onready var ancora_indicador = $AncoraIndicador
 @onready var marca = $MarcaCaixa
+@onready var area3D_caixa : Area3D = $AreaCaixa
 
 var hovered : bool
+@export var limite_de_cartas : int = 10
 
 func _ready() -> void:
 	mudar_cor_da_marca(Singleton.cores[destino])
@@ -33,6 +35,10 @@ func _on_area_caxa_body_entered(body: Node3D) -> void:
 			pontuar.emit(body.valor)
 		else :
 			pontuar.emit(-body.valor)
+	var cartas_na_caixa = area3D_caixa.get_overlapping_bodies()
+	print(cartas_na_caixa.size())
+	if cartas_na_caixa.size() > limite_de_cartas:
+		cartas_na_caixa[0].queue_free()
 	pass
 
 func mudar_cor_da_marca(color : Color) -> void:

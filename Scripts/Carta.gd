@@ -3,11 +3,10 @@ extends RigidBody3D
 class_name Carta
 
 var destino : Singleton.Cidades
-var valor : int
+@export var valor : int = 1
 
 func _ready() -> void:
 	randomize()
-	valor = randi_range(1, 3)
 	destino = randi_range(0, 3)
 	mudar_cor_da_carta(destino)
 
