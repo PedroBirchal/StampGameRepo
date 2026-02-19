@@ -5,8 +5,9 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_64pld"]
 
-[node name="Jogador1Pessoa" type="CharacterBody3D" unique_id=292964940 node_paths=PackedStringArray("pivot_camera")]
+[node name="Jogador1Pessoa" type="CharacterBody3D" unique_id=292964940 node_paths=PackedStringArray("camera", "pivot_camera")]
 script = ExtResource("1_pubsf")
+camera = NodePath("CameraPivot/Camera3D")
 pivot_camera = NodePath("CameraPivot")
 
 [node name="MainCharPombinha" parent="." unique_id=1987979699 instance=ExtResource("2_8dntd")]
