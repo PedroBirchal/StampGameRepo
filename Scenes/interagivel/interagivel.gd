@@ -1,18 +1,20 @@
+@tool
 class_name Interagivel
 extends Node3D
 
 signal on_interact
-@export var collision: CollisionObject3D
 @export var mesh: MeshInstance3D
 @export var material_outline: Material
+@export var area_de_interacao: Node3D
 
 func _ready() -> void:
-	if collision != null:
+	var collision = get_parent()
+	if collision != null and collision is CollisionObject3D:
 		collision.mouse_entered.connect(_on_hover)
 		collision.mouse_exited.connect(_on_unhover)
 
 func interagir() -> void:
-	print("aadasdsadasdasa")
+	print("Interagiu!")
 	on_interact.emit()
 
 func _on_hover() -> void:
@@ -20,3 +22,12 @@ func _on_hover() -> void:
 
 func _on_unhover() -> void:
 	mesh.set_surface_override_material(0, null)
+
+
+func _get_configuration_warnings() -> PackedStringArray:
+	var warnings: PackedStringArray = []
+
+	if not get_parent() is CollisionObject3D:
+		warnings.push_back("Interagivel deve ser filho direto de um CollisionObject3D.")
+
+	return warnings
