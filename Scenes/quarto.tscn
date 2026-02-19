@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://dxegpb20kq7ku"]
 
+[ext_resource type="PackedScene" uid="uid://cvyw2wtxjq15y" path="res://Models/Carta.fbx" id="1_10atf"]
 [ext_resource type="PackedScene" uid="uid://cyxhnos72oq3s" path="res://Scenes/player/jogador.tscn" id="1_uylpo"]
+[ext_resource type="Material" uid="uid://dfo0cvbqn4ij2" path="res://materials/outline_material.tres" id="2_mklxq"]
+[ext_resource type="Script" uid="uid://2l0ixgo34aqb" path="res://Scenes/interagivel/interagivel.gd" id="2_ywv3x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10atf"]
+size = Vector3(0.58, 0.07, 0.295)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7gp2j"]
 size = Vector3(15, 1, 15)
@@ -14,12 +20,38 @@ size = Vector3(1, 5, 15)
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5rb4"]
 size = Vector3(1, 5, 15)
 
+[sub_resource type="BoxMesh" id="BoxMesh_ywv3x"]
+
 [node name="Quarto" type="Node3D" unique_id=2017398307]
 
 [node name="Cenario" type="Node3D" parent="." unique_id=679741334]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Cenario" unique_id=12029303]
 transform = Transform3D(1, 0, 0, 0, -0.49448803, 0.86918443, 0, -0.86918443, -0.49448803, 0, 5.608338, 0)
+
+[node name="Carta" type="Node3D" parent="Cenario" unique_id=410355779]
+transform = Transform3D(-0.017073035, 0.9967036, 0.079311684, -0.7835738, 0.035934206, -0.62025905, -0.6210644, -0.07273625, 0.7803774, -6.7265115, 0.6243841, -0.011961907)
+
+[node name="Carta" parent="Cenario/Carta" unique_id=1973198693 instance=ExtResource("1_10atf")]
+transform = Transform3D(0.475, 0, 2.9802322e-08, 0, 0.475, 0, -2.9802322e-08, 0, 0.475, 0, 0.0487985, 0)
+
+[node name="Carta" parent="Cenario/Carta/Carta" index="0" unique_id=1023038115]
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 0, -0.08541489, 0)
+surface_material_override/0 = ExtResource("2_mklxq")
+
+[node name="StaticBody3DC" type="StaticBody3D" parent="Cenario/Carta" unique_id=1123362175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013925195, 0)
+
+[node name="Interagivel" type="Node3D" parent="Cenario/Carta/StaticBody3DC" unique_id=1566104965 node_paths=PackedStringArray("collision", "mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013925195, 0)
+script = ExtResource("2_ywv3x")
+collision = NodePath("..")
+mesh = NodePath("../../Carta/Carta")
+material_outline = ExtResource("2_mklxq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cenario/Carta/StaticBody3DC" unique_id=1458623825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.015)
+shape = SubResource("BoxShape3D_10atf")
 
 [node name="Estrutura" type="Node3D" parent="Cenario" unique_id=875460041]
 
@@ -50,4 +82,10 @@ mesh = SubResource("BoxMesh_g5rb4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cenario/Estrutura/Parede2/StaticBody3D" unique_id=1027485377]
 shape = SubResource("BoxShape3D_g5rb4")
 
-[node name="Jogador1Pessoa" parent="." unique_id=292964940 instance=ExtResource("1_uylpo")]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cenario" unique_id=1174395898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+mesh = SubResource("BoxMesh_ywv3x")
+
+[node name="Jogador" parent="." unique_id=292964940 instance=ExtResource("1_uylpo")]
+
+[editable path="Cenario/Carta/Carta"]
