@@ -2,15 +2,24 @@ extends Node3D
 
 @export var cam : Camera3D
 @export var ObjectNode3D : Node3D = null
+@export var previsao : Sprite3D
+var posInicial : Vector3
+static var holding : bool = false
 
 func _selecionar_novo_objeto(alvo):
+	holding = true
+	posInicial = alvo.global_position
+	alvo.global_position.y += 0.1
 	ObjectNode3D = alvo
 	print("Segurando: ", alvo.name)
+	previsao.visible = true
 
 func _desselecionar_objeto(alvo):
+	holding = false
+	alvo.global_position = posInicial
 	ObjectNode3D = null
+	previsao.visible = false
 	print("Dessegurando: ", alvo.name)
-	# Voltar pra posicao inicial
 
 func _physics_process(_delta):
 	if not ObjectNode3D:
@@ -30,6 +39,13 @@ func _physics_process(_delta):
 func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			_selecionar_novo_objeto(self)
-		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			_desselecionar_objeto(self)
+			if holding:
+				return
+			else: 
+				_selecionar_novo_objeto(self)
+
+func _input(event):	
+	if ObjectNode3D == self:
+		if event is InputEventMouseButton and event.pressed:
+			if event.button_index == MOUSE_BUTTON_RIGHT:
+				_desselecionar_objeto(self)

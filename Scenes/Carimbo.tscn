@@ -15,8 +15,9 @@ albedo_color = Color(0.43949506, 0.40598664, 0.41846183, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oj1nn"]
 
-[node name="Carimbo" type="Node3D" unique_id=56766804]
+[node name="Carimbo" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao")]
 script = ExtResource("1_bshui")
+previsao = NodePath("Sprite3D")
 
 [node name="CarimboMesh" type="MeshInstance3D" parent="." unique_id=804590019]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -29,7 +30,7 @@ material_override = SubResource("StandardMaterial3D_vbpbb")
 mesh = SubResource("CylinderMesh_pydgl")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103]
-visible = false
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.5, 0)
 modulate = Color(0.4509804, 0.7137255, 0.5254902, 1)
 axis = 1
 texture = ExtResource("1_10gvi")
