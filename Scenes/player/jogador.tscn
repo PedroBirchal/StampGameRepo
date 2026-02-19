@@ -5,24 +5,30 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_64pld"]
 
-[node name="Jogador1Pessoa" type="CharacterBody3D" unique_id=292964940 node_paths=PackedStringArray("camera", "pivot_camera")]
+[node name="Jogador" type="CharacterBody3D" unique_id=292964940 node_paths=PackedStringArray("animacao")]
 script = ExtResource("1_pubsf")
-camera = NodePath("CameraPivot/Camera3D")
-pivot_camera = NodePath("CameraPivot")
+animacao = NodePath("MainCharPombinha/AnimationPlayer")
 
 [node name="MainCharPombinha" parent="." unique_id=1987979699 instance=ExtResource("2_8dntd")]
-transform = Transform3D(-0.665, 0, -5.813615e-08, 0, 0.665, 0, 5.813615e-08, 0, -0.665, 0, 0, 0)
+transform = Transform3D(0.665, 0, -1.162723e-07, 0, 0.665, 0, 1.162723e-07, 0, 0.665, 0, 0, 0)
 
-[node name="Cabeca_Passaro" parent="MainCharPombinha/Armature_Passaro/Skeleton3D" parent_id_path=PackedInt32Array(1987979699, 28127448) index="1" unique_id=1949781254]
-visible = false
+[node name="Skeleton3D" parent="MainCharPombinha/Armature_Passaro" parent_id_path=PackedInt32Array(1987979699, 718235564) index="0" unique_id=28127448]
+bones/4/rotation = Quaternion(0.596205, 0.43796813, -0.5593173, -0.3740158)
+bones/11/rotation = Quaternion(0.596205, -0.43796813, 0.5593173, -0.3740158)
+bones/18/position = Vector3(0.2930412, -0.17706734, 0.20314312)
+bones/18/rotation = Quaternion(-0.56050086, 0.3779278, 0.59763634, -0.43109187)
+bones/18/scale = Vector3(1.0000014, 1.0000159, 1)
+bones/19/rotation = Quaternion(0.034025617, -0.030746283, 0.6697409, 0.7411775)
+bones/21/position = Vector3(-0.2930412, -0.21000946, -2.4802276e-08)
+bones/21/rotation = Quaternion(0.7063632, -0.03242681, 0.7063626, 0.03242684)
+bones/22/rotation = Quaternion(0.03906512, 0.02402045, -0.52322567, 0.85095936)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=911539027]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_64pld")
 
-[node name="CameraPivot" type="Node3D" parent="." unique_id=999272099]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.453, 0)
-
-[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1286262885]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=812618673]
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
 
 [editable path="MainCharPombinha"]

@@ -1,99 +1,45 @@
+class_name Jogador
 extends CharacterBody3D
 
-@export_group("Velocidade")
-@export var velocidade: float = 5.0
-@export var pulo: float = 3.0
-@export var queda: float = 9.0
+signal on_chegou(interagivel)
 
-@export_group("Visão câmera")
-@export var camera: Camera3D
-@export var pivot_camera: Node3D
-@export var sensibilidade: float = 0.3
-@export var visao_min_angle: float = -60
-@export var visao_max_angle: float = 60
+@onready var agent := $NavigationAgent3D
+var interagivel : Interagivel
+var target_pos: Vector3
 
-@export_group("Raycast")
-@export var distancia_max_cast: float = 2
-var ultimo_raycast_achado: CollisionObject3D
-var interagivel_atual: Interagivel
+@export var animacao : AnimationPlayer
 
+@export_group("Movimento")
+@export var velocidade := 2.5
+@export var giro := 3
 
-var dir: Vector3
-var target_velocity: Vector3
-var look_rot: Vector3
-
-func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta: float) -> void:
-	_handle_movimento(delta)
-	_handle_raycast(delta)
-	
-func _handle_raycast(_delta: float) -> void:
-	var mouse = get_viewport().get_mouse_position()
-	var espaco = get_world_3d().direct_space_state
-	
-	var origem = camera.project_ray_origin(mouse)
-	var destino = origem + camera.project_ray_normal(mouse) * distancia_max_cast
-	
-	var query = PhysicsRayQueryParameters3D.create(origem, destino)
-	query.collide_with_areas = false
-	query.exclude = [self]
-	
-	var res = espaco.intersect_ray(query)
-	var col: CollisionObject3D = null
-	
-	if not res.is_empty() and origem.distance_to(res.position) <= distancia_max_cast:
-		col = res.collider
-	
-	if ultimo_raycast_achado != null and ultimo_raycast_achado != col:
-		ultimo_raycast_achado.mouse_exited.emit()
+	if interagivel != null:
+		agent.target_position = target_pos
+		var dir = global_position.direction_to(agent.get_next_path_position())
+		velocity = dir * velocidade
 		
-	if col == null:
-		ultimo_raycast_achado = null
-		interagivel_atual = null
-	elif ultimo_raycast_achado != col:
-		ultimo_raycast_achado = col
-		ultimo_raycast_achado.mouse_entered.emit()
+		if agent.is_navigation_finished():
+			print("CHEGUEEIII")
+			on_chegou.emit(interagivel)
+			interagivel = null
+			velocity = Vector3.ZERO
 		
-		var interagiveis = ultimo_raycast_achado.find_children("*", "Interagivel", false)
-		interagivel_atual = null if len(interagiveis) == 0 else interagiveis[0]
+		var giro_speed = giro
+		var rotacao = dir.signed_angle_to(Vector3.MODEL_FRONT, Vector3.DOWN)
+		if abs(rotacao - rotation.y) > deg_to_rad(40):
+			giro_speed *= 2
+			
+		rotation.y = move_toward(rotation.y, rotacao, delta * giro_speed)
 	
-
-func _handle_movimento(delta: float) -> void:
-	pivot_camera.rotation_degrees.x = look_rot.x
-	rotation_degrees.y = look_rot.y
-	
-	dir = Vector3.ZERO
-	dir.x = Input.get_axis("esquerda", "direita")
-	dir.z = Input.get_axis("cima", "baixo")
-	
-	if dir != Vector3.ZERO:
-		dir = dir.normalized()
-	
-	var up_vector = global_transform.basis.y
-	
-	dir = dir.rotated(up_vector, rotation.y)
-	
-	target_velocity.x = dir.x * velocidade
-	target_velocity.z = dir.z * velocidade
-	
-	if not is_on_floor():
-		target_velocity.y = target_velocity.y - (queda * delta)
-	
-	velocity = target_velocity
 	move_and_slide()
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("pulo") and is_on_floor():
-		target_velocity.y = pulo
-		
-	if event is InputEventMouseMotion:
-		look_rot.y -= event.relative.x * sensibilidade
-		look_rot.x -= event.relative.y * sensibilidade
-		look_rot.x = clamp(look_rot.x, visao_min_angle, visao_max_angle)
+func interagir_com(interagivel: Interagivel) -> void:
+	self.interagivel = interagivel
+	target_pos = interagivel.area_de_interacao.global_position
 	
-	if event is InputEventMouseButton:
-		if interagivel_atual != null and event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.pressed:
-			interagivel_atual.interagir()
-		
+	var dir = global_position.direction_to(target_pos)
+	rotation.y = dir.signed_angle_to(Vector3.MODEL_FRONT, Vector3.DOWN)
+	
+	animacao.play(&"Armature_Passaro|Walking")
