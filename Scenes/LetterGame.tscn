@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://di6ne7kiyjw8c"]
 
-[ext_resource type="PackedScene" uid="uid://oqbb3beoscau" path="res://Scenes/Carta.tscn" id="1_7c6ev"]
-[ext_resource type="Script" path="res://Scripts/letter_game.gd" id="1_cb1fc"]
+[ext_resource type="PackedScene" uid="uid://oqbb3beoscau" path="res://Scenes/CartaController.tscn" id="1_7c6ev"]
+[ext_resource type="Script" uid="uid://dupjfowwix60t" path="res://Scripts/letter_game.gd" id="1_cb1fc"]
 [ext_resource type="PackedScene" uid="uid://bd6pkmjgafjce" path="res://Scenes/Caixa.tscn" id="2_cmimh"]
-[ext_resource type="PackedScene" path="res://Scenes/Indicador.tscn" id="3_386f2"]
+[ext_resource type="PackedScene" uid="uid://bvpi8dar6jail" path="res://Scenes/Indicador.tscn" id="3_386f2"]
 [ext_resource type="Script" path="res://Scripts/indicador.gd" id="4_skee3"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_cmimh"]
@@ -20,8 +20,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 [node name="Caixa2" parent="Caixas" unique_id=763413760 instance=ExtResource("2_cmimh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
-[node name="Carta" parent="." unique_id=596546558 instance=ExtResource("1_7c6ev")]
+[node name="CartaController" parent="." unique_id=596546558 instance=ExtResource("1_7c6ev")]
 transform = Transform3D(1, 0, 0, 0, 0.8211492, -0.5707136, 0, 0.5707136, 0.8211492, 0, -0.35, 2.25)
+force = 15.0
 
 [node name="Chao" type="StaticBody3D" parent="." unique_id=940881840]
 

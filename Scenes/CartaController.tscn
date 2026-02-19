@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://oqbb3beoscau"]
+
+[ext_resource type="Script" uid="uid://0xc3njkhxp04" path="res://Scripts/CartaController.gd" id="1_vrd47"]
+[ext_resource type="PackedScene" uid="uid://ckpspcilmmx3c" path="res://Scenes/Carta.tscn" id="2_qqc4i"]
+
+[node name="CartaController" type="Node3D" unique_id=596546558]
+script = ExtResource("1_vrd47")
+
+[node name="Carta" parent="." unique_id=1512388856 instance=ExtResource("2_qqc4i")]
