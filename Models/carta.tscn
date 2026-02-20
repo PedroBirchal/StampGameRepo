@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bmvery5dh86xp"]
+
+[ext_resource type="PackedScene" uid="uid://cvyw2wtxjq15y" path="res://Models/Carta.fbx" id="1_tckag"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cid00"]
+
+[node name="Carta" unique_id=213670458 instance=ExtResource("1_tckag")]
+
+[node name="Carta" parent="." index="0" unique_id=575980536]
+surface_material_override/0 = SubResource("StandardMaterial3D_cid00")

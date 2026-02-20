@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bjkfs4qbiqqv3"]
+
+[ext_resource type="Script" uid="uid://daj0wiam7tbem" path="res://Scripts/ui_letter_throwing.gd" id="1_13usn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x6fij"]
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_13usn"]
+font_size = 100
+
+[node name="UiLetterThrowing" type="Control" unique_id=777879673]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_13usn")
+
+[node name="Pontuacao" type="Label" parent="." unique_id=1232173149]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 18.0
+offset_right = 117.0
+offset_bottom = 117.0
+text = "x0"
+label_settings = SubResource("LabelSettings_x6fij")
+
+[node name="TimerLabel" type="Label" parent="." unique_id=1857422109]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -151.0
+offset_top = 18.0
+offset_right = -29.0
+offset_bottom = 117.0
+grow_horizontal = 0
+text = "00:00"
+label_settings = SubResource("LabelSettings_13usn")

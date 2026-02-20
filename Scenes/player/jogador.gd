@@ -8,10 +8,12 @@ var interagivel : Interagivel
 var target_pos: Vector3
 
 @export var animacao : AnimationPlayer
+@export var animacaoState : AnimationTree
+@export var is_walking = false # Para animação
 
 @export_group("Movimento")
 @export var velocidade := 2.5
-@export var giro := 3
+@export var giro := 5
 
 
 func _physics_process(delta: float) -> void:
@@ -21,10 +23,8 @@ func _physics_process(delta: float) -> void:
 		velocity = dir * velocidade
 		
 		if agent.is_navigation_finished():
-			print("CHEGUEEIII")
-			on_chegou.emit(interagivel)
-			interagivel = null
-			velocity = Vector3.ZERO
+			_ao_acabar()
+			return
 		
 		var giro_speed = giro
 		var rotacao = dir.signed_angle_to(Vector3.MODEL_FRONT, Vector3.DOWN)
@@ -35,11 +35,23 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func interagir_com(interagivel: Interagivel) -> void:
-	self.interagivel = interagivel
-	target_pos = interagivel.area_de_interacao.global_position
+func interagir_com(interag: Interagivel) -> void:
+	self.interagivel = interag
+	target_pos = interag.area_de_interacao.global_position
+	
+	agent.target_position = target_pos
+	if agent.is_target_reached():
+		_ao_acabar()
+		return
 	
 	var dir = global_position.direction_to(target_pos)
 	rotation.y = dir.signed_angle_to(Vector3.MODEL_FRONT, Vector3.DOWN)
 	
-	animacao.play(&"Armature_Passaro|Walking")
+	is_walking = true
+
+func _ao_acabar() -> void:
+	on_chegou.emit(interagivel)
+	interagivel = null
+	velocity = Vector3.ZERO
+	is_walking = false
+	

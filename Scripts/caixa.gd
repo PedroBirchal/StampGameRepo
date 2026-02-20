@@ -3,11 +3,18 @@ extends Node3D
 signal box_hover
 signal box_unhover
 signal box_clicked
+signal pontuar
 
+@export var destino : Singleton.Cidades = Singleton.Cidades.BICADAS
 @onready var ancora_indicador = $AncoraIndicador
 @onready var marca = $MarcaCaixa
-var hovered : bool
+@onready var area3D_caixa : Area3D = $AreaCaixa
 
+var hovered : bool
+@export var limite_de_cartas : int = 10
+
+func _ready() -> void:
+	mudar_cor_da_marca(Singleton.cores[destino])
 
 func _on_area_3d_mouse_entered() -> void:
 	hovered = true
@@ -21,9 +28,16 @@ func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Ve
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			box_clicked.emit(ancora_indicador.global_position)
-			print(name)
 
-func mudar_marca() -> void:
+func _on_area_caxa_body_entered(body: Node3D) -> void:
+	if body is Carta :
+		if body.destino == destino:
+			pontuar.emit(body.valor)
+		else :
+			pontuar.emit(-body.valor)
+	var cartas_na_caixa = area3D_caixa.get_overlapping_bodies()
+	if cartas_na_caixa.size() > limite_de_cartas:
+		cartas_na_caixa[0].queue_free()
 	pass
 
 func mudar_cor_da_marca(color : Color) -> void:

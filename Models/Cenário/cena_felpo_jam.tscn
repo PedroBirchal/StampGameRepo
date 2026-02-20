@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bcddnv22p6gll"]
+
+[ext_resource type="PackedScene" uid="uid://bjopukhbl0l45" path="res://Models/Cenário/CenaFelpoJam.fbx" id="1_ba4va"]
+
+[node name="CenaFelpoJam" unique_id=586742298 instance=ExtResource("1_ba4va")]

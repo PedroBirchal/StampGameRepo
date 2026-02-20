@@ -3,16 +3,42 @@
 [ext_resource type="Script" uid="uid://x4u0fq8avkbn" path="res://Scenes/player/jogador.gd" id="1_pubsf"]
 [ext_resource type="PackedScene" uid="uid://dnn6vvgemv81x" path="res://Models/MainCharPombinha.fbx" id="2_8dntd"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g25at"]
+animation = &"Armature_Passaro|Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cb3kt"]
+animation = &"Armature_Passaro|Walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g25at"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_82e0j"]
+advance_mode = 2
+advance_expression = "is_walking == false"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vhwsu"]
+advance_mode = 2
+advance_expression = "is_walking == true"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_82e0j"]
+states/Armature_Passaro|Idle/node = SubResource("AnimationNodeAnimation_g25at")
+states/Armature_Passaro|Idle/position = Vector2(580, 122)
+states/Armature_Passaro|Walking/node = SubResource("AnimationNodeAnimation_cb3kt")
+states/Armature_Passaro|Walking/position = Vector2(580, 36)
+states/Start/position = Vector2(225, 100)
+transitions = ["Start", "Armature_Passaro|Walking", SubResource("AnimationNodeStateMachineTransition_g25at"), "Armature_Passaro|Walking", "Armature_Passaro|Idle", SubResource("AnimationNodeStateMachineTransition_82e0j"), "Armature_Passaro|Idle", "Armature_Passaro|Walking", SubResource("AnimationNodeStateMachineTransition_vhwsu")]
+graph_offset = Vector2(-168, -44)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_64pld"]
 
 [node name="Jogador" type="CharacterBody3D" unique_id=292964940 node_paths=PackedStringArray("animacao")]
 script = ExtResource("1_pubsf")
 animacao = NodePath("MainCharPombinha/AnimationPlayer")
 
-[node name="MainCharPombinha" parent="." unique_id=1987979699 instance=ExtResource("2_8dntd")]
+[node name="MainCharPombinha" parent="." unique_id=316858151 instance=ExtResource("2_8dntd")]
 transform = Transform3D(0.665, 0, -1.162723e-07, 0, 0.665, 0, 1.162723e-07, 0, 0.665, 0, 0, 0)
 
-[node name="Skeleton3D" parent="MainCharPombinha/Armature_Passaro" parent_id_path=PackedInt32Array(1987979699, 718235564) index="0" unique_id=28127448]
+[node name="Skeleton3D" parent="MainCharPombinha/Armature_Passaro" parent_id_path=PackedInt32Array(316858151, 1041600380) index="0" unique_id=580065292]
 bones/4/rotation = Quaternion(0.596205, 0.43796813, -0.5593173, -0.3740158)
 bones/11/rotation = Quaternion(0.596205, -0.43796813, 0.5593173, -0.3740158)
 bones/18/position = Vector3(0.2930412, -0.17706734, 0.20314312)
@@ -23,11 +49,22 @@ bones/21/position = Vector3(-0.2930412, -0.21000946, -2.4802276e-08)
 bones/21/rotation = Quaternion(0.7063632, -0.03242681, 0.7063626, 0.03242684)
 bones/22/rotation = Quaternion(0.03906512, 0.02402045, -0.52322567, 0.85095936)
 
+[node name="Cabeca_Passaro" parent="MainCharPombinha/Armature_Passaro/Skeleton3D" index="1" unique_id=1287026089]
+transform = Transform3D(1, 0, -1.6940659e-21, 1.4210855e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1925285773]
+root_node = NodePath("../MainCharPombinha")
+tree_root = SubResource("AnimationNodeStateMachine_82e0j")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../MainCharPombinha/AnimationPlayer")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=911539027]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_64pld")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=812618673]
+target_desired_distance = 0.1
+path_height_offset = 1.0
 debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c3hyea2r7woa3"]
+
+[ext_resource type="PackedScene" uid="uid://dnn6vvgemv81x" path="res://Models/MainCharPombinha.fbx" id="1_cuoqh"]
+
+[node name="MainCharPombinha" unique_id=1987979699 instance=ExtResource("1_cuoqh")]
+
+[node name="Skeleton3D" parent="Armature_Passaro" parent_id_path=PackedInt32Array(718235564) index="0" unique_id=28127448]
+bones/4/rotation = Quaternion(0.596205, 0.43796813, -0.5593173, -0.3740158)
+bones/11/rotation = Quaternion(0.596205, -0.43796813, 0.5593173, -0.3740158)
+bones/18/position = Vector3(0.2930412, -0.17706734, 0.20314312)
+bones/18/rotation = Quaternion(-0.56050086, 0.3779278, 0.59763634, -0.43109187)
+bones/18/scale = Vector3(1.0000014, 1.0000159, 1)
+bones/19/rotation = Quaternion(0.034025617, -0.030746283, 0.6697409, 0.7411775)
+bones/21/position = Vector3(-0.2930412, -0.21000946, -2.4802276e-08)
+bones/21/rotation = Quaternion(0.7063632, -0.03242681, 0.7063626, 0.03242684)
+bones/22/rotation = Quaternion(0.03906512, 0.02402045, -0.52322567, 0.85095936)

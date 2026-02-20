@@ -29,7 +29,7 @@ size = Vector3(1.6105957, 1.6090393, 0.09054184)
 size = Vector3(1.6105957, 1.6090393, 0.09233856)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sjf0h"]
-size = Vector3(1.4277344, 1.4257813, 1.451416)
+size = Vector3(1.4277344, 1.4257813, 1.4024658)
 
 [node name="Caixa" type="Node3D" unique_id=1063090705]
 script = ExtResource("1_32808")
@@ -63,16 +63,17 @@ shape = SubResource("BoxShape3D_fl5pv")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.00036621094, 1.5567856, -3.111271e-05)
 shape = SubResource("BoxShape3D_w6ce2")
 
-[node name="AreaCaxa" type="Area3D" parent="." unique_id=520040535]
+[node name="AreaCaixa" type="Area3D" parent="." unique_id=520040535]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaCaxa" unique_id=267400288]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7971339, 0.0501709)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaCaixa" unique_id=267400288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7971339, 0.074645996)
 shape = SubResource("BoxShape3D_sjf0h")
 debug_color = Color(0.26674625, 0.63355845, 1.92523e-07, 0.41960785)
 
 [node name="AncoraIndicador" type="Node3D" parent="." unique_id=502202679]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 1)
 
-[connection signal="input_event" from="AreaCaxa" to="." method="_on_area_3d_input_event"]
-[connection signal="mouse_entered" from="AreaCaxa" to="." method="_on_area_3d_mouse_entered"]
-[connection signal="mouse_exited" from="AreaCaxa" to="." method="_on_area_3d_mouse_exited"]
+[connection signal="body_entered" from="AreaCaixa" to="." method="_on_area_caxa_body_entered"]
+[connection signal="input_event" from="AreaCaixa" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="AreaCaixa" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="AreaCaixa" to="." method="_on_area_3d_mouse_exited"]

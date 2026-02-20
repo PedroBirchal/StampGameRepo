@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bw1ojqtg63gsa" path="res://Scenes/Carimbo.tscn" id="1_ct4lb"]
 [ext_resource type="PackedScene" uid="uid://cvyw2wtxjq15y" path="res://Models/Carta.fbx" id="3_kbsuv"]
-[ext_resource type="Texture2D" uid="uid://c61a1egltj83d" path="res://Sprites/dashed_circle.png" id="4_idcxw"]
+[ext_resource type="Texture2D" uid="uid://b5il0e6nkklu6" path="res://Sprites/carimboAzul.png" id="3_q4eyh"]
+[ext_resource type="Texture2D" uid="uid://k0rsovqol2p5" path="res://Sprites/carimboVermelho.png" id="4_q4eyh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hd5bx"]
 albedo_color = Color(0.35591912, 0.14386687, 0.040448435, 1)
@@ -11,17 +12,7 @@ albedo_color = Color(0.35591912, 0.14386687, 0.040448435, 1)
 material = SubResource("StandardMaterial3D_hd5bx")
 size = Vector3(3, 0.3, 2)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_bsxyv"]
-top_radius = 0.8
-bottom_radius = 0.8
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4eyh"]
-transparency = 1
-albedo_color = Color(0.972549, 0.40392157, 0.92156863, 0.14901961)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ct4lb"]
-transparency = 1
-albedo_color = Color(0.28235295, 1, 1, 0.14901961)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ct4lb"]
 
 [node name="CarimbadoraGame" type="Node3D" unique_id=1816590418]
 
@@ -31,32 +22,25 @@ transform = Transform3D(1, 0, 0, 0, 0.18832417, 0.9821069, 0, -0.9821069, 0.1883
 [node name="Mesa" type="MeshInstance3D" parent="." unique_id=1829313272]
 mesh = SubResource("BoxMesh_wn315")
 
-[node name="Carta" parent="." unique_id=194676282 instance=ExtResource("3_kbsuv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37662363, 0.14142847, 0)
+[node name="Area3D" type="Area3D" parent="Mesa" unique_id=908459299]
 
-[node name="Sprite3D" type="Sprite3D" parent="Carta" unique_id=1459079085]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.35295796, 0.0739038, 0.058163702)
-axis = 1
-texture = ExtResource("4_idcxw")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa/Area3D" unique_id=1784172667]
+transform = Transform3D(3, 0, 0, 0, 0.35, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_ct4lb")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=116007099]
 transform = Transform3D(1, 0, 0, 0, 0.7702017, 0.6378005, 0, -0.6378005, 0.7702017, 0.3927312, 1.542131, 3.0907345)
 light_color = Color(1, 1, 0.4392157, 1)
 
 [node name="Carimbo" parent="." unique_id=56766804 node_paths=PackedStringArray("cam") instance=ExtResource("1_ct4lb")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.79255486, 0.22353932, -0.31498682)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.817, 0.13696328, -0.204)
 cam = NodePath("../Camera3D")
+Carimbada = ExtResource("3_q4eyh")
 
-[node name="Visualizador" type="MeshInstance3D" parent="Carimbo" unique_id=793108404]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0274906, 0)
-mesh = SubResource("CylinderMesh_bsxyv")
-surface_material_override/0 = SubResource("StandardMaterial3D_q4eyh")
+[node name="Carta" parent="." unique_id=194676282 instance=ExtResource("3_kbsuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42213377, 0.16316962, -0.042716384)
 
-[node name="Carimbo2" parent="." unique_id=584150722 node_paths=PackedStringArray("cam") instance=ExtResource("1_ct4lb")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.86394584, 0.2682472, 0.45303127)
+[node name="Carimbo2" parent="." unique_id=947118920 node_paths=PackedStringArray("cam") instance=ExtResource("1_ct4lb")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.0338316, 0.137, 0.48225278)
 cam = NodePath("../Camera3D")
-
-[node name="Visualizador" type="MeshInstance3D" parent="Carimbo2" unique_id=462781306]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0274906, 0)
-mesh = SubResource("CylinderMesh_bsxyv")
-surface_material_override/0 = SubResource("StandardMaterial3D_ct4lb")
+Carimbada = ExtResource("4_q4eyh")

@@ -7,11 +7,8 @@
 [ext_resource type="Script" uid="uid://dsd7eeoq667uy" path="res://Scenes/player/olho_de_deus.gd" id="5_t12d2"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_t12d2"]
-vertices = PackedVector3Array(-6.75, 0, -7, -6.75, 0, -1, -5.75, 0, -0.75, 7, 0, -7, -5.75, 0, 0.75, -6.75, 0, 1.25, -6.75, 0, 7, 7, 0, 7)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(2, 3, 4), PackedInt32Array(4, 3, 7)]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_10atf"]
-size = Vector3(0.58, 0.07, 0.295)
+vertices = PackedVector3Array(5.75, 0, -2, 7, 0, -2.25, 7, 0, -7, 1, 0, -7, 0.75, 0, -5, -1, 0, -5, -1.25, 0, -7, -6.75, 0, -7, -6.75, 0, -1, -5.75, 0, -0.75, 7, 0, 7, 7, 0, 0, 5.75, 0, -0.25, -5.75, 0, 0.75, -6.75, 0, 1.25, -6.75, 0, 7)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 5), PackedInt32Array(5, 7, 6), PackedInt32Array(11, 10, 12), PackedInt32Array(15, 14, 13), PackedInt32Array(5, 13, 9), PackedInt32Array(4, 0, 12), PackedInt32Array(4, 12, 5), PackedInt32Array(5, 12, 13), PackedInt32Array(13, 12, 15), PackedInt32Array(15, 12, 10)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7gp2j"]
 size = Vector3(15, 1, 15)
@@ -27,6 +24,9 @@ size = Vector3(1, 5, 15)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ywv3x"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_10atf"]
+size = Vector3(0.58, 0.07, 0.295)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_t12d2"]
 
 [node name="Quarto" type="Node3D" unique_id=2017398307]
@@ -38,33 +38,6 @@ navigation_mesh = SubResource("NavigationMesh_t12d2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="NavigationRegion3D/Cenario" unique_id=12029303]
 transform = Transform3D(1, 0, 0, 0, -0.49448803, 0.86918443, 0, -0.86918443, -0.49448803, 0, 5.608338, 0)
-
-[node name="ObjetoGenerico" type="Node3D" parent="NavigationRegion3D/Cenario" unique_id=410355779]
-transform = Transform3D(-0.017073035, 0.9967036, 0.079311684, -0.7835738, 0.035934206, -0.62025905, -0.6210644, -0.07273625, 0.7803774, -6.7265115, 0.63445735, -0.07946694)
-
-[node name="Carta" parent="NavigationRegion3D/Cenario/ObjetoGenerico" unique_id=1973198693 instance=ExtResource("1_10atf")]
-transform = Transform3D(0.475, 0, 2.9802322e-08, 0, 0.475, 0, -2.9802322e-08, 0, 0.475, 0, 0.0487985, 0)
-
-[node name="Carta" parent="NavigationRegion3D/Cenario/ObjetoGenerico/Carta" index="0" unique_id=1023038115]
-transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 0, -0.08541489, 0)
-surface_material_override/0 = ExtResource("2_mklxq")
-
-[node name="StaticBody3DC" type="StaticBody3D" parent="NavigationRegion3D/Cenario/ObjetoGenerico" unique_id=1123362175]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013925195, 0)
-
-[node name="Interagivel" type="Node3D" parent="NavigationRegion3D/Cenario/ObjetoGenerico/StaticBody3DC" unique_id=1566104965 node_paths=PackedStringArray("mesh", "area_de_interacao")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013925195, 0)
-script = ExtResource("2_ywv3x")
-mesh = NodePath("../../Carta/Carta")
-material_outline = ExtResource("2_mklxq")
-area_de_interacao = NodePath("../../AreaDeInteracao")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Cenario/ObjetoGenerico/StaticBody3DC" unique_id=1458623825]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.015)
-shape = SubResource("BoxShape3D_10atf")
-
-[node name="AreaDeInteracao" type="Node3D" parent="NavigationRegion3D/Cenario/ObjetoGenerico" unique_id=29365836]
-transform = Transform3D(1, 1.1175871e-08, 2.9802322e-08, 0, 1, -3.7252903e-08, 0, 1.4901161e-08, 1, 0.7702504, 0.7418618, 0.6821507)
 
 [node name="Estrutura" type="Node3D" parent="NavigationRegion3D/Cenario" unique_id=875460041]
 
@@ -99,6 +72,32 @@ shape = SubResource("BoxShape3D_g5rb4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 mesh = SubResource("BoxMesh_ywv3x")
 
+[node name="ObjetoGenerico" type="Node3D" parent="NavigationRegion3D/Cenario" unique_id=410355779]
+transform = Transform3D(-0.017073035, 0.9967036, 0.079311684, -0.7835738, 0.035934206, -0.62025905, -0.6210644, -0.07273625, 0.7803774, -6.7265115, 0.63445735, -0.07946694)
+
+[node name="Carta" parent="NavigationRegion3D/Cenario/ObjetoGenerico" unique_id=1973198693 instance=ExtResource("1_10atf")]
+transform = Transform3D(0.475, 0, 2.9802322e-08, 0, 0.475, 0, -2.9802322e-08, 0, 0.475, 0, 0.0487985, 0)
+
+[node name="Carta" parent="NavigationRegion3D/Cenario/ObjetoGenerico/Carta" index="0" unique_id=1023038115]
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 0, -0.08541489, 0)
+
+[node name="StaticBody3DC" type="StaticBody3D" parent="NavigationRegion3D/Cenario/ObjetoGenerico" unique_id=1123362175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013925195, 0)
+
+[node name="Interagivel" type="Node3D" parent="NavigationRegion3D/Cenario/ObjetoGenerico/StaticBody3DC" unique_id=1566104965 node_paths=PackedStringArray("mesh", "area_de_interacao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013925195, 0)
+script = ExtResource("2_ywv3x")
+mesh = NodePath("../../Carta/Carta")
+material_outline = ExtResource("2_mklxq")
+area_de_interacao = NodePath("../../AreaDeInteracao")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Cenario/ObjetoGenerico/StaticBody3DC" unique_id=1458623825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.015)
+shape = SubResource("BoxShape3D_10atf")
+
+[node name="AreaDeInteracao" type="Node3D" parent="NavigationRegion3D/Cenario/ObjetoGenerico" unique_id=29365836]
+transform = Transform3D(1, 1.1175871e-08, 2.9802322e-08, 0, 1, -3.7252903e-08, 0, 1.4901161e-08, 1, 0.7702504, 0.7418618, 0.6821507)
+
 [node name="ObjetoGenerico2" type="Node3D" parent="NavigationRegion3D/Cenario" unique_id=994797642]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8497887, 0.053920984, -1.0794669)
 
@@ -120,7 +119,29 @@ shape = SubResource("BoxShape3D_t12d2")
 [node name="AreaDeInteracao" type="Node3D" parent="NavigationRegion3D/Cenario/ObjetoGenerico2" unique_id=500970307]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.627634, -0.5732347, 0)
 
+[node name="ObjetoGenerico3" type="Node3D" parent="NavigationRegion3D/Cenario" unique_id=1074212380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15021133, 0.053920984, -6.079467)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/Cenario/ObjetoGenerico3" unique_id=1558982021]
+mesh = SubResource("BoxMesh_ywv3x")
+
+[node name="StaticBody3DC" type="StaticBody3D" parent="NavigationRegion3D/Cenario/ObjetoGenerico3" unique_id=647310699]
+
+[node name="Interagivel" type="Node3D" parent="NavigationRegion3D/Cenario/ObjetoGenerico3/StaticBody3DC" unique_id=660606942 node_paths=PackedStringArray("mesh", "area_de_interacao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013925195, 0)
+script = ExtResource("2_ywv3x")
+mesh = NodePath("../../MeshInstance3D2")
+material_outline = ExtResource("2_mklxq")
+area_de_interacao = NodePath("../../AreaDeInteracao")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Cenario/ObjetoGenerico3/StaticBody3DC" unique_id=33556947]
+shape = SubResource("BoxShape3D_t12d2")
+
+[node name="AreaDeInteracao" type="Node3D" parent="NavigationRegion3D/Cenario/ObjetoGenerico3" unique_id=438670445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37236595, -0.5732347, 1)
+
 [node name="Jogador" parent="." unique_id=292964940 instance=ExtResource("1_uylpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4799229, 0)
 
 [node name="OlhoDeDeus" type="Node3D" parent="." unique_id=183827753 node_paths=PackedStringArray("camera", "carimbo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 6)
@@ -130,6 +151,6 @@ camera = NodePath("Camera3D")
 carimbo = NodePath("../Jogador")
 
 [node name="Camera3D" type="Camera3D" parent="OlhoDeDeus" unique_id=573588799]
-transform = Transform3D(1, 0, 0, 0, 0.8660255, 0.50000006, 0, -0.50000006, 0.8660255, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
 
 [editable path="NavigationRegion3D/Cenario/ObjetoGenerico/Carta"]
