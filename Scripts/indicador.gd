@@ -17,7 +17,6 @@ func on_box_unhovered():
 	hide()
 
 func _on_timer_timeout() -> void:
-	print(timer.time_left)
 	sprite.modulate = cor_default
 
 func on_box_clicked(_argumento) -> void :

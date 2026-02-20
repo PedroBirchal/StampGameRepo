@@ -55,6 +55,7 @@ shape = SubResource("WorldBoundaryShape3D_cmimh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Cenario" unique_id=1382272556]
 transform = Transform3D(1, 0, 0, 0, 0.8530412, 0.5218436, 0, -0.5218436, 0.8530412, -0.06418705, 2.0987425, 1.665556)
+light_color = Color(1, 0.9882353, 0.8862745, 1)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1641170020]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 4)
