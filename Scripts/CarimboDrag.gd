@@ -3,6 +3,8 @@ extends Node3D
 @export var cam : Camera3D
 @export var ObjectNode3D : Node3D = null
 @export var previsao : Sprite3D
+@export var Carimbada : Texture2D
+@export var ray : RayCast3D
 var posInicial : Vector3
 static var holding : bool = false
 
@@ -11,7 +13,6 @@ func _selecionar_novo_objeto(alvo):
 	posInicial = alvo.global_position
 	alvo.global_position.y += 0.1
 	ObjectNode3D = alvo
-	print("Segurando: ", alvo.name)
 	previsao.visible = true
 
 func _desselecionar_objeto(alvo):
@@ -19,7 +20,6 @@ func _desselecionar_objeto(alvo):
 	alvo.global_position = posInicial
 	ObjectNode3D = null
 	previsao.visible = false
-	print("Dessegurando: ", alvo.name)
 
 func _physics_process(_delta):
 	if not ObjectNode3D:
@@ -47,5 +47,24 @@ func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Ve
 func _input(event):	
 	if ObjectNode3D == self:
 		if event is InputEventMouseButton and event.pressed:
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				_carimbar()
+		if event is InputEventMouseButton and event.pressed:
 			if event.button_index == MOUSE_BUTTON_RIGHT:
 				_desselecionar_objeto(self)
+
+func _carimbar():
+	ray = $RayCast3D 
+	if not ray.is_colliding():
+		return
+		
+	var novo_decalque = Decal.new()
+	
+	novo_decalque.texture_albedo = Carimbada
+	novo_decalque.size = Vector3(0.5, 0.2, 0.5)
+	
+	get_tree().current_scene.add_child(novo_decalque)
+	novo_decalque.global_position = ray.get_collision_point()
+	var normal = ray.get_collision_normal()
+	if normal != Vector3.UP:
+		novo_decalque.look_at(novo_decalque.global_position + normal, Vector3.RIGHT)
