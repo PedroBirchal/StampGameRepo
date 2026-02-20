@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cwspan5m0n7yg"]
 
 [ext_resource type="PackedScene" uid="uid://bw1ojqtg63gsa" path="res://Scenes/Carimbo.tscn" id="1_ct4lb"]
-[ext_resource type="PackedScene" uid="uid://cvyw2wtxjq15y" path="res://Models/Carta.fbx" id="3_kbsuv"]
 [ext_resource type="Texture2D" uid="uid://b5il0e6nkklu6" path="res://Sprites/carimboAzul.png" id="3_q4eyh"]
 [ext_resource type="Texture2D" uid="uid://k0rsovqol2p5" path="res://Sprites/carimboVermelho.png" id="4_q4eyh"]
 
@@ -36,9 +35,6 @@ light_color = Color(1, 1, 0.4392157, 1)
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.817, 0.13696328, -0.204)
 cam = NodePath("../Camera3D")
 Carimbada = ExtResource("3_q4eyh")
-
-[node name="Carta" parent="." unique_id=194676282 instance=ExtResource("3_kbsuv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42213377, 0.16316962, -0.042716384)
 
 [node name="Carimbo2" parent="." unique_id=947118920 node_paths=PackedStringArray("cam") instance=ExtResource("1_ct4lb")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.0338316, 0.137, 0.48225278)

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cs1wvxesrdqlw"]
+
+[ext_resource type="PackedScene" uid="uid://cjr3gvskbhiih" path="res://Scenes/caixa_inspecionar.tscn" id="1_ht5u8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hd5bx"]
+albedo_color = Color(0.35591912, 0.14386687, 0.040448435, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gov54"]
+material = SubResource("StandardMaterial3D_hd5bx")
+size = Vector3(3, 0.3, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lvsts"]
+
+[node name="Inspecionar" type="Node3D" unique_id=266211238]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1159156168]
+transform = Transform3D(1, 0, 0, 0, 0.8852232, 0.46516654, 0, -0.46516654, 0.8852232, 0, 2.093034, 2.1054702)
+
+[node name="Mesa" type="MeshInstance3D" parent="." unique_id=1440689429]
+mesh = SubResource("BoxMesh_gov54")
+
+[node name="Area3D" type="Area3D" parent="Mesa" unique_id=1720529593]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa/Area3D" unique_id=633705205]
+transform = Transform3D(3, 0, 0, 0, 0.35, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_lvsts")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=848484530]
+transform = Transform3D(1, 0, 0, 0, -0.8661214, 0.4998337, 0, -0.4998337, -0.8661214, 0, 1.5516484, -2.9022543)
+light_color = Color(1, 1, 0.72156864, 1)
+
+[node name="CaixaInspecionar" parent="." unique_id=474741172 instance=ExtResource("1_ht5u8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+gravity_scale = 0.0
