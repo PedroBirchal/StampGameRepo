@@ -7,6 +7,7 @@
 size = Vector3(1, 0.058807373, 0.6135254)
 
 [node name="Carta" type="RigidBody3D" unique_id=1512388856]
+input_ray_pickable = false
 script = ExtResource("1_vrd47")
 
 [node name="CartaMesh" parent="." unique_id=213670458 instance=ExtResource("2_vrd47")]

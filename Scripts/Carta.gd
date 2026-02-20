@@ -7,12 +7,11 @@ var destino : Singleton.Cidades
 
 func _ready() -> void:
 	randomize()
-	destino = randi_range(0, 3)
+	destino = randi_range(0, 3) as Singleton.Cidades
 	mudar_cor_da_carta(destino)
 
 func mudar_cor_da_carta(valor : int) -> void:
 	var mesh_carta : MeshInstance3D = $CartaMesh/Carta
-	print(mesh_carta.name)
 	var material = mesh_carta.get_surface_override_material(0)
 	var novo_material = material.duplicate()
 	novo_material.albedo_color = Singleton.cores[valor]

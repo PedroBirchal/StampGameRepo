@@ -8,7 +8,8 @@ var active = true
 
 func on_target_clicked(target_position) -> void:
 	if not active : return
-	var direction = target_position - rb.global_position  
+	var direction = target_position - rb.global_position 
+	rb.freeze = false
 	rb.apply_impulse(direction.normalized() * force)
 	instantiate_new_carta()
 

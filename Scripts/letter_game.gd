@@ -13,6 +13,7 @@ func _ready() -> void:
 		if indicador != null:
 			caixa.box_hover.connect(indicador.on_box_hovered)
 			caixa.box_unhover.connect(indicador.on_box_unhovered)
+			caixa.box_clicked.connect(indicador.on_box_clicked)
 		if carta_controller != null :
 			caixa.box_clicked.connect(carta_controller.on_target_clicked)
 		caixa.pontuar.connect(pontuar)

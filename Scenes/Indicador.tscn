@@ -1,18 +1,45 @@
 [gd_scene format=3 uid="uid://bvpi8dar6jail"]
 
-[ext_resource type="Texture2D" uid="uid://bxjp3na6nl1cd" path="res://Sprites/InnerMagicCircle.png" id="1_b2cup"]
+[ext_resource type="Texture2D" uid="uid://bhixwt3feagly" path="res://Sprites/UIMarkerAtlas.png" id="1_711rn"]
+[ext_resource type="Script" uid="uid://cgrugiwj5cn66" path="res://Scripts/indicador.gd" id="1_j5m78"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2cup"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-shading_mode = 0
-albedo_texture = ExtResource("1_b2cup")
+[sub_resource type="AtlasTexture" id="AtlasTexture_711rn"]
+atlas = ExtResource("1_711rn")
+region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="QuadMesh" id="QuadMesh_711rn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5m78"]
+atlas = ExtResource("1_711rn")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f2dkw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_711rn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5m78")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Indicador" type="Node3D" unique_id=17110399]
+script = ExtResource("1_j5m78")
+cor_default = Color(0.6862745, 0.99215686, 0, 1)
+cor_piscante = Color(0.48678005, 0.4964174, 1, 1)
+duracao_da_piscada = 0.2
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2019846685]
-material_override = SubResource("StandardMaterial3D_b2cup")
-mesh = SubResource("QuadMesh_711rn")
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1341401796]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+modulate = Color(0.6858649, 0.9915207, 0, 1)
+sprite_frames = SubResource("SpriteFrames_f2dkw")
+autoplay = "default"
+frame_progress = 0.12963377
+speed_scale = 0.5
+
+[node name="Timer" type="Timer" parent="." unique_id=1114019766]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

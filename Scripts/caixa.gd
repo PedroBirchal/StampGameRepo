@@ -36,7 +36,6 @@ func _on_area_caxa_body_entered(body: Node3D) -> void:
 		else :
 			pontuar.emit(-body.valor)
 	var cartas_na_caixa = area3D_caixa.get_overlapping_bodies()
-	print(cartas_na_caixa.size())
 	if cartas_na_caixa.size() > limite_de_cartas:
 		cartas_na_caixa[0].queue_free()
 	pass

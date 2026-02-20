@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bd6pkmjgafjce" path="res://Scenes/Caixa.tscn" id="2_cmimh"]
 [ext_resource type="PackedScene" uid="uid://bjkfs4qbiqqv3" path="res://Scenes/UILetterThrowing.tscn" id="2_yr8a5"]
 [ext_resource type="PackedScene" uid="uid://bvpi8dar6jail" path="res://Scenes/Indicador.tscn" id="3_386f2"]
-[ext_resource type="Script" uid="uid://cgrugiwj5cn66" path="res://Scripts/indicador.gd" id="4_skee3"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_cmimh"]
 
@@ -39,7 +38,7 @@ destino = 3
 
 [node name="Indicador" parent="." unique_id=17110399 instance=ExtResource("3_386f2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06418705, 0.5, 1.9300897)
-script = ExtResource("4_skee3")
+cor_piscante = Color(1, 0.483204, 0.56509703, 1)
 
 [node name="CartaController" parent="." unique_id=596546558 instance=ExtResource("1_7c6ev")]
 transform = Transform3D(1, 0, 0, 0, 0.8211492, -0.5707136, 0, 0.5707136, 0.8211492, 0, -0.35, 2.25)
