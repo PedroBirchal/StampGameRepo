@@ -4,6 +4,14 @@ class_name Carta
 
 var destino : Singleton.Cidades
 @export var valor : int = 1
+@export var animation_player : AnimationPlayer
+
+
+@export var pode_abrir := false
+@export var carta_aberta := false
+
+@export_group("Texto")
+@export var texto_meio : Label3D
 
 func _ready() -> void:
 	randomize()
@@ -16,3 +24,11 @@ func mudar_cor_da_carta(valor : int) -> void:
 	var novo_material = material.duplicate()
 	novo_material.albedo_color = Singleton.cores[valor]
 	mesh_carta.set_surface_override_material(0, novo_material)
+
+func recebe_valores(carta: CartaResource) -> void:
+	texto_meio.text = carta.conteudo
+	destino = carta.indo_para
+	mudar_cor_da_carta(destino)
+
+func abrir_carta() -> void:
+	animation_player.play()

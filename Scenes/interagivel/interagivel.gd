@@ -14,7 +14,6 @@ func _ready() -> void:
 		collision.mouse_exited.connect(_on_unhover)
 
 func interagir() -> void:
-	print("Interagiu!")
 	on_interact.emit()
 
 func _on_hover() -> void:
