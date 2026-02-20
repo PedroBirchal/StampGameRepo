@@ -4,7 +4,8 @@ class_name Carta
 
 var destino : Singleton.Cidades
 @export var valor : int = 1
-@export var animation_player : AnimationPlayer
+
+@export var mesh_carta : MeshInstance3D
 
 
 @export var pode_abrir := false
@@ -19,7 +20,6 @@ func _ready() -> void:
 	mudar_cor_da_carta(destino)
 
 func mudar_cor_da_carta(valor : int) -> void:
-	var mesh_carta : MeshInstance3D = $CartaMesh/Carta
 	var material = mesh_carta.get_surface_override_material(0)
 	var novo_material = material.duplicate()
 	novo_material.albedo_color = Singleton.cores[valor]
@@ -31,4 +31,14 @@ func recebe_valores(carta: CartaResource) -> void:
 	mudar_cor_da_carta(destino)
 
 func abrir_carta() -> void:
-	animation_player.play()
+	if not pode_abrir:
+		return
+	carta_aberta = true
+
+func fechar_carta() -> void:
+	carta_aberta = false
+
+func _on_area_clicavel_para_abrir_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			abrir_carta()
