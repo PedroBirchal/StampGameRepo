@@ -11,7 +11,7 @@
 [node name="LetterGame" type="Node3D" unique_id=1734937759 node_paths=PackedStringArray("caixas")]
 script = ExtResource("1_cb1fc")
 caixas = [NodePath("Caixas/Caixa"), NodePath("Caixas/Caixa2"), NodePath("Caixas/Caixa3"), NodePath("Caixas/Caixa4")]
-max_time = 120.0
+max_time = 30.0
 
 [node name="UiLetterThrowing" parent="." unique_id=777879673 instance=ExtResource("2_yr8a5")]
 mouse_filter = 2

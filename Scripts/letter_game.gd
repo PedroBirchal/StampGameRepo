@@ -18,10 +18,8 @@ func _ready() -> void:
 			caixa.box_clicked.connect(carta_controller.on_target_clicked)
 		caixa.pontuar.connect(pontuar)
 	timer.wait_time = max_time
+	ui.setup_timer(timer)
 	timer.start()
-
-func _process(delta: float) -> void:
-	ui.atualizar_timer(timer.time_left)
 
 func pontuar(pontos : int) -> void :
 	pontuacao += pontos

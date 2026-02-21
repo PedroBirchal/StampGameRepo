@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://daj0wiam7tbem" path="res://Scripts/ui_letter_throwing.gd" id="1_13usn"]
 [ext_resource type="FontFile" uid="uid://dfwwp7io3eu2f" path="res://Fonts/Poppins-Regular.ttf" id="2_l1if4"]
+[ext_resource type="Script" uid="uid://s77ailrtd7kd" path="res://Scripts/relogio.gd" id="3_8p2o7"]
+[ext_resource type="Texture2D" uid="uid://cbk5pjweho8tk" path="res://Sprites/ReloginhoAtlas.png" id="3_h7nrp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x6fij"]
 font = ExtResource("2_l1if4")
@@ -10,10 +12,35 @@ font_color = Color(1, 0.70980394, 0.3019608, 1)
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_8p2o7"]
+font = ExtResource("2_l1if4")
+font_size = 54
+font_color = Color(0.9972407, 0.7013385, 0.6707066, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_13usn"]
-font_size = 100
+font_size = 140
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8p2o7"]
+atlas = ExtResource("3_h7nrp")
+region = Rect2(456, 448, 568, 568)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h7nrp"]
+load_path = "res://.godot/imported/Circle.png-0c45e21435093ae348e4b37cb96ba5fa.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2kyv6"]
+load_path = "res://.godot/imported/Circle.png-0c45e21435093ae348e4b37cb96ba5fa.s3tc.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kyv6"]
+atlas = ExtResource("3_h7nrp")
+region = Rect2(7, 508, 442, 453)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eilra"]
+atlas = ExtResource("3_h7nrp")
+region = Rect2(891, 7, 124, 303)
 
 [node name="UiLetterThrowing" type="Control" unique_id=777879673]
 layout_mode = 3
@@ -24,16 +51,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_13usn")
 
-[node name="Pontuacao" type="Label" parent="." unique_id=1232173149]
+[node name="Score" type="Control" parent="." unique_id=807785704]
+anchors_preset = 0
+offset_right = 403.0
+offset_bottom = 396.0
+
+[node name="Pontuacao" type="Label" parent="Score" unique_id=1232173149]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 18.0
-offset_right = 117.0
-offset_bottom = 117.0
-text = "x0"
+offset_left = 26.0
+offset_top = 27.0
+offset_right = 116.0
+offset_bottom = 129.0
+text = "$0"
 label_settings = SubResource("LabelSettings_x6fij")
 
+[node name="ErrosLabel" type="Label" parent="Score" unique_id=2102547036]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 129.0
+offset_right = 116.0
+offset_bottom = 231.0
+text = "Erros : 0"
+label_settings = SubResource("LabelSettings_8p2o7")
+
 [node name="TimerLabel" type="Label" parent="." unique_id=1857422109]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -45,3 +87,82 @@ offset_bottom = 117.0
 grow_horizontal = 0
 text = "00:00"
 label_settings = SubResource("LabelSettings_13usn")
+
+[node name="Relogio" type="Control" parent="." unique_id=1935412690]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -290.0
+offset_top = 7.0
+offset_right = -4.0
+offset_bottom = 293.0
+grow_horizontal = 0
+script = ExtResource("3_8p2o7")
+
+[node name="RelogioBG" type="TextureRect" parent="Relogio" unique_id=1720056385]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_8p2o7")
+expand_mode = 1
+flip_h = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Relogio/RelogioBG" unique_id=12871919]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -122.0
+offset_right = 122.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.01
+fill_mode = 5
+nine_patch_stretch = true
+texture_under = SubResource("CompressedTexture2D_h7nrp")
+texture_progress = SubResource("CompressedTexture2D_2kyv6")
+tint_under = Color(1, 0.2784314, 0.42745098, 1)
+
+[node name="RelogioMarcas" type="TextureRect" parent="Relogio/RelogioBG" unique_id=252244412]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -117.0
+offset_right = 117.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_2kyv6")
+expand_mode = 1
+flip_h = true
+
+[node name="RelogioPonteiro" type="TextureRect" parent="Relogio/RelogioBG" unique_id=1897093877]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -65.0
+offset_right = 20.000046
+offset_bottom = 12.000839
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -6.2831855
+pivot_offset = Vector2(20, 65)
+texture = SubResource("AtlasTexture_eilra")
+expand_mode = 3
+stretch_mode = 5
