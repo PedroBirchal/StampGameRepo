@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bq2lsmoi8n272"]
+
+[ext_resource type="PackedScene" uid="uid://4yytstx14oea" path="res://Models/Pombinha.fbx" id="1_wtj53"]
+
+[node name="Pombinha" unique_id=504877396 instance=ExtResource("1_wtj53")]
+
+[node name="Skeleton3D" parent="Armature_Passaro" parent_id_path=PackedInt32Array(113373649) index="0" unique_id=1199587149]
+bones/0/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(0.596205, 0.43796813, -0.5593173, -0.3740158)
+bones/4/scale = Vector3(1, 0.99999994, 0.99999994)
+bones/5/position = Vector3(-1.9341616e-08, 0.3427412, -1.4854835e-09)
+bones/5/rotation = Quaternion(-0.09910378, 0.69831043, 0.02994866, 0.70826834)
+bones/7/position = Vector3(-0.27950376, 0.10163497, -0.09989625)
+bones/7/rotation = Quaternion(-0.06525294, -0.03068986, 0.080220304, 0.9941654)
+bones/7/scale = Vector3(0.99999994, 0.9999999, 0.99999994)
+bones/9/rotation = Quaternion(0.7071068, 4.3296377e-17, -0.7071067, 4.3296384e-17)
+bones/11/rotation = Quaternion(0.596205, -0.43796813, 0.5593173, -0.3740158)
+bones/11/scale = Vector3(1, 0.99999994, 0.99999994)
+bones/12/position = Vector3(1.9341616e-08, 0.3427412, -1.4854835e-09)
+bones/12/rotation = Quaternion(-0.09910378, -0.69831043, -0.02994866, 0.70826834)
+bones/14/position = Vector3(0.27950376, 0.10163497, -0.09989625)
+bones/14/rotation = Quaternion(-0.06525294, 0.03068986, -0.080220304, 0.9941654)
+bones/14/scale = Vector3(0.99999994, 0.9999999, 0.99999994)
+bones/18/rotation = Quaternion(-0.7063632, -0.03242681, 0.7063626, -0.03242684)
+bones/18/scale = Vector3(1.0000176, 0.9999999, 0.99999994)
+bones/19/position = Vector3(2.378591e-15, 0.28373393, -2.8962146e-08)
+bones/19/rotation = Quaternion(0.034025617, -0.030746276, 0.6697409, 0.7411775)
+bones/21/rotation = Quaternion(0.7063632, -0.03242681, 0.7063626, 0.03242684)
+bones/21/scale = Vector3(1.0000176, 0.9999999, 0.99999994)
+bones/22/position = Vector3(-2.378591e-15, 0.28373393, -2.8962146e-08)
+bones/22/rotation = Quaternion(0.034025617, 0.030746276, -0.6697409, 0.7411775)
