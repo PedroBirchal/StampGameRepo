@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://ouaywjh4gbu4" path="res://Scenes/carimbar/jogo_carimbar.gd" id="1_yf8ht"]
 [ext_resource type="PackedScene" uid="uid://ckpspcilmmx3c" path="res://Scenes/Carta.tscn" id="2_hiyrm"]
+[ext_resource type="PackedScene" uid="uid://bw1ojqtg63gsa" path="res://Scenes/Carimbo.tscn" id="3_g6dvo"]
+[ext_resource type="Script" uid="uid://cgohyllorbxkj" path="res://Scripts/camera/camera_tilt.gd" id="3_i71g1"]
+[ext_resource type="Texture2D" uid="uid://b5il0e6nkklu6" path="res://Sprites/carimboAzul.png" id="4_i71g1"]
+[ext_resource type="Texture2D" uid="uid://k0rsovqol2p5" path="res://Sprites/carimboVermelho.png" id="5_2thi0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_msc56"]
 size = Vector3(8, 5, 1)
@@ -18,21 +22,31 @@ size = Vector3(6, 1, 3)
 [sub_resource type="BoxMesh" id="BoxMesh_m8bj5"]
 size = Vector3(0.75, 0.75, 0.75)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_g6dvo"]
-size = Vector3(1, 1.5772705, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_yf8ht"]
 size = Vector3(0.75, 0.25, 0.75)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_g6dvo"]
+size = Vector3(1, 1.5772705, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m8bj5"]
+size = Vector3(3, 0.001, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hiyrm"]
+albedo_color = Color(0.35591912, 0.14386687, 0.040448435, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_g6dvo"]
+material = SubResource("StandardMaterial3D_hiyrm")
 size = Vector3(2.5, 0.25, 1.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_msc56"]
 size = Vector3(2.5, 0.25, 1.25)
 
-[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("pos_meio_mesa", "pos_receber_proximo")]
+[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("pos_na_cara", "pos_bem_na_cara", "sair_inspecionar_trigger", "pos_meio_mesa", "pos_receber_proximo")]
 script = ExtResource("1_yf8ht")
 carta_prefab = ExtResource("2_hiyrm")
+pos_na_cara = NodePath("Mesa/NaCaraDoJogador/Holder")
+pos_bem_na_cara = NodePath("Mesa/NaCaraDoJogador/TotalmenteNaCara")
+sair_inspecionar_trigger = NodePath("Mesa/NaCaraDoJogador/ClicarParaSair")
 pos_meio_mesa = NodePath("Mesa/CentroDaMesa/MeshInstance3D/Meio")
 pos_receber_proximo = NodePath("Mesa/ProximoAVir")
 
@@ -46,8 +60,14 @@ mesh = SubResource("BoxMesh_msc56")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2925081)
 mesh = SubResource("PlaneMesh_4kuqn")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1906213973]
-transform = Transform3D(1, 0, 0, 0, 0.82114923, 0.57071364, 0, -0.57071364, 0.82114923, 0, 2.2501535, -0.0424605)
+[node name="CameraHolder" type="Node3D" parent="." unique_id=1987810713]
+transform = Transform3D(1, 0, 0, 0, 0.9563048, 0.2923717, 0, -0.2923717, 0.9563048, 0, 2.107, 0.119)
+
+[node name="Camera3D" type="Camera3D" parent="CameraHolder" unique_id=1906213973]
+script = ExtResource("3_i71g1")
+margem_tela = Vector2(50, 50)
+rotacao_x = 0.2617993877991494
+rotacao_y = 0.5235987755982988
 
 [node name="Mesa" type="Node3D" parent="." unique_id=643817367]
 
@@ -68,14 +88,6 @@ transform = Transform3D(0.7680935, 0, -0.64033765, 0, 1, 0, 0.64033765, 0, 0.768
 visible = false
 mesh = SubResource("BoxMesh_m8bj5")
 
-[node name="AreaClicavel" type="Area3D" parent="Mesa/ProximoAVir" unique_id=626747261]
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa/ProximoAVir/AreaClicavel" unique_id=747872546]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28863525, 0)
-shape = SubResource("BoxShape3D_g6dvo")
-
 [node name="MandarEmbora" type="Node3D" parent="Mesa" unique_id=1510397098]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4806423, 1.3559829, -1.2146034)
 
@@ -92,11 +104,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28863525, 0)
 shape = SubResource("BoxShape3D_g6dvo")
 
 [node name="NaCaraDoJogador" type="Node3D" parent="Mesa" unique_id=558165658]
-transform = Transform3D(1, 0, 0, 0, 0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 1.2152169, -0.7841724)
+transform = Transform3D(1, 0, 0, 0, 0.29237166, -0.9563048, 0, 0.9563048, 0.29237166, 0, 1.7328838, -1.1021029)
+
+[node name="Holder" type="Node3D" parent="Mesa/NaCaraDoJogador" unique_id=2072858372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.024479687, 0.035221577)
 
 [node name="Carta" parent="Mesa/NaCaraDoJogador" unique_id=1512388856 instance=ExtResource("2_hiyrm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1522341)
 visible = false
 gravity_scale = 0.0
+
+[node name="ClicarParaSair" type="Area3D" parent="Mesa/NaCaraDoJogador" unique_id=96724193]
+visible = false
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa/NaCaraDoJogador/ClicarParaSair" unique_id=654166779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.10193943, 0)
+shape = SubResource("BoxShape3D_m8bj5")
+
+[node name="TotalmenteNaCara" type="Node3D" parent="Mesa/NaCaraDoJogador" unique_id=1920476582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.9604645e-08, 0.29294264)
 
 [node name="CentroDaMesa" type="Node3D" parent="Mesa" unique_id=189794322]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
@@ -113,8 +141,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16558409, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa/CentroDaMesa/MeshInstance3D/StaticBody3D" unique_id=1395620120]
 shape = SubResource("BoxShape3D_msc56")
 
+[node name="Carimbo" parent="Mesa/CentroDaMesa/MeshInstance3D" unique_id=56766804 node_paths=PackedStringArray("cam") instance=ExtResource("3_g6dvo")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.98144627, 0.13696328, -0.2830931)
+cam = NodePath("../../../../CameraHolder/Camera3D")
+Carimbada = ExtResource("4_i71g1")
+
+[node name="Carimbo2" parent="Mesa/CentroDaMesa/MeshInstance3D" unique_id=1166558827 node_paths=PackedStringArray("cam") instance=ExtResource("3_g6dvo")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.0059127, 0.137, 0.40315968)
+cam = NodePath("../../../../CameraHolder/Camera3D")
+Carimbada = ExtResource("5_2thi0")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1725576989]
 transform = Transform3D(1, 0, 0, 0, 0.121488206, 0.9925929, 0, -0.9925929, 0.121488206, 0, 3.6487668, 2.3863597)
 
-[connection signal="input_event" from="Mesa/ProximoAVir/AreaClicavel" to="." method="_on_pegar_proximo"]
 [connection signal="input_event" from="Mesa/MandarEmbora/AreaClicavel" to="." method="_on_mandar_pra_la"]
+[connection signal="input_event" from="Mesa/NaCaraDoJogador/ClicarParaSair" to="." method="_clicar_sair_inspecionar"]

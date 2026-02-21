@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cjr3gvskbhiih"]
 
 [ext_resource type="Texture2D" uid="uid://djp6lly0lbhme" path="res://Sprites/Captura de tela 2023-09-28 003602.png" id="1_f5xq3"]
-[ext_resource type="Script" uid="uid://c0nfrh7ekl2p5" path="res://Scenes/inspecionar.gd" id="1_jjm1r"]
+[ext_resource type="Script" uid="uid://c383fy1eqwuu0" path="res://Scripts/encomenda.gd" id="1_jjm1r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjm1r"]
 albedo_texture = ExtResource("1_f5xq3")
@@ -13,11 +13,10 @@ material = SubResource("StandardMaterial3D_jjm1r")
 
 [node name="CaixaInspecionar" type="RigidBody3D" unique_id=474741172]
 script = ExtResource("1_jjm1r")
+estado_atual = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=456046506]
 mesh = SubResource("BoxMesh_lfy0g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1588301310]
 shape = SubResource("BoxShape3D_r663h")
-
-[connection signal="input_event" from="." to="." method="_on_input_event"]

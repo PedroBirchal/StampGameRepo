@@ -1,6 +1,6 @@
-extends RigidBody3D
-
 class_name Carta
+extends Encomenda
+
 
 var destino : Singleton.Cidades
 @export var valor : int = 1
@@ -15,6 +15,10 @@ var destino : Singleton.Cidades
 @export var texto_meio : Label3D
 
 func _ready() -> void:
+	super._ready() # Chama a função _ready da classe Encomenda
+	
+	fechando.connect(fechar_carta)
+	
 	randomize()
 	destino = randi_range(0, 3) as Singleton.Cidades
 	mudar_cor_da_carta(destino)
@@ -31,12 +35,14 @@ func recebe_valores(carta: CartaResource) -> void:
 	mudar_cor_da_carta(destino)
 
 func abrir_carta() -> void:
-	if not pode_abrir:
+	if not pode_abrir or estado_atual != EstadoEncomenda.INSPECIONANDO:
 		return
 	carta_aberta = true
+	set_estado(EstadoEncomenda.ABERTA)
 
 func fechar_carta() -> void:
 	carta_aberta = false
+	
 
 func _on_area_clicavel_para_abrir_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
