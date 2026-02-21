@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://b6mx8f7o2h5ck"]
+
+[ext_resource type="Script" uid="uid://ouaywjh4gbu4" path="res://Scenes/carimbar/jogo_carimbar.gd" id="1_yf8ht"]
+[ext_resource type="PackedScene" uid="uid://ckpspcilmmx3c" path="res://Scenes/Carta.tscn" id="2_hiyrm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_msc56"]
+size = Vector3(8, 5, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4kuqn"]
+size = Vector2(10, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hiyrm"]
+size = Vector3(6, 1, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hiyrm"]
+size = Vector3(6, 1, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m8bj5"]
+size = Vector3(0.75, 0.75, 0.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g6dvo"]
+size = Vector3(1, 1.5772705, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yf8ht"]
+size = Vector3(0.75, 0.25, 0.75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g6dvo"]
+size = Vector3(2.5, 0.25, 1.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_msc56"]
+size = Vector3(2.5, 0.25, 1.25)
+
+[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("pos_meio_mesa", "pos_receber_proximo")]
+script = ExtResource("1_yf8ht")
+carta_prefab = ExtResource("2_hiyrm")
+pos_meio_mesa = NodePath("Mesa/CentroDaMesa/MeshInstance3D/Meio")
+pos_receber_proximo = NodePath("Mesa/ProximoAVir")
+
+[node name="Cenario" type="Node3D" parent="." unique_id=1633811364]
+
+[node name="Parede" type="MeshInstance3D" parent="Cenario" unique_id=844623349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2306015, -4.1578293)
+mesh = SubResource("BoxMesh_msc56")
+
+[node name="Chao" type="MeshInstance3D" parent="Cenario" unique_id=1375391777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2925081)
+mesh = SubResource("PlaneMesh_4kuqn")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1906213973]
+transform = Transform3D(1, 0, 0, 0, 0.82114923, 0.57071364, 0, -0.57071364, 0.82114923, 0, 2.2501535, -0.0424605)
+
+[node name="Mesa" type="Node3D" parent="." unique_id=643817367]
+
+[node name="Mesa" type="MeshInstance3D" parent="Mesa" unique_id=938268218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4971435, -2.211144)
+mesh = SubResource("BoxMesh_hiyrm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mesa/Mesa" unique_id=1822447287]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa/Mesa/StaticBody3D" unique_id=112970309]
+shape = SubResource("BoxShape3D_hiyrm")
+
+[node name="ProximoAVir" type="Node3D" parent="Mesa" unique_id=559523962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5193577, 1.3559829, -1.2146034)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesa/ProximoAVir" unique_id=1099073870]
+transform = Transform3D(0.7680935, 0, -0.64033765, 0, 1, 0, 0.64033765, 0, 0.7680935, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_m8bj5")
+
+[node name="AreaClicavel" type="Area3D" parent="Mesa/ProximoAVir" unique_id=626747261]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa/ProximoAVir/AreaClicavel" unique_id=747872546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28863525, 0)
+shape = SubResource("BoxShape3D_g6dvo")
+
+[node name="MandarEmbora" type="Node3D" parent="Mesa" unique_id=1510397098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4806423, 1.3559829, -1.2146034)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesa/MandarEmbora" unique_id=748522938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3613379, 0)
+mesh = SubResource("BoxMesh_yf8ht")
+
+[node name="AreaClicavel" type="Area3D" parent="Mesa/MandarEmbora" unique_id=1006271420]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa/MandarEmbora/AreaClicavel" unique_id=578048487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28863525, 0)
+shape = SubResource("BoxShape3D_g6dvo")
+
+[node name="NaCaraDoJogador" type="Node3D" parent="Mesa" unique_id=558165658]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 1.2152169, -0.7841724)
+
+[node name="Carta" parent="Mesa/NaCaraDoJogador" unique_id=1512388856 instance=ExtResource("2_hiyrm")]
+visible = false
+gravity_scale = 0.0
+
+[node name="CentroDaMesa" type="Node3D" parent="Mesa" unique_id=189794322]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesa/CentroDaMesa" unique_id=1040924777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08347249, 0.53724253)
+mesh = SubResource("BoxMesh_g6dvo")
+
+[node name="Meio" type="Node3D" parent="Mesa/CentroDaMesa/MeshInstance3D" unique_id=918461443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16558409, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mesa/CentroDaMesa/MeshInstance3D" unique_id=1325097591]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa/CentroDaMesa/MeshInstance3D/StaticBody3D" unique_id=1395620120]
+shape = SubResource("BoxShape3D_msc56")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1725576989]
+transform = Transform3D(1, 0, 0, 0, 0.121488206, 0.9925929, 0, -0.9925929, 0.121488206, 0, 3.6487668, 2.3863597)
+
+[connection signal="input_event" from="Mesa/ProximoAVir/AreaClicavel" to="." method="_on_pegar_proximo"]
+[connection signal="input_event" from="Mesa/MandarEmbora/AreaClicavel" to="." method="_on_mandar_pra_la"]

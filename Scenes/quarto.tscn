@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cvyw2wtxjq15y" path="res://Models/Carta.fbx" id="1_10atf"]
 [ext_resource type="PackedScene" uid="uid://cyxhnos72oq3s" path="res://Scenes/player/jogador.tscn" id="1_uylpo"]
 [ext_resource type="Material" uid="uid://dfo0cvbqn4ij2" path="res://materials/outline_material.tres" id="2_mklxq"]
-[ext_resource type="Script" uid="uid://2l0ixgo34aqb" path="res://Scenes/interagivel/interagivel.gd" id="2_ywv3x"]
+[ext_resource type="Script" uid="uid://2l0ixgo34aqb" path="res://Scripts/interagivel.gd" id="2_ywv3x"]
 [ext_resource type="Script" uid="uid://dsd7eeoq667uy" path="res://Scenes/player/olho_de_deus.gd" id="5_t12d2"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_t12d2"]
