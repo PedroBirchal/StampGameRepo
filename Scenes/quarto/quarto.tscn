@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://dxegpb20kq7ku"]
 
-[ext_resource type="PackedScene" uid="uid://cyxhnos72oq3s" path="res://Scenes/player/jogador.tscn" id="1_uylpo"]
-[ext_resource type="Material" uid="uid://dfo0cvbqn4ij2" path="res://materials/outline_material.tres" id="2_mklxq"]
-[ext_resource type="Script" path="res://Scripts/interagivel.gd" id="2_ywv3x"]
-[ext_resource type="Script" uid="uid://dsd7eeoq667uy" path="res://Scenes/player/olho_de_deus.gd" id="5_t12d2"]
+[ext_resource type="Script" path="res://Scripts/interagivel.gd" id="1_5yl11"]
+[ext_resource type="Material" uid="uid://dfo0cvbqn4ij2" path="res://materials/outline_material.tres" id="2_kupag"]
+[ext_resource type="PackedScene" uid="uid://cyxhnos72oq3s" path="res://Scenes/player/jogador.tscn" id="3_lij7j"]
+[ext_resource type="Script" uid="uid://dsd7eeoq667uy" path="res://Scenes/player/olho_de_deus.gd" id="4_i1nvq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_t12d2"]
 vertices = PackedVector3Array(-8.3957205, 5.180667, -7.2951074, -8.3957205, 5.180667, 7.4548926, 6.6042795, 5.180667, 7.4548926, 6.6042795, 5.180667, -7.2951074, -7.8957205, 3.430667, -5.0451074, -7.8957205, 3.430667, -4.0451074, -7.1457205, 3.430667, -3.5451074, -4.8957205, 3.430667, -5.7951074, -6.1457205, 3.430667, -6.7951074, -7.8957205, -0.5693331, -2.5451074, -7.8957205, -0.5693331, -1.5451074, -7.3957205, -0.5693331, -1.2951074, -6.6457205, -0.5693331, -2.5451074, -0.6457205, -0.5693331, -5.0451074, -3.8957205, -0.5693331, -5.2951074, -7.3957205, -0.5693331, -0.54510736, -7.8957205, -0.5693331, 6.9548926, 6.1042795, -0.5693331, 6.9548926, 4.6042795, -0.5693331, 0.70489264, -1.3957205, -0.5693331, -6.7951074, -4.1457205, -0.5693331, -6.7951074, -1.3957205, -0.5693331, -5.7951074, 4.6042795, -0.5693331, -0.79510736, 0.8542795, -0.5693331, -5.0451074, 6.1042795, -0.5693331, -6.7951074, 1.3542795, -0.5693331, -6.7951074, 6.1042795, -0.5693331, -1.2951074, 6.1042795, -0.5693331, 1.4548926, -7.8957205, -0.5693331, -0.29510736, -0.39572048, 0.18066692, -6.5451074, -0.14572048, 0.18066692, -6.0451074, 0.35427952, 0.18066692, -6.2951074, 5.6042795, 0.43066692, -0.29510736, 5.6042795, 0.43066692, 0.20489264, 6.1042795, 0.43066692, 0.20489264, 6.1042795, 0.43066692, -0.29510736)
@@ -221,13 +221,13 @@ transform = Transform3D(0.49999997, 3.6789553e-16, 0, 0, -2.1855694e-08, -0.4999
 
 [node name="Interagivel" type="Node3D" parent="NavigationRegion3D/CenarioBonito/LetterWardrobe/StaticBody3D" unique_id=2094880137 node_paths=PackedStringArray("mesh", "area_de_interacao")]
 transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, -0.4434818, 0)
-script = ExtResource("2_ywv3x")
+script = ExtResource("1_5yl11")
 mesh = NodePath("../..")
-material_outline = ExtResource("2_mklxq")
+material_outline = ExtResource("2_kupag")
 area_de_interacao = NodePath("../AreaDeInteracao")
 
 [node name="Chair" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito" unique_id=1402687863]
-transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, -1.0928441, -6.368618)
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, -1.0928441, -5.078063)
 mesh = SubResource("ArrayMesh_4qkk2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CenarioBonito/Chair" unique_id=1617575762]
@@ -241,9 +241,9 @@ transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-
 
 [node name="Interagivel" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Chair/StaticBody3D" unique_id=267254942 node_paths=PackedStringArray("mesh", "area_de_interacao")]
 transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, -0.4434818, 0)
-script = ExtResource("2_ywv3x")
+script = ExtResource("1_5yl11")
 mesh = NodePath("../..")
-material_outline = ExtResource("2_mklxq")
+material_outline = ExtResource("2_kupag")
 area_de_interacao = NodePath("../AreaDeInteracao")
 
 [node name="TrashCan" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito" unique_id=1792174973]
@@ -257,9 +257,9 @@ transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-
 
 [node name="Interagivel" type="Node3D" parent="NavigationRegion3D/CenarioBonito/TrashCan/StaticBody3D" unique_id=660606942 node_paths=PackedStringArray("mesh", "area_de_interacao")]
 transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, -3.0751057, 3.0397334, 0.5141633)
-script = ExtResource("2_ywv3x")
+script = ExtResource("1_5yl11")
 mesh = NodePath("../..")
-material_outline = ExtResource("2_mklxq")
+material_outline = ExtResource("2_kupag")
 area_de_interacao = NodePath("../AreaDeInteracao")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CenarioBonito/TrashCan/StaticBody3D" unique_id=2021848072]
@@ -277,9 +277,9 @@ transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-
 
 [node name="Interagivel" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Door/StaticBody3D" unique_id=2109076001 node_paths=PackedStringArray("mesh", "area_de_interacao")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-script = ExtResource("2_ywv3x")
+script = ExtResource("1_5yl11")
 mesh = NodePath("../..")
-material_outline = ExtResource("2_mklxq")
+material_outline = ExtResource("2_kupag")
 area_de_interacao = NodePath("../AreaDeInteracao")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CenarioBonito/Door/StaticBody3D" unique_id=879329463]
@@ -316,12 +316,12 @@ shape = SubResource("BoxShape3D_g5rb4")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.77662826, 2.870975, 7.679473)
 shape = SubResource("BoxShape3D_g5rb4")
 
-[node name="Jogador" parent="." unique_id=292964940 instance=ExtResource("1_uylpo")]
+[node name="Jogador" parent="." unique_id=292964940 instance=ExtResource("3_lij7j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4799229, 0)
 
 [node name="OlhoDeDeus" type="Node3D" parent="." unique_id=183827753 node_paths=PackedStringArray("camera", "carimbo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1193843, 5.3628545)
-script = ExtResource("5_t12d2")
+script = ExtResource("4_i1nvq")
 distancia_max_cast = 500.0
 camera = NodePath("Camera3D")
 carimbo = NodePath("../Jogador")

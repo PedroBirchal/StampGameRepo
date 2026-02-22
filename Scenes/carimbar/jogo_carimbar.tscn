@@ -61,13 +61,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2925081)
 mesh = SubResource("PlaneMesh_4kuqn")
 
 [node name="CameraHolder" type="Node3D" parent="." unique_id=1987810713]
-transform = Transform3D(1, 0, 0, 0, 0.9563048, 0.2923717, 0, -0.2923717, 0.9563048, 0, 2.107, 0.119)
+transform = Transform3D(1, 0, 0, 0, 0.99950653, -0.03141076, 0, 0.03141076, 0.99950653, 0, 2.342, 1.321)
 
 [node name="Camera3D" type="Camera3D" parent="CameraHolder" unique_id=1906213973]
 script = ExtResource("3_i71g1")
 margem_tela = Vector2(50, 50)
 rotacao_x = 0.2617993877991494
-rotacao_y = 0.5235987755982988
+rotacao_y = 0.2617993877991494
 
 [node name="Mesa" type="Node3D" parent="." unique_id=643817367]
 
@@ -104,13 +104,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28863525, 0)
 shape = SubResource("BoxShape3D_g6dvo")
 
 [node name="NaCaraDoJogador" type="Node3D" parent="Mesa" unique_id=558165658]
-transform = Transform3D(1, 0, 0, 0, 0.29237166, -0.9563048, 0, 0.9563048, 0.29237166, 0, 1.7328838, -1.1021029)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.3174038, 0.1808415)
 
 [node name="Holder" type="Node3D" parent="Mesa/NaCaraDoJogador" unique_id=2072858372]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.024479687, 0.035221577)
 
 [node name="Carta" parent="Mesa/NaCaraDoJogador" unique_id=1512388856 instance=ExtResource("2_hiyrm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1522341)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.064992696, -0.06034732)
 visible = false
 gravity_scale = 0.0
 

@@ -23,8 +23,6 @@ func set_estado(estado: EstadoEncomenda) -> void:
 	if estado_atual == EstadoEncomenda.INSPECIONANDO:
 		rotating = false
 		selecionado = false
-		rotation = Vector3.ZERO
-		position = Vector3.ZERO
 		dir = Vector2.ZERO
 	elif estado_atual == EstadoEncomenda.ABERTA:
 		fechando.emit()

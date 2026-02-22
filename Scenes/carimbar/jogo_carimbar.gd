@@ -34,12 +34,14 @@ func mandar_encomenda_nova_ao_centro() -> void:
 	proxima_encomenda.reparent(pos_meio_mesa)
 	proxima_encomenda.clicando.disconnect(mandar_encomenda_nova_ao_centro)
 	encomenda_atual = proxima_encomenda
-	encomenda_atual.position = Vector3.ZERO
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(encomenda_atual, "position", Vector3.ZERO, 0.25).set_trans(Tween.TRANS_CUBIC)
+	
 	encomenda_atual.clicando.connect(encomenda_atual_selecionada)
 	encomenda_atual.estado_mudado.connect(encomenda_atual_mudou_estado)
 	
 	proxima_encomenda = gerar_nova_encomenda()
-	proxima_encomenda.clicando.connect(mandar_encomenda_nova_ao_centro)
 	pos_receber_proximo.add_child(proxima_encomenda)
 
 
@@ -61,13 +63,12 @@ func mandar_encomenda_atual_para_destino() -> void:
 
 func gerar_nova_encomenda() -> Node3D:
 	var encomenda = carta_prefab.instantiate()
+	encomenda.clicando.connect(mandar_encomenda_nova_ao_centro)
 	return encomenda
 
 
 func encomenda_atual_selecionada() -> void:
 	if encomenda_atual.estado_atual == Encomenda.EstadoEncomenda.PARADA:
-		encomenda_atual.reparent(pos_na_cara)
-		encomenda_atual.position = Vector3.ZERO
 		encomenda_atual.set_estado(Encomenda.EstadoEncomenda.INSPECIONANDO)
 		sair_inspecionar_trigger.show()
 
@@ -75,10 +76,15 @@ func encomenda_atual_selecionada() -> void:
 func encomenda_atual_mudou_estado(estado: Encomenda.EstadoEncomenda) -> void:
 	if estado == Encomenda.EstadoEncomenda.ABERTA:
 		encomenda_atual.reparent(pos_bem_na_cara)
-		encomenda_atual.position = Vector3.ZERO
+		
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property(encomenda_atual, "position", Vector3.ZERO, 0.25)
+		tween.tween_property(encomenda_atual, "rotation", Vector3.ZERO, 0.25)
 	elif estado == Encomenda.EstadoEncomenda.INSPECIONANDO:
 		encomenda_atual.reparent(pos_na_cara)
-		encomenda_atual.position = Vector3.ZERO
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property(encomenda_atual, "rotation", Vector3.ZERO, 0.25)
+		tween.tween_property(encomenda_atual, "position", Vector3.ZERO, 0.25)
 
 
 func _clicar_sair_inspecionar(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
@@ -88,6 +94,11 @@ func _clicar_sair_inspecionar(_camera: Node, event: InputEvent, _event_position:
 				encomenda_atual.set_estado(Encomenda.EstadoEncomenda.INSPECIONANDO)
 			elif encomenda_atual.estado_atual == Encomenda.EstadoEncomenda.INSPECIONANDO:
 				encomenda_atual.reparent(pos_meio_mesa)
-				encomenda_atual.position = Vector3.ZERO
+				
+				var tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC)
+				tween.tween_property(encomenda_atual, "position", Vector3.ZERO, 0.25)
+				tween.tween_property(encomenda_atual, "rotation", Vector3.ZERO, 0.25)
+	
+				#encomenda_atual.position = Vector3.ZERO
 				encomenda_atual.set_estado(Encomenda.EstadoEncomenda.PARADA)
 				sair_inspecionar_trigger.hide()
