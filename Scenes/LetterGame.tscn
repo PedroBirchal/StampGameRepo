@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://oqbb3beoscau" path="res://Scenes/CartaController.tscn" id="1_7c6ev"]
 [ext_resource type="Script" uid="uid://dupjfowwix60t" path="res://Scripts/letter_game.gd" id="1_cb1fc"]
 [ext_resource type="PackedScene" uid="uid://bd6pkmjgafjce" path="res://Scenes/Caixa.tscn" id="2_cmimh"]
-[ext_resource type="PackedScene" path="res://Scenes/UILetterThrowing.tscn" id="2_yr8a5"]
+[ext_resource type="PackedScene" uid="uid://bjkfs4qbiqqv3" path="res://Scenes/UILetterThrowing.tscn" id="2_yr8a5"]
 [ext_resource type="PackedScene" uid="uid://bvpi8dar6jail" path="res://Scenes/Indicador.tscn" id="3_386f2"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_cmimh"]
