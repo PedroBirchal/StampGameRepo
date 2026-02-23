@@ -30,6 +30,24 @@ window/stretch/mode="viewport"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[file_customization]
+
+folder_colors={
+"res://Blend/": "yellow",
+"res://Fonts/": "yellow",
+"res://Models/": "yellow",
+"res://Scenes/": "purple",
+"res://Scenes/carimbar/": "purple",
+"res://Scenes/cartas/": "purple",
+"res://Scenes/player/": "purple",
+"res://Scenes/quarto/": "purple",
+"res://Scripts/": "pink",
+"res://Sprites/": "yellow",
+"res://addons/": "teal",
+"res://materials/": "yellow",
+"res://resources/": "pink"
+}
+
 [filesystem]
 
 import/blender/enabled=false

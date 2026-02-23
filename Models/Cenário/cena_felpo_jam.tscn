@@ -2,36 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://b56cd1m5av4f1" path="res://Models/Cenário/CenaFelpoJam.fbx" id="1_ba4va"]
 
-[node name="CenaFelpoJam" unique_id=145201438 instance=ExtResource("1_ba4va")]
+[node name="CenaFelpoJam" unique_id=927205127 instance=ExtResource("1_ba4va")]
 
-[node name="Cubicule" parent="." index="1" unique_id=1621015558]
-transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0.0058754683, 1.1920929e-07, 0.001152873)
+[node name="Cubicule" parent="." index="1" unique_id=566188702]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0.0058754683, 1.1920929e-07, 0.001152873)
 
-[node name="Skeleton3D" parent="LetterArmature" parent_id_path=PackedInt32Array(977560357) index="0" unique_id=916693060]
-bones/0/rotation = Quaternion(0.013850254, -0.013850254, 0.7069712, 0.70697105)
-bones/1/rotation = Quaternion(1.0769849e-15, -5.20093e-16, 0.7071072, 0.7071065)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/position = Vector3(1.6089936e-09, 0.03358257, 3.469447e-18)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/position = Vector3(-0.1217777, 0.15943198, 0.062186472)
-bones/3/rotation = Quaternion(0, 0, -0.70710677, 0.70710677)
-bones/3/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(6.1331757e-17, -6.1331757e-17, -0.7071068, 0.7071067)
-bones/5/scale = Vector3(1, 1, 1)
-bones/6/position = Vector3(1.4141861e-09, 0.03511691, 0)
-bones/6/rotation = Quaternion(1.5612513e-17, -8.3266733e-17, -5.9604645e-08, 1)
-bones/6/scale = Vector3(1, 1, 1)
-bones/7/position = Vector3(0.12191523, 0.1968105, 0.005579537)
-bones/7/rotation = Quaternion(0, 0, 0.7071068, 0.7071067)
-bones/7/scale = Vector3(1, 1, 1)
-bones/10/position = Vector3(-0.62266743, 0.010291719, -0.025106613)
-bones/11/position = Vector3(-0.027847469, 1.0953809e-08, -0.0036259692)
-bones/11/rotation = Quaternion(3.2045262e-09, 6.490436e-11, -6.665417e-08, 1)
-bones/12/position = Vector3(-0.025236756, -5.16127e-10, 0.00362597)
-bones/13/scale = Vector3(1, 1, 1)
-bones/14/position = Vector3(-3.2264744e-10, 0.22105157, 2.8794949e-15)
-bones/14/rotation = Quaternion(-0.03518909, 0.023741549, 0.012009401, 0.99902654)
-bones/14/scale = Vector3(1, 1, 1)
-
-[node name="LetterWardrobe" parent="." index="5" unique_id=1484599312]
-visible = false
+[node name="MainRoom" parent="." index="5" unique_id=629372963]
+transform = Transform3D(1, 0, 0, 0, -1.1920929e-07, 0.99999994, 0, -0.99999994, -1.1920929e-07, 0.0076179504, 4.7683716e-07, 0.008565426)

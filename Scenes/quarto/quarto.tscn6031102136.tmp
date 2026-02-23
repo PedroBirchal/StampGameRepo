@@ -126,6 +126,42 @@ shadow_mesh = SubResource("ArrayMesh_14mck")
 [sub_resource type="BoxShape3D" id="BoxShape3D_0l767"]
 size = Vector3(2, 1, 2.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dlwq"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jfqn5"]
+_surfaces = [{
+"aabb": AABB(-0.21410765, -0.28646916, 0.0020497139, 0.529307, 0.5729383, 0.3991278),
+"format": 34359742465,
+"index_count": 168,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAgAEAAAABQACAAMABAACAAUAAQAGAAMABwABAAAABgABAAcACAAAAAQAAAAIAAcABAAJAAgABQAJAAQACgAIAAkABwAIAAoACQALAAoACwAJAAUACgAMAAcADAAKAAsACwANAAwABQANAAsABwAMAA4ADgAMAA0ADwANAAUADQAPAA4ADgAQAAcAEAAOAA8ABwAQAAYABQARAA8ADwARABAABgAQABEAAwARAAUAEQADAAYAEgATABQAFAATABUAFAAWABIAFQAXABQAGAASABYAFwAVABgAFgAZABgAGAAZABcAGgAbABwAHQAbABoAHAAeABoAGgAfAB0AHgAcACAAIAAdAB8AIAAhAB4AHwAhACAAIgAjACQAJQAjACIAJAAmACIAIgAnACUAJgAkACgAKAAlACcAKAApACYAJwApACgA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 42,
+"vertex_data": PackedByteArray("3G1RPvXT8b0kZ80+AAAAAPXTcb4kZ80+AAAAAPXTcT4kZ80+3G1RvvXT8T0kZ80+3G1RPvXT8T0kZ80+AAAAAOwpfT53wMY+3G1RvvXT8b0kZ80+AAAAAOwpfb53wMY+CT9bPuwp/b13wMY+CT9bPuwp/T13wMY+3G1RPvXT8b3KGcA+3G1RPvXT8T3KGcA+AAAAAPXTcb7KGcA+AAAAAPXTcT7KGcA+3G1RvvXT8b3KGcA+3G1RvvXT8T3KGcA+CT9bvuwp/b13wMY+CT9bvuwp/T13wMY+VArQPagtYTwnrsQ+VArQPe4tYbwnrsQ+q7yFPh0p3byAVAY74ioEPu4tYbwnrsQ+q7yFPhUp3TyAVAY7z2GhPh0p3byAVAY74ioEPqgtYTwnrsQ+z2GhPhUp3TyAVAY7pq0dvhXRWT5/VAY7fGWAvTMYpj0mrsQ+nkkfve89wj0mrsQ+NoucveHY1j0mrsQ+YpfbvTh2dT5/VAY7yVI5voXZhD5/VAY7EZVXvZz+8j0mrsQ+1HAJvheskj5/VAY7XpfbvTZ2db5+VAY7qUkfveo9wr0mrsQ+hWWAvTQYpr0mrsQ+F5VXvZf+8r0mrsQ+pK0dvhjRWb5+VAY70nAJvhaskr5+VAY7PIucveHY1r0mrsQ+x1I5voTZhL5+VAY7")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4qkk2"]
+resource_name = "Circle_003"
+_surfaces = [{
+"aabb": AABB(-0.21410765, -0.28646916, 0.0020497139, 0.529307, 0.5729383, 0.3991278),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAID8AAEA/AAAgPwAAgD8AAMA+AACAPwAAwD4AAEA/AAAgPwAAAD8AACA/AABAPwAAwD4AAEA/AADAPgAAAD8AAMA+AACAPgAAID8AAIA+AAAgPwAAAD8AAMA+AAAAPwAAwD4AAAAAAAAgPwAAAAAAACA/AACAPgAAwD4AAIA+AADAPgAAQD8AACA/AABAPwAAID8AAIA/AADAPgAAgD8AACA/AAAAPwAAID8AAEA/AADAPgAAQD8AAMA+AAAAPwAAID8AAIA+AAAgPwAAAD8AAMA+AAAAPwAAwD4AAIA+AADAPgAAAAAAACA/AAAAAAAAID8AAIA+AADAPgAAgD4AAMA+AABAPwAAID8AAEA/AAAgPwAAgD8AAMA+AACAPwAAID8AAAA/AAAgPwAAQD8AAMA+AABAPwAAwD4AAAA/AAAgPwAAgD4AACA/AAAAPwAAwD4AAAA/AADAPgAAgD4AAMA+AAAAAAAAID8AAAAAAAAgPwAAgD4AAMA+AACAPg=="),
+"format": 34359742487,
+"index_count": 168,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQAGAAZABoAGgAbABgAHAAdAB4AHgAfABwAIAAhACIAIgAjACAAJAAgACMAIwAlACQAJgAnACgAKAApACYAKgArACwALAAtACoALgAvADAAMAAxAC4AMgAzADQANAA1ADIANgA3ADgAOAA5ADYAOgA7ADwAPAA9ADoAPgA/AEAAQABBAD4AQgBDAEQARABFAEIARgBHAEgASABJAEYASgBLAEwATABNAEoATgBPAFAAUABRAE4AUgBTAFQAVABVAFIAVgBXAFgAWABZAFYAWgBbAFwAXABdAFoAXgBfAGAAYABhAF4AYgBjAGQAZABlAGIAZgBnAGgAaABpAGYAagBrAGwAbABtAGoA"),
+"material": SubResource("StandardMaterial3D_4dlwq"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 110,
+"vertex_data": PackedByteArray("3G1RPvXT8b0kZ80+AAAAAPXTcb4kZ80+AAAAAPXTcT4kZ80+3G1RPvXT8T0kZ80+AAAAAPXTcb4kZ80+3G1RvvXT8b0kZ80+3G1RvvXT8T0kZ80+AAAAAPXTcT4kZ80+3G1RPvXT8T3KGcA+CT9bPuwp/T13wMY+AAAAAOwpfT53wMY+AAAAAPXTcT7KGcA+3G1RPvXT8b3KGcA+AAAAAPXTcb7KGcA+AAAAAOwpfb53wMY+CT9bPuwp/b13wMY+3G1RvvXT8T3KGcA+CT9bvuwp/T13wMY+CT9bvuwp/b13wMY+3G1RvvXT8b3KGcA+3G1RPvXT8b3KGcA+CT9bPuwp/b13wMY+CT9bPuwp/T13wMY+3G1RPvXT8T3KGcA+3G1RvvXT8b3KGcA+CT9bvuwp/b13wMY+AAAAAOwpfb53wMY+AAAAAPXTcb7KGcA+3G1RvvXT8T3KGcA+AAAAAPXTcT7KGcA+AAAAAOwpfT53wMY+CT9bvuwp/T13wMY+AAAAAPXTcb7KGcA+3G1RPvXT8b3KGcA+3G1RPvXT8T3KGcA+AAAAAPXTcT7KGcA+3G1RvvXT8b3KGcA+3G1RvvXT8T3KGcA+AAAAAOwpfT53wMY+AAAAAPXTcT4kZ80+3G1RvvXT8T0kZ80+CT9bvuwp/T13wMY+AAAAAOwpfb53wMY+CT9bvuwp/b13wMY+3G1RvvXT8b0kZ80+AAAAAPXTcb4kZ80+CT9bPuwp/b13wMY+3G1RPvXT8b0kZ80+3G1RPvXT8T0kZ80+CT9bPuwp/T13wMY+CT9bvuwp/T13wMY+3G1RvvXT8T0kZ80+3G1RvvXT8b0kZ80+CT9bvuwp/b13wMY+AAAAAOwpfb53wMY+AAAAAPXTcb4kZ80+3G1RPvXT8b0kZ80+CT9bPuwp/b13wMY+AAAAAOwpfT53wMY+CT9bPuwp/T13wMY+3G1RPvXT8T0kZ80+AAAAAPXTcT4kZ80+VArQPagtYTwnrsQ+VArQPe4tYbwnrsQ+q7yFPh0p3byAVAY7q7yFPhUp3TyAVAY74ioEPqgtYTwnrsQ+VArQPagtYTwnrsQ+q7yFPhUp3TyAVAY7z2GhPhUp3TyAVAY7z2GhPh0p3byAVAY74ioEPu4tYbwnrsQ+4ioEPqgtYTwnrsQ+z2GhPhUp3TyAVAY7q7yFPh0p3byAVAY7VArQPe4tYbwnrsQ+4ioEPu4tYbwnrsQ+z2GhPh0p3byAVAY7pq0dvhXRWT5/VAY7fGWAvTMYpj0mrsQ+nkkfve89wj0mrsQ+YpfbvTh2dT5/VAY7NoucveHY1j0mrsQ+fGWAvTMYpj0mrsQ+pq0dvhXRWT5/VAY7yVI5voXZhD5/VAY7EZVXvZz+8j0mrsQ+NoucveHY1j0mrsQ+yVI5voXZhD5/VAY71HAJvheskj5/VAY7YpfbvTh2dT5/VAY7nkkfve89wj0mrsQ+EZVXvZz+8j0mrsQ+1HAJvheskj5/VAY7XpfbvTZ2db5+VAY7qUkfveo9wr0mrsQ+hWWAvTQYpr0mrsQ+pK0dvhjRWb5+VAY7F5VXvZf+8r0mrsQ+qUkfveo9wr0mrsQ+XpfbvTZ2db5+VAY70nAJvhaskr5+VAY7PIucveHY1r0mrsQ+F5VXvZf+8r0mrsQ+0nAJvhaskr5+VAY7x1I5voTZhL5+VAY7pK0dvhjRWb5+VAY7hWWAvTQYpr0mrsQ+PIucveHY1r0mrsQ+x1I5voTZhL5+VAY7/3//f////z//f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8//3//f////z//f/9/////P0/LlOH///+/T8uU4f///79Py5Th////v0/LlOH///+/T8tqHv///79Py2oe////v0/Lah7///+/T8tqHv///78AAFm2////vwAAWbb///+/AABZtv///78AAFm2////v///Wbb///+///9Ztv///7///1m2////v///Wbb///+/rzRqHv///7+vNGoe////v680ah7///+/rzRqHv///7+vNJTh////v680lOH///+/rzSU4f///7+vNJTh////v/////////+//////////7//////////v/////////+//////////7//////////v5RhrrT///8/lGGutP///z+UYa60////P5RhrrT///8/lGFQS////z+UYVBL////P5RhUEv///8/lGFQS////z+kyf9/////P6TJ/3////8/pMn/f////z+kyf9/////P1o2/3////8/Wjb/f////z9aNv9/////P1o2/3////8/ap5QS////z9qnlBL////P2qeUEv///8/ap5QS////z9qnq60////P2qerrT///8/ap6utP///z9qnq60////PwAAtqUKW0jBAAC2pS5bhsEAALalG1uYvgAAtqUuW3e+/3+0++5aeb7/f7T7Llt3vv9/tPsnV4m+/3+0+wZXib4R1v9/8laovhHW/38GV3TBEdb/f+BWOsER1v9/BleJvv9/SgQnV3XB/39KBC5bhsH/f0oE7lqFwf9/SgQGV3TB2sHgI+SOfrDaweAjT5MTstrB4CPxkvGx2sHgI7CObLDcME5SaJP7sdwwTlJPkxOy3DBOUtGUnbDcME5S3ZSRsHZd0LuHlHKwdl3Qu92UkbB2XdC7uJAOr3Zd0LuIkP2uIs+wrXqQCK8iz7CtsI5ssCLPsK3NjlWwIs+wrYiQ/a7awR7cHZP9zdrBHtywjpLP2sEe3BKPb8/awR7cT5PrzSLPTlLNjqjPIs9OUrCOks8iz05SepD10CLPTlKIkAHRdl0uROGQ4NB2XS5EiJAB0XZdLkSwlH3Pdl0uRN2UbM/cMLCt0ZRgz9wwsK1Pk+vN3DCwrWiTA87cMLCt3ZRszw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jfqn5")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fmmut"]
+height = 0.3696289
+radius = 0.33789063
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lij7j"]
 albedo_color = Color(0.20249999, 0.45, 0.20249999, 1)
 distance_fade_mode = 2
@@ -178,10 +214,6 @@ size = Vector3(1.2, 0.1, 1.7)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rpanf"]
 size = Vector3(12, 0.25, 12)
 
-[sub_resource type="SphereMesh" id="SphereMesh_i1nvq"]
-radius = 0.1
-height = 0.2
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5rb4"]
 size = Vector3(0.25, 6, 10)
 
@@ -214,7 +246,7 @@ mesh = SubResource("ArrayMesh_lij7j")
 transform = Transform3D(0.70710665, 0.70710665, 3.09086e-08, -0.7071069, 0.70710677, -1.280277e-08, -3.0908613e-08, -1.2802767e-08, 0.9999998, 1.5737739, -0.5203117, 0.0058344305)
 mesh = SubResource("ArrayMesh_i1nvq")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CenarioBonito/LetterWardrobe" unique_id=1525299591 groups=["esquerda_quarto"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CenarioBonito/LetterWardrobe" unique_id=1525299591]
 transform = Transform3D(1, 0, -8.90006e-16, 0, 1.0000001, 2.3661296e-15, 0, 1.7763568e-15, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CenarioBonito/LetterWardrobe/StaticBody3D" unique_id=1431758400]
@@ -230,13 +262,32 @@ script = ExtResource("1_5yl11")
 mesh = NodePath("../..")
 material_outline = ExtResource("2_kupag")
 area_de_interacao = NodePath("../AreaDeInteracao")
-setar_area_pos_click = null
+
+[node name="Chair" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito" unique_id=1402687863]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, -1.0928441, -3.381663)
+mesh = SubResource("ArrayMesh_4qkk2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CenarioBonito/Chair" unique_id=1617575762]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CenarioBonito/Chair/StaticBody3D" unique_id=1774119838]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.2172586)
+shape = SubResource("CylinderShape3D_fmmut")
+
+[node name="AreaDeInteracao" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Chair/StaticBody3D" unique_id=1342220491]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, -0.6128936, 0, 0)
+
+[node name="Interagivel" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Chair/StaticBody3D" unique_id=267254942 node_paths=PackedStringArray("mesh", "area_de_interacao")]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, -0.4434818, 0)
+script = ExtResource("1_5yl11")
+mesh = NodePath("../..")
+material_outline = ExtResource("2_kupag")
+area_de_interacao = NodePath("../AreaDeInteracao")
 
 [node name="Quadro" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito" unique_id=759848742]
-transform = Transform3D(-8.742278e-08, -2, -8.742278e-08, 0, -8.742278e-08, 2, -2, 8.742278e-08, 3.821371e-15, 1.3651748, 2.508537, 5.850582)
+transform = Transform3D(-8.742278e-08, -2, -8.742278e-08, 0, -8.742278e-08, 2, -2, 8.742278e-08, 3.821371e-15, 1.3651748, 2.508537, 5.488862)
 mesh = SubResource("BoxMesh_5yl11")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CenarioBonito/Quadro" unique_id=1584577469 groups=["frente_quarto"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CenarioBonito/Quadro" unique_id=1584577469]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CenarioBonito/Quadro/StaticBody3D" unique_id=582652935]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 9.414672e-09, 0.0018760264)
@@ -251,13 +302,12 @@ script = ExtResource("1_5yl11")
 mesh = NodePath("../..")
 material_outline = ExtResource("2_kupag")
 area_de_interacao = NodePath("../AreaDeInteracao")
-setar_area_pos_click = null
 
 [node name="Door" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito" unique_id=193953055]
-transform = Transform3D(-6.556708e-08, -1.5, -8.742278e-08, 0, -6.556708e-08, 2, -1.5, 6.556708e-08, 3.821371e-15, 5.735391, 1.5102837, 0.62383294)
+transform = Transform3D(-6.556708e-08, -1.5, -8.742278e-08, 0, -6.556708e-08, 2, -1.5, 6.556708e-08, 3.821371e-15, 5.4498224, 1.5102837, 0.5074737)
 mesh = SubResource("ArrayMesh_a0bhh")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CenarioBonito/Door" unique_id=1249892608 groups=["direita_quarto"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CenarioBonito/Door" unique_id=1249892608]
 transform = Transform3D(1, 0, 0, 0, 1, 8.351872e-23, 0, 8.351872e-23, 1, -0.5493424, 0, -0.75678945)
 
 [node name="AreaDeInteracao" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Door/StaticBody3D" unique_id=1910584560]
@@ -269,7 +319,6 @@ script = ExtResource("1_5yl11")
 mesh = NodePath("../..")
 material_outline = ExtResource("2_kupag")
 area_de_interacao = NodePath("../AreaDeInteracao")
-setar_area_pos_click = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CenarioBonito/Door/StaticBody3D" unique_id=879329463]
 transform = Transform3D(1, 0, 0, 0, 1, 8.351872e-23, 0, 8.351872e-23, 1, 0, 0, 0.86962974)
@@ -293,43 +342,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("BoxShape3D_rpanf")
 
-[node name="Interagivel" type="Node3D" parent="NavigationRegion3D/Cenario/Estrutura/Chao" unique_id=761270055 node_paths=PackedStringArray("area_de_interacao")]
+[node name="Interagivel" type="Node3D" parent="NavigationRegion3D/Cenario/Estrutura/Chao" unique_id=761270055]
 script = ExtResource("1_5yl11")
-area_de_interacao = NodePath("../Interacao")
-setar_area_pos_click = true
 
-[node name="Interacao" type="Marker3D" parent="NavigationRegion3D/Cenario/Estrutura/Chao" unique_id=1239818737]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0408096, 0, 3.9060063)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Cenario/Estrutura/Chao/Interacao" unique_id=905819481]
-mesh = SubResource("SphereMesh_i1nvq")
-
-[node name="ParedeFrente" type="StaticBody3D" parent="NavigationRegion3D/Cenario/Estrutura" unique_id=1883937992 groups=["frente_quarto"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Cenario/Estrutura" unique_id=1883937992]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
-[node name="Parede" type="CollisionShape3D" parent="NavigationRegion3D/Cenario/Estrutura/ParedeFrente" unique_id=1602880864]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2, 6)
-shape = SubResource("BoxShape3D_g5rb4")
-
-[node name="ParedeEsquerda" type="StaticBody3D" parent="NavigationRegion3D/Cenario/Estrutura" unique_id=1806517505 groups=["esquerda_quarto"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-
-[node name="Parede" type="CollisionShape3D" parent="NavigationRegion3D/Cenario/Estrutura/ParedeEsquerda" unique_id=1937177334]
+[node name="Parede" type="CollisionShape3D" parent="NavigationRegion3D/Cenario/Estrutura/StaticBody3D" unique_id=1866278991]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 0)
 shape = SubResource("BoxShape3D_g5rb4")
 
-[node name="ParedeCostas" type="StaticBody3D" parent="NavigationRegion3D/Cenario/Estrutura" unique_id=112463789 groups=["costas_quarto"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+[node name="Parede2" type="CollisionShape3D" parent="NavigationRegion3D/Cenario/Estrutura/StaticBody3D" unique_id=1562296516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 0)
+shape = SubResource("BoxShape3D_g5rb4")
 
-[node name="Parede" type="CollisionShape3D" parent="NavigationRegion3D/Cenario/Estrutura/ParedeCostas" unique_id=1503539827]
+[node name="Parede3" type="CollisionShape3D" parent="NavigationRegion3D/Cenario/Estrutura/StaticBody3D" unique_id=1910832047]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2, -6)
 shape = SubResource("BoxShape3D_g5rb4")
 
-[node name="ParedeDireita" type="StaticBody3D" parent="NavigationRegion3D/Cenario/Estrutura" unique_id=520897941 groups=["direita_quarto"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-
-[node name="Parede" type="CollisionShape3D" parent="NavigationRegion3D/Cenario/Estrutura/ParedeDireita" unique_id=780115559]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 0)
+[node name="Parede4" type="CollisionShape3D" parent="NavigationRegion3D/Cenario/Estrutura/StaticBody3D" unique_id=1602880864]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2, 6)
 shape = SubResource("BoxShape3D_g5rb4")
 
 [node name="Jogador" parent="." unique_id=292964940 instance=ExtResource("3_lij7j")]
@@ -340,12 +372,6 @@ script = ExtResource("4_i1nvq")
 distancia_max_cast = 500.0
 camera = NodePath("Camera3D")
 carimbo = NodePath("../Jogador")
-direcao_grupo = Dictionary[int, String]({
-0: "frente_quarto",
-1: "esquerda_quarto",
-2: "costas_quarto",
-3: "direita_quarto"
-})
 
 [node name="Camera3D" type="Camera3D" parent="OlhoDeDeus" unique_id=573588799]
 transform = Transform3D(0.9999141, -0.0044830022, 0.0123170605, 0, 0.9396937, 0.34201735, -0.013107528, -0.341988, 0.9396129, 0, 4.458, 8.109)
