@@ -11,7 +11,7 @@ static var holding : bool = false
 func _selecionar_novo_objeto(alvo):
 	holding = true
 	posInicial = alvo.global_position
-	alvo.global_position.y += 0.1
+	alvo.global_position.y += 0.2
 	ObjectNode3D = alvo
 	previsao.visible = true
 
@@ -29,7 +29,7 @@ func _physics_process(_delta):
 	var rayStart = cam.project_ray_origin(mousePos)
 	var direction = cam.project_ray_normal(mousePos)
 	
-	var plane = Plane(Vector3.UP)
+	var plane = Plane(Vector3.UP, ObjectNode3D.global_position.y) #limitei o y...
 	var intersection = plane.intersects_ray(rayStart, direction)
 
 	if intersection:
