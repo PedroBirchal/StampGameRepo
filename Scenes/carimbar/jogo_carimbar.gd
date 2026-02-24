@@ -1,4 +1,6 @@
-extends Node3D
+extends Jogavel
+
+@export var camera: Camera3D
 
 @export_group("Spawn Encomendas")
 @export var carta_prefab: PackedScene
@@ -14,11 +16,24 @@ var encomenda_atual: Encomenda
 @export var pos_receber_proximo: Node3D
 var proxima_encomenda: Encomenda
 
+var ja_comecou = false
 
-func _ready() -> void:
-	proxima_encomenda = gerar_nova_encomenda()
-	pos_receber_proximo.add_child(proxima_encomenda)
 
+func jogar() -> void:
+	super()
+	
+	if not ja_comecou:
+		ja_comecou = true
+		proxima_encomenda = gerar_nova_encomenda()
+		pos_receber_proximo.add_child(proxima_encomenda)
+	
+	camera.make_current()
+	
+
+func sair() -> void:
+	super()
+	
+	camera.clear_current()
 
 func tem_encomenda_no_meio() -> bool:
 	return encomenda_atual != null

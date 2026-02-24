@@ -45,12 +45,12 @@ script = ExtResource("1_bshui")
 previsao = NodePath("Sprite3D")
 ray = NodePath("RayCast3D")
 
-[node name="CarimboMesh" type="MeshInstance3D" parent="." unique_id=804590019]
+[node name="CarimboMesh" type="MeshInstance3D" parent="." unique_id=804590019 groups=["sumivel"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_bshui")
 mesh = SubResource("CapsuleMesh_oj1nn")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="CarimboMesh" unique_id=1336433620]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CarimboMesh" unique_id=1336433620 groups=["sumivel"]]
 transform = Transform3D(2, 0, 0, 0, 0.16000001, 0, 0, 0, 2, 0, -0.79837775, 0)
 material_override = SubResource("StandardMaterial3D_vbpbb")
 mesh = SubResource("CylinderMesh_pydgl")

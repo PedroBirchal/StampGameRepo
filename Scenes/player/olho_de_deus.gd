@@ -26,6 +26,8 @@ var pos_raycast : Vector3
 func _ready() -> void:
 	var nodes = get_tree().get_nodes_in_group(direcao_grupo[direcao_quarto[dir_atual]])
 	grupo_para_excluir = nodes.map(func(node): return node.get_rid())
+	
+	carimbo.on_chegou.connect(func(interagivel: Interagivel): interagivel.interagir())
 
 func girar(dir: int) -> void:
 	if girando:

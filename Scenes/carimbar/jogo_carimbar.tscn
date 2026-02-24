@@ -15,7 +15,6 @@ albedo_texture = ExtResource("4_2thi0")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
-distance_fade_mode = 3
 distance_fade_min_distance = 7.0
 distance_fade_max_distance = 8.0
 
@@ -175,8 +174,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fjldk")
 
-[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("pos_na_cara", "pos_bem_na_cara", "sair_inspecionar_trigger", "pos_meio_mesa", "pos_receber_proximo")]
+[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("camera", "pos_na_cara", "pos_bem_na_cara", "sair_inspecionar_trigger", "pos_meio_mesa", "pos_receber_proximo")]
 script = ExtResource("1_yf8ht")
+camera = NodePath("CameraHolder/Camera3D")
 carta_prefab = ExtResource("2_hiyrm")
 pos_na_cara = NodePath("Mesa/NaCaraDoJogador/Holder")
 pos_bem_na_cara = NodePath("Mesa/NaCaraDoJogador/TotalmenteNaCara")
@@ -209,7 +209,7 @@ transform = Transform3D(1, 1.8634725e-20, -1.8634725e-20, -1.8634725e-20, 1, 0, 
 shape = SubResource("BoxShape3D_hiyrm")
 
 [node name="ProximoAVir" type="Node3D" parent="Mesa" unique_id=559523962]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5193577, 1.3559829, -1.2146034)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9538922, 1.3559829, -1.5396904)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesa/ProximoAVir" unique_id=1099073870]
 transform = Transform3D(0.7680935, 0, -0.64033765, 0, 1, 0, 0.64033765, 0, 0.7680935, 0, 0, 0)
@@ -217,7 +217,7 @@ visible = false
 mesh = SubResource("BoxMesh_m8bj5")
 
 [node name="MandarEmbora" type="Node3D" parent="Mesa" unique_id=1510397098]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4806423, 1.3559829, -1.2146034)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.110102, 1.3559829, -1.4148993)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesa/MandarEmbora" unique_id=748522938]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3613379, 0)

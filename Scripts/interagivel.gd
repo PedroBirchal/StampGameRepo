@@ -7,6 +7,8 @@ signal on_interact
 @export var material_outline: Material
 @export var area_de_interacao: Node3D
 
+@export var jogavel: Jogavel
+
 @export var setar_area_pos_click := false
 
 func _ready() -> void:
@@ -17,6 +19,12 @@ func _ready() -> void:
 
 func interagir() -> void:
 	on_interact.emit()
+	
+	if jogavel != null:
+		jogavel.jogar()
+	
+	if mesh != null:
+		mesh.set_surface_override_material(0, null)
 
 func _on_hover() -> void:
 	if mesh != null:
@@ -27,7 +35,6 @@ func _on_unhover() -> void:
 		mesh.set_surface_override_material(0, null)
 
 func setar_area_click(pos: Vector3) -> void:
-	print("setando: "+str(pos))
 	area_de_interacao.position = pos
 
 func _get_configuration_warnings() -> PackedStringArray:
