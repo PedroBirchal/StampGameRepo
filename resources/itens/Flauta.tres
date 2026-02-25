@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://b7e07cbkbqljw"]
+
+[ext_resource type="PackedScene" uid="uid://dlmyi0l7mw844" path="res://Models/Objetos_Caixa/Itens_Instrumentos/Flauta.fbx" id="1_bkntr"]
+[ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_6frwd"]
+
+[resource]
+script = ExtResource("2_6frwd")
+offset_pos = Vector3(0.085834265, -0.048645705, -0.10809061)
+offset_rot = Vector3(-0.80712754, -0.8612327, 0)
+mesh = ExtResource("1_bkntr")
+cabe_em = 2
+categorias = PackedStringArray("Instrumento")
+metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

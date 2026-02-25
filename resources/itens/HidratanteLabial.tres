@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://c5itjh32f1vqu"]
+
+[ext_resource type="PackedScene" uid="uid://dhn7pxivnvbim" path="res://Models/Objetos_Caixa/Itens_Gerais/Maquiagem_HidLabial.fbx" id="1_d4qvh"]
+[ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_r7xye"]
+
+[resource]
+script = ExtResource("2_r7xye")
+offset_pos = Vector3(0, -0.014, 0)
+offset_rot = Vector3(90, 0, 0)
+mesh = ExtResource("1_d4qvh")
+categorias = PackedStringArray("Maquiagem")
+metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

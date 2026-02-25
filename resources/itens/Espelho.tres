@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bujsnlhvx8a1b"]
+
+[ext_resource type="PackedScene" uid="uid://daeldk7u07157" path="res://Models/Objetos_Caixa/Itens_Gerais/Espelho.fbx" id="1_suj7n"]
+[ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_cvpo0"]
+
+[resource]
+script = ExtResource("2_cvpo0")
+offset_pos = Vector3(0.03852789, -0.047732666, 0.043302)
+offset_rot = Vector3(0.6368882, 0.77103406, -9.267464e-09)
+mesh = ExtResource("1_suj7n")
+cabe_em = 1
+metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

@@ -4,7 +4,6 @@ extends RigidBody3D
 enum EstadoEncomenda { PARADA, INSPECIONANDO, ABERTA }
 
 @export var estado_atual := EstadoEncomenda.PARADA
-
 var rotating : bool = false
 var selecionado : bool = false
 
@@ -12,6 +11,10 @@ signal abrindo
 signal fechando
 signal clicando
 signal estado_mudado(estado: EstadoEncomenda)
+
+
+var destino : Singleton.Cidades
+
 
 func _ready() -> void:
 	input_event.connect(_on_input_event)

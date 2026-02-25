@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bpykruimpns1q"]
+
+[ext_resource type="PackedScene" uid="uid://xmuqb4135jt5" path="res://Models/Objetos_Caixa/Itens_Ferramenta/Chave_Fenda.fbx" id="1_2ksr1"]
+[ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_8sxi0"]
+
+[resource]
+script = ExtResource("2_8sxi0")
+offset_pos = Vector3(0, 0, 0.17551918)
+mesh = ExtResource("1_2ksr1")
+categorias = PackedStringArray("Ferramenta")
+metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

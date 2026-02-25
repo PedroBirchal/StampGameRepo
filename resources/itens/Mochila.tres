@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://b2vmcel8c4s4r"]
+
+[ext_resource type="PackedScene" uid="uid://byb3ipiqbxchs" path="res://Models/Objetos_Caixa/Itens_Gerais/Mochila.fbx" id="1_ta4f7"]
+[ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_sf0t3"]
+
+[resource]
+script = ExtResource("2_sf0t3")
+offset_pos = Vector3(0.008514315, 0.012540646, -0.010012984)
+offset_rot = Vector3(-0.737454, -0.82838565, 0)
+mesh = ExtResource("1_ta4f7")
+cabe_em = 1
+metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

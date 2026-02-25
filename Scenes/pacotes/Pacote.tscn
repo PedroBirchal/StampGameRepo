@@ -1,0 +1,289 @@
+[gd_scene format=3 uid="uid://c680xhh36ufi5"]
+
+[ext_resource type="Script" uid="uid://dxt6pdgeqjswv" path="res://Scenes/pacotes/pacote.gd" id="1_1eue7"]
+[ext_resource type="PackedScene" uid="uid://b6eljqxn1jcq4" path="res://Models/Pacotes/PacoteGN_P.fbx" id="2_dchw8"]
+[ext_resource type="PackedScene" uid="uid://cx1hl3350yj8t" path="res://Models/Pacotes/PacoteGN_M.fbx" id="3_1eue7"]
+[ext_resource type="PackedScene" uid="uid://djx81ek61grk2" path="res://Models/Pacotes/PacoteGN_G.fbx" id="4_5tdmu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dchw8"]
+size = Vector3(0.27390748, 0.06431641, 0.6443359)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1eue7"]
+size = Vector3(0.43, 0.4, 0.43)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5tdmu"]
+size = Vector3(0.6194629, 0.5804688, 0.6194629)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0qn1f"]
+size = Vector3(0.023046875, 0.1171875, 0.6159668)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dchw8"]
+animation = &"Pacote_AbertoNG_P"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1eue7"]
+animation = &"Pacote_AbrindoNG_P"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5tdmu"]
+animation = &"Pacote_FechadoNG_P"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0qn1f"]
+animation = &"Pacote_FechandoNG_P"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xxx1o"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_keaht"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lbl8i"]
+advance_mode = 2
+advance_expression = "pacote_aberto == false"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q4o1q"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_janfm"]
+advance_mode = 2
+advance_expression = "pacote_aberto == true"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ngy0j"]
+states/Pacote_AbertoNG_P/node = SubResource("AnimationNodeAnimation_dchw8")
+states/Pacote_AbertoNG_P/position = Vector2(441, 142)
+states/Pacote_AbrindoNG_P/node = SubResource("AnimationNodeAnimation_1eue7")
+states/Pacote_AbrindoNG_P/position = Vector2(716, 142)
+states/Pacote_FechadoNG_P/node = SubResource("AnimationNodeAnimation_5tdmu")
+states/Pacote_FechadoNG_P/position = Vector2(441, 65)
+states/Pacote_FechandoNG_P/node = SubResource("AnimationNodeAnimation_0qn1f")
+states/Pacote_FechandoNG_P/position = Vector2(716, 65)
+transitions = ["Start", "Pacote_FechadoNG_P", SubResource("AnimationNodeStateMachineTransition_xxx1o"), "Pacote_AbrindoNG_P", "Pacote_AbertoNG_P", SubResource("AnimationNodeStateMachineTransition_keaht"), "Pacote_AbertoNG_P", "Pacote_FechandoNG_P", SubResource("AnimationNodeStateMachineTransition_lbl8i"), "Pacote_FechandoNG_P", "Pacote_FechadoNG_P", SubResource("AnimationNodeStateMachineTransition_q4o1q"), "Pacote_FechadoNG_P", "Pacote_AbrindoNG_P", SubResource("AnimationNodeStateMachineTransition_janfm")]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_keaht"]
+size = Vector3(0.044, 0.117, 0.788)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xxx1o"]
+animation = &"Pacote_AbertoNG_M"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_keaht"]
+animation = &"Pacote_AbrindoNG_M_001"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lbl8i"]
+animation = &"Pacote_FechadoNG_M"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q4o1q"]
+animation = &"Pacote_FechandoNG_M"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ngy0j"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_51n1c"]
+advance_mode = 2
+advance_expression = "pacote_aberto == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7bb40"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b7kkl"]
+advance_mode = 2
+advance_expression = "pacote_aberto == false"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xu3ie"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dasle"]
+states/Pacote_AbertoNG_M/node = SubResource("AnimationNodeAnimation_xxx1o")
+states/Pacote_AbertoNG_M/position = Vector2(684, 56)
+states/Pacote_AbrindoNG_M_001/node = SubResource("AnimationNodeAnimation_keaht")
+states/Pacote_AbrindoNG_M_001/position = Vector2(440, 56)
+states/Pacote_FechadoNG_M/node = SubResource("AnimationNodeAnimation_lbl8i")
+states/Pacote_FechadoNG_M/position = Vector2(435, 142)
+states/Pacote_FechandoNG_M/node = SubResource("AnimationNodeAnimation_q4o1q")
+states/Pacote_FechandoNG_M/position = Vector2(684, 142)
+transitions = ["Start", "Pacote_FechadoNG_M", SubResource("AnimationNodeStateMachineTransition_ngy0j"), "Pacote_FechadoNG_M", "Pacote_AbrindoNG_M_001", SubResource("AnimationNodeStateMachineTransition_51n1c"), "Pacote_AbrindoNG_M_001", "Pacote_AbertoNG_M", SubResource("AnimationNodeStateMachineTransition_7bb40"), "Pacote_AbertoNG_M", "Pacote_FechandoNG_M", SubResource("AnimationNodeStateMachineTransition_b7kkl"), "Pacote_FechandoNG_M", "Pacote_FechadoNG_M", SubResource("AnimationNodeStateMachineTransition_xu3ie")]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xxx1o"]
+size = Vector3(0.04387207, 0.1171875, 1.152771)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_janfm"]
+animation = &"Pacote_AbertoNG_G"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ngy0j"]
+animation = &"Pacote_AbrindoNG_G"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_51n1c"]
+animation = &"Pacote_FechadoNG_G"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7bb40"]
+animation = &"Pacote_FechandoNG_G"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dasle"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n53mx"]
+advance_mode = 2
+advance_expression = "pacote_aberto == false"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qc3ar"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_68ncy"]
+advance_mode = 2
+advance_expression = "pacote_aberto == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_46cwj"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0ukxd"]
+states/Pacote_AbertoNG_G/node = SubResource("AnimationNodeAnimation_janfm")
+states/Pacote_AbertoNG_G/position = Vector2(381, 35)
+states/Pacote_AbrindoNG_G/node = SubResource("AnimationNodeAnimation_ngy0j")
+states/Pacote_AbrindoNG_G/position = Vector2(620, 35)
+states/Pacote_FechadoNG_G/node = SubResource("AnimationNodeAnimation_51n1c")
+states/Pacote_FechadoNG_G/position = Vector2(620, 133)
+states/Pacote_FechandoNG_G/node = SubResource("AnimationNodeAnimation_7bb40")
+states/Pacote_FechandoNG_G/position = Vector2(381, 140)
+states/Start/position = Vector2(835, 191)
+transitions = ["Pacote_AbrindoNG_G", "Pacote_AbertoNG_G", SubResource("AnimationNodeStateMachineTransition_dasle"), "Pacote_AbertoNG_G", "Pacote_FechandoNG_G", SubResource("AnimationNodeStateMachineTransition_n53mx"), "Pacote_FechandoNG_G", "Pacote_FechadoNG_G", SubResource("AnimationNodeStateMachineTransition_qc3ar"), "Pacote_FechadoNG_G", "Pacote_AbrindoNG_G", SubResource("AnimationNodeStateMachineTransition_68ncy"), "Start", "Pacote_FechadoNG_G", SubResource("AnimationNodeStateMachineTransition_46cwj")]
+
+[node name="Pacote" type="RigidBody3D" unique_id=2133772471 node_paths=PackedStringArray("conteudo_holder", "pacote_pequeno", "pacote_medio", "pacote_grande", "colisor_pequeno", "colisor_medio", "colisor_grande", "item_pra_cima", "item_pra_cara")]
+script = ExtResource("1_1eue7")
+conteudo_holder = NodePath("Conteudo")
+pode_abrir = true
+pacote_pequeno = NodePath("Mesh/Pacote_Generico_P/PacoteGN_P")
+pacote_medio = NodePath("Mesh/Pacote_Generico_M/PacoteGN_M")
+pacote_grande = NodePath("Mesh/Pacote_Generico_G/PacoteGN_G")
+colisor_pequeno = NodePath("ColisorP")
+colisor_medio = NodePath("ColisorM")
+colisor_grande = NodePath("ColisorG")
+item_pra_cima = NodePath("TragetoriaMostrandoItem/TransicaoItemCaixaPlayer")
+item_pra_cara = NodePath("TragetoriaMostrandoItem/ItemNaCara")
+
+[node name="ColisorP" type="CollisionShape3D" parent="." unique_id=1888587168]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0028167516, -0.0019481555, -0.0028320253)
+shape = SubResource("BoxShape3D_dchw8")
+
+[node name="ColisorM" type="CollisionShape3D" parent="." unique_id=1928850750]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.1900744e-05, 0.012871169, -0.0028320253)
+shape = SubResource("BoxShape3D_1eue7")
+
+[node name="ColisorG" type="CollisionShape3D" parent="." unique_id=1134925766]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.00059749186, -0.008417875, -0.00022950768)
+shape = SubResource("BoxShape3D_5tdmu")
+
+[node name="Mesh" type="Node3D" parent="." unique_id=1671117450]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Pacote_Generico_P" type="Node3D" parent="Mesh" unique_id=1861642182]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03613381, 0)
+
+[node name="PacoteGN_P" parent="Mesh/Pacote_Generico_P" unique_id=1278761663 instance=ExtResource("2_dchw8")]
+
+[node name="Skeleton3D" parent="Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P" parent_id_path=PackedInt32Array(1278761663, 633383849) index="0" unique_id=1662425764]
+bones/1/rotation = Quaternion(-1.8662506e-08, -0.14015305, 0.99012995, 1.3184379e-07)
+bones/1/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(1.3184376e-07, 0.9901298, -0.1401532, -1.8662519e-08)
+bones/3/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.49683884, 0.50314134, 0.50314146, -0.49683878)
+bones/5/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.5, 0.5, 0.49999997, 0.50000006)
+bones/7/scale = Vector3(1, 1, 1)
+
+[node name="AreaClicavelParaAbrir" type="Area3D" parent="Mesh/Pacote_Generico_P" unique_id=117356702]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.035073668, 0.1836243)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Pacote_Generico_P/AreaClicavelParaAbrir" unique_id=2128379806]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.0021914255, 0.041424945, -0.18469238)
+shape = SubResource("BoxShape3D_0qn1f")
+
+[node name="AnimationTree" type="AnimationTree" parent="Mesh/Pacote_Generico_P" unique_id=1827516169]
+root_node = NodePath("../PacoteGN_P")
+tree_root = SubResource("AnimationNodeStateMachine_ngy0j")
+advance_expression_base_node = NodePath("../../..")
+anim_player = NodePath("../PacoteGN_P/AnimationPlayer")
+
+[node name="Pacote_Generico_M" type="Node3D" parent="Mesh" unique_id=1262567056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19668353, 0)
+
+[node name="PacoteGN_M" parent="Mesh/Pacote_Generico_M" unique_id=1679340880 instance=ExtResource("3_1eue7")]
+
+[node name="Skeleton3D" parent="Mesh/Pacote_Generico_M/PacoteGN_M/Arm_PacoteGN_M" parent_id_path=PackedInt32Array(1679340880, 2137022330) index="0" unique_id=251913970]
+bones/1/rotation = Quaternion(1.866251e-08, -0.14015305, 0.99012995, -1.3184379e-07)
+bones/1/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(-1.3184375e-07, 0.9901298, -0.1401532, 1.8662524e-08)
+bones/3/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.5, 0.5, 0.5, -0.50000006)
+bones/5/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.50000006, 0.5, 0.5, 0.50000006)
+bones/7/scale = Vector3(1, 1, 1)
+
+[node name="AreaClicavelParaAbrir" type="Area3D" parent="Mesh/Pacote_Generico_M" unique_id=924040768]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.41632718, -0.041811734)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/Pacote_Generico_M/AreaClicavelParaAbrir" unique_id=1203149302]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -4.551491e-10, 0.02851209, 0.0847168)
+shape = SubResource("BoxShape3D_keaht")
+
+[node name="AnimationTree" type="AnimationTree" parent="Mesh/Pacote_Generico_M" unique_id=790676342]
+root_node = NodePath("../PacoteGN_M")
+tree_root = SubResource("AnimationNodeStateMachine_dasle")
+advance_expression_base_node = NodePath("../../..")
+anim_player = NodePath("../PacoteGN_M/AnimationPlayer")
+
+[node name="Pacote_Generico_G" type="Node3D" parent="Mesh" unique_id=1506890398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29993355, 0)
+
+[node name="PacoteGN_G" parent="Mesh/Pacote_Generico_G" unique_id=1741681493 instance=ExtResource("4_5tdmu")]
+
+[node name="Skeleton3D" parent="Mesh/Pacote_Generico_G/PacoteGN_G/Arm_PacoteGN_G" parent_id_path=PackedInt32Array(1741681493, 995602992) index="0" unique_id=1532019096]
+bones/1/rotation = Quaternion(1.866251e-08, -0.14015307, 0.9901299, -1.3184378e-07)
+bones/1/scale = Vector3(1, 0.9999997, 0.99999994)
+bones/3/rotation = Quaternion(-1.3184378e-07, 0.99012995, -0.14015304, 1.8662517e-08)
+bones/3/scale = Vector3(1, 0.9999997, 0.99999994)
+bones/5/position = Vector3(-0.0031243155, 0.0027191793, 0.0059756404)
+bones/5/rotation = Quaternion(0.5, 0.5, 0.5, -0.50000006)
+bones/5/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.50000006, 0.5, 0.5, 0.50000006)
+bones/7/scale = Vector3(1, 1, 1)
+
+[node name="AreaClicavelParaAbrir" type="Area3D" parent="Mesh/Pacote_Generico_G" unique_id=519262367]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.6166247, -0.041811734)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/Pacote_Generico_G/AreaClicavelParaAbrir" unique_id=103527374]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.013401091, 0.101)
+shape = SubResource("BoxShape3D_xxx1o")
+
+[node name="AnimationTree" type="AnimationTree" parent="Mesh/Pacote_Generico_G" unique_id=1292431712]
+root_node = NodePath("../PacoteGN_G")
+tree_root = SubResource("AnimationNodeStateMachine_0ukxd")
+advance_expression_base_node = NodePath("../../..")
+anim_player = NodePath("../PacoteGN_G/AnimationPlayer")
+
+[node name="Conteudo" type="Node3D" parent="." unique_id=1129233226]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="TragetoriaMostrandoItem" type="Node3D" parent="." unique_id=252390622]
+
+[node name="ItemNaCara" type="Node3D" parent="TragetoriaMostrandoItem" unique_id=762883663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36032593, 1.3644404)
+
+[node name="TransicaoItemCaixaPlayer" type="Node3D" parent="TragetoriaMostrandoItem" unique_id=610664393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+
+[connection signal="input_event" from="Mesh/Pacote_Generico_P/AreaClicavelParaAbrir" to="." method="_on_area_clicavel_para_abrir_input_event"]
+[connection signal="input_event" from="Mesh/Pacote_Generico_M/AreaClicavelParaAbrir" to="." method="_on_area_clicavel_para_abrir_input_event"]
+[connection signal="input_event" from="Mesh/Pacote_Generico_G/AreaClicavelParaAbrir" to="." method="_on_area_clicavel_para_abrir_input_event"]
+
+[editable path="Mesh/Pacote_Generico_P/PacoteGN_P"]
+[editable path="Mesh/Pacote_Generico_M/PacoteGN_M"]
+[editable path="Mesh/Pacote_Generico_G/PacoteGN_G"]

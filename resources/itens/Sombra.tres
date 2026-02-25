@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bbg7wgt1gvano"]
+
+[ext_resource type="PackedScene" uid="uid://byx3526yxeier" path="res://Models/Objetos_Caixa/Itens_Gerais/Maquiagem_Sombras.fbx" id="1_vfd6n"]
+[ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_te1dq"]
+
+[resource]
+script = ExtResource("2_te1dq")
+offset_pos = Vector3(0, -0.023, 0)
+mesh = ExtResource("1_vfd6n")
+categorias = PackedStringArray("Maquiagem")
+metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

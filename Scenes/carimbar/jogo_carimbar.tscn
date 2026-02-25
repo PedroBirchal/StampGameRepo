@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://djda65x1gkvo8" path="res://materials/ColorMap.png" id="4_2thi0"]
 [ext_resource type="Texture2D" uid="uid://b5il0e6nkklu6" path="res://Sprites/carimboAzul.png" id="4_i71g1"]
 [ext_resource type="Texture2D" uid="uid://k0rsovqol2p5" path="res://Sprites/carimboVermelho.png" id="5_2thi0"]
+[ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="8_5f1bj"]
+[ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="9_dgb7d"]
+[ext_resource type="Script" uid="uid://d36v0h2e11jsd" path="res://Scripts/carimbar/spawn_encomenda.gd" id="10_gqmlt"]
+[ext_resource type="PackedScene" uid="uid://c680xhh36ufi5" path="res://Scenes/pacotes/Pacote.tscn" id="12_ncxsn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1nvq"]
 resource_name = "ColorMap"
@@ -18,7 +22,7 @@ emission_energy_multiplier = 0.0
 distance_fade_min_distance = 7.0
 distance_fade_max_distance = 8.0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_n5l66"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_pyn3w"]
 _surfaces = [{
 "aabb": AABB(-0.27760732, -1.4832045, -0.018286705, 1.2837515, 2.3550963, 1.0269179),
 "format": 34359742465,
@@ -50,7 +54,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("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84NAPnNBTj/gzZW8iyKOvnNBTj+4dPQ+iyKOvnNBTj839do+iyKOvlA0Xz839do+iyKOvlA0Xz+4dPQ+iyKOvnNBTj+4dPQ+iyKOvlA0Xz+4dPQ+iyKOvlA0Xz839do+iyKOvnNBTj839do+64NAPnNBTj/UGoE/1950vnNBTj+4dPQ+iyKOvnNBTj+4dPQ+iyKOvnNBTj+4dPQ+1950vnNBTj+4dPQ+1950vnNBTj839do+iyKOvnNBTj839do+iyKOvlA0Xz+4dPQ+7YNAPlA0Xz+4dPQ+84NAPlA0Xz/UGoE///////9//v///////3//////////f/7///////9//v///////3/+////////f/////////9//////////3////9//3//fwCA/3//f/9/AID/f/9//38AgP9//3//fwCA/3//f/9/AID/f/9//38AgP9//3//fwCA/3//f/9/AID/f///////v/9///////+//3///////7//f///////v/9//v8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9//v8AAP+//3/+/wAA/7//fwAA/v//v/9/AAD///+//38AAP7//7//fwAA////v/9/AAD///+//38AAP///7//fwAA/v//v/9/AAD+//+/AAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AID/fwAAAAD/v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v////3//fwCA////f/9/AID///9//38AgP///3//fwCAAAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AIAAAP9//38AgHcAiH/KgDuAdwCIf8qAO4AZABiA5X8MgBkAGIDlfwyA/3//fxyADoD/f/9/7H8IgP9//3//fwCA/3//fxiADIAAAP///38AgAAA////fwCA//////9/AID//////38AgAAA/3//fwCAAAD/f/9/AIAAAP9//38AgAAA/3//fwCA//////9//////////3/+////////f/7///////9//v///////3////9//3//fwCA/3//f/9/AID/f/9//38AgP9//3//fwCA/3///////7//f///////v/9///////+//3///////7//f///////v////3//fwCA////f/9/AID///9//38AgP///3//fwCA////f/9/AID///9//38AgP9/AAD+//+//38AAP7//7//fwAAAAD/v/9//3/lfwyAAAD///9/AIB3AIh/yoA7gHcAiH/KgDuA/3//f/9/AID/f/9//38AgP//////f////3//f/9/AID/f/9//38AgP9//3//fwCA/3//f/9/AID/f/9//38AgP9//3//fwCA//////9//v///////3/+////////f/7///////9//v///////3//////////f/////////9//v///////3/+////////f/7///////9//v//f/9//38AgP9//3//fwCA/3//f/9/AID/f/9//38AgAAA/3//fwCAAAD/f/9/AIAAAP9//38AgAAA/3//fwCA////f/9/AID///9//38AgP///3//fwCA////f/9/AID///9//38AgP///3//fwCA////f/9/AID///9//38AgP///3//fwCA////f/9/AID///9//38AgP///3//fwCA////f/9/AID///9//38AgP9/AAAAAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+//38AAAAA/7//f///////v/9///////+//3///////7//f///////v/9///////+//3///////7//f///////v/9///////+//3///////7//f///////v/9///////+//3///////7//f///////v/9///8AAP+/AAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AID/f///////v/9///////+//3///////7//fwAAAAD/v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+//38AAAAA/78AAP9//38AgAAA/3//fwCA/3///wAA/7//f///AAD/v/9//v8AAP+//3/+/wAA/7//f/7/AAD/vwAA/3//fwCAAAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AIAAAP9//38AgP9//3/3fwOAAAD///9/AID/f/7/AAD/v/9//v8AAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v////v//f//////+//9///////7//3///////v//f////3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f/9/IoAQgP9//38egA+A//////9/AID//////38AgBkAGIDkfwyAGQAYgOR/DID/f///////v/9///////+//3///////7//fwAA////v/9/AAD///+//38AAP///78AAP9//38AgAAA/3//fwCAAAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AIAAAP9//38AgAAA/3//fwCA/38AAP///7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+//38AAP///7//f///////v/9///////+//3///////78=")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_n5l66")
+shadow_mesh = SubResource("ArrayMesh_pyn3w")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hiyrm"]
 size = Vector3(5.6, 1.204, 3)
@@ -62,10 +66,10 @@ size = Vector3(0.75, 0.75, 0.75)
 size = Vector3(0.75, 0.25, 0.75)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g6dvo"]
-size = Vector3(1, 1.5772705, 1)
+size = Vector3(1, 0.21539307, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m8bj5"]
-size = Vector3(3, 0.001, 3)
+size = Vector3(9, 0.001, 9)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hiyrm"]
 albedo_color = Color(0.35591912, 0.14386687, 0.040448435, 1)
@@ -174,15 +178,24 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fjldk")
 
-[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("camera", "pos_na_cara", "pos_bem_na_cara", "sair_inspecionar_trigger", "pos_meio_mesa", "pos_receber_proximo")]
+[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("camera", "spawner", "pos_pacote_na_cara", "pos_pacote_aberto", "pos_carta_na_cara", "pos_carta_aberta", "sair_inspecionar_trigger", "pos_meio_mesa", "pos_receber_proximo", "jogavel_ui")]
 script = ExtResource("1_yf8ht")
 camera = NodePath("CameraHolder/Camera3D")
-carta_prefab = ExtResource("2_hiyrm")
-pos_na_cara = NodePath("Mesa/NaCaraDoJogador/Holder")
-pos_bem_na_cara = NodePath("Mesa/NaCaraDoJogador/TotalmenteNaCara")
+spawner = NodePath("EncomendaSpawner")
+pos_pacote_na_cara = NodePath("Mesa/NaCaraDoJogador/RefPacote/VisaoPacote")
+pos_pacote_aberto = NodePath("Mesa/NaCaraDoJogador/RefPacote/PacoteAbrindo")
+pos_carta_na_cara = NodePath("Mesa/NaCaraDoJogador/RefCarta/Holder")
+pos_carta_aberta = NodePath("Mesa/NaCaraDoJogador/RefCarta/TotalmenteNaCara")
 sair_inspecionar_trigger = NodePath("Mesa/NaCaraDoJogador/ClicarParaSair")
-pos_meio_mesa = NodePath("Mesa/CentroDaMesa/MeshInstance3D/Meio")
+pos_meio_mesa = NodePath("Mesa/CentroDaMesa/Meio")
 pos_receber_proximo = NodePath("Mesa/ProximoAVir")
+jogavel_ui = NodePath("UI")
+
+[node name="EncomendaSpawner" type="Node3D" parent="." unique_id=1223402288 node_paths=PackedStringArray("lugar_de_spawn")]
+script = ExtResource("10_gqmlt")
+lugar_de_spawn = NodePath("../Mesa/ProximoAVir")
+carta_prefab = ExtResource("2_hiyrm")
+pacote_prefab = ExtResource("12_ncxsn")
 
 [node name="Cenario" type="Node3D" parent="." unique_id=1633811364]
 
@@ -228,14 +241,11 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa/MandarEmbora/AreaClicavel" unique_id=578048487]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28863525, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39230347, 0)
 shape = SubResource("BoxShape3D_g6dvo")
 
 [node name="NaCaraDoJogador" type="Node3D" parent="Mesa" unique_id=558165658]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.3174038, 0.1808415)
-
-[node name="Holder" type="Node3D" parent="Mesa/NaCaraDoJogador" unique_id=2072858372]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.024479687, 0.035221577)
 
 [node name="Carta" parent="Mesa/NaCaraDoJogador" unique_id=1512388856 instance=ExtResource("2_hiyrm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.064992696, -0.06034732)
@@ -243,6 +253,7 @@ visible = false
 gravity_scale = 0.0
 
 [node name="ClicarParaSair" type="Area3D" parent="Mesa/NaCaraDoJogador" unique_id=96724193]
+transform = Transform3D(1, 0, 0, 0, 0.6490498, 0.7607459, 0, -0.7607459, 0.6490498, 0, -1.5923661, 0.5612518)
 visible = false
 monitoring = false
 monitorable = false
@@ -251,22 +262,36 @@ monitorable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.10193943, 0)
 shape = SubResource("BoxShape3D_m8bj5")
 
-[node name="TotalmenteNaCara" type="Node3D" parent="Mesa/NaCaraDoJogador" unique_id=1920476582]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.9604645e-08, 0.29294264)
+[node name="RefCarta" type="Node3D" parent="Mesa/NaCaraDoJogador" unique_id=24380973]
+
+[node name="Holder" type="Node3D" parent="Mesa/NaCaraDoJogador/RefCarta" unique_id=2072858372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.024479687, 0.035221577)
+
+[node name="TotalmenteNaCara" type="Node3D" parent="Mesa/NaCaraDoJogador/RefCarta" unique_id=1920476582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.9604645e-08, 0.29294252)
+
+[node name="RefPacote" type="Node3D" parent="Mesa/NaCaraDoJogador" unique_id=2109179412]
+
+[node name="VisaoPacote" type="Node3D" parent="Mesa/NaCaraDoJogador/RefPacote" unique_id=305228953]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.27042258, 0.03638935)
+
+[node name="PacoteAbrindo" type="Node3D" parent="Mesa/NaCaraDoJogador/RefPacote" unique_id=2079452648]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -1.3410648, 0.5734141)
 
 [node name="CentroDaMesa" type="Node3D" parent="Mesa" unique_id=189794322]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+
+[node name="Meio" type="Node3D" parent="Mesa/CentroDaMesa" unique_id=918461443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0821116, 0.53724253)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesa/CentroDaMesa" unique_id=1040924777]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08347249, 0.53724253)
 mesh = SubResource("BoxMesh_g6dvo")
 
-[node name="Meio" type="Node3D" parent="Mesa/CentroDaMesa/MeshInstance3D" unique_id=918461443]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16558409, 0)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="Mesa/CentroDaMesa/MeshInstance3D" unique_id=1325097591]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa/CentroDaMesa/MeshInstance3D/StaticBody3D" unique_id=1395620120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019981742, 0)
 shape = SubResource("BoxShape3D_msc56")
 
 [node name="Carimbo" parent="Mesa/CentroDaMesa/MeshInstance3D" unique_id=56766804 node_paths=PackedStringArray("cam") instance=ExtResource("3_g6dvo")]
@@ -292,5 +317,23 @@ mesh = SubResource("ArrayMesh_5f1bj")
 transform = Transform3D(1, 0, 0, 0, 0.121488206, 0.9925929, 0, -0.9925929, 0.121488206, 0, 3.6487668, 2.3863597)
 visible = false
 
+[node name="UI" type="Control" parent="." unique_id=1061756243]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="SairDoJogo" type="TextureButton" parent="UI" unique_id=974350490]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 75.0
+offset_bottom = 75.0
+texture_normal = ExtResource("8_5f1bj")
+texture_hover = ExtResource("9_dgb7d")
+
 [connection signal="input_event" from="Mesa/MandarEmbora/AreaClicavel" to="." method="_on_mandar_pra_la"]
 [connection signal="input_event" from="Mesa/NaCaraDoJogador/ClicarParaSair" to="." method="_clicar_sair_inspecionar"]
+[connection signal="pressed" from="UI/SairDoJogo" to="." method="sair"]

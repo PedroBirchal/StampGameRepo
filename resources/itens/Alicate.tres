@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://c16b0igfp75cs"]
+
+[ext_resource type="PackedScene" uid="uid://dcelan5teqtcu" path="res://Models/Objetos_Caixa/Itens_Ferramenta/Alicate.fbx" id="1_324oo"]
+[ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_tcqqi"]
+
+[resource]
+script = ExtResource("2_tcqqi")
+offset_pos = Vector3(0, -0.0052597485, 0.06995511)
+offset_rot = null
+mesh = ExtResource("1_324oo")
+meshs = ExtResource("1_324oo")
+cabe_em = null
+categorias = PackedStringArray("Ferramenta")
+metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://hkugqy51lbuu"]
+
+[ext_resource type="PackedScene" uid="uid://buuo15uk5m160" path="res://Models/Objetos_Caixa/Itens_Ferramenta/Martelo.fbx" id="1_xq2ot"]
+[ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_070rn"]
+
+[resource]
+script = ExtResource("2_070rn")
+offset_pos = Vector3(-0.007, 0, 0.087)
+mesh = ExtResource("1_xq2ot")
+categorias = PackedStringArray("Ferramenta")
+metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

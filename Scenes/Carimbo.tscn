@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bw1ojqtg63gsa"]
 
 [ext_resource type="Texture2D" uid="uid://c61a1egltj83d" path="res://Sprites/dashed_circle.png" id="1_10gvi"]
-[ext_resource type="Script" uid="uid://dc2ersi6xstuw" path="res://Scripts/CarimboDrag.gd" id="1_bshui"]
+[ext_resource type="Script" uid="uid://dc2ersi6xstuw" path="res://Scripts/carimbar/CarimboDrag.gd" id="1_bshui"]
 [ext_resource type="Texture2D" uid="uid://u7oxp4u8p7ix" path="res://Sprites/StampVFX.png" id="3_oj1nn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bshui"]

@@ -166,8 +166,9 @@ func mandar_para() -> void:
 
 [node name="Quarto" type="Node3D" unique_id=2017398307]
 
-[node name="Jogo" type="Node" parent="." unique_id=510473093 node_paths=PackedStringArray("quarto_ui")]
+[node name="Jogo" type="Node" parent="." unique_id=510473093 node_paths=PackedStringArray("jogador", "quarto_ui")]
 script = ExtResource("1_js386")
+jogador = NodePath("../Jogador")
 quarto_ui = NodePath("../UI_Jogo")
 metadata/_custom_type_script = "uid://d4j65a74tvcye"
 
@@ -182,7 +183,7 @@ transform = Transform3D(-1.49, 0, -1.355053e-07, 0, 2, 0, 1.3025993e-07, 0, -1.5
 [node name="Janela" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="0" unique_id=1730109776 groups=["sumivel"]]
 
 [node name="LetterWardrobe" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito" unique_id=1395115724 groups=["sumivel"]]
-transform = Transform3D(-8.742277e-08, -1.9999995, -8.742277e-08, 0, -8.7422755e-08, 1.9999999, -1.9999999, 8.7422755e-08, 3.8213705e-15, -4.825548, 0.06381062, 0.6256212)
+transform = Transform3D(-8.742277e-08, -1.9999995, -8.742277e-08, 0, -8.7422755e-08, 1.9999999, -1.9999999, 8.7422755e-08, 3.8213705e-15, -4.4574823, 0.06381062, 0.6256212)
 mesh = SubResource("ArrayMesh_lij7j")
 
 [node name="TrashCan" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito/LetterWardrobe" unique_id=784844877 groups=["sumivel"]]
@@ -349,7 +350,7 @@ direcao_grupo = Dictionary[int, String]({
 })
 
 [node name="Camera3D" type="Camera3D" parent="OlhoDeDeus" unique_id=573588799]
-transform = Transform3D(0.9999141, -0.0044830022, 0.0123170605, 0, 0.9396937, 0.34201735, -0.013107528, -0.341988, 0.9396129, 0, 4.458, 8.109)
+transform = Transform3D(0.9999141, -0.0044830022, 0.0123170605, 0, 0.9396936, 0.34201735, -0.013107528, -0.34198797, 0.9396129, 0, 4.458, 8.109)
 current = true
 fov = 67.5
 

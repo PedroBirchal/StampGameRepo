@@ -11,6 +11,10 @@ signal saindo
 
 @export var jogavel_ui : Control
 
+func _ready() -> void:
+	if jogavel_ui != null:
+		jogavel_ui.hide()
+
 func jogar() -> void:
 	entrando.emit()
 	

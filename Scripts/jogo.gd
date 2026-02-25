@@ -8,6 +8,7 @@ enum Estado { QUARTO, JOGANDO }
 
 var estado := Estado.QUARTO
 var jogavel_atual : Jogavel
+@export var jogador : Jogador
 
 @export_group("UI")
 @export var quarto_ui : Control
@@ -15,6 +16,7 @@ var jogavel_atual : Jogavel
 @export_group("Sumir Objetos Perto")
 @export var distancia_fade_min := 7
 @export var distancia_fade_max := 8
+
 
 
 func _init() -> void:
@@ -41,8 +43,10 @@ func mudar_estado(std: Estado) -> void:
 	
 	if estado == Estado.QUARTO:
 		quarto_ui.show()
+		jogador.show()
 	elif estado == Estado.JOGANDO:
 		quarto_ui.hide()
+		jogador.hide()
 	
 	atualizar_sumiveis()
 

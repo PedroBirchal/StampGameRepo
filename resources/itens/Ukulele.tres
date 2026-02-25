@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bg5dsts5x7yiy"]
+
+[ext_resource type="PackedScene" uid="uid://ddle7tbchbgep" path="res://Models/Objetos_Caixa/Itens_Instrumentos/Ukulele.fbx" id="1_5i3fc"]
+[ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_emq78"]
+
+[resource]
+script = ExtResource("2_emq78")
+offset_pos = Vector3(-2.9802322e-08, -0.10992534, 0.11551513)
+offset_rot = Vector3(-0.79449123, 0, 0)
+mesh = ExtResource("1_5i3fc")
+cabe_em = 2
+categorias = PackedStringArray("Instrumento")
+metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

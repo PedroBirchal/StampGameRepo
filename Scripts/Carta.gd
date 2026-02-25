@@ -2,7 +2,6 @@ class_name Carta
 extends Encomenda
 
 
-var destino : Singleton.Cidades
 @export var valor : int = 1
 
 @export var mesh_carta : MeshInstance3D
