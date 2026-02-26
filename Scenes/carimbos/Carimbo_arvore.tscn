@@ -74,7 +74,7 @@ bind/3/name = &"Base"
 bind/3/bone = -1
 bind/3/pose = Transform3D(1.4210855e-14, 1, 1.1920929e-07, -1, -1.4210855e-14, 1.1920929e-07, 1.1920929e-07, -1.1920929e-07, 1, -1.6397731e-09, 0.0039951, -0.0006658451)
 
-[node name="Carimbo Infernopolis" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray")]
+[node name="Carimbo Arvore" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray")]
 script = ExtResource("1_1tqss")
 previsao = NodePath("Sprite3D")
 Carimbada = ExtResource("2_hcvay")
@@ -82,7 +82,7 @@ ray = NodePath("RayCast3D")
 posDecal = Vector3(0.5, 0.5, 0.5)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103]
-transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, -0.10073361, 0)
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -0.0786741, 0)
 modulate = Color(1, 1, 1, 0.45882353)
 axis = 1
 texture = ExtResource("2_1tqss")

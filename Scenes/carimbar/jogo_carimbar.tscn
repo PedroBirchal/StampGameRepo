@@ -2,12 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ouaywjh4gbu4" path="res://Scenes/carimbar/jogo_carimbar.gd" id="1_yf8ht"]
 [ext_resource type="PackedScene" uid="uid://ckpspcilmmx3c" path="res://Scenes/Carta.tscn" id="2_hiyrm"]
-[ext_resource type="PackedScene" uid="uid://bw1ojqtg63gsa" path="res://Scenes/Carimbo.tscn" id="3_g6dvo"]
+[ext_resource type="PackedScene" uid="uid://bw1ojqtg63gsa" path="res://Scenes/carimbos/Carimbo_infernopolis.tscn" id="3_g6dvo"]
 [ext_resource type="Script" uid="uid://cgohyllorbxkj" path="res://Scripts/camera/camera_tilt.gd" id="3_i71g1"]
 [ext_resource type="Texture2D" uid="uid://djda65x1gkvo8" path="res://materials/ColorMap.png" id="4_2thi0"]
-[ext_resource type="Texture2D" uid="uid://b5il0e6nkklu6" path="res://Sprites/carimboAzul.png" id="4_i71g1"]
-[ext_resource type="Texture2D" uid="uid://k0rsovqol2p5" path="res://Sprites/carimboVermelho.png" id="5_2thi0"]
 [ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="8_5f1bj"]
+[ext_resource type="PackedScene" uid="uid://c6mdtx25j1ean" path="res://Scenes/carimbos/Carimbo_arvore.tscn" id="8_iapwp"]
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="9_dgb7d"]
 [ext_resource type="Script" uid="uid://d36v0h2e11jsd" path="res://Scripts/carimbar/spawn_encomenda.gd" id="10_gqmlt"]
 [ext_resource type="Texture2D" uid="uid://rq1cuj01lbe2" path="res://Sprites/ui/pro_lado.png" id="10_ncxsn"]
@@ -289,6 +288,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
 [node name="Meio" type="Node3D" parent="Mesa/CentroDaMesa" unique_id=918461443]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0821116, 0.53724253)
 
+[node name="Carimbo Infernopolis" parent="Mesa/CentroDaMesa" unique_id=56766804 node_paths=PackedStringArray("cam") instance=ExtResource("3_g6dvo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.9652621, 0.058162928, 0.10475242)
+cam = NodePath("../../../CameraHolder/Camera3D")
+
+[node name="Carimbo Arvore" parent="Mesa/CentroDaMesa" unique_id=372205992 node_paths=PackedStringArray("cam") instance=ExtResource("8_iapwp")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.43389463, 0.08795619, 0.10475242)
+cam = NodePath("../../../CameraHolder/Camera3D")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesa/CentroDaMesa" unique_id=1040924777]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08347249, 0.53724253)
 mesh = SubResource("BoxMesh_g6dvo")
@@ -298,16 +305,6 @@ mesh = SubResource("BoxMesh_g6dvo")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa/CentroDaMesa/MeshInstance3D/StaticBody3D" unique_id=1395620120]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019981742, 0)
 shape = SubResource("BoxShape3D_msc56")
-
-[node name="Carimbo" parent="Mesa/CentroDaMesa/MeshInstance3D" unique_id=56766804 node_paths=PackedStringArray("cam") instance=ExtResource("3_g6dvo")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.98144627, 0.13696328, -0.2830931)
-cam = NodePath("../../../../CameraHolder/Camera3D")
-Carimbada = ExtResource("4_i71g1")
-
-[node name="Carimbo2" parent="Mesa/CentroDaMesa/MeshInstance3D" unique_id=1166558827 node_paths=PackedStringArray("cam") instance=ExtResource("3_g6dvo")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.0059127, 0.137, 0.40315968)
-cam = NodePath("../../../../CameraHolder/Camera3D")
-Carimbada = ExtResource("5_2thi0")
 
 [node name="Chair" type="MeshInstance3D" parent="Mesa" unique_id=1321028306]
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, -0.19740738, 0.7466959)
