@@ -1,60 +1,26 @@
 extends Node3D
 
-enum DirecaoQuarto { FRENTE, ESQUERDA, COSTAS, DIREITA }
-
 @export_group("Raycast")
 @export var distancia_max_cast: float = 5
 @export var camera: Camera3D
 
 @export_group("O Mundo")
+@export var rotacionavel: Rotacionavel
 @export var carimbo: Jogador
-@export var direcao_grupo: Dictionary[DirecaoQuarto, String]
-var direcao_quarto = [DirecaoQuarto.FRENTE,DirecaoQuarto.DIREITA,DirecaoQuarto.COSTAS,DirecaoQuarto.ESQUERDA,DirecaoQuarto.FRENTE]
 var grupo_para_excluir : Array
 
 
 var ultimo_raycast_achado: CollisionObject3D
 var interagivel_atual: Interagivel
-
-var direcao = [0, PI/2, PI, 1.5*PI, deg_to_rad(360)]
-var dir_atual = 0
-var girando := false
-
 var pos_raycast : Vector3
 
 
 func _ready() -> void:
-	var nodes = get_tree().get_nodes_in_group(direcao_grupo[direcao_quarto[dir_atual]])
+	var nodes = get_tree().get_nodes_in_group(Singleton.direcao_grupo[rotacionavel.get_direcao_atual()])
 	grupo_para_excluir = nodes.map(func(node): return node.get_rid())
 	
 	carimbo.on_chegou.connect(func(interagivel: Interagivel): interagivel.interagir())
 
-func girar(dir: int) -> void:
-	if girando:
-		return
-	
-	var nova_rotacao = rotation
-	dir_atual = dir_atual + dir
-	
-	if dir_atual >= len(direcao):
-		rotation.y = 0
-		dir_atual = 1
-	elif dir_atual < 0:
-		dir_atual = len(direcao) - 2
-		rotation.y = direcao[len(direcao) - 1]
-	
-	nova_rotacao.y = direcao[dir_atual]
-
-	girando = true
-	var tween = get_tree().create_tween()
-	tween.tween_property(self, "rotation", nova_rotacao, 0.5)
-	tween.finished.connect(fim_girar)
-	
-	var nodes = get_tree().get_nodes_in_group(direcao_grupo[direcao_quarto[dir_atual]])
-	grupo_para_excluir = nodes.map(func(node): return node.get_rid())
-
-func fim_girar() -> void:
-	girando = false
 	
 func raycastar() -> void:
 	var mouse = get_viewport().get_mouse_position()
@@ -100,3 +66,12 @@ func _input(event: InputEvent) -> void:
 				interagivel_atual.setar_area_click(pos_raycast)
 			
 			carimbo.interagir_com(interagivel_atual)
+
+
+func _on_rotacionavel_comecou_girar(direcao: int) -> void:
+	var nodes = get_tree().get_nodes_in_group(Singleton.direcao_grupo[rotacionavel.get_direcao_atual()])
+	grupo_para_excluir = nodes.map(func(node): return node.get_rid())
+
+
+func _on_rotacionavel_terminou_girar(direcao: int) -> void:
+	pass # Replace with function body.

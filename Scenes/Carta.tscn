@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://ckpspcilmmx3c"]
 
 [ext_resource type="Script" uid="uid://myh57fy7ibj8" path="res://Scripts/Carta.gd" id="1_vrd47"]
+[ext_resource type="Script" uid="uid://bvtixto24md7m" path="res://Scripts/rotacao/rotacionavel.gd" id="2_vrd47"]
 
 [sub_resource type="Animation" id="Animation_yrqcu"]
 resource_name = "LetterArmature|CloseLetter"
@@ -505,11 +506,12 @@ points = PackedVector3Array(0, -0.5, -0.5, 0, 0, 0, 0, 0.5, -0.5, 0.05, -0.5, -0
 [sub_resource type="BoxShape3D" id="BoxShape3D_vrd47"]
 size = Vector3(1, 0.058807373, 0.6135254)
 
-[node name="Carta" type="RigidBody3D" unique_id=1512388856 node_paths=PackedStringArray("mesh_carta", "texto_meio")]
+[node name="Carta" type="RigidBody3D" unique_id=1512388856 node_paths=PackedStringArray("mesh_carta", "texto_meio", "rotacionavel")]
 script = ExtResource("1_vrd47")
 mesh_carta = NodePath("CartaModel/LetterArmature/Skeleton3D/Letter")
 pode_abrir = true
 texto_meio = NodePath("CartaModel/LetterArmature/Skeleton3D/MidAttachment/Label3D")
+rotacionavel = NodePath("Rotacionavel")
 
 [node name="CartaModel" type="Node3D" parent="." unique_id=1640209984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0019558966, 0)
@@ -690,5 +692,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.030075073, -0.018188477)
 shape = SubResource("BoxShape3D_vrd47")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2102644047]
+
+[node name="Rotacionavel" type="Node" parent="." unique_id=976541965 node_paths=PackedStringArray("alvo")]
+script = ExtResource("2_vrd47")
+alvo = NodePath("..")
+direcao_arr = Array[int]([0, 2, 0])
+direcao = [0, 3.142, 6.284]
+offset_rot_deg = -180
+rot_x_y = false
+rot_x_z = true
+metadata/_custom_type_script = "uid://bvtixto24md7m"
 
 [connection signal="input_event" from="CartaModel/AreaClicavelParaAbrir" to="." method="_on_area_clicavel_para_abrir_input_event"]

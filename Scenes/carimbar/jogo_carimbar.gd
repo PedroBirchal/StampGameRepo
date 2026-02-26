@@ -4,6 +4,12 @@ extends Jogavel
 @export var spawner: Node3D
 var encomenda_atual: Encomenda
 
+@export var rotacionavel: Rotacionavel
+@export var ui_girar: Control
+@export var ui_girar_vertical: Control
+@export var botao_gira_cima: Control
+@export var botao_gira_baixo: Control
+
 @export_group("Inspecionar Encomendas")
 @export var pos_pacote_na_cara: Node3D
 @export var pos_pacote_aberto: Node3D
@@ -28,7 +34,6 @@ func jogar() -> void:
 		pos_receber_proximo.add_child(proxima_encomenda)
 	
 	camera.make_current()
-	
 
 func sair() -> void:
 	super()
@@ -98,6 +103,11 @@ func encomenda_atual_mudou_estado(estado: Encomenda.EstadoEncomenda) -> void:
 		var pos_aberto = pos_carta_aberta if encomenda_atual is Carta else pos_pacote_aberto
 		encomenda_atual.reparent(pos_aberto)
 		
+		if rotacionavel != null:
+			rotacionavel.giro_vertical_mudou.disconnect(refresh_modo_giro_vertical)
+		rotacionavel = null
+		setar_modo_girando(false)
+		
 		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property(encomenda_atual, "position", Vector3.ZERO, 0.25)
 		tween.tween_property(encomenda_atual, "rotation", Vector3.ZERO, 0.25)
@@ -105,9 +115,20 @@ func encomenda_atual_mudou_estado(estado: Encomenda.EstadoEncomenda) -> void:
 		var pos_na_cara = pos_carta_na_cara if encomenda_atual is Carta else pos_pacote_na_cara
 		encomenda_atual.reparent(pos_na_cara)
 		
+		rotacionavel = encomenda_atual.rotacionavel
+		refresh_modo_giro_vertical()
+		rotacionavel.giro_vertical_mudou.connect(refresh_modo_giro_vertical)
+		setar_modo_girando(true)
+		
 		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property(encomenda_atual, "rotation", Vector3.ZERO, 0.25)
 		tween.tween_property(encomenda_atual, "position", Vector3.ZERO, 0.25)
+	else:
+		if rotacionavel != null:
+			rotacionavel.giro_vertical_mudou.disconnect(refresh_modo_giro_vertical)
+			
+		rotacionavel = null
+		setar_modo_girando(false)
 
 
 func _clicar_sair_inspecionar(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
@@ -124,7 +145,41 @@ func sair_inspecionar() -> void:
 		var tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(encomenda_atual, "position", Vector3.ZERO, 0.25)
 		tween.tween_property(encomenda_atual, "rotation", Vector3.ZERO, 0.25)
-
 		#encomenda_atual.position = Vector3.ZERO
 		encomenda_atual.set_estado(Encomenda.EstadoEncomenda.PARADA)
 		sair_inspecionar_trigger.hide()
+
+
+func _on_botao_girar_esquerda() -> void:
+	if rotacionavel != null:
+		rotacionavel.girar(-1)
+
+
+func _on_botao_girar_direita() -> void:
+	if rotacionavel != null:
+		rotacionavel.girar(1)
+
+func _on_botao_girar_cima() -> void:
+	if rotacionavel != null:
+		rotacionavel.girar_vertical(1)
+
+
+func _on_botao_girar_baixo() -> void:
+	if rotacionavel != null:
+		rotacionavel.girar_vertical(-1)
+
+func setar_modo_girando(girando: bool) -> void:
+	ui_girar.visible = girando
+
+func refresh_modo_giro_vertical(_aux := 0) -> void:
+	ui_girar_vertical.visible = rotacionavel.rotaciona_na_vertical
+	
+	if rotacionavel.rot_vertical == 0:
+		botao_gira_cima.visible = rotacionavel.pode_rot_cima
+		botao_gira_baixo.visible = rotacionavel.pode_rot_baixo
+	elif rotacionavel.rot_vertical == 1:
+		botao_gira_cima.visible = false
+		botao_gira_baixo.visible = true
+	elif rotacionavel.rot_vertical == -1:
+		botao_gira_cima.visible = true
+		botao_gira_baixo.visible = false

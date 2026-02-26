@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b6eljqxn1jcq4" path="res://Models/Pacotes/PacoteGN_P.fbx" id="2_dchw8"]
 [ext_resource type="PackedScene" uid="uid://cx1hl3350yj8t" path="res://Models/Pacotes/PacoteGN_M.fbx" id="3_1eue7"]
 [ext_resource type="PackedScene" uid="uid://djx81ek61grk2" path="res://Models/Pacotes/PacoteGN_G.fbx" id="4_5tdmu"]
+[ext_resource type="Script" uid="uid://bvtixto24md7m" path="res://Scripts/rotacao/rotacionavel.gd" id="5_1eue7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dchw8"]
 size = Vector3(0.27390748, 0.06431641, 0.6443359)
@@ -150,8 +151,9 @@ states/Pacote_FechandoNG_G/position = Vector2(381, 140)
 states/Start/position = Vector2(835, 191)
 transitions = ["Pacote_AbrindoNG_G", "Pacote_AbertoNG_G", SubResource("AnimationNodeStateMachineTransition_dasle"), "Pacote_AbertoNG_G", "Pacote_FechandoNG_G", SubResource("AnimationNodeStateMachineTransition_n53mx"), "Pacote_FechandoNG_G", "Pacote_FechadoNG_G", SubResource("AnimationNodeStateMachineTransition_qc3ar"), "Pacote_FechadoNG_G", "Pacote_AbrindoNG_G", SubResource("AnimationNodeStateMachineTransition_68ncy"), "Start", "Pacote_FechadoNG_G", SubResource("AnimationNodeStateMachineTransition_46cwj")]
 
-[node name="Pacote" type="RigidBody3D" unique_id=2133772471 node_paths=PackedStringArray("conteudo_holder", "pacote_pequeno", "pacote_medio", "pacote_grande", "colisor_pequeno", "colisor_medio", "colisor_grande", "item_pra_cima", "item_pra_cara")]
+[node name="Pacote" type="RigidBody3D" unique_id=2133772471 node_paths=PackedStringArray("item_holder", "conteudo_holder", "pacote_pequeno", "pacote_medio", "pacote_grande", "colisor_pequeno", "colisor_medio", "colisor_grande", "item_pra_cima", "item_pra_cara", "rotacionavel")]
 script = ExtResource("1_1eue7")
+item_holder = NodePath("Conteudo/ItemHolder")
 conteudo_holder = NodePath("Conteudo")
 pode_abrir = true
 pacote_pequeno = NodePath("Mesh/Pacote_Generico_P/PacoteGN_P")
@@ -162,6 +164,7 @@ colisor_medio = NodePath("ColisorM")
 colisor_grande = NodePath("ColisorG")
 item_pra_cima = NodePath("TragetoriaMostrandoItem/TransicaoItemCaixaPlayer")
 item_pra_cara = NodePath("TragetoriaMostrandoItem/ItemNaCara")
+rotacionavel = NodePath("Rotacionavel")
 
 [node name="ColisorP" type="CollisionShape3D" parent="." unique_id=1888587168]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0028167516, -0.0019481555, -0.0028320253)
@@ -272,6 +275,8 @@ anim_player = NodePath("../PacoteGN_G/AnimationPlayer")
 [node name="Conteudo" type="Node3D" parent="." unique_id=1129233226]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
+[node name="ItemHolder" type="Node3D" parent="Conteudo" unique_id=1684731705]
+
 [node name="TragetoriaMostrandoItem" type="Node3D" parent="." unique_id=252390622]
 
 [node name="ItemNaCara" type="Node3D" parent="TragetoriaMostrandoItem" unique_id=762883663]
@@ -279,6 +284,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36032593, 1.3644404)
 
 [node name="TransicaoItemCaixaPlayer" type="Node3D" parent="TragetoriaMostrandoItem" unique_id=610664393]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+
+[node name="Rotacionavel" type="Node" parent="." unique_id=704050511 node_paths=PackedStringArray("alvo")]
+script = ExtResource("5_1eue7")
+alvo = NodePath("..")
+rotaciona_na_vertical = true
+rot_y_x = true
+rot_y_z = false
+metadata/_custom_type_script = "uid://bvtixto24md7m"
 
 [connection signal="input_event" from="Mesh/Pacote_Generico_P/AreaClicavelParaAbrir" to="." method="_on_area_clicavel_para_abrir_input_event"]
 [connection signal="input_event" from="Mesh/Pacote_Generico_M/AreaClicavelParaAbrir" to="." method="_on_area_clicavel_para_abrir_input_event"]

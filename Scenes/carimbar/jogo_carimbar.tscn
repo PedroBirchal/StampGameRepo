@@ -10,7 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="8_5f1bj"]
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="9_dgb7d"]
 [ext_resource type="Script" uid="uid://d36v0h2e11jsd" path="res://Scripts/carimbar/spawn_encomenda.gd" id="10_gqmlt"]
+[ext_resource type="Texture2D" uid="uid://rq1cuj01lbe2" path="res://Sprites/ui/pro_lado.png" id="10_ncxsn"]
+[ext_resource type="Texture2D" uid="uid://b5nl5mib51l2p" path="res://Sprites/ui/pra_cima.png" id="11_fxi00"]
 [ext_resource type="PackedScene" uid="uid://c680xhh36ufi5" path="res://Scenes/pacotes/Pacote.tscn" id="12_ncxsn"]
+[ext_resource type="Script" uid="uid://bvtixto24md7m" path="res://Scripts/rotacao/rotacionavel.gd" id="13_iapwp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1nvq"]
 resource_name = "ColorMap"
@@ -178,10 +181,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fjldk")
 
-[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("camera", "spawner", "pos_pacote_na_cara", "pos_pacote_aberto", "pos_carta_na_cara", "pos_carta_aberta", "sair_inspecionar_trigger", "pos_meio_mesa", "pos_receber_proximo", "jogavel_ui")]
+[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("camera", "spawner", "ui_girar", "ui_girar_vertical", "botao_gira_cima", "botao_gira_baixo", "pos_pacote_na_cara", "pos_pacote_aberto", "pos_carta_na_cara", "pos_carta_aberta", "sair_inspecionar_trigger", "pos_meio_mesa", "pos_receber_proximo", "jogavel_ui")]
 script = ExtResource("1_yf8ht")
 camera = NodePath("CameraHolder/Camera3D")
 spawner = NodePath("EncomendaSpawner")
+ui_girar = NodePath("UI/InspecionarElementos")
+ui_girar_vertical = NodePath("UI/InspecionarElementos/BotoesHorizontais")
+botao_gira_cima = NodePath("UI/InspecionarElementos/BotoesHorizontais/BotaoCima")
+botao_gira_baixo = NodePath("UI/InspecionarElementos/BotoesHorizontais/BotaoBaixo")
 pos_pacote_na_cara = NodePath("Mesa/NaCaraDoJogador/RefPacote/VisaoPacote")
 pos_pacote_aberto = NodePath("Mesa/NaCaraDoJogador/RefPacote/PacoteAbrindo")
 pos_carta_na_cara = NodePath("Mesa/NaCaraDoJogador/RefCarta/Holder")
@@ -205,8 +212,6 @@ transform = Transform3D(1, 0, 0, 0, 0.99950653, -0.03141076, 0, 0.03141076, 0.99
 [node name="Camera3D" type="Camera3D" parent="CameraHolder" unique_id=1906213973]
 script = ExtResource("3_i71g1")
 margem_tela = Vector2(50, 50)
-rotacao_x = 0.2617993877991494
-rotacao_y = 0.2617993877991494
 
 [node name="Mesa" type="Node3D" parent="." unique_id=643817367]
 
@@ -318,12 +323,96 @@ transform = Transform3D(1, 0, 0, 0, 0.121488206, 0.9925929, 0, -0.9925929, 0.121
 visible = false
 
 [node name="UI" type="Control" parent="." unique_id=1061756243]
-custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
+
+[node name="InspecionarElementos" type="Control" parent="UI" unique_id=1211449723]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="BotoesHorizontais" type="Control" parent="UI/InspecionarElementos" unique_id=474447867]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="BotaoCima" type="TextureButton" parent="UI/InspecionarElementos/BotoesHorizontais" unique_id=854078339]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.5
+offset_top = 50.0
+offset_right = -0.5
+offset_bottom = 95.0
+grow_horizontal = 2
+texture_normal = ExtResource("11_fxi00")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="BotaoBaixo" type="TextureButton" parent="UI/InspecionarElementos/BotoesHorizontais" unique_id=1568934407]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -141.0
+offset_right = -0.5
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("11_fxi00")
+ignore_texture_size = true
+stretch_mode = 5
+flip_v = true
+
+[node name="BotaoEsquerda" type="TextureButton" parent="UI/InspecionarElementos" unique_id=1353989929]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 300.0
+offset_top = -8.0
+offset_right = 391.00003
+offset_bottom = 83.0
+grow_vertical = 2
+texture_normal = ExtResource("10_ncxsn")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BotaoDireita" type="TextureButton" parent="UI/InspecionarElementos" unique_id=596839425]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -391.0
+offset_top = -8.0
+offset_right = -300.0
+offset_bottom = 83.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("10_ncxsn")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
 
 [node name="SairDoJogo" type="TextureButton" parent="UI" unique_id=974350490]
 layout_mode = 0
@@ -334,6 +423,14 @@ offset_bottom = 75.0
 texture_normal = ExtResource("8_5f1bj")
 texture_hover = ExtResource("9_dgb7d")
 
+[node name="Rotacionavel" type="Node" parent="." unique_id=11386785]
+script = ExtResource("13_iapwp")
+metadata/_custom_type_script = "uid://bvtixto24md7m"
+
 [connection signal="input_event" from="Mesa/MandarEmbora/AreaClicavel" to="." method="_on_mandar_pra_la"]
 [connection signal="input_event" from="Mesa/NaCaraDoJogador/ClicarParaSair" to="." method="_clicar_sair_inspecionar"]
+[connection signal="pressed" from="UI/InspecionarElementos/BotoesHorizontais/BotaoCima" to="." method="_on_botao_girar_cima"]
+[connection signal="pressed" from="UI/InspecionarElementos/BotoesHorizontais/BotaoBaixo" to="." method="_on_botao_girar_baixo"]
+[connection signal="pressed" from="UI/InspecionarElementos/BotaoEsquerda" to="." method="_on_botao_girar_esquerda"]
+[connection signal="pressed" from="UI/InspecionarElementos/BotaoDireita" to="." method="_on_botao_girar_direita"]
 [connection signal="pressed" from="UI/SairDoJogo" to="." method="sair"]

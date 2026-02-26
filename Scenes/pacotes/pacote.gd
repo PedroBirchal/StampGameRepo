@@ -2,6 +2,7 @@ class_name Pacote
 extends Encomenda
 
 @export var animator : AnimationPlayer
+@export var item_holder : Node3D
 @export var conteudo_holder : Node3D
 var item : Node3D
 var item_res: ItemResource
@@ -35,7 +36,10 @@ func setar_pacote(item_resource: ItemResource) -> void:
 	item = item_resource.mesh.instantiate()
 	item_res = item_resource
 	
-	conteudo_holder.add_child(item)
+	item_holder.add_child(item)
+	item_holder.reparent(conteudo_holder)
+	item_holder.position = Vector3.ZERO
+	
 	item.position = item_resource.offset_pos
 	item.rotation = item_resource.offset_rot
 	
@@ -75,27 +79,24 @@ func abrir_pacote() -> void:
 	
 	var timer = get_tree().create_timer(0.75)
 	timer.timeout.connect(func():
-		item.reparent(item_pra_cima)
+		item_holder.reparent(item_pra_cima)
 		
 		var tween = get_tree().create_tween()
-		tween.tween_property(item, "position", Vector3.ZERO, 1.0)
+		tween.tween_property(item_holder, "position", Vector3.ZERO, 1.0)
 		tween.finished.connect(func():
-			item.reparent(item_pra_cara)
+			item_holder.reparent(item_pra_cara)
 			var tween2 = get_tree().create_tween()
-			tween2.tween_property(item, "position", Vector3.ZERO, 1.0)
+			tween2.tween_property(item_holder, "position", Vector3.ZERO, 1.0)
 		)
 	)
-	
-	
-	
 
 func fechar_pacote() -> void:
-	item.reparent(item_pra_cima)
+	item_holder.reparent(item_pra_cima)
 	var tween = get_tree().create_tween()
-	tween.tween_property(item, "position", Vector3.ZERO, 0.2)
+	tween.tween_property(item_holder, "position", Vector3.ZERO, 0.2)
 	tween.finished.connect(func():
-		item.reparent(conteudo_holder)
+		item_holder.reparent(conteudo_holder)
 		var tween2 = get_tree().create_tween()
-		tween2.tween_property(item, "position", item_res.offset_pos, 0.2)
+		tween2.tween_property(item, "position", Vector3.ZERO, 0.2)
 		tween2.finished.connect(func(): pacote_aberto = false)
 	)
