@@ -6,12 +6,13 @@ extends Node3D
 @export var Carimbada : Texture2D
 @export var ray : RayCast3D
 var posInicial : Vector3
+@export var posDecal : Vector3
 static var holding : bool = false
 
 func _selecionar_novo_objeto(alvo):
 	holding = true
 	posInicial = alvo.global_position
-	alvo.global_position.y += 0.2
+	alvo.global_position.y += 0.25
 	ObjectNode3D = alvo
 	previsao.visible = true
 
@@ -54,17 +55,26 @@ func _input(event):
 				_desselecionar_objeto(self)
 
 func _carimbar():
-	ray = $RayCast3D 
 	if not ray.is_colliding():
 		return
 		
 	var novo_decalque = Decal.new()
-	
 	novo_decalque.texture_albedo = Carimbada
-	novo_decalque.size = Vector3(0.5, 0.2, 0.5)
+	novo_decalque.size = posDecal
+	novo_decalque.size.y = 2.0
+	novo_decalque.cull_mask = 1
+
+	var collider = ray.get_collider()
+	collider.add_child(novo_decalque)
 	
-	get_tree().current_scene.add_child(novo_decalque)
 	novo_decalque.global_position = ray.get_collision_point()
 	var normal = ray.get_collision_normal()
-	if normal != Vector3.UP:
-		novo_decalque.look_at(novo_decalque.global_position + normal, Vector3.RIGHT)
+	_alinhar_decalque(novo_decalque, normal)
+
+func _alinhar_decalque(decal, normal):
+	if normal.is_equal_approx(Vector3.UP):
+		decal.rotation_degrees.x = 0
+	elif normal.is_equal_approx(Vector3.DOWN):
+		decal.rotation_degrees.x = 180
+	else:
+		decal.look_at(decal.global_position - normal, Vector3.UP)
