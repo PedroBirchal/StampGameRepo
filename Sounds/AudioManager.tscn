@@ -10,7 +10,7 @@ script = ExtResource("1_ru5fw")
 
 [node name="LandSFX" type="AudioStreamPlayer" parent="." unique_id=368623122]
 stream = ExtResource("2_e4xjf")
-volume_db = -10.0
+volume_db = -20.0
 pitch_scale = 2.0
 
 [node name="OpenLetter" type="AudioStreamPlayer" parent="." unique_id=1079566939]
