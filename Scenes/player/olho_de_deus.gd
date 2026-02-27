@@ -5,6 +5,7 @@ extends Node3D
 @export var camera: Camera3D
 
 @export_group("O Mundo")
+@export var jogo: Jogo
 @export var rotacionavel: Rotacionavel
 @export var carimbo: Jogador
 var grupo_para_excluir : Array
@@ -24,6 +25,9 @@ func _physics_process(delta: float) -> void:
 	raycastar()
 	
 func raycastar() -> void:
+	if jogo.estado != Jogo.Estado.QUARTO:
+		return
+		
 	var mouse = get_viewport().get_mouse_position()
 	var espaco = get_world_3d().direct_space_state
 	

@@ -16,9 +16,6 @@ extends Node
 @export var rotaciona_na_vertical := false
 @export var pode_rot_cima := true
 @export var pode_rot_baixo := false
-@export var rot_y_x := false
-@export var rot_y_y := false
-@export var rot_y_z := true
 
 var rot_vertical := 0
 
@@ -80,12 +77,15 @@ func add_rot_horizontal(vec: Vector3, val: float) -> Vector3:
 	return vec
 
 func set_rot_vertical(vec: Vector3, val: float) -> Vector3:
-	if rot_y_x:
+	if dir_atual == 0 or dir_atual == 4:
 		vec.x = val
-	elif rot_y_y:
-		vec.y = val
-	elif rot_y_z:
+	elif dir_atual == 1:
 		vec.z = val
+	elif dir_atual == 2:
+		vec.x = -val
+	elif dir_atual == 3:
+		vec.z = -val
+	
 	return vec
 
 

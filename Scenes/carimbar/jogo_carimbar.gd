@@ -6,6 +6,7 @@ var encomenda_atual: Encomenda
 
 @export var rotacionavel: Rotacionavel
 @export var ui_girar: Control
+@export var ui_girar_horizontal: Control
 @export var ui_girar_vertical: Control
 @export var botao_gira_cima: Control
 @export var botao_gira_baixo: Control
@@ -184,9 +185,15 @@ func refresh_modo_giro_vertical(_aux := 0) -> void:
 	if rotacionavel.rot_vertical == 0:
 		botao_gira_cima.visible = rotacionavel.pode_rot_cima
 		botao_gira_baixo.visible = rotacionavel.pode_rot_baixo
+		ui_girar_horizontal.visible = true
 	elif rotacionavel.rot_vertical == 1:
 		botao_gira_cima.visible = false
 		botao_gira_baixo.visible = true
+		ui_girar_horizontal.visible = false
 	elif rotacionavel.rot_vertical == -1:
 		botao_gira_cima.visible = true
 		botao_gira_baixo.visible = false
+		ui_girar_horizontal.visible = false
+	else:
+		ui_girar_horizontal.visible = true
+		

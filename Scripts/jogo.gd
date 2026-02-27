@@ -22,6 +22,9 @@ func _ready() -> void:
 	atualizar_sumiveis()
 
 func jogavel_iniciado(jogavel: Jogavel) -> void:
+	if jogavel_atual == jogavel:
+		return
+	
 	jogavel_atual = jogavel
 	jogavel_atual.saindo.connect(jogavel_encerrado)
 	mudar_estado(Estado.JOGANDO)
@@ -30,6 +33,7 @@ func jogavel_encerrado() -> void:
 	jogavel_atual.saindo.disconnect(jogavel_encerrado)
 	camera_principal.make_current()
 	mudar_estado(Estado.QUARTO)
+	jogavel_atual = null
 
 
 func mudar_estado(std: Estado) -> void:

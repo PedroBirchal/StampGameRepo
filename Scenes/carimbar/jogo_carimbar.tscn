@@ -213,14 +213,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fjldk")
 
-[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("camera", "spawner", "ui_girar", "ui_girar_vertical", "botao_gira_cima", "botao_gira_baixo", "pos_pacote_na_cara", "pos_pacote_aberto", "pos_carta_na_cara", "pos_carta_aberta", "sair_inspecionar_trigger", "pos_meio_mesa", "pos_receber_proximo", "jogavel_ui")]
+[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("camera", "spawner", "ui_girar", "ui_girar_horizontal", "ui_girar_vertical", "botao_gira_cima", "botao_gira_baixo", "pos_pacote_na_cara", "pos_pacote_aberto", "pos_carta_na_cara", "pos_carta_aberta", "sair_inspecionar_trigger", "pos_meio_mesa", "pos_receber_proximo", "jogavel_ui")]
 script = ExtResource("1_yf8ht")
 camera = NodePath("CameraHolder/Camera3D")
 spawner = NodePath("EncomendaSpawner")
 ui_girar = NodePath("UI/InspecionarElementos")
-ui_girar_vertical = NodePath("UI/InspecionarElementos/BotoesHorizontais")
-botao_gira_cima = NodePath("UI/InspecionarElementos/BotoesHorizontais/BotaoCima")
-botao_gira_baixo = NodePath("UI/InspecionarElementos/BotoesHorizontais/BotaoBaixo")
+ui_girar_horizontal = NodePath("UI/InspecionarElementos/BotoesHorizontais")
+ui_girar_vertical = NodePath("UI/InspecionarElementos/BotoesVerticais")
+botao_gira_cima = NodePath("UI/InspecionarElementos/BotoesVerticais/BotaoCima")
+botao_gira_baixo = NodePath("UI/InspecionarElementos/BotoesVerticais/BotaoBaixo")
 pos_pacote_na_cara = NodePath("Mesa/NaCaraDoJogador/RefPacote/VisaoPacote")
 pos_pacote_aberto = NodePath("Mesa/NaCaraDoJogador/RefPacote/PacoteAbrindo")
 pos_carta_na_cara = NodePath("Mesa/NaCaraDoJogador/RefCarta/Holder")
@@ -384,16 +385,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="BotoesHorizontais" type="Control" parent="UI/InspecionarElementos" unique_id=474447867]
+[node name="BotoesVerticais" type="Control" parent="UI/InspecionarElementos" unique_id=474447867]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="BotaoCima" type="TextureButton" parent="UI/InspecionarElementos/BotoesHorizontais" unique_id=854078339]
+[node name="BotaoCima" type="TextureButton" parent="UI/InspecionarElementos/BotoesVerticais" unique_id=854078339]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -407,7 +410,7 @@ texture_normal = ExtResource("11_fxi00")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="BotaoBaixo" type="TextureButton" parent="UI/InspecionarElementos/BotoesHorizontais" unique_id=1568934407]
+[node name="BotaoBaixo" type="TextureButton" parent="UI/InspecionarElementos/BotoesVerticais" unique_id=1568934407]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -425,7 +428,18 @@ ignore_texture_size = true
 stretch_mode = 5
 flip_v = true
 
-[node name="BotaoEsquerda" type="TextureButton" parent="UI/InspecionarElementos" unique_id=1353989929]
+[node name="BotoesHorizontais" type="Control" parent="UI/InspecionarElementos" unique_id=1242856022]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="BotaoEsquerda" type="TextureButton" parent="UI/InspecionarElementos/BotoesHorizontais" unique_id=1353989929]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -439,7 +453,7 @@ texture_normal = ExtResource("10_ncxsn")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="BotaoDireita" type="TextureButton" parent="UI/InspecionarElementos" unique_id=596839425]
+[node name="BotaoDireita" type="TextureButton" parent="UI/InspecionarElementos/BotoesHorizontais" unique_id=596839425]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -472,10 +486,10 @@ metadata/_custom_type_script = "uid://bvtixto24md7m"
 
 [connection signal="input_event" from="Mesa/MandarEmbora/AreaClicavel" to="." method="_on_mandar_pra_la"]
 [connection signal="input_event" from="Mesa/NaCaraDoJogador/ClicarParaSair" to="." method="_clicar_sair_inspecionar"]
-[connection signal="pressed" from="UI/InspecionarElementos/BotoesHorizontais/BotaoCima" to="." method="_on_botao_girar_cima"]
-[connection signal="pressed" from="UI/InspecionarElementos/BotoesHorizontais/BotaoBaixo" to="." method="_on_botao_girar_baixo"]
-[connection signal="pressed" from="UI/InspecionarElementos/BotaoEsquerda" to="." method="_on_botao_girar_esquerda"]
-[connection signal="pressed" from="UI/InspecionarElementos/BotaoDireita" to="." method="_on_botao_girar_direita"]
+[connection signal="pressed" from="UI/InspecionarElementos/BotoesVerticais/BotaoCima" to="." method="_on_botao_girar_cima"]
+[connection signal="pressed" from="UI/InspecionarElementos/BotoesVerticais/BotaoBaixo" to="." method="_on_botao_girar_baixo"]
+[connection signal="pressed" from="UI/InspecionarElementos/BotoesHorizontais/BotaoEsquerda" to="." method="_on_botao_girar_esquerda"]
+[connection signal="pressed" from="UI/InspecionarElementos/BotoesHorizontais/BotaoDireita" to="." method="_on_botao_girar_direita"]
 [connection signal="pressed" from="UI/SairDoJogo" to="." method="sair"]
 
 [editable path="Mesa/Relogio/Relogio_Digital"]

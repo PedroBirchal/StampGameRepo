@@ -1,6 +1,6 @@
 extends Node
 
-@export_range(0,1,0.05) var chance_pacote := 0.3
+@export_range(0,1,0.05) var chance_pacote := 0.9
 
 const PASTA_ITENS := "resources/itens"
 @export var lugar_de_spawn: Node3D

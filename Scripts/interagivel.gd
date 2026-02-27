@@ -22,18 +22,20 @@ func _ready() -> void:
 		area_clicavel.saiu_de_cima.connect(_on_unhover)
 	
 	if mesh != null:
-		mat = mesh.get_active_material(0).duplicate()
-		mesh.set_surface_override_material(0, mat)
-		
-		if mat.albedo_texture == null:
-			mat.emission = mat.albedo_color
-		else:
-			mat.emission = Color(0,0,0)
-			mat.emission_texture = mat.albedo_texture
-		
-		mat.emission_enabled = false
-		mat.emission_energy_multiplier = FORCA_EMISSAO
+		alterar_material()
+
+func alterar_material() -> void:
+	mat = mesh.get_active_material(0).duplicate()
+	mesh.set_surface_override_material(0, mat)
+	if mat.albedo_texture == null:
+		mat.emission = mat.albedo_color
+	else:
+		mat.emission = Color(0,0,0)
+		mat.emission_texture = mat.albedo_texture
 	
+	mat.emission_enabled = false
+	mat.emission_energy_multiplier = FORCA_EMISSAO
+
 
 func interagir() -> void:
 	on_interact.emit()
@@ -46,6 +48,7 @@ func interagir() -> void:
 
 func _on_hover() -> void:
 	if mat != null:
+		alterar_material()
 		mat.emission_enabled = true
 
 func _on_unhover() -> void:
