@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Singleton="*uid://c7obwei6oy624"
-AudioManager="*uid://i34jxexcj30t"
+AudioManager="*uid://bvaff8scei3ag"
 
 [display]
 

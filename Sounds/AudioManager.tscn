@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bvaff8scei3ag"]
+
+[ext_resource type="Script" uid="uid://baqaidkmkm27w" path="res://Sounds/AudioManager.gd" id="1_ru5fw"]
+[ext_resource type="AudioStream" uid="uid://bt8yn86mx5s8i" path="res://Sounds/BackGroundMusic.ogg" id="2_e4xjf"]
+[ext_resource type="AudioStream" uid="uid://cun58ten1jutk" path="res://Sounds/OpenLetter.mp3" id="3_8h7yy"]
+[ext_resource type="AudioStream" uid="uid://bqhfsdr8qil6s" path="res://Sounds/CloseLetter.mp3" id="4_a0otx"]
+
+[node name="AudioManager" type="Node3D" unique_id=515608230]
+script = ExtResource("1_ru5fw")
+
+[node name="LandSFX" type="AudioStreamPlayer" parent="." unique_id=368623122]
+stream = ExtResource("2_e4xjf")
+volume_db = -10.0
+pitch_scale = 2.0
+
+[node name="OpenLetter" type="AudioStreamPlayer" parent="." unique_id=1079566939]
+stream = ExtResource("3_8h7yy")
+volume_db = -10.0
+
+[node name="CloseLetter" type="AudioStreamPlayer" parent="." unique_id=1749910038]
+stream = ExtResource("4_a0otx")
+volume_db = -10.0

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dsnxpeqombett"]
+
+[ext_resource type="Script" uid="uid://cvybn58xfofde" path="res://Scripts/TextSystem/sub_viewport.gd" id="1_indbq"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_indbq"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Sprite3D" type="Sprite3D" unique_id=451193954]
+billboard = 1
+texture = SubResource("ViewportTexture_indbq")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=195687251]
+transparent_bg = true
+script = ExtResource("1_indbq")
+
+[node name="Label" type="Label" parent="SubViewport" unique_id=680371877]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "TesteTesteTeste"
