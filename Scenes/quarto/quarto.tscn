@@ -8,8 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://cyxhnos72oq3s" path="res://Scenes/player/jogador.tscn" id="3_lij7j"]
 [ext_resource type="Script" uid="uid://dsd7eeoq667uy" path="res://Scenes/player/olho_de_deus.gd" id="4_i1nvq"]
 [ext_resource type="Texture2D" uid="uid://djda65x1gkvo8" path="res://materials/ColorMap.png" id="4_lij7j"]
-[ext_resource type="Texture2D" uid="uid://bwdg0m6u8yr1y" path="res://icon.svg" id="7_i1nvq"]
+[ext_resource type="Texture2D" uid="uid://j6tykelmph10" path="res://Sprites/MapaFalpsJam.png" id="6_nfdy7"]
+[ext_resource type="Script" uid="uid://cgohyllorbxkj" path="res://Scripts/camera/camera_tilt.gd" id="7_bjlr0"]
+[ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="8_2hbw0"]
 [ext_resource type="Script" uid="uid://bvtixto24md7m" path="res://Scripts/rotacao/rotacionavel.gd" id="9_j7gex"]
+[ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="9_v11ly"]
+[ext_resource type="Texture2D" uid="uid://rq1cuj01lbe2" path="res://Sprites/ui/pro_lado.png" id="10_j7gex"]
+[ext_resource type="PackedScene" uid="uid://dkb34gcitwnhe" path="res://Models/Cenário/Telefone_Fio.fbx" id="10_v11ly"]
+[ext_resource type="PackedScene" uid="uid://djx81ek61grk2" path="res://Models/Pacotes/PacoteGN_G.fbx" id="11_h88lf"]
+[ext_resource type="PackedScene" uid="uid://b6eljqxn1jcq4" path="res://Models/Pacotes/PacoteGN_P.fbx" id="12_yribc"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_t12d2"]
 vertices = PackedVector3Array(3.112503, 3.6612554, -96.22377, 0.61250305, 3.6612554, -97.22377, -3.137497, 3.6612554, -96.22377, -15.637497, 3.6612554, -84.47377, 15.612503, 3.6612554, -84.22377, -12.661308, 4.1612554, -84.44996, 12.636314, 4.1612554, -84.24758, -2.9024239, 4.4112554, -93.23285, 3.127552, 4.1612554, -94.70482, -0.38749695, 4.6612554, -8.72377, 8.612503, 4.6612554, -12.72377, 55.112503, 4.6612554, -35.72377, 55.112503, 4.6612554, -83.22377, -55.137497, 4.6612554, -83.22377, -55.137497, 4.6612554, -35.72377, -58.137497, 3.6612554, -44.47377, -58.137497, 3.4112554, -36.72377, -56.387497, 3.6612554, -36.47377, -56.137497, 3.6612554, -46.22377, -58.137497, 2.6612554, -40.59877, -56.316067, 3.1612554, -39.259483, -56.137497, 3.6612554, -30.72377, -56.137497, 3.6612554, -36.360134, -56.137497, 3.1612554, -40.587406, 56.362503, 3.6612554, -36.47377, 58.112503, 3.4112554, -36.72377, 58.112503, 3.6612554, -44.47377, 56.112503, 3.6612554, -46.22377, 56.255363, 3.1612554, -40.65234, 58.112503, 2.6612554, -40.59877, 56.112503, 3.6612554, -26.22377, 56.112503, 3.6612554, -43.366627, 56.112503, 3.1612554, -41.938057, 56.112503, 3.6612554, -36.22377, -57.137497, 5.6612554, -35.72377, -57.887497, 5.9112554, -35.72377, -58.137497, 5.9112554, -35.22377, -59.387497, 5.4112554, 6.27623, -9.387497, 5.9112554, 6.27623, -9.387497, 5.9112554, -8.22377, -57.774593, 5.9112554, 6.27623, -59.387497, 5.4112554, -35.47377, -2.387497, 5.4112554, -8.72377, 2.362503, 5.4112554, -8.72377, 4.862503, 5.9112554, -8.22377, 7.362503, 5.9112554, -8.47377, 57.112503, 5.6612554, -35.72377, 59.362503, 5.4112554, 7.77623, 59.362503, 5.4112554, -35.47377, 7.862503, 5.9112554, -7.97377, 57.70121, 5.9112554, 7.2681656, 58.237503, 5.9112554, -35.59877, 7.862503, 5.9112554, 7.77623, 57.70121, 5.9112554, 7.77623, -7.137497, 0.41125524, 2.7762299, -7.387497, 0.41125524, 1.5262299, -7.887497, 0.41125524, 1.5262299, -7.887497, 0.41125524, 5.77623, -6.887497, 0.41125524, 5.77623, 5.112503, 0.41125524, -5.97377, 5.112503, 0.41125524, -6.72377, 3.362503, 0.41125524, -6.72377, 3.612503, 0.41125524, -4.22377, -6.887497, 0.41125524, -5.72377, -7.887497, 0.41125524, -5.72377, -7.887497, 0.41125524, -3.7237701, -5.637497, 0.41125524, -3.4737701, 6.112503, 0.41125524, 5.77623, 6.112503, 0.41125524, 1.2762299, 5.612503, 0.41125524, 1.0262299, 5.112503, 0.41125524, 6.02623, 3.112503, 0.41125524, -3.7237701, 0.86250305, 0.41125524, -3.7237701, 1.112503, 0.41125524, -2.2237701, 0.61250305, 0.41125524, -1.7237701, -1.137497, 0.41125524, -2.2237701, -5.137497, 0.41125524, 1.0262299, -5.387497, 0.41125524, 2.7762299, -0.88749695, 0.41125524, -3.7237701, -3.387497, 0.41125524, -3.9737701, -5.637497, 0.41125524, 0.77622986, 6.112503, 0.41125524, -5.72377, 6.112503, 0.41125524, -1.7237701, 5.612503, 0.41125524, 0.026229858, -6.637497, 0.41125524, 6.77623, 5.112503, 0.41125524, 6.77623, -6.637497, 0.41125524, -6.72377, -3.387497, 0.41125524, -6.72377, 5.112503, 6.1612554, -5.97377, 5.112503, 6.1612554, -6.72377, 2.862503, 6.1612554, -6.72377, 0.61250305, 6.1612554, -5.22377, -2.887497, 6.1612554, -6.72377, -6.637497, 6.1612554, -6.72377, -6.887497, 6.1612554, -5.72377, -0.38749695, 6.1612554, -5.22377, -6.637497, 6.1612554, 6.77623, 5.112503, 6.1612554, 6.77623, 5.112503, 6.1612554, 6.02623, -7.887497, 6.1612554, -5.72377, -6.887497, 6.1612554, 5.77623, 6.112503, 6.1612554, -5.72377, 6.112503, 6.1612554, 5.77623, -7.887497, 6.1612554, 5.77623, -2.137497, 1.4112552, -4.72377, -1.637497, 1.4112552, -4.72377, -1.637497, 1.4112552, -5.72377, -2.137497, 1.4112552, -6.47377, -0.38749695, 1.4112552, -4.72377, 1.362503, 1.4112552, -4.72377, 1.362503, 1.4112552, -5.97377, -0.63749695, 1.4112552, -5.72377, 1.862503, 1.4112552, -6.22377, -59.387497, 5.1612554, 27.27623, -55.387497, 5.1612554, 27.27623, -55.92083, 5.9112554, 24.476227, -58.587498, 5.9112554, 10.476227, -59.387497, 5.4112554, 25.876228, -58.387436, 5.9112554, 23.756165, -55.137497, 4.9112554, 27.77623, -9.387497, 5.9112554, 8.27623, -49.234272, 5.9112554, 25.260101, -56.89175, 5.9112554, 10.282433, -8.887497, 5.9112554, 8.52623, -47.67782, 5.9112554, 24.671394, 55.362503, 5.1612554, 27.27623, 59.362503, 5.1612554, 27.27623, 58.505363, 5.9112554, 11.954803, 55.93393, 5.9112554, 24.490517, 59.362503, 5.4112554, 25.88337, 55.112503, 4.9112554, 27.77623, 7.112503, 5.9112554, 8.52623, 47.370567, 5.9112554, 24.671387, 55.58883, 5.9112554, 13.259811, -8.387497, 5.9112554, 8.52623, -7.887497, 4.6612554, 76.27623, 6.112503, 4.6612554, 76.27623, 6.612503, 5.9112554, 8.52623, -8.274593, 5.9112554, 23.824615, -8.258465, 5.6612554, 26.010101, -8.242336, 4.6612554, 28.195587, 6.4673386, 4.6612554, 28.195587, 6.483467, 5.6612554, 26.010101, 6.4996033, 5.9112554, 23.824615, 3.1185646, 5.9112554, 23.768097, -55.137497, 4.6612554, 76.27623, -10.386108, 5.9112554, 23.764748, -46.40541, 4.6612554, 28.251999, 55.112503, 4.6612554, 76.27623, 7.5937424, 5.9112554, 23.782898, 45.135002, 4.6612554, 28.275558, 36.10897, 5.9112554, 23.791656, 33.104904, 4.6612554, 28.287659)
@@ -57,6 +64,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lvo5k")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yribc"]
+resource_name = "ColorMap"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_lij7j")
+emission_energy_multiplier = 0.4
+emission_texture = ExtResource("4_lij7j")
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_14mck"]
 _surfaces = [{
 "aabb": AABB(-0.2331878, -0.2671049, -0.007932514, 0.4663753, 0.53420997, 0.4142252),
@@ -96,15 +110,43 @@ size = Vector3(2, 1, 2.5)
 height = 0.45
 radius = 0.3
 
+[sub_resource type="GDScript" id="GDScript_bjlr0"]
+script/source = "extends Jogavel
+
+@export var camera: Camera3D
+
+func jogar() -> void:
+	super()
+	camera.make_current()
+
+func sair() -> void:
+	super()
+	camera.clear_current()
+"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lij7j"]
-albedo_color = Color(0.20249999, 0.45, 0.20249999, 1)
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+albedo_color = Color(0.76, 0.4884267, 0.25079998, 1)
 proximity_fade_distance = 40.38
 distance_fade_min_distance = 7.0
 distance_fade_max_distance = 8.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_5yl11"]
 material = SubResource("StandardMaterial3D_lij7j")
-size = Vector3(0.1, 2, 1.25)
+size = Vector3(0.1, 2, 1.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej8o8"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+albedo_color = Color(0.76, 0.4884267, 0.25079998, 1)
+emission = Color(0.76, 0.4884267, 0.25079998, 1)
+emission_energy_multiplier = 0.4
+proximity_fade_distance = 40.38
+distance_fade_min_distance = 7.0
+distance_fade_max_distance = 8.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lij7j"]
 size = Vector3(0.1, 1.25, 2)
@@ -143,8 +185,31 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hhebm")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80gip"]
+resource_name = "ColorMap"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_lij7j")
+emission_energy_multiplier = 0.4
+emission_texture = ExtResource("4_lij7j")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_t12d2"]
 size = Vector3(1.2, 0.1, 1.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h88lf"]
+albedo_color = Color(0.63, 0.36382502, 0.2205, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yribc"]
+material = SubResource("StandardMaterial3D_h88lf")
+size = Vector3(1.75, 1, 1.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s63yc"]
+resource_name = "ColorMap"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_lij7j")
+emission_energy_multiplier = 0.4
+emission_texture = ExtResource("4_lij7j")
+distance_fade_min_distance = 7.0
+distance_fade_max_distance = 8.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i1nvq"]
 size = Vector3(6, 2.5, 3)
@@ -167,9 +232,10 @@ func mandar_para() -> void:
 
 [node name="Quarto" type="Node3D" unique_id=2017398307]
 
-[node name="Jogo" type="Node" parent="." unique_id=510473093 node_paths=PackedStringArray("jogador", "quarto_ui")]
+[node name="Jogo" type="Node" parent="." unique_id=510473093 node_paths=PackedStringArray("jogador", "camera_principal", "quarto_ui")]
 script = ExtResource("1_js386")
 jogador = NodePath("../Jogador")
+camera_principal = NodePath("../OlhoDeDeus/Camera3D")
 quarto_ui = NodePath("../UI_Jogo")
 metadata/_custom_type_script = "uid://d4j65a74tvcye"
 
@@ -181,13 +247,17 @@ navigation_mesh = SubResource("NavigationMesh_t12d2")
 [node name="MainRoom2" parent="NavigationRegion3D/CenarioBonito" unique_id=1392424320 instance=ExtResource("2_a0bhh")]
 transform = Transform3D(-1.49, 0, -1.355053e-07, 0, 2, 0, 1.3025993e-07, 0, -1.55, 0.06823909, 0.05798039, 0.048100412)
 
-[node name="Janela" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="0" unique_id=1730109776 groups=["sumivel"]]
+[node name="Janela" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="0" unique_id=1730109776 groups=["frente_quarto", "sumivel"]]
 
-[node name="LetterWardrobe" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito" unique_id=1395115724 groups=["sumivel"]]
+[node name="MainRoom" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="1" unique_id=955432246]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.013425991, 1.4463149, -0.0046143737)
+
+[node name="LetterWardrobe" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito" unique_id=1395115724 groups=["esquerda_quarto", "sumivel"]]
 transform = Transform3D(-8.742277e-08, -1.9999995, -8.742277e-08, 0, -8.7422755e-08, 1.9999999, -1.9999999, 8.7422755e-08, 3.8213705e-15, -4.4574823, 0.06381062, 0.6256212)
 mesh = SubResource("ArrayMesh_lij7j")
+surface_material_override/0 = SubResource("StandardMaterial3D_yribc")
 
-[node name="TrashCan" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito/LetterWardrobe" unique_id=784844877 groups=["sumivel"]]
+[node name="TrashCan" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito/LetterWardrobe" unique_id=784844877 groups=["esquerda_quarto", "sumivel"]]
 transform = Transform3D(0.70710665, 0.70710665, 3.09086e-08, -0.7071069, 0.70710677, -1.280277e-08, -3.0908613e-08, -1.2802767e-08, 0.9999998, 1.5737739, -0.5203117, 0.0058344305)
 mesh = SubResource("ArrayMesh_i1nvq")
 
@@ -212,29 +282,69 @@ mesh = NodePath("../..")
 material_outline = ExtResource("2_kupag")
 area_de_interacao = NodePath("../AreaDeInteracao")
 
-[node name="Quadro" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito" unique_id=759848742 groups=["sumivel"]]
-transform = Transform3D(-8.742278e-08, -2, -8.742278e-08, 0, -8.742278e-08, 2, -2, 8.742278e-08, 3.821371e-15, 1.3651748, 2.508537, 5.850582)
+[node name="Quadro" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=683740204 node_paths=PackedStringArray("camera", "jogavel_ui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3651748, 2.508537, 5.850582)
+script = SubResource("GDScript_bjlr0")
+camera = NodePath("Camera/Camera3D")
+jogavel_ui = NodePath("UI")
+
+[node name="Quadro" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito/Quadro" unique_id=759848742 groups=["frente_quarto", "sumivel"]]
+transform = Transform3D(-8.742278e-08, -2, -8.742278e-08, 0, -8.742278e-08, 2, -2, 8.742278e-08, 3.821371e-15, 0, 0, 0)
 mesh = SubResource("BoxMesh_5yl11")
+surface_material_override/0 = SubResource("StandardMaterial3D_ej8o8")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CenarioBonito/Quadro" unique_id=1584577469 groups=["frente_quarto"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CenarioBonito/Quadro/Quadro" unique_id=1584577469 groups=["frente_quarto"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CenarioBonito/Quadro/StaticBody3D" unique_id=582652935]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CenarioBonito/Quadro/Quadro/StaticBody3D" unique_id=582652935]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 9.414672e-09, 0.0018760264)
 shape = SubResource("BoxShape3D_lij7j")
 
-[node name="AreaDeInteracao" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Quadro/StaticBody3D" unique_id=464546121]
+[node name="AreaDeInteracao" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Quadro/Quadro/StaticBody3D" unique_id=464546121]
 transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0.38710642, 0, -1.301038)
 
-[node name="Interagivel" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Quadro/StaticBody3D" unique_id=549758434 node_paths=PackedStringArray("mesh", "area_de_interacao")]
+[node name="Interagivel" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Quadro/Quadro/StaticBody3D" unique_id=549758434 node_paths=PackedStringArray("mesh", "area_de_interacao", "jogavel")]
 transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, -0.4434818, 0)
 script = ExtResource("1_5yl11")
 mesh = NodePath("../..")
 material_outline = ExtResource("2_kupag")
 area_de_interacao = NodePath("../AreaDeInteracao")
+jogavel = NodePath("../../..")
 
-[node name="Door" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito" unique_id=193953055 groups=["sumivel"]]
-transform = Transform3D(-6.556708e-08, -1.5, -8.742278e-08, 0, -6.556708e-08, 2, -1.5, 6.556708e-08, 3.821371e-15, 5.735391, 1.5102837, 0.62383294)
+[node name="Mapa" type="Sprite3D" parent="NavigationRegion3D/CenarioBonito/Quadro" unique_id=909151204]
+transform = Transform3D(-0.19, 0, -1.6610327e-08, 0, 0.19, 0, 1.6610327e-08, 0, -0.19, 0, 0, -0.10899353)
+double_sided = false
+texture = ExtResource("6_nfdy7")
+
+[node name="Camera" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Quadro" unique_id=1258331152]
+
+[node name="Camera3D" type="Camera3D" parent="NavigationRegion3D/CenarioBonito/Quadro/Camera" unique_id=1689415581]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.04432285, -0.002776146, -1.8875277)
+current = true
+script = ExtResource("7_bjlr0")
+
+[node name="UI" type="Control" parent="NavigationRegion3D/CenarioBonito/Quadro" unique_id=274727028]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="SairDoJogo" type="TextureButton" parent="NavigationRegion3D/CenarioBonito/Quadro/UI" unique_id=1894201190]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 75.0
+offset_bottom = 75.0
+texture_normal = ExtResource("8_2hbw0")
+texture_hover = ExtResource("9_v11ly")
+
+[node name="Door" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito" unique_id=193953055 groups=["direita_quarto", "sumivel"]]
+transform = Transform3D(-6.644131e-08, -1.52, -8.742278e-08, 0, -6.644131e-08, 2, -1.52, 6.644131e-08, 3.821371e-15, 5.754012, 1.5523577, 0.66908145)
 mesh = SubResource("ArrayMesh_a0bhh")
+surface_material_override/0 = SubResource("StandardMaterial3D_80gip")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CenarioBonito/Door" unique_id=1249892608 groups=["direita_quarto"]]
 transform = Transform3D(1, 0, 0, 0, 1, 8.351872e-23, 0, 8.351872e-23, 1, -0.5493424, 0, -0.75678945)
@@ -253,6 +363,50 @@ area_de_interacao = NodePath("../AreaDeInteracao")
 transform = Transform3D(1, 0, 0, 0, 1, 8.351872e-23, 0, 8.351872e-23, 1, 0, 0, 0.86962974)
 shape = SubResource("BoxShape3D_t12d2")
 
+[node name="Telefone" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=1650888016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6351585, 0.09065652, 5.0458727)
+
+[node name="Estante" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito/Telefone" unique_id=2121307540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4251685, 0)
+mesh = SubResource("BoxMesh_yribc")
+
+[node name="Telefone" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Telefone" unique_id=1369056195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8990483, 0)
+
+[node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone" unique_id=941845008 instance=ExtResource("10_v11ly")]
+transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, 0, 0, 0)
+
+[node name="Skeleton3D" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone" parent_id_path=PackedInt32Array(941845008, 2036301098) index="0" unique_id=828187976]
+bones/1/rotation = Quaternion(-3.344845e-15, -6.3694934e-08, 0.7071068, 0.7071067)
+bones/1/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(0.0008225794, 0.00034883738, 0.00026354517)
+bones/3/rotation = Quaternion(3.995506e-09, -0.27987686, -0.7071068, 0.6493604)
+bones/3/scale = Vector3(0.99999994, 1, 0.99999994)
+bones/4/position = Vector3(6.598647e-11, 0.0007513498, -3.1272485e-11)
+bones/4/rotation = Quaternion(-0.2278083, 0.4947414, 0.72140753, -0.42767453)
+bones/4/scale = Vector3(1, 0.9999998, 0.99999994)
+
+[node name="Caixas" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=689915107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.384227, 0.07547952, -5.3378754)
+
+[node name="PacoteGN_G" parent="NavigationRegion3D/CenarioBonito/Caixas" unique_id=1224571606 instance=ExtResource("11_h88lf")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.5799985, -2.3841858e-07, 1.1777506)
+
+[node name="PacoteGN_G2" parent="NavigationRegion3D/CenarioBonito/Caixas" unique_id=81831640 instance=ExtResource("11_h88lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97207355, -2.3841858e-07, 0.22796345)
+
+[node name="PacoteGN_G3" parent="NavigationRegion3D/CenarioBonito/Caixas" unique_id=261747881 instance=ExtResource("11_h88lf")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.5110073, 1.2214097, 1.1015744)
+
+[node name="PacoteGN_G4" parent="NavigationRegion3D/CenarioBonito/Caixas" unique_id=726259082 instance=ExtResource("11_h88lf")]
+transform = Transform3D(1.2512765, 0, 0.82722855, 0, 1.5, 0, -0.82722855, 0, 1.2512765, 0.56865263, -0.03554131, 2.5068283)
+
+[node name="PacoteGN_P" parent="NavigationRegion3D/CenarioBonito/Caixas" unique_id=1079664930 instance=ExtResource("12_yribc")]
+transform = Transform3D(-0.119271874, 1.9010075, -0.6098725, 0.086475596, 0.6153058, 1.9010315, 1.9945669, 0.08700028, -0.11888972, 1.4027562, 0.5501004, 0.9166684)
+
+[node name="PacoteGN_P2" parent="NavigationRegion3D/CenarioBonito/Caixas" unique_id=950163776 instance=ExtResource("12_yribc")]
+transform = Transform3D(1.8477064, -0.06689287, -0.7625668, -0.15412411, 1.9190401, -0.5417834, 0.74981934, 0.5592932, 1.7677566, 0.5534366, 1.0776262, 2.191476)
+
 [node name="Cubiculo" type="Node3D" parent="NavigationRegion3D" unique_id=498539175]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.058513045, -2.1361601)
 
@@ -260,13 +414,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.058513045, -2.1361601)
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 desativar_colisor_on_jogar = [NodePath("../StaticBody3D/CollisionShape3D")]
 
-[node name="Cubicule" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa" parent_id_path=PackedInt32Array(1766737732, 643817367) index="0" unique_id=456207740 groups=["sumivel"]]
+[node name="Cubicule" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa" parent_id_path=PackedInt32Array(1766737732, 643817367) index="0" unique_id=456207740 groups=["costas_quarto", "sumivel"]]
+surface_material_override/0 = SubResource("StandardMaterial3D_s63yc")
 
 [node name="StaticBody3D" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa/Cubicule" index="0" unique_id=1822447287 groups=["costas_quarto"]]
 
-[node name="Chair" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa" parent_id_path=PackedInt32Array(1766737732, 643817367) index="5" unique_id=1321028306 groups=["sumivel"]]
+[node name="Chair" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa" parent_id_path=PackedInt32Array(1766737732, 643817367) index="5" unique_id=1321028306 groups=["costas_quarto", "sumivel"]]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Cubiculo" unique_id=1132764725]
+[node name="Lamp" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa" parent_id_path=PackedInt32Array(1766737732, 643817367) index="6" unique_id=2064069841 groups=["costas_quarto", "sumivel"]]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Cubiculo" unique_id=1132764725 groups=["costas_quarto"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9766319)
 
 [node name="AreaDeInteracao" type="Node3D" parent="NavigationRegion3D/Cubiculo/StaticBody3D" unique_id=296463841]
@@ -359,16 +516,21 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
+mouse_filter = 1
 
 [node name="TextureButton" type="TextureButton" parent="UI_Jogo" unique_id=380968004]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -128.0
-offset_right = 128.0
+offset_left = 20.0
+offset_top = -112.0
+offset_right = 170.0
+offset_bottom = -20.0
 grow_vertical = 0
-texture_normal = ExtResource("7_i1nvq")
+texture_normal = ExtResource("10_j7gex")
+ignore_texture_size = true
+stretch_mode = 5
 script = SubResource("GDScript_js386")
 dir = -1.0
 
@@ -379,13 +541,19 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -128.0
+offset_left = -170.0
+offset_top = -112.0
+offset_right = -20.0
+offset_bottom = -20.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("7_i1nvq")
+texture_normal = ExtResource("10_j7gex")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
 script = SubResource("GDScript_js386")
 
+[connection signal="pressed" from="NavigationRegion3D/CenarioBonito/Quadro/UI/SairDoJogo" to="NavigationRegion3D/CenarioBonito/Quadro" method="sair"]
 [connection signal="comecou_girar" from="OlhoDeDeus/Rotacionavel" to="OlhoDeDeus" method="_on_rotacionavel_comecou_girar"]
 [connection signal="terminou_girar" from="OlhoDeDeus/Rotacionavel" to="OlhoDeDeus" method="_on_rotacionavel_terminou_girar"]
 [connection signal="chamar" from="UI_Jogo/TextureButton" to="OlhoDeDeus/Rotacionavel" method="girar"]
@@ -394,4 +562,5 @@ script = SubResource("GDScript_js386")
 [connection signal="pressed" from="UI_Jogo/TextureButton2" to="UI_Jogo/TextureButton2" method="mandar_para"]
 
 [editable path="NavigationRegion3D/CenarioBonito/MainRoom2"]
+[editable path="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio"]
 [editable path="NavigationRegion3D/Cubiculo/JogoCarimbar"]

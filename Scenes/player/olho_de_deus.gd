@@ -16,8 +16,7 @@ var pos_raycast : Vector3
 
 
 func _ready() -> void:
-	var nodes = get_tree().get_nodes_in_group(Singleton.direcao_grupo[rotacionavel.get_direcao_atual()])
-	grupo_para_excluir = nodes.map(func(node): return node.get_rid())
+	_on_rotacionavel_comecou_girar(rotacionavel.get_direcao_atual(), -1)
 	
 	carimbo.on_chegou.connect(func(interagivel: Interagivel): interagivel.interagir())
 
@@ -43,12 +42,14 @@ func raycastar() -> void:
 		pos_raycast = res.position
 	
 	if not res.is_empty() and origem.distance_to(res.position) <= distancia_max_cast:
+		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 		col = res.collider
 	
 	if ultimo_raycast_achado != null and ultimo_raycast_achado != col:
 		ultimo_raycast_achado.mouse_exited.emit()
 		
 	if col == null:
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		ultimo_raycast_achado = null
 		interagivel_atual = null
 	elif ultimo_raycast_achado != col:
@@ -58,7 +59,7 @@ func raycastar() -> void:
 		var interagiveis = ultimo_raycast_achado.find_children("*", "Interagivel", false)
 		interagivel_atual = null if len(interagiveis) == 0 else interagiveis[0]
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		raycastar()
 		if interagivel_atual != null and event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.pressed:
@@ -68,9 +69,39 @@ func _input(event: InputEvent) -> void:
 			carimbo.interagir_com(interagivel_atual)
 
 
-func _on_rotacionavel_comecou_girar(direcao: int) -> void:
+func _on_rotacionavel_comecou_girar(direcao: int, dir_antiga: int) -> void:
 	var nodes = get_tree().get_nodes_in_group(Singleton.direcao_grupo[rotacionavel.get_direcao_atual()])
-	grupo_para_excluir = nodes.map(func(node): return node.get_rid())
+	
+	grupo_para_excluir = nodes.filter(func(node): return node is CollisionObject3D).map(func(node): return node.get_rid())
+	var meshs = nodes.filter(func(node): return node is MeshInstance3D)
+	for mesh in meshs:
+		var mat: BaseMaterial3D = mesh.get_active_material(0)
+		var albedo = mat.albedo_color
+		
+		if albedo.a == 0.0:
+			continue
+			
+		albedo.a = 0.0
+		var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(mat, "albedo_color", albedo, 0.4)
+	
+	if dir_antiga == direcao or dir_antiga < 0:
+		return
+	
+	var nodes_antigos = get_tree().get_nodes_in_group(Singleton.direcao_grupo[dir_antiga])
+	var meshs_antigas = nodes_antigos.filter(func(node): return node is MeshInstance3D)
+	
+	for mesh in meshs_antigas:
+		var mat: BaseMaterial3D = mesh.get_active_material(0)
+		
+		var albedo = mat.albedo_color
+		if albedo.a == 1:
+			continue
+			
+		albedo.a = 1.0
+		var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(mat, "albedo_color", albedo, 0.2)
+	
 
 
 func _on_rotacionavel_terminou_girar(direcao: int) -> void:

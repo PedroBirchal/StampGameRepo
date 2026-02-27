@@ -53,6 +53,10 @@ import/blender/enabled=false
 [global_group]
 
 sumivel="Objetos que ao se aproximar da camera podem ou não sumir (diferente dos outros que por padrão não somem). Colocar em MeshInstance3D apenas!"
+costas_quarto=""
+direita_quarto=""
+esquerda_quarto=""
+frente_quarto=""
 
 [input]
 

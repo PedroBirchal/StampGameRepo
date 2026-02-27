@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://djda65x1gkvo8" path="res://materials/ColorMap.png" id="4_7xeox"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oj1nn"]
+size = Vector3(0.6, 0.75, 0.3)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vbpbb"]
 atlas = ExtResource("3_1dncf")
@@ -91,7 +92,7 @@ texture = ExtResource("2_1tqss")
 [node name="Area3D" type="Area3D" parent="." unique_id=1845010039]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=454174723]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.1, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.058563344, 0)
 shape = SubResource("BoxShape3D_oj1nn")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=2004529691]
@@ -151,7 +152,7 @@ bones/5/position = Vector3(0, 0.01, 0)
 bones/5/rotation = Quaternion(0, 0, 0, 1)
 bones/5/scale = Vector3(1, 1, 1)
 
-[node name="BaseCarimbo1" type="MeshInstance3D" parent="Carimbo1_Armature/Skeleton3D" unique_id=54002631]
+[node name="BaseCarimbo1" type="MeshInstance3D" parent="Carimbo1_Armature/Skeleton3D" unique_id=54002631 groups=["costas_quarto", "sumivel"]]
 layers = 2
 mesh = SubResource("ArrayMesh_hcvay")
 skin = SubResource("Skin_1dncf")

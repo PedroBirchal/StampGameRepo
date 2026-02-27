@@ -135,7 +135,7 @@ bones/3/position = Vector3(0, 0.009999999, 0)
 bones/3/rotation = Quaternion(0, 0, 0, 1)
 bones/3/scale = Vector3(1, 1, 1)
 
-[node name="Carimbo2" type="MeshInstance3D" parent="CarimboArmature/Skeleton3D" unique_id=460458175]
+[node name="Carimbo2" type="MeshInstance3D" parent="CarimboArmature/Skeleton3D" unique_id=460458175 groups=["costas_quarto", "sumivel"]]
 layers = 2
 mesh = SubResource("ArrayMesh_f0h1s")
 skin = SubResource("Skin_w3nc7")

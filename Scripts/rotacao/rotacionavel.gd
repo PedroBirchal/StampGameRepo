@@ -27,7 +27,7 @@ var girando := false
 
 signal giro_vertical_mudou(dir: float)
 
-signal comecou_girar(direcao: Singleton.Direcao)
+signal comecou_girar(direcao: Singleton.Direcao, antiga_direcao: Singleton.Direcao)
 signal terminou_girar(direcao: Singleton.Direcao)
 
 func get_direcao_atual() -> Singleton.Direcao:
@@ -37,6 +37,7 @@ func girar(dir: int) -> void:
 	if girando:
 		return
 	
+	var antiga_dir = dir_atual
 	var nova_rotacao = alvo.rotation
 	dir_atual = dir_atual + dir
 	
@@ -54,9 +55,7 @@ func girar(dir: int) -> void:
 	tween.tween_property(alvo, "rotation", nova_rotacao, 0.5)
 	tween.finished.connect(fim_girar)
 	
-	print("rot: "+str(alvo.rotation)+" go to rot: "+str(nova_rotacao))
-	
-	comecou_girar.emit(direcao_arr[dir_atual])
+	comecou_girar.emit(direcao_arr[dir_atual], direcao_arr[antiga_dir])
 
 func fim_girar() -> void:
 	girando = false
@@ -103,11 +102,8 @@ func girar_vertical(dir: int) -> void:
 	if not pode_rot_cima and rot_vertical == 0 and dir > 0:
 		return
 	
-	print("a:"+str(rot_vertical)+" b:"+str(dir))
-	
 	var nova_rotacao = alvo.rotation
 	rot_vertical += dir
-	print("a:"+str(rot_vertical))
 	
 	nova_rotacao = set_rot_vertical(alvo.rotation, deg_to_rad(90 * rot_vertical))
 
@@ -115,6 +111,5 @@ func girar_vertical(dir: int) -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(alvo, "rotation", nova_rotacao, 0.5)
 	tween.finished.connect(fim_girar)
-	
-	comecou_girar.emit(direcao_arr[dir_atual])
+
 	giro_vertical_mudou.emit(rot_vertical)

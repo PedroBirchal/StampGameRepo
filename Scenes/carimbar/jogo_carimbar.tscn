@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c6mdtx25j1ean" path="res://Scenes/carimbos/Carimbo_arvore.tscn" id="8_iapwp"]
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="9_dgb7d"]
 [ext_resource type="PackedScene" uid="uid://d0ujbbr3ehgt" path="res://Scenes/carimbos/Carimbo_torre.tscn" id="9_ncxsn"]
+[ext_resource type="PackedScene" uid="uid://dtb8ut1ed3i5e" path="res://Models/Cenário/Relogio_Digital.fbx" id="10_fxi00"]
 [ext_resource type="Script" uid="uid://d36v0h2e11jsd" path="res://Scripts/carimbar/spawn_encomenda.gd" id="10_gqmlt"]
 [ext_resource type="Texture2D" uid="uid://rq1cuj01lbe2" path="res://Sprites/ui/pro_lado.png" id="10_ncxsn"]
 [ext_resource type="Texture2D" uid="uid://b5nl5mib51l2p" path="res://Sprites/ui/pra_cima.png" id="11_fxi00"]
@@ -65,21 +66,51 @@ size = Vector3(5.6, 1.204, 3)
 [sub_resource type="BoxMesh" id="BoxMesh_m8bj5"]
 size = Vector3(0.75, 0.75, 0.75)
 
-[sub_resource type="BoxMesh" id="BoxMesh_yf8ht"]
-size = Vector3(0.75, 0.25, 0.75)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_g6dvo"]
 size = Vector3(1, 0.21539307, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m8bj5"]
 size = Vector3(9, 0.001, 9)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hiyrm"]
-albedo_color = Color(0.35591912, 0.14386687, 0.040448435, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ncef"]
+resource_name = "ColorMap"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_2thi0")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_g6dvo"]
-material = SubResource("StandardMaterial3D_hiyrm")
-size = Vector3(2.5, 0.25, 1.25)
+[sub_resource type="ArrayMesh" id="ArrayMesh_5xhk2"]
+_surfaces = [{
+"aabb": AABB(-0.01067932, -0.004456559, -0.0003620594, 0.020495292, 0.008913118, 0.000616293),
+"format": 34359742465,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAwACAAEABAACAAMAAgAEAAAAAwAFAAQAAQAGAAMABQADAAYABwABAAAABgABAAcABAAFAAgACAAAAAQABgAIAAUACQAAAAgAAAAJAAcACgAIAAYACAAKAAkABgALAAoABwALAAYADAAJAAoADQALAAcADgAHAAkABwAOAA0ACQAMAA4ACwANAA8ADwAKAAsADwANAA4ACgAPAAwADgAMAA8A"),
+"name": "ColorMap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("UfguvFQIkjuoSoU5UfguvFQIkruoSoU5UfguvFQIkrvK0r25LNMgPFQIkrvK0r25UfguvFQIkjvK0r25LNMgPFQIkjvK0r25LNMgPFQIkruoSoU5fY3du9vUZLuoSoU5LNMgPFQIkjuoSoU5fY3du9vUZDuoSoU57OwOPNvUZDuoSoU57OwOPNvUZLuoSoU5fY3du9vUZDsOWSO57OwOPNvUZLsOWSO5fY3du9vUZLsOWSO57OwOPNvUZDsOWSO5")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ncxsn"]
+resource_name = "Cube"
+_surfaces = [{
+"aabb": AABB(-0.01067932, -0.004456559, -0.0003620594, 0.020495292, 0.008913118, 0.000616293),
+"attribute_data": PackedByteArray("QkrcPYjNfD67uOE9VKaIPpFm3D1qHJM+GfjWPdrciD5+6tY9GL6EPkJK3D2IzXw+GfjWPdrciD6gidE9mDp9Pu02yz0UA2I+furWPRi+hD6gidE9mDp9PigbzD2Au2g+2f7LPTxQPz7tNss9FANiPigbzD2Au2g+yvO+PbCKVD4oG8w9gLtoPqCJ0T2YOn0+djfMPWATiT7+yMY9qKd9Pi1D1j1SIYQ+LUPWPVIhhD54Bc09YGNlPngFzT1gY2U+VmTiPfQXYT7KleA9mKtfPhdY1z1QzDw+xbDWPXQONT5+6tY9GL6EPi1D1j1SIYQ+ypXgPZirXz5WZOI99BdhPu02yz0UA2I+eAXNPWBjZT4tQ9Y9UiGEPn7q1j0YvoQ+7TbLPRQDYj7FsNY9dA41PhdY1z1QzDw+eAXNPWBjZT4XWNc9UMw8PsqV4D2Yq18+LUPWPVIhhD54Bc09YGNlPhdY1z1QzDw+F1jXPVDMPD7KleA9mKtfPsqV4D2Yq18+eAXNPWBjZT54Bc09YGNlPhdY1z1QzDw+F1jXPVDMPD7KleA9mKtfPsqV4D2Yq18+LUPWPVIhhD4tQ9Y9UiGEPg=="),
+"format": 34359742487,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQAGAAZABoAGgAbABgAHAAdAB4AHgAfABwAIAAhACIAIgAjACAAJAAlACYAJgAnACQAKAApACoAKgArACgALAAtAC4ALgAvACwAMAAxADIAMgAzADAANAA1ADYANgA3ADQA"),
+"material": SubResource("StandardMaterial3D_4ncef"),
+"name": "ColorMap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 56,
+"vertex_data": PackedByteArray("UfguvFQIkjuoSoU5UfguvFQIkruoSoU5UfguvFQIkrvK0r25UfguvFQIkjvK0r25LNMgPFQIkjuoSoU5UfguvFQIkjuoSoU5UfguvFQIkjvK0r25LNMgPFQIkjvK0r25LNMgPFQIkruoSoU5LNMgPFQIkjuoSoU5LNMgPFQIkjvK0r25LNMgPFQIkrvK0r25UfguvFQIkruoSoU5LNMgPFQIkruoSoU5LNMgPFQIkrvK0r25UfguvFQIkrvK0r25LNMgPFQIkrvK0r25LNMgPFQIkjvK0r25UfguvFQIkjvK0r25UfguvFQIkrvK0r257OwOPNvUZDsOWSO57OwOPNvUZDuoSoU57OwOPNvUZLuoSoU57OwOPNvUZLsOWSO5UfguvFQIkjuoSoU5fY3du9vUZDuoSoU5fY3du9vUZLuoSoU5UfguvFQIkruoSoU5LNMgPFQIkjuoSoU57OwOPNvUZDuoSoU5fY3du9vUZDuoSoU5UfguvFQIkjuoSoU5LNMgPFQIkruoSoU57OwOPNvUZLuoSoU57OwOPNvUZDuoSoU5LNMgPFQIkjuoSoU5LNMgPFQIkruoSoU5UfguvFQIkruoSoU5fY3du9vUZLuoSoU57OwOPNvUZLuoSoU5fY3du9vUZLsOWSO5fY3du9vUZDsOWSO57OwOPNvUZDsOWSO57OwOPNvUZLsOWSO5fY3du9vUZLsOWSO5fY3du9vUZLuoSoU5fY3du9vUZDuoSoU5fY3du9vUZDsOWSO57OwOPNvUZLsOWSO57OwOPNvUZLuoSoU5fY3du9vUZLuoSoU5fY3du9vUZLsOWSO5fY3du9vUZDsOWSO5fY3du9vUZDuoSoU57OwOPNvUZDuoSoU57OwOPNvUZDsOWSO5AAD/f/9/DoQAAP9//38OhAAA/3//fw6EAAD/f/9/DoT/f///y/n/v/9///8AACTB/3///wAAGsH/f///3vn/v////3//f/Tz////f/9/p4v///9//3+JjP///3//f9n0/38AAG/8/7//fwAAAABlN/9/AABv/P+//38AAG/8/7//////pNis0/////+k2KzT/////6TYrNP/////pNis0wAA/3////+/AAD/f////78AAP9/////vwAA/3////+//3//f0gSI8n/f/9/7BJ1yf9//3+HEcLI/3//fwwRhcj/f/9/mKyy6f9//39TstTm/3//f8UX4cv/f/9/CBYDy/9//3+FzkMn/3//f8IaYM3/f/9/hc5DJ/9//3+FzkMn/3//f0YrotX/f/9/wKSe7f9//38wo2bu/3//f+okdNL/f/9/DywH1v9//38PLAfW/3//fw8sB9b/f/9/DywH1v///3////+/////f////7////9/////v////3////+//3///////7//f///////v/9///////+//3///////7//fwAA////v/9/AAD///+//38AAP///7//fwAA////vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_5xhk2")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_msc56"]
 size = Vector3(2.5, 0.25, 1.25)
@@ -211,7 +242,6 @@ transform = Transform3D(1, 0, 0, 0, 0.99950653, -0.03141076, 0, 0.03141076, 0.99
 
 [node name="Camera3D" type="Camera3D" parent="CameraHolder" unique_id=1906213973]
 script = ExtResource("3_i71g1")
-margem_tela = Vector2(50, 50)
 
 [node name="Mesa" type="Node3D" parent="." unique_id=643817367]
 
@@ -236,10 +266,6 @@ mesh = SubResource("BoxMesh_m8bj5")
 
 [node name="MandarEmbora" type="Node3D" parent="Mesa" unique_id=1510397098]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.110102, 1.3559829, -1.4148993)
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesa/MandarEmbora" unique_id=748522938]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3613379, 0)
-mesh = SubResource("BoxMesh_yf8ht")
 
 [node name="AreaClicavel" type="Area3D" parent="Mesa/MandarEmbora" unique_id=1006271420]
 monitoring = false
@@ -290,20 +316,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0821116, 0.53724253)
 
 [node name="Carimbo Infernopolis" parent="Mesa/CentroDaMesa" unique_id=56766804 node_paths=PackedStringArray("cam") instance=ExtResource("3_g6dvo")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.9652621, 0.058162928, 0.10475242)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.2787766, 0.058162928, 0.198717)
 cam = NodePath("../../../CameraHolder/Camera3D")
 
 [node name="Carimbo Arvore" parent="Mesa/CentroDaMesa" unique_id=372205992 node_paths=PackedStringArray("cam") instance=ExtResource("8_iapwp")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.43389463, 0.08795619, 0.10475242)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.2792029, 0.08795619, 0.59015083)
 cam = NodePath("../../../CameraHolder/Camera3D")
 
 [node name="Carimbo Torre" parent="Mesa/CentroDaMesa" unique_id=1997387072 node_paths=PackedStringArray("cam") instance=ExtResource("9_ncxsn")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.09068185, 0.046910405, 0.1060971)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.2456291, 0.046910405, 0.92780674)
 cam = NodePath("../../../CameraHolder/Camera3D")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesa/CentroDaMesa" unique_id=1040924777]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08347249, 0.53724253)
-mesh = SubResource("BoxMesh_g6dvo")
+[node name="MeshInstance3D" type="Node3D" parent="Mesa/CentroDaMesa" unique_id=1793862512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26134664, -0.08347249, 0.53724253)
+
+[node name="Carimbeiro" type="MeshInstance3D" parent="Mesa/CentroDaMesa/MeshInstance3D" unique_id=2128543650 groups=["costas_quarto", "sumivel"]]
+transform = Transform3D(125, 0, 0, 0, -6.5567083e-06, 125, 0, -150, -5.4639236e-06, 0.08709704, 0.12666191, -1.5099278e-08)
+mesh = SubResource("ArrayMesh_ncxsn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Mesa/CentroDaMesa/MeshInstance3D" unique_id=1325097591]
 
@@ -316,9 +345,15 @@ transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, -
 mesh = SubResource("ArrayMesh_2thi0")
 
 [node name="Lamp" type="MeshInstance3D" parent="Mesa" unique_id=2064069841]
-transform = Transform3D(0.13863558, -1.9951893, 6.837293e-08, -5.9086712e-08, 6.443215e-08, 2, -1.9951893, -0.13863558, -5.4478292e-08, 2.271113, 0.87107325, -2.024641)
+transform = Transform3D(2.049661, -2.1906369, -1.3081876e-07, 8.274044e-08, -1.0173588e-07, 3, -2.1906369, -2.049661, -9.089927e-09, 0.5012531, 1.0258532, -2.775012)
 visible = false
 mesh = SubResource("ArrayMesh_5f1bj")
+
+[node name="Relogio" type="Node3D" parent="Mesa" unique_id=1428879714]
+transform = Transform3D(0.81576425, 0, -0.5783846, 0, 1, 0, 0.5783846, 0, 0.81576425, 1.6317453, 1, -3.0529714)
+
+[node name="Relogio_Digital" parent="Mesa/Relogio" unique_id=683875174 instance=ExtResource("10_fxi00")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1725576989]
 transform = Transform3D(1, 0, 0, 0, 0.121488206, 0.9925929, 0, -0.9925929, 0.121488206, 0, 3.6487668, 2.3863597)

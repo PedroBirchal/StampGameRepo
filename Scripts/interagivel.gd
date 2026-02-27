@@ -11,7 +11,25 @@ signal on_interact
 
 @export var setar_area_pos_click := false
 
+const FORCA_EMISSAO = 0.4
+
+var mat : BaseMaterial3D
+
 func _ready() -> void:
+	if mesh != null:
+		mat = mesh.get_active_material(0).duplicate()
+		mesh.set_surface_override_material(0, mat)
+		
+		if mat.albedo_texture == null:
+			mat.emission = mat.albedo_color
+		else:
+			mat.emission = Color(0,0,0)
+			mat.emission_texture = mat.albedo_texture
+		
+		mat.emission_enabled = false
+		mat.emission_energy_multiplier = FORCA_EMISSAO
+		
+	
 	var collision = get_parent()
 	if collision != null and collision is CollisionObject3D:
 		collision.mouse_entered.connect(_on_hover)
@@ -23,16 +41,16 @@ func interagir() -> void:
 	if jogavel != null:
 		jogavel.jogar()
 	
-	if mesh != null:
-		mesh.set_surface_override_material(0, null)
+	if mat != null:
+		mat.emission_enabled = false
 
 func _on_hover() -> void:
-	if mesh != null:
-		mesh.set_surface_override_material(0, material_outline)
+	if mat != null:
+		mat.emission_enabled = true
 
 func _on_unhover() -> void:
-	if mesh != null:
-		mesh.set_surface_override_material(0, null)
+	if mat != null:
+		mat.emission_enabled = false
 
 func setar_area_click(pos: Vector3) -> void:
 	area_de_interacao.position = pos

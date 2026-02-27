@@ -1,9 +1,9 @@
 extends Camera3D
 
 var rotacao_base: Vector3
-@export var margem_tela: Vector2
-@export_range(0, 360, 0.1, "radians_as_degrees") var rotacao_x: float
-@export_range(0, 360, 0.1, "radians_as_degrees") var rotacao_y: float
+@export var margem_tela: Vector2 = Vector2(50,50)
+@export_range(0, 360, 0.1, "radians_as_degrees") var rotacao_x: float = deg_to_rad(15)
+@export_range(0, 360, 0.1, "radians_as_degrees") var rotacao_y: float = deg_to_rad(15)
 
 func _ready() -> void:
 	rotacao_base = rotation

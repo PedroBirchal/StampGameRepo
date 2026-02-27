@@ -9,14 +9,10 @@ enum Estado { QUARTO, JOGANDO }
 var estado := Estado.QUARTO
 var jogavel_atual : Jogavel
 @export var jogador : Jogador
+@export var camera_principal : Camera3D
 
 @export_group("UI")
 @export var quarto_ui : Control
-
-@export_group("Sumir Objetos Perto")
-@export var distancia_fade_min := 7
-@export var distancia_fade_max := 8
-
 
 
 func _init() -> void:
@@ -32,6 +28,7 @@ func jogavel_iniciado(jogavel: Jogavel) -> void:
 
 func jogavel_encerrado() -> void:
 	jogavel_atual.saindo.disconnect(jogavel_encerrado)
+	camera_principal.make_current()
 	mudar_estado(Estado.QUARTO)
 
 
@@ -63,11 +60,9 @@ func atualizar_sumiveis() -> void:
 		
 		mat = mat.duplicate()
 		
-		if mat.distance_fade_mode == 2 and not pode_sumir:
-			mat.distance_fade_mode = 0
-		if mat.distance_fade_mode == 0 and pode_sumir:
-			mat.distance_fade_mode = 2
-			mat.distance_fade_min_distance = distancia_fade_min
-			mat.distance_fade_max_distance = distancia_fade_max
+		if mat.transparency == 3 and not pode_sumir:
+			mat.transparency = 0
+		if mat.transparency == 0 and pode_sumir:
+			mat.transparency = 3
 		
 		sumivel.set_surface_override_material(0, mat)
