@@ -24,6 +24,8 @@ var proxima_encomenda: Encomenda
 
 var ja_comecou = false
 
+## Sempre que muda a encomenda_atual, chama o sinal com o valor dela
+signal mudou_encomenda(encomenda: Encomenda)
 
 func jogar() -> void:
 	super()
@@ -65,6 +67,9 @@ func mandar_encomenda_nova_ao_centro() -> void:
 	encomenda_atual.clicando.connect(encomenda_atual_selecionada)
 	encomenda_atual.estado_mudado.connect(encomenda_atual_mudou_estado)
 	
+	
+	mudou_encomenda.emit(encomenda_atual)
+	
 	proxima_encomenda = gerar_nova_encomenda()
 	pos_receber_proximo.add_child(proxima_encomenda)
 
@@ -83,6 +88,8 @@ func mandar_encomenda_atual_para_destino() -> void:
 	encomenda_atual.estado_mudado.disconnect(encomenda_atual_mudou_estado)
 	encomenda_atual.queue_free()
 	encomenda_atual = null
+	
+	mudou_encomenda.emit(null)
 
 
 func gerar_nova_encomenda() -> Node3D:

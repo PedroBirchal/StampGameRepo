@@ -20,6 +20,8 @@ func _ready() -> void:
 	
 	carimbo.on_chegou.connect(func(interagivel: Interagivel): interagivel.interagir())
 
+func _physics_process(delta: float) -> void:
+	raycastar()
 	
 func raycastar() -> void:
 	var mouse = get_viewport().get_mouse_position()
@@ -46,7 +48,9 @@ func raycastar() -> void:
 		col = res.collider
 	
 	if ultimo_raycast_achado != null and ultimo_raycast_achado != col:
-		ultimo_raycast_achado.mouse_exited.emit()
+		if ultimo_raycast_achado is InteragivelHover:
+			print("saiuu")
+			(ultimo_raycast_achado as InteragivelHover).saiu_de_cima.emit()
 		
 	if col == null:
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
@@ -54,7 +58,9 @@ func raycastar() -> void:
 		interagivel_atual = null
 	elif ultimo_raycast_achado != col:
 		ultimo_raycast_achado = col
-		ultimo_raycast_achado.mouse_entered.emit()
+		if ultimo_raycast_achado is InteragivelHover:
+			print("entrou")
+			(ultimo_raycast_achado as InteragivelHover).ta_em_cima.emit()
 		
 		var interagiveis = ultimo_raycast_achado.find_children("*", "Interagivel", false)
 		interagivel_atual = null if len(interagiveis) == 0 else interagiveis[0]
@@ -75,15 +81,7 @@ func _on_rotacionavel_comecou_girar(direcao: int, dir_antiga: int) -> void:
 	grupo_para_excluir = nodes.filter(func(node): return node is CollisionObject3D).map(func(node): return node.get_rid())
 	var meshs = nodes.filter(func(node): return node is MeshInstance3D)
 	for mesh in meshs:
-		var mat: BaseMaterial3D = mesh.get_active_material(0)
-		var albedo = mat.albedo_color
-		
-		if albedo.a == 0.0:
-			continue
-			
-		albedo.a = 0.0
-		var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(mat, "albedo_color", albedo, 0.4)
+		setar_alpha_dos_materiais(mesh, 0.0)
 	
 	if dir_antiga == direcao or dir_antiga < 0:
 		return
@@ -92,16 +90,22 @@ func _on_rotacionavel_comecou_girar(direcao: int, dir_antiga: int) -> void:
 	var meshs_antigas = nodes_antigos.filter(func(node): return node is MeshInstance3D)
 	
 	for mesh in meshs_antigas:
-		var mat: BaseMaterial3D = mesh.get_active_material(0)
+		setar_alpha_dos_materiais(mesh, 1.0)
+
+func setar_alpha_dos_materiais(mesh: MeshInstance3D, alpha: float) -> void:
+	for i in range(0, mesh.get_surface_override_material_count()):
+		var mat = mesh.get_surface_override_material(i)
 		
+		if mat == null:
+			continue
+	
 		var albedo = mat.albedo_color
-		if albedo.a == 1:
+		if albedo.a == alpha:
 			continue
 			
-		albedo.a = 1.0
+		albedo.a = alpha
 		var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(mat, "albedo_color", albedo, 0.2)
-	
 
 
 func _on_rotacionavel_terminou_girar(direcao: int) -> void:

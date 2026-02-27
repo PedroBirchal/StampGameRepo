@@ -3,6 +3,7 @@ class_name Interagivel
 extends Node3D
 
 signal on_interact
+@export var area_clicavel: InteragivelHover
 @export var mesh: MeshInstance3D
 @export var material_outline: Material
 @export var area_de_interacao: Node3D
@@ -16,6 +17,10 @@ const FORCA_EMISSAO = 0.4
 var mat : BaseMaterial3D
 
 func _ready() -> void:
+	if area_clicavel != null:
+		area_clicavel.ta_em_cima.connect(_on_hover)
+		area_clicavel.saiu_de_cima.connect(_on_unhover)
+	
 	if mesh != null:
 		mat = mesh.get_active_material(0).duplicate()
 		mesh.set_surface_override_material(0, mat)
@@ -28,12 +33,7 @@ func _ready() -> void:
 		
 		mat.emission_enabled = false
 		mat.emission_energy_multiplier = FORCA_EMISSAO
-		
 	
-	var collision = get_parent()
-	if collision != null and collision is CollisionObject3D:
-		collision.mouse_entered.connect(_on_hover)
-		collision.mouse_exited.connect(_on_unhover)
 
 func interagir() -> void:
 	on_interact.emit()

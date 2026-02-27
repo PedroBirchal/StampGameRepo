@@ -360,6 +360,8 @@ transform = Transform3D(0.81576425, 0, -0.5783846, 0, 1, 0, 0.5783846, 0, 0.8157
 [node name="Relogio_Digital" parent="Mesa/Relogio" unique_id=683875174 instance=ExtResource("10_fxi00")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
+[node name="Relogio_Digital" parent="Mesa/Relogio/Relogio_Digital" index="0" unique_id=1443153367 groups=["costas_quarto", "sumivel"]]
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1725576989]
 transform = Transform3D(1, 0, 0, 0, 0.121488206, 0.9925929, 0, -0.9925929, 0.121488206, 0, 3.6487668, 2.3863597)
 
@@ -475,3 +477,5 @@ metadata/_custom_type_script = "uid://bvtixto24md7m"
 [connection signal="pressed" from="UI/InspecionarElementos/BotaoEsquerda" to="." method="_on_botao_girar_esquerda"]
 [connection signal="pressed" from="UI/InspecionarElementos/BotaoDireita" to="." method="_on_botao_girar_direita"]
 [connection signal="pressed" from="UI/SairDoJogo" to="." method="sair"]
+
+[editable path="Mesa/Relogio/Relogio_Digital"]
