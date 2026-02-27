@@ -425,6 +425,30 @@ desativar_colisor_on_jogar = [NodePath("../StaticBody3D/CollisionShape3D")]
 
 [node name="Lamp" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa" parent_id_path=PackedInt32Array(1766737732, 643817367) index="6" unique_id=2064069841 groups=["costas_quarto", "sumivel"]]
 
+[node name="BotaoCima" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/UI/InspecionarElementos/BotoesVerticais" parent_id_path=PackedInt32Array(1766737732, 474447867) index="0" unique_id=854078339]
+offset_left = -22.5
+offset_top = 0.0
+offset_right = 22.5
+offset_bottom = 45.0
+
+[node name="BotaoBaixo" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/UI/InspecionarElementos/BotoesVerticais" parent_id_path=PackedInt32Array(1766737732, 474447867) index="1" unique_id=1568934407]
+offset_left = -22.5
+offset_top = -45.0
+offset_right = 22.5
+offset_bottom = 0.0
+
+[node name="BotaoEsquerda" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/UI/InspecionarElementos/BotoesHorizontais" parent_id_path=PackedInt32Array(1766737732, 1242856022) index="0" unique_id=1353989929]
+offset_left = 0.0
+offset_top = -45.5
+offset_right = 91.00003
+offset_bottom = 45.5
+
+[node name="BotaoDireita" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/UI/InspecionarElementos/BotoesHorizontais" parent_id_path=PackedInt32Array(1766737732, 1242856022) index="1" unique_id=596839425]
+offset_left = -91.0
+offset_top = -45.5
+offset_right = 0.0
+offset_bottom = 45.5
+
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Cubiculo" unique_id=1132764725 groups=["costas_quarto"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9766319)
 script = ExtResource("10_ej8o8")
