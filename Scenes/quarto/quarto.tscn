@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://rq1cuj01lbe2" path="res://Sprites/ui/pro_lado.png" id="10_j7gex"]
 [ext_resource type="PackedScene" uid="uid://duwg6xjwu74ay" path="res://Models/Cenário/Telefone_Fio.fbx" id="10_v11ly"]
 [ext_resource type="PackedScene" uid="uid://djx81ek61grk2" path="res://Models/Pacotes/PacoteGN_G.fbx" id="11_h88lf"]
+[ext_resource type="Script" uid="uid://ckhqo24tgocqv" path="res://Scenes/quarto/telefone.gd" id="11_s63yc"]
 [ext_resource type="PackedScene" uid="uid://b6eljqxn1jcq4" path="res://Models/Pacotes/PacoteGN_P.fbx" id="12_yribc"]
 [ext_resource type="Script" path="res://Scenes/quarto/play_music.gd" id="19_80gip"]
 
@@ -364,6 +365,7 @@ shape = SubResource("BoxShape3D_t12d2")
 
 [node name="Telefone" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=1650888016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6351585, 0.09065652, 5.0458727)
+script = ExtResource("11_s63yc")
 
 [node name="Estante" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito/Telefone" unique_id=2121307540 groups=["frente_quarto", "sumivel"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4251685, 0)
