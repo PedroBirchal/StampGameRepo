@@ -38,9 +38,11 @@ func abrir_carta() -> void:
 		return
 	carta_aberta = true
 	set_estado(EstadoEncomenda.ABERTA)
+	AudioManager.open_letter.play()
 
 func fechar_carta() -> void:
 	carta_aberta = false
+	AudioManager.close_letter.play()
 	
 
 func _on_area_clicavel_para_abrir_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:

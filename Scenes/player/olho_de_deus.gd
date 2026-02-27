@@ -53,7 +53,6 @@ func raycastar() -> void:
 	
 	if ultimo_raycast_achado != null and ultimo_raycast_achado != col:
 		if ultimo_raycast_achado is InteragivelHover:
-			print("saiuu")
 			(ultimo_raycast_achado as InteragivelHover).saiu_de_cima.emit()
 		
 	if col == null:
@@ -63,7 +62,6 @@ func raycastar() -> void:
 	elif ultimo_raycast_achado != col:
 		ultimo_raycast_achado = col
 		if ultimo_raycast_achado is InteragivelHover:
-			print("entrou")
 			(ultimo_raycast_achado as InteragivelHover).ta_em_cima.emit()
 		
 		var interagiveis = ultimo_raycast_achado.find_children("*", "Interagivel", false)
