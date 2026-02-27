@@ -322,11 +322,11 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.2787766, 0.058162928, 0.19
 cam = NodePath("../../../CameraHolder/Camera3D")
 
 [node name="Carimbo Arvore" parent="Mesa/CentroDaMesa" unique_id=372205992 node_paths=PackedStringArray("cam") instance=ExtResource("8_iapwp")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.2792029, 0.08795619, 0.59015083)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.2792029, 0.08795619, 0.59015083)
 cam = NodePath("../../../CameraHolder/Camera3D")
 
 [node name="Carimbo Torre" parent="Mesa/CentroDaMesa" unique_id=1997387072 node_paths=PackedStringArray("cam") instance=ExtResource("9_ncxsn")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.2456291, 0.08532858, 0.92780674)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.2456291, 0.08532858, 0.92780674)
 cam = NodePath("../../../CameraHolder/Camera3D")
 
 [node name="Carimbo Aqua" parent="Mesa/CentroDaMesa" unique_id=637596318 node_paths=PackedStringArray("cam") instance=ExtResource("10_33jh8")]
@@ -361,7 +361,7 @@ transform = Transform3D(0.81576425, 0, -0.5783846, 0, 1, 0, 0.5783846, 0, 0.8157
 [node name="Relogio_Digital" parent="Mesa/Relogio" unique_id=683875174 instance=ExtResource("10_fxi00")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
-[node name="Relogio_Digital" parent="Mesa/Relogio/Relogio_Digital" index="0" unique_id=1443153367 groups=["costas_quarto", "sumivel"]]
+[node name="Relogio_Digital" parent="Mesa/Relogio/Relogio_Digital" index="0" unique_id=907150662 groups=["costas_quarto", "sumivel"]]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1725576989]
 transform = Transform3D(1, 0, 0, 0, 0.121488206, 0.9925929, 0, -0.9925929, 0.121488206, 0, 3.6487668, 2.3863597)
