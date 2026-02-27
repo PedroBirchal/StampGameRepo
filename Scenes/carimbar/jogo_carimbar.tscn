@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c6mdtx25j1ean" path="res://Scenes/carimbos/Carimbo_arvore.tscn" id="8_iapwp"]
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="9_dgb7d"]
 [ext_resource type="PackedScene" uid="uid://d0ujbbr3ehgt" path="res://Scenes/carimbos/Carimbo_torre.tscn" id="9_ncxsn"]
+[ext_resource type="PackedScene" uid="uid://0cfc55nxafqe" path="res://Scenes/carimbos/Carimbo_aqua.tscn" id="10_33jh8"]
 [ext_resource type="PackedScene" uid="uid://dtb8ut1ed3i5e" path="res://Models/Cenário/Relogio_Digital.fbx" id="10_fxi00"]
 [ext_resource type="Script" uid="uid://d36v0h2e11jsd" path="res://Scripts/carimbar/spawn_encomenda.gd" id="10_gqmlt"]
 [ext_resource type="Texture2D" uid="uid://rq1cuj01lbe2" path="res://Sprites/ui/pro_lado.png" id="10_ncxsn"]
@@ -253,7 +254,7 @@ mesh = SubResource("ArrayMesh_76fwx")
 transform = Transform3D(-1.8213077e-08, 0, -0.41666663, -0.41666663, -1.8213077e-08, 1.8213077e-08, -1.8213077e-08, 0.41666663, 7.961189e-16, 0.37940776, -0.30490303, 0.26536274)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa/Cubicule/StaticBody3D" unique_id=112970309]
-transform = Transform3D(1, 1.8634725e-20, -1.8634725e-20, -1.8634725e-20, 1, 0, 1.8634725e-20, 1.60712e-40, 1, 0, -0.10180664, 0)
+transform = Transform3D(1, 3.8116483e-20, -3.8116483e-20, -3.8116483e-20, 1, 0, 3.8116483e-20, 6.65807e-40, 1, 0, -0.10180664, 0)
 shape = SubResource("BoxShape3D_hiyrm")
 
 [node name="ProximoAVir" type="Node3D" parent="Mesa" unique_id=559523962]
@@ -324,7 +325,11 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.2792029, 0.08795619, 0.590
 cam = NodePath("../../../CameraHolder/Camera3D")
 
 [node name="Carimbo Torre" parent="Mesa/CentroDaMesa" unique_id=1997387072 node_paths=PackedStringArray("cam") instance=ExtResource("9_ncxsn")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.2456291, 0.046910405, 0.92780674)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.2456291, 0.08532858, 0.92780674)
+cam = NodePath("../../../CameraHolder/Camera3D")
+
+[node name="Carimbo Aqua" parent="Mesa/CentroDaMesa" unique_id=637596318 node_paths=PackedStringArray("cam") instance=ExtResource("10_33jh8")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.8084352, 0.106215, 0.111089826)
 cam = NodePath("../../../CameraHolder/Camera3D")
 
 [node name="MeshInstance3D" type="Node3D" parent="Mesa/CentroDaMesa" unique_id=1793862512]
@@ -357,7 +362,6 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1725576989]
 transform = Transform3D(1, 0, 0, 0, 0.121488206, 0.9925929, 0, -0.9925929, 0.121488206, 0, 3.6487668, 2.3863597)
-visible = false
 
 [node name="UI" type="Control" parent="." unique_id=1061756243]
 layout_mode = 3

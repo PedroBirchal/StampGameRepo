@@ -12,7 +12,7 @@ static var holding : bool = false
 func _selecionar_novo_objeto(alvo):
 	holding = true
 	posInicial = alvo.global_position
-	alvo.global_position.y += 0.25
+	alvo.global_position.y += 0.3
 	ObjectNode3D = alvo
 	previsao.visible = true
 
@@ -30,7 +30,7 @@ func _physics_process(_delta):
 	var rayStart = cam.project_ray_origin(mousePos)
 	var direction = cam.project_ray_normal(mousePos)
 	
-	var plane = Plane(Vector3.UP, ObjectNode3D.global_position.y) #limitei o y...
+	var plane = Plane(Vector3.UP, ObjectNode3D.global_position.y)
 	var intersection = plane.intersects_ray(rayStart, direction)
 
 	if intersection:
@@ -61,7 +61,7 @@ func _carimbar():
 	var novo_decalque = Decal.new()
 	novo_decalque.texture_albedo = Carimbada
 	novo_decalque.size = posDecal
-	novo_decalque.size.y = 2.0
+	novo_decalque.size.y = 0.1
 	novo_decalque.cull_mask = 1
 
 	var collider = ray.get_collider()
@@ -69,6 +69,7 @@ func _carimbar():
 	
 	novo_decalque.global_position = ray.get_collision_point()
 	var normal = ray.get_collision_normal()
+	
 	_alinhar_decalque(novo_decalque, normal)
 
 func _alinhar_decalque(decal, normal):
