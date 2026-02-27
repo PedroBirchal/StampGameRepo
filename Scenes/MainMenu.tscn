@@ -3,9 +3,26 @@
 [ext_resource type="Script" uid="uid://cpi2nutxnvclm" path="res://Scripts/Menu/main_menu.gd" id="1_8saeu"]
 [ext_resource type="FontFile" uid="uid://bujqvnn6rve8g" path="res://Fonts/MISTBF__.TTF" id="2_ghw46"]
 [ext_resource type="FontFile" uid="uid://uk6ar6pt6uet" path="res://Fonts/kindergarten.ttf" id="3_df05h"]
+[ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="3_ghw46"]
+[ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="4_df05h"]
 
-[node name="MainMenu" type="Node2D" unique_id=1637582694]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8saeu"]
+bg_color = Color(0, 0.6929749, 0.63965076, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghw46"]
+bg_color = Color(1, 1, 0.8392157, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="MainMenu" type="Node2D" unique_id=1637582694 node_paths=PackedStringArray("creditsTela")]
 script = ExtResource("1_8saeu")
+creditsTela = NodePath("Telas/Créditos")
 
 [node name="Background" type="ColorRect" parent="." unique_id=29128835]
 offset_right = 1920.0
@@ -20,6 +37,161 @@ offset_bottom = 532.0
 theme_override_fonts/font = ExtResource("2_ghw46")
 theme_override_font_sizes/font_size = 150
 text = "STAMPADO"
+
+[node name="Telas" type="Control" parent="." unique_id=1270679616]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Créditos" type="Panel" parent="Telas" unique_id=273809255]
+visible = false
+layout_mode = 0
+offset_left = 404.0
+offset_top = 37.0
+offset_right = 1504.0
+offset_bottom = 1004.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8saeu")
+
+[node name="Panel" type="Panel" parent="Telas/Créditos" unique_id=1732898781]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 1078.0
+offset_bottom = 940.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ghw46")
+
+[node name="TextureButton" type="TextureButton" parent="Telas/Créditos/Panel" unique_id=2072567029]
+modulate = Color(0, 0.69411767, 0.6392157, 1)
+layout_mode = 0
+offset_left = 47.0
+offset_top = 26.0
+offset_right = 107.0
+offset_bottom = 86.0
+texture_normal = ExtResource("3_ghw46")
+texture_hover = ExtResource("4_df05h")
+
+[node name="titulo" type="Label" parent="Telas/Créditos/Panel" unique_id=1978964728]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 16.0
+offset_right = 701.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ghw46")
+theme_override_font_sizes/font_size = 70
+text = "CRÉDITOS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cargo" type="Label" parent="Telas/Créditos/Panel" unique_id=131334101]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 112.0
+offset_right = 683.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 50
+text = "Programação"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Nomes" type="Label" parent="Telas/Créditos/Panel" unique_id=637640240]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 181.0
+offset_right = 1004.0
+offset_bottom = 373.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 50
+text = "Ana Clara Guimarães Linhares
+Juan Vitor Saar Silverio
+Pedro de Lima Birchal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cargo3" type="Label" parent="Telas/Créditos/Panel" unique_id=1929151884]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 385.0
+offset_right = 702.0
+offset_bottom = 474.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 50
+text = "Artistas"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Nomes3" type="Label" parent="Telas/Créditos/Panel" unique_id=259586271]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 445.0
+offset_right = 1025.0
+offset_bottom = 603.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 50
+text = "Lapras Resende
+Maria Fernanda Rodrigues Macêdo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="titulo2" type="Label" parent="Telas/Créditos/Panel" unique_id=2068262881]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 614.0
+offset_right = 788.0
+offset_bottom = 708.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ghw46")
+theme_override_font_sizes/font_size = 70
+text = "Conteúdo externo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="titulo2" type="Label" parent="Telas/Créditos/Panel/titulo2" unique_id=1962739881]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 66.0
+offset_right = 510.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 45
+text = "OpenGameArt.org"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Nomes2" type="Label" parent="Telas/Créditos/Panel" unique_id=1186151326]
+layout_mode = 0
+offset_left = -543.0
+offset_top = 677.0
+offset_right = 440.0
+offset_bottom = 996.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 50
+text = "cyberdyne
+Luckius
+omfgdude"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Cargo2" type="Label" parent="Telas/Créditos/Panel" unique_id=277332297]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 657.0
+offset_right = 1461.0
+offset_bottom = 1023.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 50
+text = "Telefone tocando
+Cartas abrindo e fechando
+Música de background"
+vertical_alignment = 1
 
 [node name="Button Manager" type="Control" parent="." unique_id=242472087]
 layout_mode = 3
@@ -58,5 +230,7 @@ theme_override_fonts/font = ExtResource("3_df05h")
 theme_override_font_sizes/font_size = 50
 text = "Sair"
 
+[connection signal="pressed" from="Telas/Créditos/Panel/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Button Manager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button Manager/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Button Manager/Quit" to="." method="_on_quit_pressed"]
