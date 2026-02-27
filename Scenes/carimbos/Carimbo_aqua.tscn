@@ -72,11 +72,9 @@ script = ExtResource("1_1x0uj")
 previsao = NodePath("Sprite3D")
 Carimbada = ExtResource("2_biure")
 ray = NodePath("RayCast3D")
-posDecal = Vector3(0.5, 0.5, 0.5)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103]
-transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, -0.0786741, 0)
-visible = false
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, -0.19952482, 0)
 layers = 2
 modulate = Color(1, 1, 1, 0.45882353)
 axis = 1
@@ -88,11 +86,6 @@ texture = ExtResource("3_r5uv1")
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.0030664057, 0.058563344, 0.004216317)
 shape = SubResource("BoxShape3D_oj1nn")
 
-[node name="RayCast3D" type="RayCast3D" parent="." unique_id=2004529691]
-target_position = Vector3(0, -0.5, 0)
-hit_back_faces = false
-collide_with_areas = true
-
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1513099941]
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0)
 visible = false
@@ -101,9 +94,12 @@ autoplay = "default"
 frame_progress = 0.10540429
 
 [node name="CarimboEstilizado" type="MeshInstance3D" parent="." unique_id=942426790]
-transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, -0.0034024902, 0)
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0.051627483, 0)
 layers = 2
 mesh = SubResource("ArrayMesh_biure")
 surface_material_override/0 = SubResource("StandardMaterial3D_biure")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=2004529691]
+collide_with_areas = true
 
 [connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]

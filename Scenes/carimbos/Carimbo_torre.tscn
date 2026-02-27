@@ -77,11 +77,9 @@ script = ExtResource("1_f0h1s")
 previsao = NodePath("Sprite3D")
 Carimbada = ExtResource("2_f0h1s")
 ray = NodePath("RayCast3D")
-posDecal = Vector3(0.5, 0.5, 0.5)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103]
-transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, -0.0786741, 0)
-visible = false
+transform = Transform3D(0.03, 0, 0, 0, 0.025, 0, 0, 0, 0.04, 0, -0.18350771, 0)
 layers = 2
 modulate = Color(1, 1, 1, 0.45882353)
 axis = 1
@@ -94,8 +92,6 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.0007446278, 0.060693
 shape = SubResource("BoxShape3D_oj1nn")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=2004529691]
-target_position = Vector3(0, -0.5, 0)
-hit_back_faces = false
 collide_with_areas = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1513099941]
@@ -106,7 +102,7 @@ autoplay = "default"
 frame_progress = 0.10540429
 
 [node name="CarimboArmature" type="Node3D" parent="." unique_id=1769465269]
-transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, 5, 0, -5, -2.1855695e-07, 0, -0.0015555397, 0)
+transform = Transform3D(6.8, 0, 0, 0, -2.9723745e-07, 6.8, 0, -6.8, -2.9723745e-07, 0, -0.0015555397, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="CarimboArmature" unique_id=227750868]
 bones/0/name = "Base"
