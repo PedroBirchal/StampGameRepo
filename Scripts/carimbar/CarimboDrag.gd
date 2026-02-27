@@ -81,7 +81,6 @@ func _carimbar():
 	novo_decalque.size = Vector3(0.5, 0.2, 0.5) 
 	
 	collider.add_child(novo_decalque)
-	print("Colidi com: ", collider.name)
 	
 	novo_decalque.global_position = ponto
 	_alinhar_decalque(novo_decalque, normal)
@@ -99,8 +98,10 @@ func _alinhar_decalque(decal, normal):
 
 
 func _on_jogo_carimbar_mudou_encomenda(encomenda: Encomenda) -> void:
+	print("encomendei")
 	if encomenda is Pacote and encomenda.item_res.cabe_em != ItemResource.TamanhoPacote.PEQUENO:
 		ehCaixa = true
+		print("caixei")
 	else:
 		ehCaixa = false
-		
+		print("descaixei")
