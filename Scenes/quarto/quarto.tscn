@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dxegpb20kq7ku"]
 
 [ext_resource type="Script" uid="uid://2l0ixgo34aqb" path="res://Scripts/interagivel.gd" id="1_5yl11"]
+[ext_resource type="PackedScene" uid="uid://bky57xdyrtfho" path="res://Scripts/TextSystem/text_box.tscn" id="1_7meqa"]
 [ext_resource type="Script" uid="uid://d4j65a74tvcye" path="res://Scripts/jogo.gd" id="1_js386"]
 [ext_resource type="PackedScene" uid="uid://djpcvycqwoyj0" path="res://Models/Cenário/MainRoom.fbx" id="2_a0bhh"]
 [ext_resource type="Material" uid="uid://dfo0cvbqn4ij2" path="res://materials/outline_material.tres" id="2_kupag"]
@@ -206,6 +207,73 @@ albedo_color = Color(0.63, 0.36382502, 0.2205, 1)
 material = SubResource("StandardMaterial3D_h88lf")
 size = Vector3(1.75, 1, 1.25)
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7meqa"]
+animation = &"Arm_Telefone|AtendendoTelefone"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yrp45"]
+animation = &"Arm_Telefone|AtendidoTelefone"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ewgu7"]
+animation = &"Arm_Telefone|DesligadoTelefone"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eodgp"]
+animation = &"Arm_Telefone|DesligandoTelefone"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p5cr7"]
+animation = &"Arm_Telefone|TocandoTelefone"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r6doe"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b256n"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w0kyf"]
+advance_mode = 2
+advance_expression = "estado != Estado.EM_CHAMADA"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l6oty"]
+advance_mode = 2
+advance_expression = "estado == Estado.TOCANDO"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jvehu"]
+switch_mode = 1
+advance_mode = 2
+advance_expression = "estado == Estado.EM_CHAMADA"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7meqa"]
+switch_mode = 1
+advance_mode = 2
+advance_expression = "estado == Estado.PARADO"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yrp45"]
+advance_mode = 2
+advance_expression = "estado == Estado.EM_CHAMADA"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ewgu7"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_theeu"]
+states/Arm_Telefone|AtendendoTelefone/node = SubResource("AnimationNodeAnimation_7meqa")
+states/Arm_Telefone|AtendendoTelefone/position = Vector2(720, 100)
+states/Arm_Telefone|AtendidoTelefone/node = SubResource("AnimationNodeAnimation_yrp45")
+states/Arm_Telefone|AtendidoTelefone/position = Vector2(710, 172)
+states/Arm_Telefone|DesligadoTelefone/node = SubResource("AnimationNodeAnimation_ewgu7")
+states/Arm_Telefone|DesligadoTelefone/position = Vector2(378, 92)
+states/Arm_Telefone|DesligandoTelefone/node = SubResource("AnimationNodeAnimation_eodgp")
+states/Arm_Telefone|DesligandoTelefone/position = Vector2(378, 172)
+states/Arm_Telefone|TocandoTelefone/node = SubResource("AnimationNodeAnimation_p5cr7")
+states/Arm_Telefone|TocandoTelefone/position = Vector2(570, 6)
+states/End/position = Vector2(1021, 100)
+states/Start/position = Vector2(123, 92)
+transitions = ["Arm_Telefone|AtendendoTelefone", "Arm_Telefone|AtendidoTelefone", SubResource("AnimationNodeStateMachineTransition_r6doe"), "Arm_Telefone|DesligandoTelefone", "Arm_Telefone|DesligadoTelefone", SubResource("AnimationNodeStateMachineTransition_b256n"), "Arm_Telefone|AtendidoTelefone", "Arm_Telefone|DesligandoTelefone", SubResource("AnimationNodeStateMachineTransition_w0kyf"), "Arm_Telefone|DesligadoTelefone", "Arm_Telefone|TocandoTelefone", SubResource("AnimationNodeStateMachineTransition_l6oty"), "Arm_Telefone|TocandoTelefone", "Arm_Telefone|AtendendoTelefone", SubResource("AnimationNodeStateMachineTransition_jvehu"), "Arm_Telefone|TocandoTelefone", "Arm_Telefone|DesligadoTelefone", SubResource("AnimationNodeStateMachineTransition_7meqa"), "Arm_Telefone|DesligadoTelefone", "Arm_Telefone|AtendendoTelefone", SubResource("AnimationNodeStateMachineTransition_yrp45"), "Start", "Arm_Telefone|DesligadoTelefone", SubResource("AnimationNodeStateMachineTransition_ewgu7")]
+graph_offset = Vector2(-8, -99)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s63yc"]
+size = Vector3(2, 2.0968018, 1.35)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_i1nvq"]
 size = Vector3(6, 2.5, 3)
 
@@ -227,11 +295,12 @@ func mandar_para() -> void:
 
 [node name="Quarto" type="Node3D" unique_id=2017398307]
 
-[node name="Jogo" type="Node" parent="." unique_id=510473093 node_paths=PackedStringArray("jogador", "camera_principal", "quarto_ui")]
+[node name="Jogo" type="Node" parent="." unique_id=510473093 node_paths=PackedStringArray("jogador", "camera_principal", "quarto_ui", "dialogo")]
 script = ExtResource("1_js386")
 jogador = NodePath("../Jogador")
 camera_principal = NodePath("../OlhoDeDeus/Camera3D")
 quarto_ui = NodePath("../UI_Jogo")
+dialogo = NodePath("../DialogManager/TextBox")
 metadata/_custom_type_script = "uid://d4j65a74tvcye"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1816012533]
@@ -242,9 +311,9 @@ navigation_mesh = SubResource("NavigationMesh_t12d2")
 [node name="MainRoom2" parent="NavigationRegion3D/CenarioBonito" unique_id=1392424320 instance=ExtResource("2_a0bhh")]
 transform = Transform3D(-1.49, 0, -1.355053e-07, 0, 2, 0, 1.3025993e-07, 0, -1.55, 0.06823909, 0.05798039, 0.048100412)
 
-[node name="Janela" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="0" unique_id=531587960 groups=["frente_quarto", "sumivel"]]
+[node name="Janela" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="0" unique_id=1730109776 groups=["frente_quarto", "sumivel"]]
 
-[node name="MainRoom" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="1" unique_id=2042590549]
+[node name="MainRoom" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="1" unique_id=955432246]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.013425991, 1.4463149, -0.0046143737)
 
 [node name="LetterWardrobe" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito" unique_id=1395115724 groups=["esquerda_quarto", "sumivel"]]
@@ -364,9 +433,12 @@ area_de_interacao = NodePath("../AreaDeInteracao")
 transform = Transform3D(1, 0, 0, 0, 1, 8.351872e-23, 0, 8.351872e-23, 1, 0, 0, 0.86962974)
 shape = SubResource("BoxShape3D_t12d2")
 
-[node name="Telefone" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=1650888016]
+[node name="Telefone" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=1650888016 node_paths=PackedStringArray("camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6351585, 0.09065652, 5.0458727)
 script = ExtResource("11_s63yc")
+camera = NodePath("Camera/Camera3D")
+textos = Array[String](["Vugnaes sreo", "Endalgi agrummit", "A Aqualantida requer que todas as caixas que entrem no país tenham o selo do país que enviou, além do selo de Aqualântida.", "eita!"])
+sumir_jogador = false
 
 [node name="Estante" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito/Telefone" unique_id=2121307540 groups=["frente_quarto", "sumivel"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4251685, 0)
@@ -375,20 +447,47 @@ mesh = SubResource("BoxMesh_yribc")
 [node name="Telefone" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Telefone" unique_id=1369056195]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8990483, 0)
 
-[node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone" unique_id=941845008 instance=ExtResource("10_v11ly")]
+[node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone" unique_id=1970361200 instance=ExtResource("10_v11ly")]
 transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, 0, 0, 0)
 
-[node name="Skeleton3D" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone" parent_id_path=PackedInt32Array(941845008, 1272271143) index="0" unique_id=2034147284]
-bones/1/rotation = Quaternion(-3.344845e-15, -6.3694934e-08, 0.7071068, 0.7071067)
-bones/1/scale = Vector3(1, 1, 1)
-bones/3/position = Vector3(0.0008225794, 0.00034883738, 0.00026354517)
-bones/3/rotation = Quaternion(3.995506e-09, -0.27987686, -0.7071068, 0.6493604)
-bones/3/scale = Vector3(0.99999994, 1, 0.99999994)
-bones/4/position = Vector3(6.598647e-11, 0.0007513498, -3.1272485e-11)
-bones/4/rotation = Quaternion(-0.2278083, 0.4947414, 0.72140753, -0.42767453)
-bones/4/scale = Vector3(1, 0.9999998, 0.99999994)
+[node name="Skeleton3D" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone" parent_id_path=PackedInt32Array(1970361200, 848642459) index="0" unique_id=711747211]
+bones/1/rotation = Quaternion(0.03847624, -0.3147961, -0.70605934, 0.63316923)
+bones/1/scale = Vector3(1.0000001, 1.0000001, 1.0000001)
+bones/2/position = Vector3(7.000676e-09, 0.07513497, -8.085988e-09)
+bones/2/rotation = Quaternion(-0.23718326, 0.4661045, 0.7510966, -0.40292)
+bones/2/scale = Vector3(0.9999998, 0.99999964, 0.99999964)
+bones/6/position = Vector3(-0.08571863, 0.042231128, 0.12213573)
+bones/6/rotation = Quaternion(-6.2726606e-08, 3.8261172e-10, -0.70710677, 0.7071069)
 
-[node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone/Skeleton3D" index="0" unique_id=1761039915 groups=["frente_quarto", "sumivel"]]
+[node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone/Skeleton3D" index="0" unique_id=1558519973 groups=["frente_quarto", "sumivel"]]
+
+[node name="AnimationTree" type="AnimationTree" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio" unique_id=1701253788]
+tree_root = SubResource("AnimationNodeStateMachine_theeu")
+advance_expression_base_node = NodePath("../../..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CenarioBonito/Telefone" unique_id=700295860 groups=["frente_quarto"]]
+script = ExtResource("10_ej8o8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CenarioBonito/Telefone/StaticBody3D" unique_id=448698057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5484009, 0)
+shape = SubResource("BoxShape3D_s63yc")
+
+[node name="AreaDeInteracao" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Telefone/StaticBody3D" unique_id=574592364]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.25569367, -0.11736226, -1.4110029)
+
+[node name="Interagivel" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Telefone/StaticBody3D" unique_id=1256434104 node_paths=PackedStringArray("area_clicavel", "mesh", "area_de_interacao", "jogavel")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_5yl11")
+area_clicavel = NodePath("..")
+mesh = NodePath("../../Telefone/Telefone_Fio/Arm_Telefone/Skeleton3D/Telefone_Fio")
+area_de_interacao = NodePath("../AreaDeInteracao")
+jogavel = NodePath("../..")
+
+[node name="Camera" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Telefone" unique_id=673312832]
+
+[node name="Camera3D" type="Camera3D" parent="NavigationRegion3D/CenarioBonito/Telefone/Camera" unique_id=14600787]
+transform = Transform3D(-0.3068891, 0.045223035, -0.95067036, -0.004264332, 0.99879515, 0.048888896, 0.9517358, 0.019057445, -0.3063265, -1.9043959, 1.539331, -1.6558862)
 
 [node name="Caixas" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=689915107]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.384227, 0.07547952, -5.3378754)
@@ -525,7 +624,7 @@ shape = SubResource("BoxShape3D_g5rb4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0763597, -5.6892776)
 
 [node name="Jogador" parent="." unique_id=292964940 instance=ExtResource("3_lij7j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.026705742, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.027, 0)
 
 [node name="OlhoDeDeus" type="Node3D" parent="." unique_id=183827753 node_paths=PackedStringArray("camera", "jogo", "rotacionavel", "carimbo")]
 script = ExtResource("4_i1nvq")
@@ -543,6 +642,25 @@ fov = 67.5
 [node name="Rotacionavel" type="Node" parent="OlhoDeDeus" unique_id=339807674 node_paths=PackedStringArray("alvo")]
 script = ExtResource("9_j7gex")
 alvo = NodePath("..")
+
+[node name="DialogManager" type="Control" parent="." unique_id=1819112143]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 273.0
+grow_horizontal = 2
+mouse_filter = 1
+
+[node name="TextBox" parent="DialogManager" unique_id=1361892390 instance=ExtResource("1_7meqa")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -552.5
+offset_top = 20.0
+offset_right = 552.5
+offset_bottom = 192.0
+grow_horizontal = 2
 
 [node name="UI_Jogo" type="Control" parent="." unique_id=529308428]
 layout_mode = 3

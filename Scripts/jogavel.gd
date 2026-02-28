@@ -8,6 +8,7 @@ signal saindo
 @export var desativar_colisor_on_jogar: Array[CollisionShape3D]
 
 @export var reativar_ao_sair := true
+@export var sumir_jogador := true
 
 @export var jogavel_ui : Control
 

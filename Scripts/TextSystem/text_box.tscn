@@ -2,8 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dq0cn7sx1unji" path="res://Scripts/TextSystem/TextBox.png" id="1_dn8nl"]
 [ext_resource type="Script" uid="uid://bq52j4507a58m" path="res://Scripts/TextSystem/text_box.gd" id="1_hln5d"]
+[ext_resource type="Texture2D" uid="uid://dw2l058k88lsc" path="res://Sprites/ui/seta_lado.png" id="3_o1v03"]
 
 [sub_resource type="FontFile" id="FontFile_o1v03"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -763,37 +767,57 @@ cache/0/162/0/descent = 0.0
 cache/0/162/0/underline_position = 0.0
 cache/0/162/0/underline_thickness = 0.0
 cache/0/162/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
 
 [node name="TextBox" type="MarginContainer" unique_id=1361892390]
-offset_right = 1123.0
-offset_bottom = 1125.0
+offset_right = 353.0
+offset_bottom = 172.0
 script = ExtResource("1_hln5d")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1439871879]
 layout_mode = 2
 texture = ExtResource("1_dn8nl")
-region_rect = Rect2(0, 0, 1680, 1680)
-patch_margin_left = 560
-patch_margin_top = 560
-patch_margin_right = 563
-patch_margin_bottom = 565
+region_rect = Rect2(14, 15, 1655, 1655)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=606771790]
 layout_mode = 2
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 64
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
 [node name="Label" type="Label" parent="MarginContainer" unique_id=198376421]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_o1v03")
-theme_override_font_sizes/font_size = 162
+theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="LetterDisplayTimer" type="Timer" parent="." unique_id=1396616262]
 one_shot = true
 
-[connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]
+[node name="Padding" type="MarginContainer" parent="." unique_id=1484002837]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="TextureButton" type="TextureButton" parent="Padding" unique_id=1286493296]
+modulate = Color(0.30980393, 0.7254902, 1, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("3_o1v03")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[connection signal="pressed" from="Padding/TextureButton" to="." method="_on_texture_button_pressed"]

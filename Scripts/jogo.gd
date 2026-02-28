@@ -13,6 +13,7 @@ var jogavel_atual : Jogavel
 
 @export_group("UI")
 @export var quarto_ui : Control
+@export var dialogo : Dialogo
 
 
 func _init() -> void:
@@ -47,7 +48,8 @@ func mudar_estado(std: Estado) -> void:
 		jogador.show()
 	elif estado == Estado.JOGANDO:
 		quarto_ui.hide()
-		jogador.hide()
+		if jogavel_atual.sumir_jogador:
+			jogador.hide()
 	
 	atualizar_sumiveis()
 
@@ -55,18 +57,17 @@ func atualizar_sumiveis() -> void:
 	var sumiveis = get_tree().get_nodes_in_group("sumivel")
 	var pode_sumir = estado == Estado.QUARTO
 	
-	print("atualizando sumiveis como " + str(pode_sumir))
-	
 	for sumivel: MeshInstance3D in sumiveis:
-		var mat: StandardMaterial3D = sumivel.get_active_material(0)
-		if mat == null:
-			continue
-		
-		mat = mat.duplicate()
-		
-		if mat.transparency == 3 and not pode_sumir:
-			mat.transparency = 0
-		if mat.transparency == 0 and pode_sumir:
-			mat.transparency = 3
-		
-		sumivel.set_surface_override_material(0, mat)
+		for i in range(0, sumivel.get_surface_override_material_count()):
+			var mat: StandardMaterial3D = sumivel.get_active_material(i)
+			if mat == null:
+				continue
+			
+			mat = mat.duplicate()
+			
+			if mat.transparency == 3 and not pode_sumir:
+				mat.transparency = 0
+			if mat.transparency == 0 and pode_sumir:
+				mat.transparency = 3
+			
+			sumivel.set_surface_override_material(i, mat)

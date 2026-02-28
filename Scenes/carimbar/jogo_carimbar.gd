@@ -28,6 +28,7 @@ var ja_comecou = false
 ## Sempre que muda a encomenda_atual, chama o sinal com o valor dela
 signal mudou_encomenda(encomenda: Encomenda)
 
+
 func jogar() -> void:
 	super()
 	

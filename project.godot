@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 Singleton="*uid://c7obwei6oy624"
 AudioManager="*uid://bvaff8scei3ag"
-DialogManager="*uid://bh3y4ynh43gnk"
 
 [display]
 

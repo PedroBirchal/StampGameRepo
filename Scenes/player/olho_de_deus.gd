@@ -96,7 +96,7 @@ func _on_rotacionavel_comecou_girar(direcao: int, dir_antiga: int) -> void:
 
 func setar_alpha_dos_materiais(mesh: MeshInstance3D, alpha: float) -> void:
 	for i in range(0, mesh.get_surface_override_material_count()):
-		var mat = mesh.get_surface_override_material(i)
+		var mat = mesh.get_active_material(i)
 		
 		if mat == null:
 			continue
