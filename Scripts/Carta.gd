@@ -5,7 +5,7 @@ extends Encomenda
 @export var valor : int = 1
 
 @export var mesh_carta : MeshInstance3D
-
+@export var area_carimbavel : Area3D
 
 @export var pode_abrir := false
 @export var carta_aberta := false

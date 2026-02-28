@@ -8,20 +8,23 @@ extends Node3D
 var posInicial : Vector3
 static var holding : bool = false
 static var ehCaixa : bool = false
+static var decal_size : Vector3 = Vector3(0.5, 0.04, 0.5)
 
 func _selecionar_novo_objeto(alvo):
 	holding = true
 	posInicial = alvo.global_position
 	alvo.global_position.y += 0.3
+		
 	if ehCaixa:
 		alvo.global_rotate(Vector3.LEFT, 80)
-		alvo.global_position.z += 1
+		alvo.global_position.z += 1.2
 	ObjectNode3D = alvo
 	previsao.visible = true
 
 func _desselecionar_objeto(alvo):
 	holding = false
 	alvo.global_position = posInicial
+		
 	if ehCaixa:
 		alvo.global_rotate(Vector3.LEFT, -80)
 	ObjectNode3D = null
@@ -75,10 +78,12 @@ func _carimbar():
 	var collider = ray.get_collider()
 	var ponto = ray.get_collision_point()
 	var normal = ray.get_collision_normal()
+	print("collider: ", collider.name)
 
 	var novo_decalque = Decal.new()
 	novo_decalque.texture_albedo = Carimbada
-	novo_decalque.size = Vector3(0.5, 0.2, 0.5) 
+	novo_decalque.size = decal_size
+	novo_decalque.cull_mask = 1
 	
 	collider.add_child(novo_decalque)
 	
@@ -100,5 +105,10 @@ func _alinhar_decalque(decal, normal):
 func _on_jogo_carimbar_mudou_encomenda(encomenda: Encomenda) -> void:
 	if encomenda is Pacote and encomenda.item_res.cabe_em != ItemResource.TamanhoPacote.PEQUENO:
 		ehCaixa = true
+		decal_size = Vector3(0.5, 0.06, 0.5)
+	elif encomenda is Pacote and encomenda.item_res.cabe_em == ItemResource.TamanhoPacote.PEQUENO:
+		ehCaixa = false
+		decal_size = Vector3(0.4, 0.04, 0.4)
 	else:
 		ehCaixa = false
+		decal_size = Vector3(0.5, 0.04, 0.5)

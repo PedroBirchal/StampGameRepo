@@ -188,7 +188,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03613381, 0)
 
 [node name="PacoteGN_P" parent="Mesh/Pacote_Generico_P" unique_id=1278761663 instance=ExtResource("2_dchw8")]
 
-[node name="Skeleton3D" parent="Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P" parent_id_path=PackedInt32Array(1278761663, 633383849) index="0" unique_id=1662425764]
+[node name="Skeleton3D" parent="Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P" parent_id_path=PackedInt32Array(1278761663, 1153002218) index="0" unique_id=1394539810]
 bones/1/rotation = Quaternion(-1.8662506e-08, -0.14015305, 0.99012995, 1.3184379e-07)
 bones/1/scale = Vector3(1, 1, 1)
 bones/3/rotation = Quaternion(1.3184376e-07, 0.9901298, -0.1401532, -1.8662519e-08)
@@ -200,6 +200,8 @@ bones/7/scale = Vector3(1, 1, 1)
 
 [node name="AreaClicavelParaAbrir" type="Area3D" parent="Mesh/Pacote_Generico_P" unique_id=117356702]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.035073668, 0.1836243)
+collision_layer = 2
+collision_mask = 2
 monitoring = false
 monitorable = false
 
@@ -218,7 +220,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19668353, 0)
 
 [node name="PacoteGN_M" parent="Mesh/Pacote_Generico_M" unique_id=1679340880 instance=ExtResource("3_1eue7")]
 
-[node name="Skeleton3D" parent="Mesh/Pacote_Generico_M/PacoteGN_M/Arm_PacoteGN_M" parent_id_path=PackedInt32Array(1679340880, 2137022330) index="0" unique_id=251913970]
+[node name="Skeleton3D" parent="Mesh/Pacote_Generico_M/PacoteGN_M/Arm_PacoteGN_M" parent_id_path=PackedInt32Array(1679340880, 347101966) index="0" unique_id=805558720]
 bones/1/rotation = Quaternion(1.866251e-08, -0.14015305, 0.99012995, -1.3184379e-07)
 bones/1/scale = Vector3(1, 1, 1)
 bones/3/rotation = Quaternion(-1.3184375e-07, 0.9901298, -0.1401532, 1.8662524e-08)
@@ -230,6 +232,8 @@ bones/7/scale = Vector3(1, 1, 1)
 
 [node name="AreaClicavelParaAbrir" type="Area3D" parent="Mesh/Pacote_Generico_M" unique_id=924040768]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.41632718, -0.041811734)
+collision_layer = 2
+collision_mask = 2
 monitoring = false
 monitorable = false
 
@@ -248,7 +252,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29993355, 0)
 
 [node name="PacoteGN_G" parent="Mesh/Pacote_Generico_G" unique_id=1741681493 instance=ExtResource("4_5tdmu")]
 
-[node name="Skeleton3D" parent="Mesh/Pacote_Generico_G/PacoteGN_G/Arm_PacoteGN_G" parent_id_path=PackedInt32Array(1741681493, 995602992) index="0" unique_id=1532019096]
+[node name="Skeleton3D" parent="Mesh/Pacote_Generico_G/PacoteGN_G/Arm_PacoteGN_G" parent_id_path=PackedInt32Array(1741681493, 2014575167) index="0" unique_id=266719577]
 bones/1/rotation = Quaternion(1.866251e-08, -0.14015307, 0.9901299, -1.3184378e-07)
 bones/1/scale = Vector3(1, 0.9999997, 0.99999994)
 bones/3/rotation = Quaternion(-1.3184378e-07, 0.99012995, -0.14015304, 1.8662517e-08)
@@ -261,6 +265,8 @@ bones/7/scale = Vector3(1, 1, 1)
 
 [node name="AreaClicavelParaAbrir" type="Area3D" parent="Mesh/Pacote_Generico_G" unique_id=519262367]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.6166247, -0.041811734)
+collision_layer = 2
+collision_mask = 2
 monitoring = false
 monitorable = false
 

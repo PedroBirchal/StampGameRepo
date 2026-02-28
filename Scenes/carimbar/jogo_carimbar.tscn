@@ -318,11 +318,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0821116, 0.53724253)
 
 [node name="Carimbo Infernopolis" parent="Mesa/CentroDaMesa" unique_id=56766804 node_paths=PackedStringArray("cam") instance=ExtResource("3_g6dvo")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.2787766, 0.058162928, 0.198717)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.2787766, 0.075068116, 0.198717)
 cam = NodePath("../../../CameraHolder/Camera3D")
 
 [node name="Carimbo Arvore" parent="Mesa/CentroDaMesa" unique_id=372205992 node_paths=PackedStringArray("cam") instance=ExtResource("8_iapwp")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.2792029, 0.08795619, 0.59015083)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.2792029, 0.1436398, 0.59015083)
 cam = NodePath("../../../CameraHolder/Camera3D")
 
 [node name="Carimbo Torre" parent="Mesa/CentroDaMesa" unique_id=1997387072 node_paths=PackedStringArray("cam") instance=ExtResource("9_ncxsn")]
@@ -330,7 +330,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.2456291, 0.08532858, 0.927
 cam = NodePath("../../../CameraHolder/Camera3D")
 
 [node name="Carimbo Aqua" parent="Mesa/CentroDaMesa" unique_id=637596318 node_paths=PackedStringArray("cam") instance=ExtResource("10_33jh8")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.8084352, 0.106215, 0.111089826)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.8084352, -0.022862196, 0.111089826)
 cam = NodePath("../../../CameraHolder/Camera3D")
 
 [node name="MeshInstance3D" type="Node3D" parent="Mesa/CentroDaMesa" unique_id=1793862512]

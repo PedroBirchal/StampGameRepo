@@ -570,7 +570,7 @@ transform = Transform3D(1.2512765, 0, 0.82722855, 0, 1.5, 0, -0.82722855, 0, 1.2
 transform = Transform3D(-0.119271874, 1.9010075, -0.6098725, 0.086475596, 0.6153058, 1.9010315, 1.9945669, 0.08700028, -0.11888972, 1.4406953, 0.5682617, 0.88955736)
 
 [node name="PacoteGN_P2" parent="NavigationRegion3D/CenarioBonito/Caixas" unique_id=950163776 instance=ExtResource("12_yribc")]
-transform = Transform3D(1.8477064, -0.06689287, -0.7625668, -0.15412411, 1.9190401, -0.5417834, 0.74981934, 0.5592932, 1.7677566, 0.5534366, 1.0776262, 2.191476)
+transform = Transform3D(1.8477064, -0.06689287, -0.7625668, -0.15412411, 1.9190401, -0.5417834, 0.74981934, 0.5592932, 1.7677566, -4.02835, -34.856274, 5.9157743)
 
 [node name="Cubiculo" type="Node3D" parent="NavigationRegion3D" unique_id=498539175]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.058513045, -2.1361601)
@@ -579,9 +579,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.058513045, -2.1361601)
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 desativar_colisor_on_jogar = [NodePath("../StaticBody3D/CollisionShape3D")]
 
+[node name="EncomendaSpawner" parent="NavigationRegion3D/Cubiculo/JogoCarimbar" index="0" unique_id=1223402288]
+chance_pacote = 0.0
+
 [node name="Cubicule" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa" parent_id_path=PackedInt32Array(1766737732, 643817367) index="0" unique_id=456207740 groups=["costas_quarto", "sumivel"]]
 
 [node name="StaticBody3D" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa/Cubicule" index="0" unique_id=1822447287 groups=["costas_quarto"]]
+
+[node name="ClicarParaSair" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa/NaCaraDoJogador" parent_id_path=PackedInt32Array(1766737732, 558165658) index="1" unique_id=96724193]
+collision_layer = 2
+collision_mask = 2
 
 [node name="Chair" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa" parent_id_path=PackedInt32Array(1766737732, 643817367) index="5" unique_id=1321028306 groups=["costas_quarto", "sumivel"]]
 

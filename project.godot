@@ -13,7 +13,7 @@ config_version=5
 config/name="StampGame"
 run/main_scene="uid://di6ne7kiyjw8c"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="uid://cos077ndo24qa"
+config/icon="res://icon.svg"
 
 [autoload]
 
@@ -26,7 +26,6 @@ DialogManager="*uid://bh3y4ynh43gnk"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
-mouse_cursor/custom_image="uid://by6nhimqjnl5j"
 
 [editor]
 
