@@ -98,10 +98,7 @@ func _alinhar_decalque(decal, normal):
 
 
 func _on_jogo_carimbar_mudou_encomenda(encomenda: Encomenda) -> void:
-	print("encomendei")
 	if encomenda is Pacote and encomenda.item_res.cabe_em != ItemResource.TamanhoPacote.PEQUENO:
 		ehCaixa = true
-		print("caixei")
 	else:
 		ehCaixa = false
-		print("descaixei")

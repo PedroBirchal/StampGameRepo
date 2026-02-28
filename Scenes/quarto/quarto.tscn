@@ -15,10 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="9_v11ly"]
 [ext_resource type="Script" uid="uid://ctqq0pyvy6ghx" path="res://Scripts/interagivel_hover.gd" id="10_ej8o8"]
 [ext_resource type="Texture2D" uid="uid://rq1cuj01lbe2" path="res://Sprites/ui/pro_lado.png" id="10_j7gex"]
-[ext_resource type="PackedScene" uid="uid://duwg6xjwu74ay" path="res://Models/Cenário/Telefone_Fio.fbx" id="10_v11ly"]
+[ext_resource type="PackedScene" uid="uid://d1dkb01qquxms" path="res://Models/Cenário/Telefone_Fio.fbx" id="10_v11ly"]
 [ext_resource type="PackedScene" uid="uid://djx81ek61grk2" path="res://Models/Pacotes/PacoteGN_G.fbx" id="11_h88lf"]
 [ext_resource type="Script" uid="uid://ckhqo24tgocqv" path="res://Scenes/quarto/telefone.gd" id="11_s63yc"]
 [ext_resource type="PackedScene" uid="uid://b6eljqxn1jcq4" path="res://Models/Pacotes/PacoteGN_P.fbx" id="12_yribc"]
+[ext_resource type="PackedScene" uid="uid://dkiqchyunj1rt" path="res://Models/Cenário/quadro_funcionario.tscn" id="16_7meqa"]
 [ext_resource type="Script" path="res://Scenes/quarto/play_music.gd" id="19_80gip"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_t12d2"]
@@ -377,7 +378,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8990483, 0)
 [node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone" unique_id=941845008 instance=ExtResource("10_v11ly")]
 transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, 0, 0, 0)
 
-[node name="Skeleton3D" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone" parent_id_path=PackedInt32Array(941845008, 486385914) index="0" unique_id=710045711]
+[node name="Skeleton3D" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone" parent_id_path=PackedInt32Array(941845008, 1272271143) index="0" unique_id=2034147284]
 bones/1/rotation = Quaternion(-3.344845e-15, -6.3694934e-08, 0.7071068, 0.7071067)
 bones/1/scale = Vector3(1, 1, 1)
 bones/3/position = Vector3(0.0008225794, 0.00034883738, 0.00026354517)
@@ -387,7 +388,7 @@ bones/4/position = Vector3(6.598647e-11, 0.0007513498, -3.1272485e-11)
 bones/4/rotation = Quaternion(-0.2278083, 0.4947414, 0.72140753, -0.42767453)
 bones/4/scale = Vector3(1, 0.9999998, 0.99999994)
 
-[node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone/Skeleton3D" index="0" unique_id=2106266025 groups=["frente_quarto", "sumivel"]]
+[node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone/Skeleton3D" index="0" unique_id=1761039915 groups=["frente_quarto", "sumivel"]]
 
 [node name="Caixas" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=689915107]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.384227, 0.07547952, -5.3378754)
@@ -519,6 +520,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 [node name="Parede" type="CollisionShape3D" parent="NavigationRegion3D/Cenario/Estrutura/ParedeDireita" unique_id=780115559]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 0)
 shape = SubResource("BoxShape3D_g5rb4")
+
+[node name="Quadro" parent="NavigationRegion3D/Cenario" unique_id=704777291 instance=ExtResource("16_7meqa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0763597, -5.6892776)
 
 [node name="Jogador" parent="." unique_id=292964940 instance=ExtResource("3_lij7j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.026705742, 0)

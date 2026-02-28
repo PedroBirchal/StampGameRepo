@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dkiqchyunj1rt"]
+
+[ext_resource type="Texture2D" uid="uid://donwbyv24lqfg" path="res://Sprites/Captura de tela 2026-02-28 121146.png" id="1_kqmsq"]
+[ext_resource type="FontFile" uid="uid://uk6ar6pt6uet" path="res://Fonts/kindergarten.ttf" id="2_j3o3e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_io0lq"]
+size = Vector3(0.8, 0.9, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwkvr"]
+albedo_color = Color(0.66616714, 0.4597906, 0.39528087, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_unt14"]
+size = Vector3(1.2, 0.2, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2rw1"]
+albedo_color = Color(0.5921569, 0.5372549, 0.48235294, 1)
+
+[node name="Quadro" type="Node3D" unique_id=704777291]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=557196546]
+mesh = SubResource("BoxMesh_io0lq")
+surface_material_override/0 = SubResource("StandardMaterial3D_pwkvr")
+
+[node name="Sprite3D" type="Sprite3D" parent="MeshInstance3D" unique_id=1807087351]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0.053669572)
+texture = ExtResource("1_kqmsq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1777777921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5932438, 0)
+mesh = SubResource("BoxMesh_unt14")
+surface_material_override/0 = SubResource("StandardMaterial3D_s2rw1")
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D2" unique_id=319538808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.008003354, 0.062723935)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Funcionário do mes"
+font = ExtResource("2_j3o3e")
+font_size = 25
