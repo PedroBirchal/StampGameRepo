@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="3_ghw46"]
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="4_df05h"]
 [ext_resource type="Script" uid="uid://dmyqgnmew7j4j" path="res://Scenes/audio_controller.gd" id="6_xim88"]
+[ext_resource type="FontFile" uid="uid://bbb8aiguwfggd" path="res://Fonts/Mory.ttf" id="7_koqhg"]
 [ext_resource type="Script" path="res://Scenes/quarto/play_music.gd" id="7_xim88"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8saeu"]
@@ -271,7 +272,7 @@ offset_top = 112.0
 offset_right = 683.0
 offset_bottom = 201.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_fonts/font = ExtResource("7_koqhg")
 theme_override_font_sizes/font_size = 50
 text = "Música"
 horizontal_alignment = 1
@@ -303,7 +304,7 @@ offset_top = 260.5
 offset_right = 683.0
 offset_bottom = 349.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_fonts/font = ExtResource("7_koqhg")
 theme_override_font_sizes/font_size = 50
 text = "Efeito sonoro"
 horizontal_alignment = 1
@@ -337,32 +338,44 @@ offset_bottom = 1080.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Button Manager" unique_id=131525075]
 layout_mode = 0
-offset_left = 354.0
-offset_top = 611.0
-offset_right = 547.0
-offset_bottom = 906.0
+offset_left = 315.0
+offset_top = 609.0
+offset_right = 611.0
+offset_bottom = 979.0
 
 [node name="Start" type="Button" parent="Button Manager/VBoxContainer" unique_id=1789225840]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_koqhg")
 theme_override_font_sizes/font_size = 50
 text = "Início"
 
 [node name="Options" type="Button" parent="Button Manager/VBoxContainer" unique_id=2036442991]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_koqhg")
 theme_override_font_sizes/font_size = 50
 text = "Opções"
 
 [node name="Credits" type="Button" parent="Button Manager/VBoxContainer" unique_id=1077045963]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_koqhg")
 theme_override_font_sizes/font_size = 50
 text = "Créditos"
 
 [node name="Quit" type="Button" parent="Button Manager/VBoxContainer" unique_id=433771120]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_koqhg")
 theme_override_font_sizes/font_size = 50
 text = "Sair"
 
