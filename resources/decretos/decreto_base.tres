@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DecretoResource" format=3 uid="uid://dcrplvdbo8ceq"]
+
+[ext_resource type="Script" uid="uid://bt8c7yltftk8r" path="res://Scripts/cartas/decreto_info.gd" id="1_yiqno"]
+[ext_resource type="Script" uid="uid://ccx4dg86p2cxc" path="res://Scripts/cartas/decreto_res.gd" id="2_ipdh0"]
+
+[resource]
+script = ExtResource("2_ipdh0")
+informativo = "Todas as encomendas devem possuir um carimbo do reino destinatário"
+metadata/_custom_type_script = "uid://ccx4dg86p2cxc"

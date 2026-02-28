@@ -11,6 +11,7 @@ signal on_interact
 @export var jogavel: Jogavel
 
 @export var setar_area_pos_click := false
+@export var muda_mouse := true
 
 const FORCA_EMISSAO = 0.4
 
@@ -47,11 +48,17 @@ func interagir() -> void:
 		mat.emission_enabled = false
 
 func _on_hover() -> void:
+	if muda_mouse:
+		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+		
 	if mat != null:
 		alterar_material()
 		mat.emission_enabled = true
 
 func _on_unhover() -> void:
+	if muda_mouse:
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+		
 	if mat != null:
 		mat.emission_enabled = false
 

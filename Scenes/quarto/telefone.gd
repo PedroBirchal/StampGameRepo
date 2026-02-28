@@ -8,18 +8,24 @@ enum Estado { PARADO, TOCANDO, EM_CHAMADA}
 @export var estado := Estado.PARADO
 @export var textos : Array[String]
 
-func _ready() -> void:
-	tocar_telefone()
+signal telefone_tocando
+signal telefone_atendido
+signal chamada_encerrada
 
-func tocar_telefone() -> void:
+func tocar_telefone(falas: Array[String]) -> void:
+	textos = falas
 	estado = Estado.TOCANDO
+	AudioManager.telephone.play()
+	telefone_tocando.emit()
 
 func atender_telefone() -> void:
 	estado = Estado.EM_CHAMADA
 	Jogo.instance.dialogo.display_texts(textos)
+	telefone_atendido.emit()
 	await Jogo.instance.dialogo.finished_multiple_texts
 	sair()
 	estado = Estado.PARADO
+	chamada_encerrada.emit()
 
 
 func jogar() -> void:

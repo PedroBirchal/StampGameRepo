@@ -1,3 +1,4 @@
+class_name JogoCarimbar
 extends Jogavel
 
 @export var camera: Camera3D
@@ -22,6 +23,13 @@ var encomenda_atual: Encomenda
 @export var pos_meio_mesa: Node3D
 @export var pos_receber_proximo: Node3D
 var proxima_encomenda: Encomenda
+
+@export_group("PostIts")
+@export var pos_postit_cara: Node3D
+@export var postit_prefab: PackedScene
+@export var postits_pin_list: Array[Node3D]
+var postits_pin_idx = 0
+
 
 var ja_comecou = false
 
@@ -198,3 +206,29 @@ func refresh_modo_giro_vertical(_aux := 0) -> void:
 	else:
 		ui_girar_horizontal.visible = true
 		
+
+func gerar_post_it(decreto_res: DecretoResource) -> PostIt:
+	postits_pin_idx += 1
+	
+	if postits_pin_idx >= len(postits_pin_list):
+		print("Sem pins para novos decretos")
+		return null
+	
+	var postit_pin = postits_pin_list[postits_pin_idx]
+	var postit: PostIt = postit_prefab.instantiate()
+	postit_pin.add_child(postit)
+	postit.pin = postit_pin
+	
+	postit.clicado.connect(clicou_post_it)
+	
+	return postit
+
+func clicou_post_it(postit: PostIt) -> void:
+	if postit.get_parent() != postit.pin:
+		postit.reparent(postit.pin)
+		var tween = get_tree().create_tween()
+		tween.tween_property(postit, "position", Vector3.ZERO, 0.3)
+	elif postit.get_parent() == postit.pin:
+		postit.reparent(pos_postit_cara)
+		var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(postit, "position", Vector3.ZERO, 0.6)

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://d1fk0a5qcg4w0"]
+
+[ext_resource type="PackedScene" uid="uid://ys2uubhs4bhv" path="res://Models/PostIt.fbx" id="1_fh6lj"]
+[ext_resource type="Script" uid="uid://b2rx45g8igkjx" path="res://Scenes/postit/post_it.gd" id="1_myq13"]
+[ext_resource type="FontFile" uid="uid://uk6ar6pt6uet" path="res://Fonts/kindergarten.ttf" id="2_myq13"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_myq13"]
+size = Vector3(0.3, 0.3, 0.05)
+
+[node name="PostIt" type="Node3D" unique_id=1539584348 node_paths=PackedStringArray("mesh", "label")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_myq13")
+mesh = NodePath("Mesh/PostIt/Post-It")
+label = NodePath("Texto")
+duracao_piscada_in = 0.2
+duracao_piscada_out = 2.0
+
+[node name="Mesh" type="Node3D" parent="." unique_id=402564819]
+
+[node name="PostIt" parent="Mesh" unique_id=1248552479 instance=ExtResource("1_fh6lj")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="Post-It" parent="Mesh/PostIt" index="0" unique_id=1195705251 groups=["costas_quarto", "sumivel"]]
+
+[node name="Texto" type="Label3D" parent="." unique_id=1856230081]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0042477846, 0.0040984154)
+double_sided = false
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "A Aqualantida requer que todas as caixas que entrem no país tenham o selo do país que enviou, além do selo de Aqualântida.
+"
+font = ExtResource("2_myq13")
+font_size = 42
+autowrap_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1757235188]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1020934814]
+shape = SubResource("BoxShape3D_myq13")
+
+[connection signal="input_event" from="StaticBody3D" to="." method="_on_static_body_3d_input_event"]
+[connection signal="mouse_entered" from="StaticBody3D" to="." method="_on_static_body_3d_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody3D" to="." method="_on_static_body_3d_mouse_exited"]
+
+[editable path="Mesh/PostIt"]

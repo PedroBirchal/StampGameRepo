@@ -48,7 +48,6 @@ func raycastar() -> void:
 		pos_raycast = res.position
 	
 	if not res.is_empty() and origem.distance_to(res.position) <= distancia_max_cast:
-		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 		col = res.collider
 	
 	if ultimo_raycast_achado != null and ultimo_raycast_achado != col:
@@ -56,7 +55,6 @@ func raycastar() -> void:
 			(ultimo_raycast_achado as InteragivelHover).saiu_de_cima.emit()
 		
 	if col == null:
-		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		ultimo_raycast_achado = null
 		interagivel_atual = null
 	elif ultimo_raycast_achado != col:
