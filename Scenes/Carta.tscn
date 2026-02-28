@@ -45,11 +45,11 @@ points = PackedVector3Array(0, -0.5, -0.5, 0, 0, 0, 0, 0.5, -0.5, 0.05, -0.5, -0
 [sub_resource type="BoxShape3D" id="BoxShape3D_vrd47"]
 size = Vector3(1, 0.058807373, 0.6135254)
 
-[node name="Carta" type="RigidBody3D" unique_id=1512388856 node_paths=PackedStringArray("mesh_carta", "texto_meio", "rotacionavel")]
+[node name="Carta" type="RigidBody3D" unique_id=1512388856 node_paths=PackedStringArray("mesh_carta", "textos", "rotacionavel")]
 script = ExtResource("1_vrd47")
 mesh_carta = NodePath("CartaModel/Carta/LetterArmature/Skeleton3D/Letter")
 pode_abrir = true
-texto_meio = NodePath("CartaModel/Carta/LetterArmature/Skeleton3D/MidAttachment/Label3D")
+textos = [NodePath("CartaModel/Carta/LetterArmature/Skeleton3D/TopAttachment/LabelTop"), NodePath("CartaModel/Carta/LetterArmature/Skeleton3D/MidAttachment/LabelMid"), NodePath("CartaModel/Carta/LetterArmature/Skeleton3D/BottomAttachment/LabelBot")]
 rotacionavel = NodePath("Rotacionavel")
 
 [node name="CartaModel" type="Node3D" parent="." unique_id=1640209984]
@@ -63,31 +63,42 @@ anim_player = NodePath("../Carta/AnimationPlayer")
 
 [node name="Carta" parent="CartaModel" unique_id=301992124 instance=ExtResource("2_p1hlb")]
 
-[node name="Skeleton3D" parent="CartaModel/Carta/LetterArmature" parent_id_path=PackedInt32Array(301992124, 1114081494) index="0" unique_id=479749309]
-bones/1/rotation = Quaternion(0, 0, 0.7071072, 0.7071065)
+[node name="Skeleton3D" parent="CartaModel/Carta/LetterArmature" parent_id_path=PackedInt32Array(301992124, 113184188) index="0" unique_id=841702555]
+bones/0/position = Vector3(0.12191519, 0.008553147, 0.008030638)
+bones/0/rotation = Quaternion(0.00855616, -0.008556163, 0.70705503, 0.70705503)
+bones/1/position = Vector3(-0.25650677, 0.123577766, 0.011027608)
+bones/1/rotation = Quaternion(0.6880468, 0.6880338, 0.16258772, 0.16360384)
 bones/2/position = Vector3(1.6089936e-09, 0.03358257, 3.469447e-18)
+bones/2/rotation = Quaternion(0.24853125, 7.80172e-05, -0.00034906293, 0.9686238)
+bones/3/position = Vector3(-0.121761285, 0.16618061, -0.015232969)
 bones/3/rotation = Quaternion(0, 0, -0.70710677, 0.70710677)
 bones/3/scale = Vector3(1, 1, 1)
+bones/5/position = Vector3(0.2841662, 0.121915184, -4.6566126e-10)
+bones/5/rotation = Quaternion(0.6826023, -0.6826024, -0.18453738, 0.18453735)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/position = Vector3(1.4141861e-09, 0.03511691, 0)
+bones/6/rotation = Quaternion(0.24461389, 1.4547407e-08, -5.844628e-08, 0.9696206)
 bones/7/position = Vector3(0.12191523, 0.1968105, 0.005579537)
 bones/7/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(-0.62266743, 0.010291719, -0.025106613)
+bones/10/rotation = Quaternion(-3.1445456e-08, 0.5047066, 6.5122066e-08, 0.8632909)
 bones/11/position = Vector3(-0.027847469, 1.0953809e-08, -0.0036259692)
-bones/11/rotation = Quaternion(3.2045262e-09, 6.490436e-11, -6.665417e-08, 1)
+bones/11/rotation = Quaternion(2.2181009e-08, 0.408693, -8.2689645e-08, 0.9126719)
 bones/12/position = Vector3(-0.025236756, -5.16127e-10, 0.00362597)
+bones/12/rotation = Quaternion(-3.0258725e-08, 0.5262999, 1.2157049e-09, 0.850299)
+bones/13/rotation = Quaternion(0.034566112, 0.034566097, 0.70626146, 0.70626134)
 bones/13/scale = Vector3(1, 1, 1)
 bones/14/position = Vector3(-3.2264744e-10, 0.22105157, 2.8794949e-15)
-bones/14/rotation = Quaternion(-0.03518909, 0.023741549, 0.012009401, 0.99902654)
+bones/14/rotation = Quaternion(0.0366533, 0.00031837128, 0.012785896, 0.9992462)
 bones/14/scale = Vector3(1, 1, 1)
 
 [node name="TopAttachment" type="BoneAttachment3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D" index="0" unique_id=1351468578]
-transform = Transform3D(-7.1054274e-15, -0.99999976, 0, 0.99999976, -7.1054274e-15, 0, 0, 0, 1, 0.12191523, 1.1257793, 0.07893674)
+transform = Transform3D(-1.8459764e-07, -0.9999999, 3.662282e-08, -0.9999537, 2.3710336e-07, -0.0096205175, 0.009620517, 1.5074197e-09, -0.99995375, 0.121915214, 0.065028325, 0.028176116)
 bone_name = "MainTop"
 bone_idx = 7
 
-[node name="Label3D" type="Label3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D/TopAttachment" unique_id=944469129]
-transform = Transform3D(-4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, 0, 0, 0, 0.1, 0.198, 0.125, 0.018)
+[node name="LabelTop" type="Label3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D/TopAttachment" unique_id=944469129]
+transform = Transform3D(-4.371138e-09, 0.1, 1.1641532e-10, -0.1, -4.371139e-09, 2.4980018e-16, 0, 0, 0.099999994, 0.19800012, 0.6165245, 0.018)
 layers = 2
 shaded = true
 double_sided = false
@@ -98,16 +109,17 @@ text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet 
 Sed aliquet sed mi eu laoreet. In a lorem nunc. Mauris ultricies lacus eu velit ultricies pellentesque. Nam eu tortor sed odio vestibulum egestas eu ac ligula. Duis vitae erat quis odio efficitur hendrerit in at orci. Aliquam aliquam neque nec metus varius egestas. Nulla facilisi. Cras mattis nulla ut risus mattis, in posuere lacus lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet lacus in lorem suscipit mollis. Maecenas in ex dapibus, tristique dolor sed, maximus orci. Nam erat orci, finibus ac arcu ac, convallis hendrerit libero. Suspendisse sed velit libero. Aliquam semper nunc non ex consectetur sollicitudin. Donec consectetur turpis nibh, eget fringilla mauris varius sit amet. Donec ornare magna vitae quam dignissim tincidunt vel quis urna. Nam et sollicitudin neque. Nulla laoreet, nibh ac tincidunt euismod, augue magna iaculis nulla, et pulvinar leo nisl ac enim. Sed ut tortor accumsan, laoreet augue placerat, pretium nibh. Morbi sit amet nunc nec nibh facilisis gravida non nec felis. Pellentesque condimentum, leo vitae eleifend lobortis, nulla leo sollicitudin ligula, vel congue tortor quam id magna, nulla leo soll
 "
 font_size = 36
+horizontal_alignment = 0
 vertical_alignment = 0
 autowrap_mode = 3
 width = 2048.0
 
 [node name="MidAttachment" type="BoneAttachment3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D" index="1" unique_id=819663697]
-transform = Transform3D(-1.1920928e-07, -0.9999999, 0, 0.9999999, -1.1920928e-07, 0, 0, 0, 1, 0.12191519, 0.6319889, 0.0733572)
+transform = Transform3D(0, -0.99999994, -4.656613e-09, 0.99970716, 0, -0.024198707, 0.024198705, -4.6566124e-09, 0.99970716, 0.12191519, 0.008553147, 0.008030638)
 bone_name = "Main"
 bone_idx = 0
 
-[node name="Label3D" type="Label3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D/MidAttachment" unique_id=1441027318]
+[node name="LabelMid" type="Label3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D/MidAttachment" unique_id=1441027318]
 transform = Transform3D(-4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, 1.6543611e-22, 1.6543611e-22, 7.231442e-30, 0.1, 0.26719037, 0.13355087, 0.012210658)
 layers = 2
 shaded = true
@@ -125,12 +137,12 @@ autowrap_mode = 3
 width = 2048.0
 
 [node name="BottomAttachment" type="BoneAttachment3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D" index="2" unique_id=363187556]
-transform = Transform3D(-1.8544938e-07, -0.9999999, 0, 0.9999999, -1.8544938e-07, 0, 0, 0, 1, 0.121777736, 0.17547712, 0.13554367)
+transform = Transform3D(0.00031457876, -0.9999989, 0.0014026023, -0.9999201, -0.0003322523, -0.012630105, 0.012630552, -0.0013984964, -0.9999192, 0.12001441, -0.052109405, 0.041946795)
 bone_name = "MainBot"
 bone_idx = 3
 
-[node name="Label3D" type="Label3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D/BottomAttachment" unique_id=1283384243]
-transform = Transform3D(-4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -1.693286e-17, -1.693286e-17, -7.4015875e-25, 0.1, 0.21797639, 0.10931256, 0.02146694)
+[node name="LabelBot" type="Label3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D/BottomAttachment" unique_id=1283384243]
+transform = Transform3D(-4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -1.693286e-17, -1.693286e-17, -7.4015875e-25, 0.1, 0.21797639, 0.10931256, 0.007523536)
 layers = 2
 shaded = true
 double_sided = false

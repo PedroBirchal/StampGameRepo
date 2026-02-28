@@ -11,7 +11,7 @@ signal pontuar
 @onready var area3D_caixa : Area3D = $AreaCaixa
 
 var hovered : bool
-@export var limite_de_cartas : int = 10
+@export var limite_de_cartas : int = 5
 
 func _ready() -> void:
 	mudar_cor_da_marca(Singleton.carimbos[destino])
