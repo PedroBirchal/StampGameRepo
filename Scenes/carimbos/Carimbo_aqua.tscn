@@ -8,22 +8,22 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_oj1nn"]
 size = Vector3(1.2330078, 0.75, 1.1759522)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vbpbb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_biure"]
 atlas = ExtResource("4_lng8s")
-region = Rect2(0, 128, 128, 128)
+region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pydgl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x0uj"]
 atlas = ExtResource("4_lng8s")
-region = Rect2(128, 128, 128, 128)
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3nvcy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vbpbb")
+"texture": SubResource("AtlasTexture_biure")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pydgl")
+"texture": SubResource("AtlasTexture_1x0uj")
 }],
 "loop": true,
 "name": &"default",
@@ -87,12 +87,12 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.0030664057, 0.0585633
 shape = SubResource("BoxShape3D_oj1nn")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1513099941]
-transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0)
-visible = false
+transform = Transform3D(0.2, 0, 0, 0, -7.212379e-09, -0.2, 0, 0.165, -8.742278e-09, 0, 0, 0)
 layers = 2
 sprite_frames = SubResource("SpriteFrames_3nvcy")
 autoplay = "default"
-frame_progress = 0.10540429
+frame = 1
+frame_progress = 0.5365057
 
 [node name="CarimboEstilizado" type="MeshInstance3D" parent="." unique_id=942426790 groups=["costas_quarto", "sumivel"]]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0.051627483, 0)

@@ -9,6 +9,7 @@ var posInicial : Vector3
 static var holding : bool = false
 static var ehCaixa : bool = false
 static var decal_size : Vector3 = Vector3(0.5, 0.04, 0.5)
+var animando : bool = false
 
 func _selecionar_novo_objeto(alvo):
 	holding = true
@@ -31,7 +32,7 @@ func _desselecionar_objeto(alvo):
 	previsao.visible = false
 	
 func _physics_process(_delta):
-	if not ObjectNode3D:
+	if not ObjectNode3D or animando:
 		return
 
 	var mousePos = get_viewport().get_mouse_position()
@@ -72,23 +73,29 @@ func _input(event):
 				_desselecionar_objeto(self)
 
 func _carimbar():
-	if not ray.is_colliding():
+	if not ray.is_colliding() or animando:
 		return
 		
 	var collider = ray.get_collider()
 	var ponto = ray.get_collision_point()
 	var normal = ray.get_collision_normal()
-	print("collider: ", collider.name)
-
+	
+	# CRIA DECAL
 	var novo_decalque = Decal.new()
 	novo_decalque.texture_albedo = Carimbada
 	novo_decalque.size = decal_size
 	novo_decalque.cull_mask = 1
-	
 	collider.add_child(novo_decalque)
-	
 	novo_decalque.global_position = ponto
 	_alinhar_decalque(novo_decalque, normal)
+	
+	# TWEEN
+	var tween = create_tween()
+	var posicao_no_mouse = global_position
+	tween.tween_property(self, "global_position", ponto, 0.1)
+	tween.tween_property(self, "global_position", posicao_no_mouse, 0.1)
+	await tween.finished
+	animando = false
 
 func _alinhar_decalque(decal, normal):
 	decal.global_rotation = Vector3.ZERO 
