@@ -64,20 +64,12 @@ anim_player = NodePath("../Carta/AnimationPlayer")
 [node name="Carta" parent="CartaModel" unique_id=301992124 instance=ExtResource("2_p1hlb")]
 
 [node name="Skeleton3D" parent="CartaModel/Carta/LetterArmature" parent_id_path=PackedInt32Array(301992124, 1114081494) index="0" unique_id=479749309]
-bones/0/position = Vector3(0.12191519, 0.59016246, 0.104278065)
-bones/0/rotation = Quaternion(0.013850253, -0.013850255, 0.7069712, 0.7069711)
-bones/1/position = Vector3(-0.2634973, 0.12191525, 4.1633363e-17)
-bones/1/rotation = Quaternion(1.0769849e-15, -5.20093e-16, 0.7071072, 0.7071065)
+bones/1/rotation = Quaternion(0, 0, 0.7071072, 0.7071065)
 bones/2/position = Vector3(1.6089936e-09, 0.03358257, 3.469447e-18)
-bones/2/rotation = Quaternion(-3.729656e-16, 5.3429483e-16, -5.0332176e-07, 1)
-bones/3/position = Vector3(-0.121761285, 0.1661806, -0.015232967)
 bones/3/rotation = Quaternion(0, 0, -0.70710677, 0.70710677)
 bones/3/scale = Vector3(1, 1, 1)
-bones/5/position = Vector3(0.26186305, 0.12191517, 3.7252903e-09)
-bones/5/rotation = Quaternion(6.1331757e-17, -6.1331757e-17, -0.7071068, 0.7071067)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/position = Vector3(1.4141861e-09, 0.03511691, 0)
-bones/6/rotation = Quaternion(1.5612513e-17, -8.3266733e-17, -5.9604645e-08, 1)
 bones/7/position = Vector3(0.12191523, 0.1968105, 0.005579537)
 bones/7/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(-0.62266743, 0.010291719, -0.025106613)
@@ -90,7 +82,7 @@ bones/14/rotation = Quaternion(-0.03518909, 0.023741549, 0.012009401, 0.99902654
 bones/14/scale = Vector3(1, 1, 1)
 
 [node name="TopAttachment" type="BoneAttachment3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D" index="0" unique_id=1351468578]
-transform = Transform3D(-1.1920927e-07, -0.9999998, 1.862645e-09, 0.99923253, -1.1930074e-07, -0.039166916, 0.03916691, -2.78152e-09, 0.9992327, 0.121915184, 1.0833554, 0.12919357)
+transform = Transform3D(-7.1054274e-15, -0.99999976, 0, 0.99999976, -7.1054274e-15, 0, 0, 0, 1, 0.12191523, 1.1257793, 0.07893674)
 bone_name = "MainTop"
 bone_idx = 7
 
@@ -111,7 +103,7 @@ autowrap_mode = 3
 width = 2048.0
 
 [node name="MidAttachment" type="BoneAttachment3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D" index="1" unique_id=819663697]
-transform = Transform3D(-2.3841856e-07, -0.99999994, 1.8626451e-09, 0.99923265, -2.3841856e-07, -0.039166916, 0.039166916, -7.45058e-09, 0.9992327, 0.12191519, 0.59016246, 0.104278065)
+transform = Transform3D(-1.1920928e-07, -0.9999999, 0, 0.9999999, -1.1920928e-07, 0, 0, 0, 1, 0.12191519, 0.6319889, 0.0733572)
 bone_name = "Main"
 bone_idx = 0
 
@@ -133,7 +125,7 @@ autowrap_mode = 3
 width = 2048.0
 
 [node name="BottomAttachment" type="BoneAttachment3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D" index="2" unique_id=363187556]
-transform = Transform3D(-3.0465867e-07, -0.99999994, 1.8626463e-09, 0.99923265, -3.0460785e-07, -0.039166916, 0.039166916, -1.0045e-08, 0.9992327, 0.12176138, 0.12785414, 0.0709123)
+transform = Transform3D(-1.8544938e-07, -0.9999999, 0, 0.9999999, -1.8544938e-07, 0, 0, 0, 1, 0.121777736, 0.17547712, 0.13554367)
 bone_name = "MainBot"
 bone_idx = 3
 

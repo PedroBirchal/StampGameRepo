@@ -53,8 +53,9 @@ script = ExtResource("1_13usn")
 
 [node name="Score" type="Control" parent="." unique_id=807785704]
 anchors_preset = 0
+offset_top = 124.0
 offset_right = 403.0
-offset_bottom = 396.0
+offset_bottom = 520.0
 
 [node name="Pontuacao" type="Label" parent="Score" unique_id=1232173149]
 layout_mode = 0

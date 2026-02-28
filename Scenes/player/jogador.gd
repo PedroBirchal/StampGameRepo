@@ -36,6 +36,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func interagir_com(interag: Interagivel) -> void:
+	if Jogo.instance.estado != Jogo.Estado.QUARTO:
+		return
+	
 	self.interagivel = interag
 	target_pos = interag.area_de_interacao.global_position
 	

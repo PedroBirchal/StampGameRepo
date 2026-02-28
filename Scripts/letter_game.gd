@@ -1,4 +1,7 @@
-extends Node3D
+extends Jogavel
+
+
+@export var camera: Camera3D
 
 var caixas : Array[Node]
 @export var max_time : float = 10
@@ -9,7 +12,23 @@ var caixas : Array[Node]
 @onready var timer : Timer = $Timer
 var pontuacao : int = 0
 
+
+func jogar() -> void:
+	super()
+
+	timer.start()
+	camera.make_current()
+	carta_controller.active = true
+	
+	
+
+func sair() -> void:
+	super()
+	camera.clear_current()
+
+
 func _ready() -> void:
+	super()
 	caixas = armario.get_children()
 	for caixa in caixas:
 		if indicador != null:
@@ -21,7 +40,6 @@ func _ready() -> void:
 		caixa.pontuar.connect(pontuar)
 	timer.wait_time = max_time
 	ui.setup_timer(timer)
-	timer.start()
 
 func pontuar(pontos : int) -> void :
 	pontuacao += pontos
@@ -30,4 +48,5 @@ func pontuar(pontos : int) -> void :
 
 
 func _on_timer_timeout() -> void:
-	if carta_controller != null : carta_controller.active = false
+	if carta_controller != null :
+		carta_controller.active = false
