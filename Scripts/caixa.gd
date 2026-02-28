@@ -5,7 +5,7 @@ signal box_unhover
 signal box_clicked
 signal pontuar
 
-@export var destino : Singleton.Cidades = Singleton.Cidades.BICADAS
+@export var destino : Singleton.Cidades = Singleton.Cidades.AQUA
 @onready var ancora_indicador = $AncoraIndicador
 @onready var marca = $MarcaCaixa
 @onready var area3D_caixa : Area3D = $AreaCaixa
@@ -14,7 +14,7 @@ var hovered : bool
 @export var limite_de_cartas : int = 10
 
 func _ready() -> void:
-	mudar_cor_da_marca(Singleton.cores[destino])
+	mudar_cor_da_marca(Singleton.carimbos[destino])
 
 func _on_area_3d_mouse_entered() -> void:
 	hovered = true
@@ -40,7 +40,7 @@ func _on_area_caxa_body_entered(body: Node3D) -> void:
 		cartas_na_caixa[0].queue_free()
 	pass
 
-func mudar_cor_da_marca(color : Color) -> void:
+func mudar_cor_da_marca(texture : Texture) -> void:
 	var novo_material = marca.material_override.duplicate()
-	novo_material.albedo_color = color
+	novo_material.albedo_texture = texture
 	marca.material_override = novo_material

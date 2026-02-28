@@ -7,7 +7,6 @@
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
-albedo_color = Color(0.6074597, 0.99999994, 0.32333952, 1)
 albedo_texture = ExtResource("2_w6ce2")
 
 [sub_resource type="QuadMesh" id="QuadMesh_fl5pv"]
@@ -19,7 +18,7 @@ size = Vector3(0.8411007, 0.5668564, 0.746233)
 script = ExtResource("1_32808")
 
 [node name="MarcaCaixa" type="MeshInstance3D" parent="." unique_id=617550660]
-transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, 0, -0.36816686)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, -0.36816686)
 material_override = SubResource("StandardMaterial3D_mfxl7")
 mesh = SubResource("QuadMesh_fl5pv")
 
