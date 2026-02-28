@@ -3,7 +3,32 @@
 [ext_resource type="Script" uid="uid://ccx4dg86p2cxc" path="res://Scripts/cartas/decreto_res.gd" id="1_o34wf"]
 [ext_resource type="Script" uid="uid://bt8c7yltftk8r" path="res://Scripts/cartas/decreto_info.gd" id="1_tw1ue"]
 
+[sub_resource type="Resource" id="Resource_tw1ue"]
+script = ExtResource("1_tw1ue")
+requer_caracteristicas = PackedStringArray("vem_torre")
+carimbo = "torre"
+metadata/_custom_type_script = "uid://bt8c7yltftk8r"
+
+[sub_resource type="Resource" id="Resource_ohdii"]
+script = ExtResource("1_tw1ue")
+requer_caracteristicas = PackedStringArray("vem_inferno")
+carimbo = "inferno"
+metadata/_custom_type_script = "uid://bt8c7yltftk8r"
+
+[sub_resource type="Resource" id="Resource_84mnk"]
+script = ExtResource("1_tw1ue")
+requer_caracteristicas = PackedStringArray("vem_arvoro")
+carimbo = "arvoro"
+metadata/_custom_type_script = "uid://bt8c7yltftk8r"
+
+[sub_resource type="Resource" id="Resource_78ai5"]
+script = ExtResource("1_tw1ue")
+requer_caracteristicas = PackedStringArray("vem_aqua")
+carimbo = "aqua"
+metadata/_custom_type_script = "uid://bt8c7yltftk8r"
+
 [resource]
 script = ExtResource("1_o34wf")
 informativo = "A Aqualantida requer que todas as caixas que entrem no país tenham o selo do país que enviou, além do selo de Aqualântida."
+decretacoes = Array[ExtResource("1_tw1ue")]([SubResource("Resource_tw1ue"), SubResource("Resource_ohdii"), SubResource("Resource_84mnk"), SubResource("Resource_78ai5")])
 metadata/_custom_type_script = "uid://ccx4dg86p2cxc"

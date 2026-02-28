@@ -7,5 +7,5 @@
 script = ExtResource("2_8sxi0")
 offset_pos = Vector3(0, 0, 0.17551918)
 mesh = ExtResource("1_2ksr1")
-categorias = PackedStringArray("Ferramenta")
+categorias = PackedStringArray("ferramenta")
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

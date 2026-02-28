@@ -19,10 +19,15 @@ func tocar_telefone(falas: Array[String]) -> void:
 	telefone_tocando.emit()
 
 func atender_telefone() -> void:
-	estado = Estado.EM_CHAMADA
-	Jogo.instance.dialogo.display_texts(textos)
-	telefone_atendido.emit()
+	if textos.is_empty():
+		Jogo.instance.dialogo.display_texts(["Não há ninguém na linha."])
+	else:
+		estado = Estado.EM_CHAMADA
+		Jogo.instance.dialogo.display_texts(textos)
+		telefone_atendido.emit()
+	
 	await Jogo.instance.dialogo.finished_multiple_texts
+	textos = []
 	sair()
 	estado = Estado.PARADO
 	chamada_encerrada.emit()

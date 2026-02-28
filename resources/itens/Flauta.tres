@@ -9,5 +9,5 @@ offset_pos = Vector3(0.085834265, -0.048645705, -0.10809061)
 offset_rot = Vector3(-0.80712754, -0.8612327, 0)
 mesh = ExtResource("1_bkntr")
 cabe_em = 2
-categorias = PackedStringArray("Instrumento")
+categorias = PackedStringArray("instrumento")
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

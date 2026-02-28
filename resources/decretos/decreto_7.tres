@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DecretoResource" format=3 uid="uid://bpey8apoyr3ht"]
+
+[ext_resource type="Script" uid="uid://bt8c7yltftk8r" path="res://Scripts/cartas/decreto_info.gd" id="1_pwynt"]
+[ext_resource type="Script" uid="uid://ccx4dg86p2cxc" path="res://Scripts/cartas/decreto_res.gd" id="2_3jmyy"]
+
+[sub_resource type="Resource" id="Resource_pwynt"]
+script = ExtResource("1_pwynt")
+requer_caracteristicas = PackedStringArray("vem_inferno")
+carimbo = "inferno"
+limite = 1
+metadata/_custom_type_script = "uid://bt8c7yltftk8r"
+
+[resource]
+script = ExtResource("2_3jmyy")
+informativo = "Infernópolis proíbe carimbos de Infernópolis nas encomendas que entrarem aqui."
+decretacoes = Array[ExtResource("1_pwynt")]([SubResource("Resource_pwynt")])
+metadata/_custom_type_script = "uid://ccx4dg86p2cxc"

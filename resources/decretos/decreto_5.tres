@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DecretoResource" format=3 uid="uid://dxp563tndf0cc"]
+
+[ext_resource type="Script" uid="uid://bt8c7yltftk8r" path="res://Scripts/cartas/decreto_info.gd" id="1_plgxs"]
+[ext_resource type="Script" uid="uid://ccx4dg86p2cxc" path="res://Scripts/cartas/decreto_res.gd" id="2_qmpq6"]
+[ext_resource type="Resource" uid="uid://fgjfqraa8ksl" path="res://resources/decretos/decreto_4.tres" id="3_qmpq6"]
+
+[sub_resource type="Resource" id="Resource_mjgey"]
+script = ExtResource("1_plgxs")
+limite = 4
+sobrepoe_decretos = Array[ExtResource("2_qmpq6")]([ExtResource("3_qmpq6")])
+metadata/_custom_type_script = "uid://bt8c7yltftk8r"
+
+[resource]
+script = ExtResource("2_qmpq6")
+informativo = "A cidade Torre revoga a regra anterior da cidade Torre."
+decretacoes = Array[ExtResource("1_plgxs")]([SubResource("Resource_mjgey")])
+metadata/_custom_type_script = "uid://ccx4dg86p2cxc"

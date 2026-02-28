@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DecretoResource" format=3 uid="uid://c3ep6jc0nx647"]
+
+[ext_resource type="Script" uid="uid://bt8c7yltftk8r" path="res://Scripts/cartas/decreto_info.gd" id="1_5lm7j"]
+[ext_resource type="Script" uid="uid://ccx4dg86p2cxc" path="res://Scripts/cartas/decreto_res.gd" id="2_akfds"]
+[ext_resource type="Resource" uid="uid://beg6a0yp3uijv" path="res://resources/decretos/decreto_8.tres" id="3_akfds"]
+
+[sub_resource type="Resource" id="Resource_dd2jb"]
+script = ExtResource("1_5lm7j")
+limite = 4
+sobrepoe_decretos = Array[ExtResource("2_akfds")]([ExtResource("3_akfds")])
+metadata/_custom_type_script = "uid://bt8c7yltftk8r"
+
+[resource]
+script = ExtResource("2_akfds")
+informativo = "A cidade Torre quer que os Instrumentos de alta qualidade também possam entrar."
+decretacoes = Array[ExtResource("1_5lm7j")]([SubResource("Resource_dd2jb")])
+metadata/_custom_type_script = "uid://ccx4dg86p2cxc"

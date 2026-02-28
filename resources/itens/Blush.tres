@@ -7,5 +7,5 @@
 script = ExtResource("1_0twvj")
 offset_pos = Vector3(0, -0.022, 0)
 mesh = ExtResource("1_wbors")
-categorias = PackedStringArray("Maquiagem")
+categorias = PackedStringArray("maquiagem")
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

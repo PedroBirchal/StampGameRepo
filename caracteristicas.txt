@@ -1,0 +1,17 @@
+# Uma lista com todas as caracteristicas que uma encomenda pode ter.
+vem_aqua
+vem_torre
+vem_inferno
+vem_arvoro
+indo_aqua
+indo_torre
+indo_inferno
+indo_arvoro
+qualidade_ruim
+qualidade_boa
+ferramenta
+maquiagem
+instrumento
+carta
+item
+xadrez

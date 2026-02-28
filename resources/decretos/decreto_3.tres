@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DecretoResource" format=3 uid="uid://uv0xwyxbta72"]
+
+[ext_resource type="Script" uid="uid://bt8c7yltftk8r" path="res://Scripts/cartas/decreto_info.gd" id="1_j2pnm"]
+[ext_resource type="Script" uid="uid://ccx4dg86p2cxc" path="res://Scripts/cartas/decreto_res.gd" id="2_ukf6h"]
+
+[sub_resource type="Resource" id="Resource_j2pnm"]
+script = ExtResource("1_j2pnm")
+requer_caracteristicas = PackedStringArray("indo_aqua", "ferramenta")
+limite = 3
+metadata/_custom_type_script = "uid://bt8c7yltftk8r"
+
+[resource]
+script = ExtResource("2_ukf6h")
+informativo = "A Aqualantida proíbe a entrada de todos os itens Ferramentas."
+decretacoes = Array[ExtResource("1_j2pnm")]([SubResource("Resource_j2pnm")])
+metadata/_custom_type_script = "uid://ccx4dg86p2cxc"

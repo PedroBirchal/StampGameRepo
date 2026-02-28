@@ -218,6 +218,7 @@ func gerar_post_it(decreto_res: DecretoResource) -> PostIt:
 	var postit: PostIt = postit_prefab.instantiate()
 	postit_pin.add_child(postit)
 	postit.pin = postit_pin
+	postit.set_texto(decreto_res.informativo)
 	
 	postit.clicado.connect(clicou_post_it)
 	

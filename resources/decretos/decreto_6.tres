@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DecretoResource" format=3 uid="uid://bum7alwkr24f2"]
+
+[ext_resource type="Script" uid="uid://bt8c7yltftk8r" path="res://Scripts/cartas/decreto_info.gd" id="1_tsg28"]
+[ext_resource type="Script" uid="uid://ccx4dg86p2cxc" path="res://Scripts/cartas/decreto_res.gd" id="2_fhasm"]
+
+[sub_resource type="Resource" id="Resource_tsg28"]
+script = ExtResource("1_tsg28")
+requer_caracteristicas = PackedStringArray("indo_torre")
+carimbo = "torre"
+limite = 2
+metadata/_custom_type_script = "uid://bt8c7yltftk8r"
+
+[resource]
+script = ExtResource("2_fhasm")
+informativo = "A cidade Torre requer que todos os itens que cheguem na cidade Torre, tenham DOIS carimbos da cidade Torre."
+decretacoes = Array[ExtResource("1_tsg28")]([SubResource("Resource_tsg28")])
+metadata/_custom_type_script = "uid://ccx4dg86p2cxc"

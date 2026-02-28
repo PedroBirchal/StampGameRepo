@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecretoResource" format=3 uid="uid://so3ah50d3syy"]
+
+[ext_resource type="Script" uid="uid://bt8c7yltftk8r" path="res://Scripts/cartas/decreto_info.gd" id="1_71vuw"]
+[ext_resource type="Script" uid="uid://ccx4dg86p2cxc" path="res://Scripts/cartas/decreto_res.gd" id="2_l8v6m"]
+
+[resource]
+script = ExtResource("2_l8v6m")
+informativo = "A cidade Torre quer chamar gente pra jogar xadrez - Esse não é um decreto, a gente só tá triste :("
+tem_postit = false
+metadata/_custom_type_script = "uid://ccx4dg86p2cxc"

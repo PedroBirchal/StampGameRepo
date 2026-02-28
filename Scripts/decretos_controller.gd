@@ -40,7 +40,7 @@ func gerar_novo_decreto() -> void:
 	criar_ligacao(decreto_a_ser_incluido)
 
 func criar_ligacao(decreto: Decreto) -> void:
-	telefone.tocar_telefone([decreto.resource.informativo])
+	telefone.tocar_telefone(["Um novo decreto acaba de ser anunciado!", "\"" + decreto.resource.informativo +"\""])
 	await telefone.chamada_encerrada
 	
 	if decreto_a_ser_incluido.postit != null:
@@ -48,3 +48,6 @@ func criar_ligacao(decreto: Decreto) -> void:
 	
 	decretos.append(decreto_a_ser_incluido)
 	decreto_a_ser_incluido = null
+	
+	var t = get_tree().create_timer(30)
+	t.timeout.connect(gerar_novo_decreto)

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DecretoResource" format=3 uid="uid://c8b5q2c8el1by"]
+
+[ext_resource type="Script" uid="uid://bt8c7yltftk8r" path="res://Scripts/cartas/decreto_info.gd" id="1_6aivy"]
+[ext_resource type="Script" uid="uid://ccx4dg86p2cxc" path="res://Scripts/cartas/decreto_res.gd" id="2_2skl4"]
+
+[sub_resource type="Resource" id="Resource_ytjai"]
+script = ExtResource("1_6aivy")
+requer_caracteristicas = PackedStringArray("indo_arvoro", "vem_inferno", "carta")
+limite = 3
+metadata/_custom_type_script = "uid://bt8c7yltftk8r"
+
+[resource]
+script = ExtResource("2_2skl4")
+informativo = "A cidade Arvorosa proíbe a entrada de todas as Cartas de Infernópoles"
+decretacoes = Array[ExtResource("1_6aivy")]([SubResource("Resource_ytjai")])
+metadata/_custom_type_script = "uid://ccx4dg86p2cxc"

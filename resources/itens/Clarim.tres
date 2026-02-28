@@ -8,5 +8,5 @@ script = ExtResource("2_3f8sg")
 offset_pos = Vector3(0, -0.10922927, 0.021178246)
 mesh = ExtResource("1_cy3xx")
 cabe_em = 2
-categorias = PackedStringArray("Instrumento")
+categorias = PackedStringArray("instrumento")
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

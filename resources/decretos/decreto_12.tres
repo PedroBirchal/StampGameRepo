@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DecretoResource" format=3 uid="uid://c3l3wkq4v1yie"]
+
+[ext_resource type="Script" uid="uid://bt8c7yltftk8r" path="res://Scripts/cartas/decreto_info.gd" id="1_i6b5n"]
+[ext_resource type="Script" uid="uid://ccx4dg86p2cxc" path="res://Scripts/cartas/decreto_res.gd" id="2_w1yld"]
+
+[sub_resource type="Resource" id="Resource_i6b5n"]
+script = ExtResource("1_i6b5n")
+requer_caracteristicas = PackedStringArray("indo_inferno", "vem_torre", "xadrez", "carta")
+limite = 3
+metadata/_custom_type_script = "uid://bt8c7yltftk8r"
+
+[resource]
+script = ExtResource("2_w1yld")
+informativo = "A cidade Infernópolis proíbe todas as cartas da cidade Torres falando sobre Xadrez."
+decretacoes = Array[ExtResource("1_i6b5n")]([SubResource("Resource_i6b5n")])
+metadata/_custom_type_script = "uid://ccx4dg86p2cxc"

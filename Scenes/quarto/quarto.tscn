@@ -13,19 +13,33 @@
 [ext_resource type="Resource" uid="uid://bg1om8v16p1gq" path="res://resources/decretos/decreto_1.tres" id="4_b256n"]
 [ext_resource type="Script" uid="uid://dsd7eeoq667uy" path="res://Scenes/player/olho_de_deus.gd" id="4_i1nvq"]
 [ext_resource type="Texture2D" uid="uid://djda65x1gkvo8" path="res://materials/ColorMap.png" id="4_lij7j"]
+[ext_resource type="Resource" uid="uid://bbxcdp6alaexq" path="res://resources/decretos/decreto_2.tres" id="5_qcy74"]
+[ext_resource type="Resource" uid="uid://uv0xwyxbta72" path="res://resources/decretos/decreto_3.tres" id="6_l2idm"]
 [ext_resource type="Texture2D" uid="uid://j6tykelmph10" path="res://Sprites/MapaFalpsJam.png" id="6_nfdy7"]
+[ext_resource type="Resource" uid="uid://fgjfqraa8ksl" path="res://resources/decretos/decreto_4.tres" id="7_873pr"]
 [ext_resource type="Script" uid="uid://cgohyllorbxkj" path="res://Scripts/camera/camera_tilt.gd" id="7_bjlr0"]
 [ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="8_2hbw0"]
+[ext_resource type="Resource" uid="uid://dxp563tndf0cc" path="res://resources/decretos/decreto_5.tres" id="8_fowkp"]
 [ext_resource type="PackedScene" uid="uid://di6ne7kiyjw8c" path="res://Scenes/LetterGame.tscn" id="9_b256n"]
 [ext_resource type="Script" uid="uid://bvtixto24md7m" path="res://Scripts/rotacao/rotacionavel.gd" id="9_j7gex"]
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="9_v11ly"]
+[ext_resource type="Resource" uid="uid://bum7alwkr24f2" path="res://resources/decretos/decreto_6.tres" id="9_yp1q3"]
 [ext_resource type="Script" uid="uid://ctqq0pyvy6ghx" path="res://Scripts/interagivel_hover.gd" id="10_ej8o8"]
+[ext_resource type="Resource" uid="uid://bpey8apoyr3ht" path="res://resources/decretos/decreto_7.tres" id="10_gy2ex"]
 [ext_resource type="Texture2D" uid="uid://rq1cuj01lbe2" path="res://Sprites/ui/pro_lado.png" id="10_j7gex"]
 [ext_resource type="PackedScene" uid="uid://d1dkb01qquxms" path="res://Models/Cenário/Telefone_Fio.fbx" id="10_v11ly"]
 [ext_resource type="PackedScene" uid="uid://djx81ek61grk2" path="res://Models/Pacotes/PacoteGN_G.fbx" id="11_h88lf"]
 [ext_resource type="Script" uid="uid://ckhqo24tgocqv" path="res://Scenes/quarto/telefone.gd" id="11_s63yc"]
+[ext_resource type="Resource" uid="uid://beg6a0yp3uijv" path="res://resources/decretos/decreto_8.tres" id="11_xk7nm"]
+[ext_resource type="Resource" uid="uid://c3ep6jc0nx647" path="res://resources/decretos/decreto_9.tres" id="12_eprvf"]
 [ext_resource type="PackedScene" uid="uid://b6eljqxn1jcq4" path="res://Models/Pacotes/PacoteGN_P.fbx" id="12_yribc"]
+[ext_resource type="Resource" uid="uid://c8b5q2c8el1by" path="res://resources/decretos/decreto_10.tres" id="13_aittf"]
+[ext_resource type="Resource" uid="uid://c1cr2jm6uurfo" path="res://resources/decretos/decreto_11.tres" id="14_ll5f4"]
+[ext_resource type="Resource" uid="uid://c3l3wkq4v1yie" path="res://resources/decretos/decreto_12.tres" id="15_q17gq"]
 [ext_resource type="PackedScene" uid="uid://dkiqchyunj1rt" path="res://Models/Cenário/quadro_funcionario.tscn" id="16_7meqa"]
+[ext_resource type="Resource" uid="uid://ch3707yuqkkm7" path="res://resources/decretos/decreto_13.tres" id="16_bwit0"]
+[ext_resource type="Resource" uid="uid://dcvryfdkkkjn6" path="res://resources/decretos/decreto_14.tres" id="17_fg000"]
+[ext_resource type="Resource" uid="uid://so3ah50d3syy" path="res://resources/decretos/decreto_15.tres" id="18_q2yap"]
 [ext_resource type="Script" path="res://Scenes/quarto/play_music.gd" id="19_80gip"]
 
 [sub_resource type="GDScript" id="GDScript_js386"]
@@ -261,7 +275,7 @@ size = Vector3(0.25, 6, 10)
 
 [node name="DecretosController" type="Node" parent="." unique_id=319531080 node_paths=PackedStringArray("jogo_carimbar", "telefone")]
 script = ExtResource("1_eodgp")
-lista_decretos = Array[ExtResource("2_p5cr7")]([ExtResource("3_r6doe"), ExtResource("4_b256n")])
+lista_decretos = Array[ExtResource("2_p5cr7")]([ExtResource("3_r6doe"), ExtResource("4_b256n"), ExtResource("5_qcy74"), ExtResource("6_l2idm"), ExtResource("7_873pr"), ExtResource("8_fowkp"), ExtResource("9_yp1q3"), ExtResource("10_gy2ex"), ExtResource("11_xk7nm"), ExtResource("12_eprvf"), ExtResource("13_aittf"), ExtResource("14_ll5f4"), ExtResource("15_q17gq"), ExtResource("16_bwit0"), ExtResource("17_fg000"), ExtResource("18_q2yap")])
 jogo_carimbar = NodePath("../NavigationRegion3D/Cubiculo/JogoCarimbar")
 telefone = NodePath("../NavigationRegion3D/CenarioBonito/Telefone")
 

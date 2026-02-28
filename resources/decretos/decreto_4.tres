@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DecretoResource" format=3 uid="uid://fgjfqraa8ksl"]
+
+[ext_resource type="Script" uid="uid://bt8c7yltftk8r" path="res://Scripts/cartas/decreto_info.gd" id="1_ns0uq"]
+[ext_resource type="Script" uid="uid://ccx4dg86p2cxc" path="res://Scripts/cartas/decreto_res.gd" id="2_ed8ol"]
+
+[sub_resource type="Resource" id="Resource_ns0uq"]
+script = ExtResource("1_ns0uq")
+requer_caracteristicas = PackedStringArray("vem_torre", "item")
+limite = 3
+metadata/_custom_type_script = "uid://bt8c7yltftk8r"
+
+[resource]
+script = ExtResource("2_ed8ol")
+informativo = "A cidade Torre proíbe a saída de todos os itens."
+decretacoes = Array[ExtResource("1_ns0uq")]([SubResource("Resource_ns0uq")])
+metadata/_custom_type_script = "uid://ccx4dg86p2cxc"

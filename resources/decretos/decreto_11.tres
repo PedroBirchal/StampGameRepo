@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DecretoResource" format=3 uid="uid://c1cr2jm6uurfo"]
+
+[ext_resource type="Script" uid="uid://bt8c7yltftk8r" path="res://Scripts/cartas/decreto_info.gd" id="1_tsyhm"]
+[ext_resource type="Script" uid="uid://ccx4dg86p2cxc" path="res://Scripts/cartas/decreto_res.gd" id="2_3roci"]
+
+[sub_resource type="Resource" id="Resource_tsyhm"]
+script = ExtResource("1_tsyhm")
+requer_caracteristicas = PackedStringArray("indo_inferno", "vem_aqua", "item")
+limite = 3
+metadata/_custom_type_script = "uid://bt8c7yltftk8r"
+
+[resource]
+script = ExtResource("2_3roci")
+informativo = "A cidade Infernópolis proíbe a entrada de todas as Caixas de Aqualantida"
+decretacoes = Array[ExtResource("1_tsyhm")]([SubResource("Resource_tsyhm")])
+metadata/_custom_type_script = "uid://ccx4dg86p2cxc"
