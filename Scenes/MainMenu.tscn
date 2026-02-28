@@ -5,6 +5,8 @@
 [ext_resource type="FontFile" uid="uid://uk6ar6pt6uet" path="res://Fonts/kindergarten.ttf" id="3_df05h"]
 [ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="3_ghw46"]
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="4_df05h"]
+[ext_resource type="Script" uid="uid://dmyqgnmew7j4j" path="res://Scenes/audio_controller.gd" id="6_xim88"]
+[ext_resource type="Script" path="res://Scenes/quarto/play_music.gd" id="7_xim88"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8saeu"]
 bg_color = Color(0, 0.6929749, 0.63965076, 1)
@@ -20,9 +22,24 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[node name="MainMenu" type="Node2D" unique_id=1637582694 node_paths=PackedStringArray("creditsTela")]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xim88"]
+load_path = "res://.godot/imported/x.png-12e8c0564526c09e068f00b78698c00d.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_koqhg"]
+load_path = "res://.godot/imported/x_torto.png-06c339458869bbccdae12921f8fb17b6.ctex"
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_df05h"]
+color = Color(0.27387273, 0.27387273, 0.27387273, 1)
+thickness = 13
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_8um5k"]
+color = Color(0.9999998, 0.2247948, 0.5679053, 1)
+thickness = 13
+
+[node name="MainMenu" type="Node2D" unique_id=1637582694 node_paths=PackedStringArray("creditsTela", "opcoesTela")]
 script = ExtResource("1_8saeu")
 creditsTela = NodePath("Telas/Créditos")
+opcoesTela = NodePath("Telas/Opções")
 
 [node name="Background" type="ColorRect" parent="." unique_id=29128835]
 offset_right = 1920.0
@@ -46,11 +63,18 @@ offset_bottom = 1080.0
 
 [node name="Créditos" type="Panel" parent="Telas" unique_id=273809255]
 visible = false
-layout_mode = 0
-offset_left = 404.0
-offset_top = 37.0
-offset_right = 1504.0
-offset_bottom = 1004.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -483.5
+offset_right = 550.0
+offset_bottom = 483.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8saeu")
 
 [node name="Panel" type="Panel" parent="Telas/Créditos" unique_id=1732898781]
@@ -193,6 +217,117 @@ Cartas abrindo e fechando
 Música de background"
 vertical_alignment = 1
 
+[node name="Opções" type="Panel" parent="Telas" unique_id=971155951]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -483.5
+offset_right = 550.0
+offset_bottom = 483.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8saeu")
+script = ExtResource("6_xim88")
+
+[node name="Panel" type="Panel" parent="Telas/Opções" unique_id=1821935718]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 1078.0
+offset_bottom = 940.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ghw46")
+
+[node name="TextureButton" type="TextureButton" parent="Telas/Opções/Panel" unique_id=52468757]
+modulate = Color(0, 0.69411767, 0.6392157, 1)
+layout_mode = 0
+offset_left = 47.0
+offset_top = 26.0
+offset_right = 107.0
+offset_bottom = 86.0
+texture_normal = SubResource("CompressedTexture2D_xim88")
+texture_hover = SubResource("CompressedTexture2D_koqhg")
+
+[node name="titulo" type="Label" parent="Telas/Opções/Panel" unique_id=132031864]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 16.0
+offset_right = 701.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ghw46")
+theme_override_font_sizes/font_size = 70
+text = "Opções"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="Label" parent="Telas/Opções/Panel" unique_id=1556413969]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 112.0
+offset_right = 683.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 50
+text = "Música"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="music" type="HSlider" parent="Telas/Opções/Panel/Music" unique_id=1031943176]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -19.0
+offset_right = 201.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_df05h")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_8um5k")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="SFX" type="Label" parent="Telas/Opções/Panel" unique_id=1685558378]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 260.5
+offset_right = 683.0
+offset_bottom = 349.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 50
+text = "Efeito sonoro"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sfx" type="HSlider" parent="Telas/Opções/Panel/SFX" unique_id=357333354]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -19.0
+offset_right = 201.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_df05h")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_8um5k")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
 [node name="Button Manager" type="Control" parent="." unique_id=242472087]
 layout_mode = 3
 anchors_preset = 0
@@ -200,37 +335,45 @@ offset_left = 1282.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="Start" type="Button" parent="Button Manager" unique_id=1789225840]
+[node name="VBoxContainer" type="VBoxContainer" parent="Button Manager" unique_id=131525075]
 layout_mode = 0
-offset_left = 239.0
-offset_top = 654.0
-offset_right = 515.0
-offset_bottom = 746.0
+offset_left = 354.0
+offset_top = 611.0
+offset_right = 547.0
+offset_bottom = 906.0
+
+[node name="Start" type="Button" parent="Button Manager/VBoxContainer" unique_id=1789225840]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("3_df05h")
 theme_override_font_sizes/font_size = 50
 text = "Início"
 
-[node name="Credits" type="Button" parent="Button Manager" unique_id=1077045963]
-layout_mode = 0
-offset_left = 239.0
-offset_top = 759.0
-offset_right = 515.0
-offset_bottom = 851.0
+[node name="Options" type="Button" parent="Button Manager/VBoxContainer" unique_id=2036442991]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 50
+text = "Opções"
+
+[node name="Credits" type="Button" parent="Button Manager/VBoxContainer" unique_id=1077045963]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("3_df05h")
 theme_override_font_sizes/font_size = 50
 text = "Créditos"
 
-[node name="Quit" type="Button" parent="Button Manager" unique_id=433771120]
-layout_mode = 0
-offset_left = 240.0
-offset_top = 863.0
-offset_right = 516.0
-offset_bottom = 955.0
+[node name="Quit" type="Button" parent="Button Manager/VBoxContainer" unique_id=433771120]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("3_df05h")
 theme_override_font_sizes/font_size = 50
 text = "Sair"
 
+[node name="PlayMusic" type="Node" parent="." unique_id=757560477]
+script = ExtResource("7_xim88")
+
 [connection signal="pressed" from="Telas/Créditos/Panel/TextureButton" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="Button Manager/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Button Manager/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="Button Manager/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Telas/Opções/Panel/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="value_changed" from="Telas/Opções/Panel/Music/music" to="Telas/Opções" method="_on_music_value_changed"]
+[connection signal="value_changed" from="Telas/Opções/Panel/SFX/sfx" to="Telas/Opções" method="_on_sfx_value_changed"]
+[connection signal="pressed" from="Button Manager/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button Manager/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Button Manager/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Button Manager/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
