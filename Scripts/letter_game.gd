@@ -1,7 +1,8 @@
 extends Node3D
 
-@export var caixas : Array[Node] = []
+var caixas : Array[Node]
 @export var max_time : float = 10
+@onready var armario : Node = $Armario/Caixas
 @onready var indicador : Node = $Indicador
 @onready var carta_controller : Node = $CartaController
 @onready var ui : Node = $UiLetterThrowing
@@ -9,6 +10,7 @@ extends Node3D
 var pontuacao : int = 0
 
 func _ready() -> void:
+	caixas = armario.get_children()
 	for caixa in caixas:
 		if indicador != null:
 			caixa.box_hover.connect(indicador.on_box_hovered)

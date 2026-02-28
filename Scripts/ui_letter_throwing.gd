@@ -14,6 +14,7 @@ var minutos : int
 var pontuacao_atual : int = 0
 var erros : int = 0
 var tween
+@onready var o_text_color : Color = pontuacao.label_settings.font_color
 
 
 func atualizar_pontuacao(pontos : int) -> void :
@@ -30,7 +31,6 @@ func animar_pontuacao_aumentando() -> void :
 	if tween:
 		tween.kill()
 	tween = create_tween()
-	var o_text_color = pontuacao.label_settings.font_color
 	pontuacao.label_settings.font_color = Color.SPRING_GREEN
 	tween.finished.connect(func(): pontuacao.label_settings.font_color = o_text_color)
 	tween.tween_property(pontuacao, "scale", Vector2(label_tween_scale, label_tween_scale), 0.05)
@@ -42,7 +42,6 @@ func animar_pontuacao_diminuindo() -> void :
 	tween = create_tween()
 	randomize()
 	var o_position = pontuacao.position
-	var o_text_color = pontuacao.label_settings.font_color
 	pontuacao.label_settings.font_color = Color.INDIAN_RED
 	tween.finished.connect(func(): pontuacao.label_settings.font_color = o_text_color)
 	for i in range(10):

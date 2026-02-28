@@ -2,15 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://oqbb3beoscau" path="res://Scenes/CartaController.tscn" id="1_7c6ev"]
 [ext_resource type="Script" uid="uid://dupjfowwix60t" path="res://Scripts/letter_game.gd" id="1_cb1fc"]
-[ext_resource type="PackedScene" uid="uid://bd6pkmjgafjce" path="res://Scenes/Caixa.tscn" id="2_cmimh"]
 [ext_resource type="PackedScene" uid="uid://bjkfs4qbiqqv3" path="res://Scenes/UILetterThrowing.tscn" id="2_yr8a5"]
 [ext_resource type="PackedScene" uid="uid://bvpi8dar6jail" path="res://Scenes/Indicador.tscn" id="3_386f2"]
+[ext_resource type="PackedScene" uid="uid://clxa6n1kxee0y" path="res://Scenes/ArmarioDeCartas.tscn" id="6_yr8a5"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_cmimh"]
 
-[node name="LetterGame" type="Node3D" unique_id=1734937759 node_paths=PackedStringArray("caixas")]
+[node name="LetterGame" type="Node3D" unique_id=1734937759]
 script = ExtResource("1_cb1fc")
-caixas = [NodePath("Caixas/Caixa"), NodePath("Caixas/Caixa2"), NodePath("Caixas/Caixa3"), NodePath("Caixas/Caixa4")]
 max_time = 30.0
 
 [node name="UiLetterThrowing" parent="." unique_id=777879673 instance=ExtResource("2_yr8a5")]
@@ -18,23 +17,6 @@ mouse_filter = 2
 
 [node name="Timer" type="Timer" parent="." unique_id=1126168839]
 one_shot = true
-
-[node name="Caixas" type="Node3D" parent="." unique_id=1090944776]
-
-[node name="Caixa" parent="Caixas" unique_id=1063090705 instance=ExtResource("2_cmimh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2.5)
-
-[node name="Caixa2" parent="Caixas" unique_id=763413760 instance=ExtResource("2_cmimh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2.5)
-destino = 1
-
-[node name="Caixa3" parent="Caixas" unique_id=1535069826 instance=ExtResource("2_cmimh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.7199335, -2.5)
-destino = 2
-
-[node name="Caixa4" parent="Caixas" unique_id=763177128 instance=ExtResource("2_cmimh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.7199335, -2.5)
-destino = 3
 
 [node name="Indicador" parent="." unique_id=17110399 instance=ExtResource("3_386f2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06418705, 0.5, 1.9300897)
@@ -59,5 +41,8 @@ light_color = Color(1, 0.9882353, 0.8862745, 1)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1641170020]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 4)
+
+[node name="Armario" parent="." unique_id=1048102438 instance=ExtResource("6_yr8a5")]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, -1.003, -2)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

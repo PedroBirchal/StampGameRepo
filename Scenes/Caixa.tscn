@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bd6pkmjgafjce"]
 
 [ext_resource type="Script" uid="uid://843sbo06g4yq" path="res://Scripts/caixa.gd" id="1_32808"]
-[ext_resource type="PackedScene" uid="uid://ubmka5rog14j" path="res://Models/Caixa_Carta.fbx" id="1_b2bjn"]
 [ext_resource type="Texture2D" uid="uid://b7dpyudycdnoh" path="res://Sprites/Circle.png" id="2_w6ce2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfxl7"]
@@ -13,65 +12,25 @@ albedo_texture = ExtResource("2_w6ce2")
 
 [sub_resource type="QuadMesh" id="QuadMesh_fl5pv"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_b2bjn"]
-size = Vector3(1.6105957, 1.6090393, 0.1296215)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_32808"]
-size = Vector3(1.6105957, 1.6090393, 0.0897131)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_mfxl7"]
-size = Vector3(1.6105957, 1.6090393, 0.088496685)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_fl5pv"]
-size = Vector3(1.6105957, 1.6090393, 0.09054184)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_w6ce2"]
-size = Vector3(1.6105957, 1.6090393, 0.09233856)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_sjf0h"]
-size = Vector3(1.4277344, 1.4257813, 1.4024658)
+size = Vector3(0.8411007, 0.5668564, 0.746233)
 
 [node name="Caixa" type="Node3D" unique_id=1063090705]
 script = ExtResource("1_32808")
 
-[node name="MarcaCaixa" type="MeshInstance3D" parent="." unique_id=234718596]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -0.67602926)
+[node name="MarcaCaixa" type="MeshInstance3D" parent="." unique_id=617550660]
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, 0, -0.36816686)
 material_override = SubResource("StandardMaterial3D_mfxl7")
 mesh = SubResource("QuadMesh_fl5pv")
 
-[node name="MeshCaixa" parent="." unique_id=1680271635 instance=ExtResource("1_b2bjn")]
+[node name="AncoraIndicador" type="Node3D" parent="." unique_id=502202679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.52787864)
 
-[node name="ColisoresCaixa" type="StaticBody3D" parent="." unique_id=874984710]
+[node name="AreaCaixa" type="Area3D" parent="." unique_id=2042985719]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ColisoresCaixa" unique_id=1178096488]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00036621094, 0.79652405, -0.7380154)
-shape = SubResource("BoxShape3D_b2bjn")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="ColisoresCaixa" unique_id=1063090167]
-transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 0.76004887, 0.79652405, 0.0018615715)
-shape = SubResource("BoxShape3D_32808")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="ColisoresCaixa" unique_id=1819724715]
-transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -0.7599251, 0.79652405, 0.0018615731)
-shape = SubResource("BoxShape3D_mfxl7")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="ColisoresCaixa" unique_id=251264507]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.00036621094, 0.037711024, -3.1114363e-05)
-shape = SubResource("BoxShape3D_fl5pv")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="ColisoresCaixa" unique_id=1086475413]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.00036621094, 1.5567856, -3.111271e-05)
-shape = SubResource("BoxShape3D_w6ce2")
-
-[node name="AreaCaixa" type="Area3D" parent="." unique_id=520040535]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaCaixa" unique_id=267400288]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7971339, 0.074645996)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaCaixa" unique_id=1161759884]
 shape = SubResource("BoxShape3D_sjf0h")
 debug_color = Color(0.26674625, 0.63355845, 1.92523e-07, 0.41960785)
-
-[node name="AncoraIndicador" type="Node3D" parent="." unique_id=502202679]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 1)
 
 [connection signal="body_entered" from="AreaCaixa" to="." method="_on_area_caxa_body_entered"]
 [connection signal="input_event" from="AreaCaixa" to="." method="_on_area_3d_input_event"]
