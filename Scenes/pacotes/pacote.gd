@@ -20,6 +20,11 @@ var item_res: ItemResource
 @export var colisor_medio : CollisionShape3D
 @export var colisor_grande : CollisionShape3D
 
+@export var selo_scene: PackedScene
+@export var texturas_cidades: Dictionary[String, Texture2D] = {}
+@export var markersG: Array[Node3D]
+@export var markersM: Array[Node3D]
+@export var markersP: Array[Node3D]
 
 var tamanho_pacote:
 	get:
@@ -62,6 +67,7 @@ func setar_pacote(item_resource: ItemResource) -> void:
 	#print(caracteristicas)
 	
 	setar_tamanho(tamanho)
+	instanciar_selos()
 
 func setar_tamanho(tamanho: ItemResource.TamanhoPacote) -> void:
 	if tamanho == ItemResource.TamanhoPacote.PEQUENO:
@@ -83,6 +89,33 @@ func setar_tamanho(tamanho: ItemResource.TamanhoPacote) -> void:
 		colisor_medio.queue_free()
 		animator = pacote_grande.get_node("AnimationPlayer")
 
+func instanciar_selos() -> void:
+	var pacote_ativo: Node3D = null
+	
+	if pacote_pequeno.visible: 
+		gerar_um_selo(markersP[0], "Remetente", vindo_de)
+		gerar_um_selo(markersP[1], "Destinatário", indo_para)
+	elif pacote_medio.visible: 
+		gerar_um_selo(markersM[0], "Remetente", vindo_de)
+		gerar_um_selo(markersM[1], "Destinatário", indo_para)
+	elif pacote_grande.visible: 
+		gerar_um_selo(markersG[0], "Remetente", vindo_de)
+		gerar_um_selo(markersG[1], "Destinatário", indo_para)
+		
+func gerar_um_selo(alvo: Node3D, tipo: String, cidade_index: int) -> void:
+	var novo_selo = selo_scene.instantiate()
+	
+	alvo.add_child(novo_selo)
+	
+	novo_selo.position = Vector3.ZERO
+	novo_selo.rotation = Vector3.ZERO
+	
+	var sigla = Singleton.sigla_cidade[cidade_index]
+	var tex = texturas_cidades.get(sigla)
+	
+	novo_selo.configurar(tipo, sigla, tex)
+	novo_selo.scale = Vector3(0.1,0.1,0.1)
+	
 
 func _on_area_clicavel_para_abrir_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:

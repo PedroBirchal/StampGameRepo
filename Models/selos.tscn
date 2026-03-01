@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://fe0ri5m166f"]
+
+[ext_resource type="Texture2D" uid="uid://3tgpsn2d86s2" path="res://Sprites/Selo_base.png" id="1_eel4i"]
+[ext_resource type="Script" uid="uid://cfu3qhync3e1a" path="res://Models/selos.gd" id="1_xsc6p"]
+[ext_resource type="FontFile" uid="uid://bbb8aiguwfggd" path="res://Fonts/Mory.ttf" id="2_xsc6p"]
+
+[node name="Selos" type="Node3D" unique_id=1738246686]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("1_xsc6p")
+
+[node name="Selo" type="Sprite3D" parent="." unique_id=242911386]
+layers = 2
+texture = ExtResource("1_eel4i")
+
+[node name="Direcao" type="Label3D" parent="." unique_id=1374309987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5759608, 0.9033669, 0)
+modulate = Color(0, 0, 0, 1)
+text = "Remetente:"
+font = ExtResource("2_xsc6p")
+font_size = 40
+outline_size = 5

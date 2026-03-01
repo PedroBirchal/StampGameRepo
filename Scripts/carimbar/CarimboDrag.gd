@@ -156,7 +156,7 @@ func _on_jogo_carimbar_mudou_encomenda(encomenda: Encomenda) -> void:
 func _on_area_3d_mouse_entered() -> void:
 	if not holding:
 		mesh_carimbo.get_active_material(0).rim_enabled = true
-	carimbo_imagem.visible = true
+		carimbo_imagem.visible = true
 
 
 func _on_area_3d_mouse_exited() -> void:
