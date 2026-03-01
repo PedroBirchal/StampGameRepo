@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://b0vww556a3ldo"]
 
 [ext_resource type="Script" uid="uid://cpi2nutxnvclm" path="res://Scripts/Menu/main_menu.gd" id="1_8saeu"]
+[ext_resource type="FontFile" uid="uid://coqq13tin3swc" path="res://Fonts/ZeroCool.ttf" id="2_cmrfp"]
 [ext_resource type="FontFile" uid="uid://bujqvnn6rve8g" path="res://Fonts/MISTBF__.TTF" id="2_ghw46"]
 [ext_resource type="FontFile" uid="uid://uk6ar6pt6uet" path="res://Fonts/kindergarten.ttf" id="3_df05h"]
 [ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="3_ghw46"]
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="4_df05h"]
-[ext_resource type="Script" uid="uid://dmyqgnmew7j4j" path="res://Scenes/audio_controller.gd" id="6_xim88"]
+[ext_resource type="Script" path="res://Scenes/audio_controller.gd" id="6_xim88"]
 [ext_resource type="FontFile" uid="uid://bbb8aiguwfggd" path="res://Fonts/Mory.ttf" id="7_koqhg"]
-[ext_resource type="Script" path="res://Scenes/quarto/play_music.gd" id="7_xim88"]
+[ext_resource type="Script" uid="uid://dtp8atbvuxhby" path="res://Scenes/quarto/play_music.gd" id="7_xim88"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_cmrfp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8saeu"]
 bg_color = Color(0, 0.6929749, 0.63965076, 1)
@@ -45,14 +48,25 @@ opcoesTela = NodePath("Telas/Opções")
 [node name="Background" type="ColorRect" parent="." unique_id=29128835]
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.9386795, 0.6284914, 0.52534914, 1)
+color = Color(0.9372549, 0.627451, 0.5254902, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Background" unique_id=1664650288]
+position = Vector2(967, 539)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Background" unique_id=1804025689]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -10.0
+offset_right = 1928.0
+offset_bottom = 1076.0
+stream = SubResource("VideoStreamTheora_cmrfp")
 
 [node name="Title" type="Label" parent="." unique_id=1203621451]
-offset_left = 949.0
-offset_top = 344.0
-offset_right = 1859.0
-offset_bottom = 544.0
-theme_override_fonts/font = ExtResource("2_ghw46")
+offset_left = 746.0
+offset_top = 393.0
+offset_right = 1893.0
+offset_bottom = 565.0
+theme_override_fonts/font = ExtResource("2_cmrfp")
 theme_override_font_sizes/font_size = 150
 text = "Aviário Postal"
 
@@ -351,6 +365,8 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("7_koqhg")
 theme_override_font_sizes/font_size = 50
 text = "Início"
+icon_alignment = 1
+expand_icon = true
 
 [node name="Options" type="Button" parent="Button Manager/VBoxContainer" unique_id=2036442991]
 layout_mode = 2
