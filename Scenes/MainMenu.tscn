@@ -6,10 +6,15 @@
 [ext_resource type="FontFile" uid="uid://uk6ar6pt6uet" path="res://Fonts/kindergarten.ttf" id="3_df05h"]
 [ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="3_ghw46"]
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="4_df05h"]
-[ext_resource type="Script" path="res://Scenes/audio_controller.gd" id="6_xim88"]
+[ext_resource type="Script" uid="uid://dmyqgnmew7j4j" path="res://Scenes/audio_controller.gd" id="6_xim88"]
 [ext_resource type="FontFile" uid="uid://bbb8aiguwfggd" path="res://Fonts/Mory.ttf" id="7_koqhg"]
 [ext_resource type="Script" path="res://Scenes/quarto/play_music.gd" id="7_xim88"]
+[ext_resource type="Texture2D" uid="uid://bvqje2wlw71bt" path="res://Sprites/Captura de tela 2026-03-01 192600.png" id="10_if7li"]
 [ext_resource type="Shader" uid="uid://72r7mi5v1ouy" path="res://materials/Blur.gdshader" id="10_loo7a"]
+[ext_resource type="Texture2D" uid="uid://dqn8xsw5xnipk" path="res://Sprites/Captura de tela 2026-03-01 192829.png" id="11_8e205"]
+[ext_resource type="Texture2D" uid="uid://rq1cuj01lbe2" path="res://Sprites/ui/pro_lado.png" id="12_7467j"]
+[ext_resource type="Texture2D" uid="uid://dw2l058k88lsc" path="res://Sprites/ui/seta_lado.png" id="13_2x1g0"]
+[ext_resource type="Texture2D" uid="uid://bcgmwiongql00" path="res://Sprites/Captura de tela 2026-03-01 193540.png" id="14_7467j"]
 
 [sub_resource type="VideoStreamTheora" id="VideoStreamTheora_cmrfp"]
 file = "res://resources/Video/MenuAnim.ogv"
@@ -46,16 +51,18 @@ thickness = 13
 color = Color(0.9999998, 0.2247948, 0.5679053, 1)
 thickness = 13
 
-[node name="MainMenu" type="Node2D" unique_id=1637582694 node_paths=PackedStringArray("creditsTela", "opcoesTela")]
+[node name="MainMenu" type="Node2D" unique_id=1637582694 node_paths=PackedStringArray("creditsTela", "opcoesTela", "tutorialTela", "buttonManager")]
 script = ExtResource("1_8saeu")
 creditsTela = NodePath("Telas/Créditos")
 opcoesTela = NodePath("Telas/Opções")
+tutorialTela = NodePath("Telas/Tutorial")
+buttonManager = NodePath("Button Manager")
 
 [node name="Title" type="Label" parent="." unique_id=1203621451]
 offset_left = 746.0
-offset_top = 393.0
+offset_top = 299.0
 offset_right = 1893.0
-offset_bottom = 565.0
+offset_bottom = 471.0
 theme_override_fonts/font = ExtResource("2_cmrfp")
 theme_override_font_sizes/font_size = 150
 text = "Aviário Postal"
@@ -127,7 +134,7 @@ offset_top = 16.0
 offset_right = 701.0
 offset_bottom = 110.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ghw46")
+theme_override_fonts/font = ExtResource("2_cmrfp")
 theme_override_font_sizes/font_size = 70
 text = "CRÉDITOS"
 horizontal_alignment = 1
@@ -285,7 +292,7 @@ offset_top = 16.0
 offset_right = 701.0
 offset_bottom = 110.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ghw46")
+theme_override_fonts/font = ExtResource("2_cmrfp")
 theme_override_font_sizes/font_size = 70
 text = "Opções"
 horizontal_alignment = 1
@@ -369,19 +376,188 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
+[node name="Tutorial" type="Panel" parent="Telas" unique_id=256329509]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -847.0
+offset_top = -483.5
+offset_right = 800.0
+offset_bottom = 483.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8saeu")
+
+[node name="Panel" type="Panel" parent="Telas/Tutorial" unique_id=1644434341]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 1620.0
+offset_bottom = 940.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ghw46")
+
+[node name="TextureButton" type="TextureButton" parent="Telas/Tutorial/Panel" unique_id=921592350]
+modulate = Color(0, 0.69411767, 0.6392157, 1)
+layout_mode = 0
+offset_left = 47.0
+offset_top = 26.0
+offset_right = 107.0
+offset_bottom = 86.0
+texture_normal = SubResource("CompressedTexture2D_xim88")
+texture_hover = SubResource("CompressedTexture2D_koqhg")
+
+[node name="titulo" type="Label" parent="Telas/Tutorial/Panel" unique_id=1445937758]
+layout_mode = 0
+offset_left = 609.0
+offset_top = 12.5
+offset_right = 967.0
+offset_bottom = 106.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_cmrfp")
+theme_override_font_sizes/font_size = 70
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Nomes2" type="Label" parent="Telas/Tutorial/Panel" unique_id=1581391772]
+visible = false
+layout_mode = 0
+offset_left = 57.0
+offset_top = 140.5
+offset_right = 1040.0
+offset_bottom = 321.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 50
+text = "- Leia e siga os decretos
+- Carimbe o destino de cada encomenda
+- Organize a encomenda por área"
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=794485791]
+visible = false
+position = Vector2(1118, 228.5)
+texture = ExtResource("10_if7li")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=1233373107]
+position = Vector2(606.00006, 363.50006)
+scale = Vector2(0.7384868, 0.7384868)
+texture = ExtResource("11_8e205")
+
+[node name="Nomes3" type="Label" parent="Telas/Tutorial/Panel" unique_id=972173736]
+layout_mode = 0
+offset_left = 717.0
+offset_top = 236.5
+offset_right = 1646.0
+offset_bottom = 346.5
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 50
+text = "Clique para trazer a encomenda ao meio"
+vertical_alignment = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=1221273918]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(1147, 392.49997)
+rotation = -0.8447394
+scale = Vector2(0.7384868, 0.7384868)
+texture = ExtResource("12_7467j")
+
+[node name="Nomes4" type="Label" parent="Telas/Tutorial/Panel" unique_id=912991859]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 94.5
+offset_right = 616.0
+offset_bottom = 204.5
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 50
+text = "Despache as encomendas"
+vertical_alignment = 1
+
+[node name="Sprite2D4" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=884307357]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(497, 295.5)
+rotation = -2.1118484
+scale = Vector2(0.7384868, 0.7384868)
+texture = ExtResource("12_7467j")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=1708151575]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(432, 261.50006)
+rotation = -0.7749262
+scale = Vector2(0.208, 0.208)
+texture = ExtResource("13_2x1g0")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=314808466]
+position = Vector2(1321, 706.50006)
+scale = Vector2(0.7384868, 0.7384868)
+texture = ExtResource("14_7467j")
+
+[node name="Nomes5" type="Label" parent="Telas/Tutorial/Panel" unique_id=1435613003]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 810.5
+offset_right = 1024.0
+offset_bottom = 920.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 50
+text = "Organize o armário de entrega"
+vertical_alignment = 1
+
+[node name="Sprite2D7" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=1424794543]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1089.9791, 880.26575)
+rotation = -0.16231562
+scale = Vector2(0.5453628, 0.68269336)
+texture = ExtResource("12_7467j")
+flip_h = true
+
+[node name="Nomes6" type="Label" parent="Telas/Tutorial/Panel" unique_id=1646271854]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 592.5
+offset_right = 1028.0
+offset_bottom = 702.5
+theme_override_colors/font_color = Color(0.93984336, 9.241105e-06, 0.6111471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 50
+text = "Carimbe de acordo com as informações"
+vertical_alignment = 1
+
+[node name="Sprite2D8" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=1184185368]
+modulate = Color(0.9411765, 0, 0.6117647, 1)
+position = Vector2(615, 583.50006)
+rotation = -4.7193704
+scale = Vector2(0.208, 0.208)
+texture = ExtResource("13_2x1g0")
+
 [node name="Button Manager" type="Control" parent="." unique_id=242472087]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1282.0
+offset_top = 163.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Button Manager" unique_id=131525075]
 layout_mode = 0
-offset_left = 315.0
-offset_top = 609.0
-offset_right = 611.0
-offset_bottom = 979.0
+offset_left = 291.0
+offset_top = 361.0
+offset_right = 587.0
+offset_bottom = 822.0
 
 [node name="Start" type="Button" parent="Button Manager/VBoxContainer" unique_id=1789225840]
 layout_mode = 2
@@ -412,6 +588,15 @@ theme_override_fonts/font = ExtResource("7_koqhg")
 theme_override_font_sizes/font_size = 50
 text = "Créditos"
 
+[node name="Tutorial" type="Button" parent="Button Manager/VBoxContainer" unique_id=1945799083]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_koqhg")
+theme_override_font_sizes/font_size = 50
+text = "Tutorial"
+
 [node name="Quit" type="Button" parent="Button Manager/VBoxContainer" unique_id=433771120]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -428,7 +613,9 @@ script = ExtResource("7_xim88")
 [connection signal="pressed" from="Telas/Opções/Panel/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="value_changed" from="Telas/Opções/Panel/Music/music" to="Telas/Opções" method="_on_music_value_changed"]
 [connection signal="value_changed" from="Telas/Opções/Panel/SFX/sfx" to="Telas/Opções" method="_on_sfx_value_changed"]
+[connection signal="pressed" from="Telas/Tutorial/Panel/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Button Manager/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Button Manager/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Button Manager/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Button Manager/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Button Manager/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
