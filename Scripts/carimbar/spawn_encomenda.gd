@@ -19,7 +19,7 @@ func _ready() -> void:
 func spawn() -> Encomenda:
 	var probabilidade = randf()
 	
-	if probabilidade < chance_pacote:
+	if probabilidade < 0.5:
 		var pacote: Pacote = pacote_prefab.instantiate()
 		pacote.setar_pacote(get_item_aleatorio())
 		return pacote
