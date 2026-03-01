@@ -11,6 +11,7 @@ static var ehCaixa : bool = false
 static var decal_size : Vector3 = Vector3(0.5, 0.04, 0.5)
 var animando : bool = false
 @export var sprite_fumaca : AnimatedSprite3D
+@export var mesh_carimbo : MeshInstance3D
 
 @export var carimbo_id : String
 
@@ -101,10 +102,10 @@ func _carimbar():
 	var tween = create_tween()
 	var posicao_no_mouse = global_position
 	sprite_fumaca.scale = Vector3(0.1, 0.1, 0.1)
-	sprite_fumaca.global_position.y = ponto.y + 0.3
+	sprite_fumaca.global_position.y = ponto.y + 0.05
 	sprite_fumaca.visible = false
 	
-	tween.tween_property(self, "global_position", ponto, 0.1) #desce
+	tween.tween_property(mesh_carimbo, "global_position", ponto, 0.1) #desce
 	
 	tween.tween_callback(func(): 
 		sprite_fumaca.visible = true
@@ -115,7 +116,7 @@ func _carimbar():
 	sprite_fumaca.visible = false
 	
 	
-	tween.tween_property(self, "global_position", posicao_no_mouse, 0.1)
+	tween.tween_property(mesh_carimbo, "global_position", posicao_no_mouse, 0.1)
 	tween.tween_interval(0.1) #espera
 	
 	await tween.finished

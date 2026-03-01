@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dkiqchyunj1rt"]
 
 [ext_resource type="Texture2D" uid="uid://donwbyv24lqfg" path="res://Sprites/Captura de tela 2026-02-28 121146.png" id="1_kqmsq"]
-[ext_resource type="FontFile" uid="uid://uk6ar6pt6uet" path="res://Fonts/kindergarten.ttf" id="2_j3o3e"]
+[ext_resource type="FontFile" uid="uid://bbb8aiguwfggd" path="res://Fonts/Mory.ttf" id="2_kqmsq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_io0lq"]
 size = Vector3(0.8, 0.9, 0.1)
@@ -31,8 +31,9 @@ mesh = SubResource("BoxMesh_unt14")
 surface_material_override/0 = SubResource("StandardMaterial3D_s2rw1")
 
 [node name="Label3D" type="Label3D" parent="MeshInstance3D2" unique_id=319538808]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.008003354, 0.062723935)
-outline_modulate = Color(0, 0, 0, 0)
-text = "Funcionário do mes"
-font = ExtResource("2_j3o3e")
-font_size = 25
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0071803033, 0.008003354, 0.062723935)
+outline_modulate = Color(1, 1, 1, 1)
+text = "Funcionário do mês"
+font = ExtResource("2_kqmsq")
+font_size = 20
+outline_size = 2

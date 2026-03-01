@@ -67,13 +67,14 @@ shadow_mesh = SubResource("ArrayMesh_7avl0")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_biure"]
 albedo_color = Color(0.4392157, 0.3137255, 0.28235295, 1)
 
-[node name="Carimbo Aqua" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray", "sprite_fumaca")]
+[node name="Carimbo Aqua" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray", "sprite_fumaca", "mesh_carimbo")]
 script = ExtResource("1_1x0uj")
 previsao = NodePath("Sprite3D")
 Carimbada = ExtResource("2_biure")
 ray = NodePath("RayCast3D")
-carimbo_id = "aqua"
 sprite_fumaca = NodePath("AnimatedSprite3D")
+mesh_carimbo = NodePath("CarimboEstilizado")
+carimbo_id = "aqua"
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103]
 transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, -0.19952482, 0)
@@ -89,7 +90,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.0030664057, 0.0585633
 shape = SubResource("BoxShape3D_oj1nn")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1513099941]
-transform = Transform3D(0.285, 0, 0, 0, -0.049489733, -0.2806702, 0, 0.2806702, -0.049489733, 0, 0.029225007, 0)
+transform = Transform3D(0.285, 0, 0, 0, -0.02483939, -0.28391546, 0, 0.28391546, -0.02483939, 0, 0.0036969483, 0)
 visible = false
 layers = 2
 sprite_frames = SubResource("SpriteFrames_3nvcy")

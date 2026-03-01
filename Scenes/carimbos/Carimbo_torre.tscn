@@ -72,13 +72,14 @@ bind/2/name = &"Paint"
 bind/2/bone = -1
 bind/2/pose = Transform3D(0, -7.54979e-08, -1, 1, 0, 0, 0, -1, 7.54979e-08, 0.01032292, 0.004999999, -7.793588e-10)
 
-[node name="Carimbo Torre" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray", "sprite_fumaca")]
+[node name="Carimbo Torre" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray", "sprite_fumaca", "mesh_carimbo")]
 script = ExtResource("1_f0h1s")
 previsao = NodePath("Sprite3D")
 Carimbada = ExtResource("2_f0h1s")
 ray = NodePath("RayCast3D")
-carimbo_id = "torre"
 sprite_fumaca = NodePath("AnimatedSprite3D")
+mesh_carimbo = NodePath("CarimboArmature/Skeleton3D/Carimbo2")
+carimbo_id = "torre"
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103]
 transform = Transform3D(0.03, 0, 0, 0, 0.025, 0, 0, 0, 0.04, 0, -0.18350771, 0)
@@ -98,7 +99,7 @@ hit_back_faces = false
 collide_with_areas = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1513099941]
-transform = Transform3D(0.18558201, -0.1722268, 0.030368235, -0.030058576, -0.075034104, -0.24184982, 0.17228113, 0.172432, -0.074909315, 0, 0, 0)
+transform = Transform3D(0.25499997, 0, 0, 0, -0.022224715, -0.2540296, 0, 0.2540296, -0.022224715, 0, 0, 0)
 visible = false
 layers = 2
 sprite_frames = SubResource("SpriteFrames_3nvcy")
