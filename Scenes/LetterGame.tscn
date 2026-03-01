@@ -7,15 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="3_l1y7j"]
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="4_gxcc0"]
 [ext_resource type="PackedScene" uid="uid://clxa6n1kxee0y" path="res://Scenes/ArmarioDeCartas.tscn" id="6_yr8a5"]
+[ext_resource type="Environment" uid="uid://bkjgsgidwn0ig" path="res://Evironments/environment_quarto.tres" id="7_gxcc0"]
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_cmimh"]
-
-[node name="LetterGame" type="Node3D" unique_id=1734937759 node_paths=PackedStringArray("camera", "ativar_on_jogar", "ativar_colisor_on_jogar", "jogavel_ui")]
+[node name="LetterGame" type="Node3D" unique_id=1734937759 node_paths=PackedStringArray("camera", "ativar_on_jogar", "jogavel_ui")]
 script = ExtResource("1_cb1fc")
 camera = NodePath("Camera3D")
 max_time = 30.0
 ativar_on_jogar = [NodePath("CartaController")]
-ativar_colisor_on_jogar = [NodePath("Cenario/Chao/CollisionShape3D")]
 jogavel_ui = NodePath("UiLetterThrowing")
 
 [node name="UiLetterThrowing" parent="." unique_id=777879673 instance=ExtResource("2_yr8a5")]
@@ -38,25 +36,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06418705, 0.5, 1.9300897)
 cor_piscante = Color(1, 0.483204, 0.56509703, 1)
 
 [node name="CartaController" parent="." unique_id=596546558 instance=ExtResource("1_7c6ev")]
-transform = Transform3D(1, 0, 0, 0, 0.8211492, -0.5707136, 0, 0.5707136, 0.8211492, 0, -0.35, 2.25)
-force = 15.0
-
-[node name="Cenario" type="Node3D" parent="." unique_id=1390849544]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06418705, 0.5, 1.9300897)
-
-[node name="Chao" type="StaticBody3D" parent="Cenario" unique_id=940881840]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06418705, -0.5, -1.9300897)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cenario/Chao" unique_id=1415822254]
-shape = SubResource("WorldBoundaryShape3D_cmimh")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Cenario" unique_id=1382272556]
-transform = Transform3D(1, 0, 0, 0, 0.8530412, 0.5218436, 0, -0.5218436, 0.8530412, -0.06418705, 2.0987425, 1.665556)
-visible = false
-light_color = Color(1, 0.9882353, 0.8862745, 1)
+transform = Transform3D(1, 0, 0, 0, 0.8211492, -0.5707136, 0, 0.5707136, 0.8211492, 0, 0.2329953, 2.4502163)
+force = 20.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1641170020]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0829953, 4.2002163)
+environment = ExtResource("7_gxcc0")
 
 [node name="Armario" parent="." unique_id=1048102438 groups=["esquerda_quarto", "sumivel"] instance=ExtResource("6_yr8a5")]
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, -1.003, -2)

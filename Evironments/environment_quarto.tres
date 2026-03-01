@@ -1,0 +1,15 @@
+[gd_resource type="Environment" format=3 uid="uid://bkjgsgidwn0ig"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_apgse"]
+
+[sub_resource type="Sky" id="Sky_t8t8l"]
+sky_material = SubResource("ProceduralSkyMaterial_apgse")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_t8t8l")
+ambient_light_source = 3
+adjustment_enabled = true
+adjustment_brightness = 1.1
+adjustment_contrast = 1.15
+adjustment_saturation = 1.3

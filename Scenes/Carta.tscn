@@ -46,6 +46,7 @@ points = PackedVector3Array(0, -0.5, -0.5, 0, 0, 0, 0, 0.5, -0.5, 0.05, -0.5, -0
 size = Vector3(1, 0.058807373, 0.6135254)
 
 [node name="Carta" type="RigidBody3D" unique_id=1512388856 node_paths=PackedStringArray("mesh_carta", "textos", "rotacionavel")]
+freeze = true
 script = ExtResource("1_vrd47")
 mesh_carta = NodePath("CartaModel/Carta/LetterArmature/Skeleton3D/Letter")
 pode_abrir = true

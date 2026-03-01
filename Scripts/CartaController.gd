@@ -17,3 +17,4 @@ func instantiate_new_carta() -> void:
 	var nova_carta = cena_carta.instantiate()
 	add_child(nova_carta)
 	rb = nova_carta
+	rb.freeze = true

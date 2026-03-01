@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="StampGame"
-run/main_scene="uid://di6ne7kiyjw8c"
+run/main_scene="uid://dxegpb20kq7ku"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -27,8 +27,8 @@ DialogManager="*uid://bh3y4ynh43gnk"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
 [editor]
@@ -102,3 +102,4 @@ pulo={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+anti_aliasing/quality/msaa_3d=2

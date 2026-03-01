@@ -31,17 +31,6 @@ func mudar_cor_da_carta(valor : int) -> void:
 	mesh_carta.set_surface_override_material(0, novo_material)
 
 func recebe_valores(carta: CartaResource) -> void:
-	print(carta.conteudo)
-	var count = 0
-	carta.conteudo = ""
-	while count < 1000:
-		carta.conteudo += str(count) + " "
-		count += 1
-	var index = 0
-	for label in textos :
-		label.text = carta.conteudo.substr(index, caracter_max)
-		print ("label text : " + label.text) 
-		index += caracter_max
 	#texto_meio.text = carta.conteudo
 	destino = carta.indo_para
 	mudar_cor_da_carta(destino)
