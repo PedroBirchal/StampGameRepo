@@ -58,22 +58,25 @@ font = ExtResource("4_7qs34")
 font_size = 100
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1478304287]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4604182, -0.78048915, 3.246338)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5324435, 0.18819982, 3.246338)
 
 [node name="Label3D2" type="Label3D" parent="." unique_id=836685931]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.395864, -1.6313031, 0)
+visible = false
 text = "Carimbos incorretos:"
 font = ExtResource("5_4pwo7")
 font_size = 100
 
 [node name="Label3D3" type="Label3D" parent="." unique_id=2023342740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.151093, -2.2126343, 0)
+visible = false
 text = "Envios incorretos:"
 font = ExtResource("5_4pwo7")
 font_size = 100
 
 [node name="Label3D4" type="Label3D" parent="." unique_id=592978603]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5009196, -2.7786682, 0)
+visible = false
 text = "Saldo final:"
 font = ExtResource("5_4pwo7")
 font_size = 100
