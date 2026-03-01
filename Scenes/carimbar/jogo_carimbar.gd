@@ -61,6 +61,8 @@ func jogar() -> void:
 		proxima_encomenda = gerar_nova_encomenda()
 		pos_receber_proximo.add_child(proxima_encomenda)
 	
+	setar_modo_girando(false)
+	
 	camera.make_current()
 
 func sair() -> void:
@@ -69,6 +71,11 @@ func sair() -> void:
 	if encomenda_atual != null and encomenda_atual.estado_atual != Encomenda.EstadoEncomenda.PARADA:
 		sair_inspecionar()
 		sair_inspecionar()
+	
+	preview_unhover_cesto()
+	preview_unhover_estoque()
+	preview_unhover_lixo()
+	force_postit_out()
 	
 	camera.clear_current()
 
@@ -161,7 +168,8 @@ func encomenda_atual_mudou_estado(estado: Encomenda.EstadoEncomenda) -> void:
 		tween.tween_property(encomenda_atual, "rotation", Vector3.ZERO, 0.25)
 		tween.tween_property(encomenda_atual, "position", Vector3.ZERO, 0.25)
 	else:
-
+		if encomenda_atual is Pacote:
+			encomenda_atual.freeze = false
 			
 		rotacionavel = null
 		setar_modo_girando(false)
@@ -178,6 +186,7 @@ func sair_inspecionar() -> void:
 		encomenda_atual.set_estado(Encomenda.EstadoEncomenda.INSPECIONANDO)
 	elif encomenda_atual.estado_atual == Encomenda.EstadoEncomenda.INSPECIONANDO:
 		encomenda_atual.reparent(pos_meio_mesa)
+		
 		
 		var tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(encomenda_atual, "position", Vector3.ZERO, 0.25)
@@ -225,6 +234,11 @@ func clicou_post_it(postit: PostIt) -> void:
 		postit.reparent(pos_postit_cara)
 		var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(postit, "position", Vector3.ZERO, 0.6)
+
+func force_postit_out() -> void:
+	if pos_postit_cara.get_child_count() > 0:
+		clicou_post_it(pos_postit_cara.get_child(0) as PostIt)
+
 
 var previewing_no_lixo = false
 func preview_hover_lixo() -> void:
@@ -331,5 +345,5 @@ func _on_cesto_carta_clicado() -> void:
 	
 
 func tentar_abrir_caixa() -> void:
-	if encomenda_atual.estado_atual == Encomenda.EstadoEncomenda.INSPECIONANDO and encomenda_atual is Pacote:
+	if encomenda_atual != null and encomenda_atual.estado_atual == Encomenda.EstadoEncomenda.INSPECIONANDO and encomenda_atual is Pacote:
 		encomenda_atual.abrir_pacote()
