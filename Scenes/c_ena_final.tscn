@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://disc5cftp8vsu"]
 
+[ext_resource type="Script" uid="uid://d0w2tt0gmvac4" path="res://Scenes/cena_final.gd" id="1_i50t5"]
 [ext_resource type="Texture2D" uid="uid://donwbyv24lqfg" path="res://Sprites/Captura de tela 2026-02-28 121146.png" id="1_wa250"]
 [ext_resource type="FontFile" uid="uid://bbb8aiguwfggd" path="res://Fonts/Mory.ttf" id="2_4pwo7"]
 [ext_resource type="Texture2D" uid="uid://dq0cn7sx1unji" path="res://Scripts/TextSystem/TextBox.png" id="3_lh7cp"]
 [ext_resource type="FontFile" uid="uid://coqq13tin3swc" path="res://Fonts/ZeroCool.ttf" id="4_7qs34"]
+[ext_resource type="FontFile" uid="uid://dlp5ty2d6cime" path="res://Fonts/Jersey10-Regular.ttf" id="5_4pwo7"]
+[ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="6_lh7cp"]
+[ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="7_7qs34"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_i50t5"]
 size = Vector3(0.8, 0.9, 0.1)
@@ -18,8 +22,10 @@ size = Vector3(1.2, 0.2, 0.1)
 albedo_color = Color(0.5921569, 0.5372549, 0.48235294, 1)
 
 [node name="cENA FINAL" type="Node3D" unique_id=1916520499]
+script = ExtResource("1_i50t5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2016127958]
+transform = Transform3D(1.865, 0, 0, 0, 1.865, 0, 0, 0, 1.865, -0.1352849, 0, 0)
 mesh = SubResource("BoxMesh_i50t5")
 surface_material_override/0 = SubResource("StandardMaterial3D_opyts")
 
@@ -28,7 +34,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0.053669572)
 texture = ExtResource("1_wa250")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1672424398]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5932438, 0)
+transform = Transform3D(1.865, 0, 0, 0, 1.865, 0, 0, 0, 1.865, -0.1352849, 1.1239765, 0)
 mesh = SubResource("BoxMesh_v24ff")
 surface_material_override/0 = SubResource("StandardMaterial3D_pg8x6")
 
@@ -41,15 +47,43 @@ font_size = 20
 outline_size = 2
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1742704871]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8937972, 0, -2.2715447)
+transform = Transform3D(1.2000129, 0, 0, 0, 1, 0, 0, 0, 1, 1.7585123, 0, -2.2715447)
 modulate = Color(0.6181335, 0.72042245, 0.85683024, 1)
 texture = ExtResource("3_lh7cp")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=572829897]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5428627, 0.04403755, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.750993, 0.04403755, 0)
 text = "OBRIGADO POR JOGAR '-'"
 font = ExtResource("4_7qs34")
 font_size = 100
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1478304287]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5957031, 0, 3.246338)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4604182, -0.78048915, 3.246338)
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=836685931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.395864, -1.6313031, 0)
+text = "Carimbos incorretos:"
+font = ExtResource("5_4pwo7")
+font_size = 100
+
+[node name="Label3D3" type="Label3D" parent="." unique_id=2023342740]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.151093, -2.2126343, 0)
+text = "Envios incorretos:"
+font = ExtResource("5_4pwo7")
+font_size = 100
+
+[node name="Label3D4" type="Label3D" parent="." unique_id=592978603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5009196, -2.7786682, 0)
+text = "Saldo final:"
+font = ExtResource("5_4pwo7")
+font_size = 100
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1455009223]
+offset_left = 1198.0
+offset_top = 21.0
+offset_right = 1258.0
+offset_bottom = 81.0
+texture_normal = ExtResource("6_lh7cp")
+texture_hover = ExtResource("7_7qs34")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -99,4 +99,4 @@ func atualizar_sumiveis() -> void:
 # Fim de jogo
 func _on_timer_do_jogo_timeout() -> void:
 	fim_de_jogo.emit()
-	get_tree().change_scene_to_file("res://Scenes/Scenes/c_ena_final.tscn")
+	get_tree().change_scene_to_file("res://Scenes/c_ena_final.tscn")
