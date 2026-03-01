@@ -7,14 +7,19 @@ static var instance: Jogo
 enum Estado { QUARTO, JOGANDO }
 
 signal fim_de_jogo
+var carimbos_incorretos
+var envios_incorretos
+var saldo_final
 
 var pontuacao : int = 0
+var aluguel : int = 800
 var estado := Estado.QUARTO
 var jogavel_atual : Jogavel
 @export var jogador : Jogador
 @export var decretos : DecretosController
 @export var camera_principal : Camera3D
 @export var jogo_carimbo : JogoCarimbar
+@export var jogo_cartas : Node3D
 
 @export_group("UI")
 @export var fade : FadeController
@@ -43,7 +48,9 @@ func _ready() -> void:
 
 func pontuar(pontos : int) -> void :
 	pontuacao += pontos
-	if pontuacao < 0 : pontuacao = 0
+	if pontuacao < 0 : 
+		pontuacao = 0
+		envios_incorretos += 1
 	ui_timer_pontuacao.atualizar_pontuacao(pontuacao)
 
 func jogavel_iniciado(jogavel: Jogavel) -> void:
@@ -90,13 +97,15 @@ func atualizar_sumiveis() -> void:
 			mat = mat.duplicate()
 			
 			if mat.transparency == 3 and not pode_sumir:
-				mat.transparency = 0 
+				mat.transparency = 0 as BaseMaterial3D.Transparency
 			if mat.transparency == 0 and pode_sumir:
-				mat.transparency = 3
+				mat.transparency = 3 as BaseMaterial3D.Transparency
 			
 			sumivel.set_surface_override_material(i, mat)
 
 # Fim de jogo
 func _on_timer_do_jogo_timeout() -> void:
 	fim_de_jogo.emit()
+	carimbos_incorretos = decretos.entregas_incorretas
+	saldo_final = pontuacao - aluguel
 	get_tree().change_scene_to_file("res://Scenes/c_ena_final.tscn")
