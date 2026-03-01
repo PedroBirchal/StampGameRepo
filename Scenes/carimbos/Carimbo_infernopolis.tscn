@@ -39,6 +39,9 @@ albedo_texture = ExtResource("4_vbpbb")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
+stencil_flags = 2
+stencil_color = Color(1, 1, 1, 1)
+stencil_outline_thickness = 0.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lqcl0"]
 resource_name = "Cube_004"
@@ -75,14 +78,22 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lqcl0")
 
-[node name="Carimbo Infernopolis" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray", "sprite_fumaca", "mesh_carimbo")]
+[node name="Carimbo Infernopolis" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray", "sprite_fumaca", "mesh_carimbo", "carimbo_imagem")]
 script = ExtResource("1_bshui")
 previsao = NodePath("Sprite3D")
 Carimbada = ExtResource("2_cd42p")
 ray = NodePath("RayCast3D")
 sprite_fumaca = NodePath("AnimatedSprite3D")
 mesh_carimbo = NodePath("Sinete")
+carimbo_imagem = NodePath("Carimbo Imagem")
 carimbo_id = "inferno"
+
+[node name="Carimbo Imagem" type="Sprite3D" parent="." unique_id=1912179097]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.56421167, 0)
+visible = false
+modulate = Color(1, 1, 1, 0.42745098)
+billboard = 1
+texture = ExtResource("2_cd42p")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103]
 transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, -0.16179219, 0)
@@ -116,3 +127,5 @@ layers = 2
 mesh = SubResource("ArrayMesh_pydgl")
 
 [connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]

@@ -12,6 +12,7 @@ static var decal_size : Vector3 = Vector3(0.5, 0.04, 0.5)
 var animando : bool = false
 @export var sprite_fumaca : AnimatedSprite3D
 @export var mesh_carimbo : MeshInstance3D
+@export var carimbo_imagem : Sprite3D
 
 @export var carimbo_id : String
 
@@ -150,3 +151,11 @@ func _on_jogo_carimbar_mudou_encomenda(encomenda: Encomenda) -> void:
 	else:
 		ehCaixa = false
 		decal_size = Vector3(0.5, 0.04, 0.5)
+
+
+func _on_area_3d_mouse_entered() -> void:
+	carimbo_imagem.visible = true
+
+
+func _on_area_3d_mouse_exited() -> void:
+	carimbo_imagem.visible = false

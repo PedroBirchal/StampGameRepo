@@ -67,14 +67,22 @@ shadow_mesh = SubResource("ArrayMesh_7avl0")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_biure"]
 albedo_color = Color(0.4392157, 0.3137255, 0.28235295, 1)
 
-[node name="Carimbo Aqua" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray", "sprite_fumaca", "mesh_carimbo")]
+[node name="Carimbo Aqua" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray", "sprite_fumaca", "mesh_carimbo", "carimbo_imagem")]
 script = ExtResource("1_1x0uj")
 previsao = NodePath("Sprite3D")
 Carimbada = ExtResource("2_biure")
 ray = NodePath("RayCast3D")
 sprite_fumaca = NodePath("AnimatedSprite3D")
 mesh_carimbo = NodePath("CarimboEstilizado")
+carimbo_imagem = NodePath("Carimbo Imagem")
 carimbo_id = "aqua"
+
+[node name="Carimbo Imagem" type="Sprite3D" parent="." unique_id=592329736]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.27293158, 0)
+visible = false
+modulate = Color(1, 1, 1, 0.38431373)
+billboard = 1
+texture = ExtResource("2_biure")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103]
 transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, -0.19952482, 0)
@@ -108,3 +116,5 @@ hit_back_faces = false
 collide_with_areas = true
 
 [connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]

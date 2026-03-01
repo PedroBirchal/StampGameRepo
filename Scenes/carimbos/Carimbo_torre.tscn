@@ -72,14 +72,22 @@ bind/2/name = &"Paint"
 bind/2/bone = -1
 bind/2/pose = Transform3D(0, -7.54979e-08, -1, 1, 0, 0, 0, -1, 7.54979e-08, 0.01032292, 0.004999999, -7.793588e-10)
 
-[node name="Carimbo Torre" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray", "sprite_fumaca", "mesh_carimbo")]
+[node name="Carimbo Torre" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray", "sprite_fumaca", "mesh_carimbo", "carimbo_imagem")]
 script = ExtResource("1_f0h1s")
 previsao = NodePath("Sprite3D")
 Carimbada = ExtResource("2_f0h1s")
 ray = NodePath("RayCast3D")
 sprite_fumaca = NodePath("AnimatedSprite3D")
 mesh_carimbo = NodePath("CarimboArmature/Skeleton3D/Carimbo2")
+carimbo_imagem = NodePath("Carimbo Imagem")
 carimbo_id = "torre"
+
+[node name="Carimbo Imagem" type="Sprite3D" parent="." unique_id=892976796]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.28360936, 0)
+visible = false
+modulate = Color(1, 1, 1, 0.42745098)
+billboard = 1
+texture = ExtResource("2_f0h1s")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103]
 transform = Transform3D(0.03, 0, 0, 0, 0.025, 0, 0, 0, 0.04, 0, -0.18350771, 0)
@@ -146,3 +154,5 @@ skin = SubResource("Skin_w3nc7")
 skeleton = NodePath("..")
 
 [connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]

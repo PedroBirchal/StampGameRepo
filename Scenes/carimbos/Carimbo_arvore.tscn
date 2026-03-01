@@ -38,6 +38,9 @@ albedo_texture = ExtResource("4_7xeox")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
+stencil_flags = 2
+stencil_color = Color(1, 1, 1, 1)
+stencil_outline_thickness = 0.001
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hcvay"]
 resource_name = "Cube_003"
@@ -75,14 +78,22 @@ bind/3/name = &"Base"
 bind/3/bone = -1
 bind/3/pose = Transform3D(1.4210855e-14, 1, 1.1920929e-07, -1, -1.4210855e-14, 1.1920929e-07, 1.1920929e-07, -1.1920929e-07, 1, -1.6397731e-09, 0.0039951, -0.0006658451)
 
-[node name="Carimbo Arvore" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray", "sprite_fumaca", "mesh_carimbo")]
+[node name="Carimbo Arvore" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray", "sprite_fumaca", "mesh_carimbo", "carimbo_imagem")]
 script = ExtResource("1_1tqss")
 previsao = NodePath("Sprite3D")
 Carimbada = ExtResource("2_hcvay")
 ray = NodePath("RayCast3D")
 sprite_fumaca = NodePath("AnimatedSprite3D")
 mesh_carimbo = NodePath("Carimbo1_Armature/Skeleton3D/BaseCarimbo1")
+carimbo_imagem = NodePath("Carimbo Imagem")
 carimbo_id = "arvoro"
+
+[node name="Carimbo Imagem" type="Sprite3D" parent="." unique_id=722492746]
+transform = Transform3D(0.099999994, 0, 0, 0, 0.099999994, 0, 0, 0, 0.099999994, 0, 0.3267009, 0)
+visible = false
+modulate = Color(1, 1, 1, 0.42745098)
+billboard = 1
+texture = ExtResource("2_hcvay")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103]
 transform = Transform3D(0.03, 0, 0, 0, 0.025, 0, 0, 0, 0.04, 0, -0.1984055, 0)
@@ -163,3 +174,5 @@ skin = SubResource("Skin_1dncf")
 skeleton = NodePath("..")
 
 [connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]
