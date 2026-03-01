@@ -13,7 +13,6 @@
 [ext_resource type="Resource" uid="uid://bg1om8v16p1gq" path="res://resources/decretos/decreto_1.tres" id="4_b256n"]
 [ext_resource type="Script" uid="uid://dsd7eeoq667uy" path="res://Scenes/player/olho_de_deus.gd" id="4_i1nvq"]
 [ext_resource type="Texture2D" uid="uid://djda65x1gkvo8" path="res://materials/ColorMap.png" id="4_lij7j"]
-[ext_resource type="Resource" uid="uid://bbxcdp6alaexq" path="res://resources/decretos/decreto_2.tres" id="5_qcy74"]
 [ext_resource type="Resource" uid="uid://uv0xwyxbta72" path="res://resources/decretos/decreto_3.tres" id="6_l2idm"]
 [ext_resource type="Texture2D" uid="uid://j6tykelmph10" path="res://Sprites/MapaFalpsJam.png" id="6_nfdy7"]
 [ext_resource type="Resource" uid="uid://fgjfqraa8ksl" path="res://resources/decretos/decreto_4.tres" id="7_873pr"]
@@ -30,8 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://d1dkb01qquxms" path="res://Models/Cenário/Telefone_Fio.fbx" id="10_v11ly"]
 [ext_resource type="PackedScene" uid="uid://djx81ek61grk2" path="res://Models/Pacotes/PacoteGN_G.fbx" id="11_h88lf"]
 [ext_resource type="Script" uid="uid://ckhqo24tgocqv" path="res://Scenes/quarto/telefone.gd" id="11_s63yc"]
-[ext_resource type="Resource" uid="uid://beg6a0yp3uijv" path="res://resources/decretos/decreto_8.tres" id="11_xk7nm"]
-[ext_resource type="Resource" uid="uid://c3ep6jc0nx647" path="res://resources/decretos/decreto_9.tres" id="12_eprvf"]
 [ext_resource type="PackedScene" uid="uid://b6eljqxn1jcq4" path="res://Models/Pacotes/PacoteGN_P.fbx" id="12_yribc"]
 [ext_resource type="Resource" uid="uid://c8b5q2c8el1by" path="res://resources/decretos/decreto_10.tres" id="13_aittf"]
 [ext_resource type="Resource" uid="uid://c1cr2jm6uurfo" path="res://resources/decretos/decreto_11.tres" id="14_ll5f4"]
@@ -248,7 +245,7 @@ environment = ExtResource("15_w0kyf")
 
 [node name="DecretosController" type="Node" parent="." unique_id=319531080 node_paths=PackedStringArray("jogo_carimbar", "telefone")]
 script = ExtResource("1_eodgp")
-lista_decretos = Array[ExtResource("2_p5cr7")]([ExtResource("3_r6doe"), ExtResource("4_b256n"), ExtResource("5_qcy74"), ExtResource("6_l2idm"), ExtResource("7_873pr"), ExtResource("8_fowkp"), ExtResource("9_yp1q3"), ExtResource("10_gy2ex"), ExtResource("11_xk7nm"), ExtResource("12_eprvf"), ExtResource("13_aittf"), ExtResource("14_ll5f4"), ExtResource("15_q17gq"), ExtResource("16_bwit0"), ExtResource("17_fg000"), ExtResource("18_q2yap")])
+lista_decretos = Array[ExtResource("2_p5cr7")]([ExtResource("3_r6doe"), ExtResource("4_b256n"), ExtResource("6_l2idm"), ExtResource("7_873pr"), ExtResource("8_fowkp"), ExtResource("9_yp1q3"), ExtResource("10_gy2ex"), ExtResource("13_aittf"), ExtResource("14_ll5f4"), ExtResource("15_q17gq"), ExtResource("16_bwit0"), ExtResource("17_fg000"), ExtResource("18_q2yap")])
 jogo_carimbar = NodePath("../NavigationRegion3D/Cubiculo/JogoCarimbar")
 telefone = NodePath("../NavigationRegion3D/CenarioBonito/Telefone")
 
