@@ -13,6 +13,7 @@ var jogavel_atual : Jogavel
 @export var camera_principal : Camera3D
 
 @export_group("UI")
+@export var fade : FadeController
 @export var quarto_ui : Control
 @export var dialogo : Dialogo
 

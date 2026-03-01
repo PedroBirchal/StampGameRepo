@@ -9,4 +9,6 @@ offset_pos = Vector3(0, -0.10922927, 0.021178246)
 mesh = ExtResource("1_cy3xx")
 cabe_em = 2
 categorias = PackedStringArray("instrumento")
+offset_rot_mostrar = Vector3(-0.035402205, -2.5936518, 0.16164142)
+offset_pos_mostrar = Vector3(0, 0.1, 0)
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

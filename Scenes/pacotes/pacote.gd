@@ -20,32 +20,10 @@ var item_res: ItemResource
 @export var colisor_medio : CollisionShape3D
 @export var colisor_grande : CollisionShape3D
 
-@export_group("Trajetoria")
-	
-	
-@export var item_pra_cima_p : Node3D
-@export var item_pra_cima_m : Node3D
-@export var item_pra_cima_g : Node3D
-@export var item_pra_cara : Node3D
-
-var timer_atual
-var tween_atual: Tween
-var tween_atual_2: Tween
-
 
 var tamanho_pacote:
 	get:
 		return null if item_res == null else item_res.cabe_em
-
-var item_pra_cima :
-	get:
-		match tamanho_pacote:
-			ItemResource.TamanhoPacote.PEQUENO:
-				return item_pra_cima_p
-			ItemResource.TamanhoPacote.MEDIO:
-				return item_pra_cima_m
-			ItemResource.TamanhoPacote.GRANDE:
-				return item_pra_cima_g
 
 
 func _ready() -> void:
@@ -114,53 +92,7 @@ func abrir_pacote() -> void:
 	if not pode_abrir or estado_atual != EstadoEncomenda.INSPECIONANDO:
 		return
 	
-	parar_tweens_rolando()
-	
-	pacote_aberto = true
 	set_estado(EstadoEncomenda.ABERTA)
-	
-	timer_atual = get_tree().create_timer(0.75)
-	timer_atual.timeout.connect(_abrir_pacote_tween)
-
-func _abrir_pacote_tween() -> void:
-	item_holder.reparent(item_pra_cima)
-	tween_atual = get_tree().create_tween()
-	tween_atual.tween_property(item_holder, "position", Vector3.ZERO, 1.0)
-	tween_atual.finished.connect(func():
-		tween_atual = null
-		item_holder.reparent(item_pra_cara)
-		tween_atual_2 = get_tree().create_tween()
-		tween_atual_2.tween_property(item_holder, "position", Vector3.ZERO, 1.0)
-		tween_atual_2.finished.connect(func():
-			tween_atual_2 = null
-		)
-	)
 
 func fechar_pacote() -> void:
-	parar_tweens_rolando()
-	
-	item_holder.reparent(item_pra_cima)
-	tween_atual = get_tree().create_tween()
-	tween_atual.tween_property(item_holder, "position", Vector3.ZERO, 0.4)
-	
-	tween_atual.finished.connect(func():
-		tween_atual = null
-		item_holder.reparent(conteudo_holder)
-		tween_atual_2 = get_tree().create_tween()
-		tween_atual_2.tween_property(item_holder, "position", Vector3.ZERO, 0.4)
-		tween_atual_2.finished.connect(func(): 
-			pacote_aberto = false
-			tween_atual_2 = null
-		)
-	)
-
-func parar_tweens_rolando() -> void:
-	if timer_atual != null:
-		timer_atual.timeout.disconnect(_abrir_pacote_tween)
-		timer_atual = null
-	if tween_atual != null:
-		tween_atual.stop()
-		tween_atual = null
-	if tween_atual_2 != null:
-		tween_atual_2.stop()
-		tween_atual_2 = null
+	pass

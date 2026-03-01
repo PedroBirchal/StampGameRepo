@@ -4,6 +4,7 @@ extends Jogavel
 @export var camera: Camera3D
 @export var spawner: Node3D
 var encomenda_atual: Encomenda
+var encomenda_atual_ultimo_estado: Encomenda.EstadoEncomenda
 
 @export var rotacionavel: Rotacionavel
 @export var ui_girar: Control
@@ -14,10 +15,20 @@ var encomenda_atual: Encomenda
 
 @export_group("Inspecionar Encomendas")
 @export var pos_pacote_na_cara: Node3D
-@export var pos_pacote_aberto: Node3D
+@export var pos_pacote_g_na_cara: Node3D
+@export var pos_item_na_cara: Node3D
 @export var pos_carta_na_cara: Node3D
-@export var pos_carta_aberta: Node3D
 @export var sair_inspecionar_trigger: Node3D
+
+@export var texto_carta_holder: Node3D
+@export var texto_carta_label: Label3D
+
+@export_group("Descanso Caixa com Item Aberto")
+@export var descanso_caixa_p: Node3D
+@export var descanso_caixa_m: Node3D
+@export var descanso_caixa_g: Node3D
+
+
 
 @export_group("Sistema recebe e entrega")
 @export var pos_meio_mesa: Node3D
@@ -72,6 +83,7 @@ func mandar_encomenda_nova_ao_centro() -> void:
 	proxima_encomenda.reparent(pos_meio_mesa)
 	proxima_encomenda.clicando.disconnect(mandar_encomenda_nova_ao_centro)
 	encomenda_atual = proxima_encomenda
+	encomenda_atual_ultimo_estado = Encomenda.EstadoEncomenda.PARADA
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(encomenda_atual, "position", Vector3.ZERO, 0.25).set_trans(Tween.TRANS_CUBIC)
@@ -122,28 +134,52 @@ func encomenda_atual_selecionada() -> void:
 
 
 func encomenda_atual_mudou_estado(estado: Encomenda.EstadoEncomenda) -> void:
+	if encomenda_atual_ultimo_estado != Encomenda.EstadoEncomenda.PARADA and estado != Encomenda.EstadoEncomenda.PARADA:
+		Jogo.instance.fade.transicao()
+		await Jogo.instance.fade.terminou_escurecer
 	
 	if estado == Encomenda.EstadoEncomenda.ABERTA:
-		var pos_aberto = pos_carta_aberta if encomenda_atual is Carta else pos_pacote_aberto
-		encomenda_atual.reparent(pos_aberto)
-		
+		if encomenda_atual is Carta:
+			texto_carta_holder.show()
+			texto_carta_label.text = (encomenda_atual as Carta).carta_res.conteudo
+		else:
+			var pacote = encomenda_atual as Pacote
+			pacote.item_holder.reparent(pos_item_na_cara)
+			pacote.item_holder.position = pacote.item_res.offset_pos_mostrar
+			pacote.item.rotation = pacote.item_res.offset_rot_mostrar
+			
+			if pacote.tamanho_pacote == ItemResource.TamanhoPacote.PEQUENO:
+				pacote.reparent(descanso_caixa_p)
+			elif pacote.tamanho_pacote == ItemResource.TamanhoPacote.MEDIO:
+				pacote.reparent(descanso_caixa_m)
+			else:
+				pacote.reparent(descanso_caixa_g)
+			pacote.position = Vector3.ZERO
+			pacote.pacote_aberto = true
+			
 		if rotacionavel != null:
 			rotacionavel.giro_vertical_mudou.disconnect(refresh_modo_giro_vertical)
 		rotacionavel = null
 		setar_modo_girando(false)
 		
-		var tween = get_tree().create_tween().set_parallel()
-		tween.tween_property(encomenda_atual, "position", Vector3.ZERO, 0.25)
-		tween.tween_property(encomenda_atual, "rotation", Vector3.ZERO, 0.25)
 	elif estado == Encomenda.EstadoEncomenda.INSPECIONANDO:
-		var pos_na_cara = pos_carta_na_cara if encomenda_atual is Carta else pos_pacote_na_cara
-		encomenda_atual.reparent(pos_na_cara)
+		if encomenda_atual is Carta:
+			texto_carta_holder.hide()
+			texto_carta_label.text = ""
+		else:
+			var pacote = encomenda_atual as Pacote
+			pacote.item_holder.reparent(pacote.conteudo_holder)
+			pacote.item_holder.position = Vector3.ZERO
+			pacote.item.rotation = pacote.item_res.offset_rot
+			pacote.pacote_aberto = false
 		
 		rotacionavel = encomenda_atual.rotacionavel
 		refresh_modo_giro_vertical()
 		rotacionavel.giro_vertical_mudou.connect(refresh_modo_giro_vertical)
 		setar_modo_girando(true)
 		
+		var pos_na_cara = pos_carta_na_cara if encomenda_atual is Carta else (pos_pacote_g_na_cara if (encomenda_atual as Pacote).item_res.cabe_em == ItemResource.TamanhoPacote.GRANDE else pos_pacote_na_cara)
+		encomenda_atual.reparent(pos_na_cara)
 		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property(encomenda_atual, "rotation", Vector3.ZERO, 0.25)
 		tween.tween_property(encomenda_atual, "position", Vector3.ZERO, 0.25)
@@ -153,7 +189,8 @@ func encomenda_atual_mudou_estado(estado: Encomenda.EstadoEncomenda) -> void:
 			
 		rotacionavel = null
 		setar_modo_girando(false)
-
+	
+	encomenda_atual_ultimo_estado = estado
 
 func _clicar_sair_inspecionar(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:

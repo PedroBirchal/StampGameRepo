@@ -10,4 +10,5 @@ offset_rot = null
 mesh = ExtResource("1_324oo")
 cabe_em = null
 categorias = PackedStringArray("ferramenta")
+offset_rot_mostrar = Vector3(1.43117, 0, 0)
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

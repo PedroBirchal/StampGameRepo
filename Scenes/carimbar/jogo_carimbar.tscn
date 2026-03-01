@@ -7,13 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://djda65x1gkvo8" path="res://materials/ColorMap.png" id="4_2thi0"]
 [ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="8_5f1bj"]
 [ext_resource type="PackedScene" uid="uid://c6mdtx25j1ean" path="res://Scenes/carimbos/Carimbo_arvore.tscn" id="8_iapwp"]
+[ext_resource type="PackedScene" uid="uid://kgd7gt2nbvct" path="res://Scenes/PapelDaCarta.tscn" id="8_xxvmt"]
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="9_dgb7d"]
+[ext_resource type="PackedScene" uid="uid://dk2f63qul2twf" path="res://Models/Objetos_Caixa/Itens_Instrumentos/Clarim.fbx" id="9_dk51d"]
 [ext_resource type="PackedScene" uid="uid://d0ujbbr3ehgt" path="res://Scenes/carimbos/Carimbo_torre.tscn" id="9_ncxsn"]
 [ext_resource type="PackedScene" uid="uid://0cfc55nxafqe" path="res://Scenes/carimbos/Carimbo_aqua.tscn" id="10_33jh8"]
+[ext_resource type="PackedScene" uid="uid://dlmyi0l7mw844" path="res://Models/Objetos_Caixa/Itens_Instrumentos/Flauta.fbx" id="10_e8h3a"]
 [ext_resource type="PackedScene" uid="uid://dtb8ut1ed3i5e" path="res://Models/Cenário/Relogio_Digital.fbx" id="10_fxi00"]
 [ext_resource type="Script" uid="uid://d36v0h2e11jsd" path="res://Scripts/carimbar/spawn_encomenda.gd" id="10_gqmlt"]
 [ext_resource type="Texture2D" uid="uid://rq1cuj01lbe2" path="res://Sprites/ui/pro_lado.png" id="10_ncxsn"]
 [ext_resource type="Texture2D" uid="uid://b5nl5mib51l2p" path="res://Sprites/ui/pra_cima.png" id="11_fxi00"]
+[ext_resource type="PackedScene" uid="uid://ddle7tbchbgep" path="res://Models/Objetos_Caixa/Itens_Instrumentos/Ukulele.fbx" id="11_hhygm"]
 [ext_resource type="PackedScene" uid="uid://c680xhh36ufi5" path="res://Scenes/pacotes/Pacote.tscn" id="12_ncxsn"]
 [ext_resource type="PackedScene" uid="uid://d1fk0a5qcg4w0" path="res://Scenes/postit/post_it.tscn" id="12_roixi"]
 [ext_resource type="Script" uid="uid://bvtixto24md7m" path="res://Scripts/rotacao/rotacionavel.gd" id="13_iapwp"]
@@ -214,7 +218,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fjldk")
 
-[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("camera", "spawner", "ui_girar", "ui_girar_horizontal", "ui_girar_vertical", "botao_gira_cima", "botao_gira_baixo", "pos_pacote_na_cara", "pos_pacote_aberto", "pos_carta_na_cara", "pos_carta_aberta", "sair_inspecionar_trigger", "pos_meio_mesa", "pos_receber_proximo", "pos_postit_cara", "postits_pin_list", "jogavel_ui")]
+[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("camera", "spawner", "ui_girar", "ui_girar_horizontal", "ui_girar_vertical", "botao_gira_cima", "botao_gira_baixo", "pos_pacote_na_cara", "pos_pacote_g_na_cara", "pos_item_na_cara", "pos_carta_na_cara", "sair_inspecionar_trigger", "texto_carta_holder", "texto_carta_label", "descanso_caixa_p", "descanso_caixa_m", "descanso_caixa_g", "pos_meio_mesa", "pos_receber_proximo", "pos_postit_cara", "postits_pin_list", "jogavel_ui")]
 script = ExtResource("1_yf8ht")
 camera = NodePath("CameraHolder/Camera3D")
 spawner = NodePath("EncomendaSpawner")
@@ -224,10 +228,15 @@ ui_girar_vertical = NodePath("UI/InspecionarElementos/BotoesVerticais")
 botao_gira_cima = NodePath("UI/InspecionarElementos/BotoesVerticais/BotaoCima")
 botao_gira_baixo = NodePath("UI/InspecionarElementos/BotoesVerticais/BotaoBaixo")
 pos_pacote_na_cara = NodePath("Mesa/NaCaraDoJogador/RefPacote/VisaoPacote")
-pos_pacote_aberto = NodePath("Mesa/NaCaraDoJogador/RefPacote/PacoteAbrindo")
+pos_pacote_g_na_cara = NodePath("Mesa/NaCaraDoJogador/RefPacote/VisaoPacote/VisaoPacoteG")
+pos_item_na_cara = NodePath("Mesa/NaCaraDoJogador/RefPacote/ItemNaCara")
 pos_carta_na_cara = NodePath("Mesa/NaCaraDoJogador/RefCarta/Holder")
-pos_carta_aberta = NodePath("Mesa/NaCaraDoJogador/RefCarta/TotalmenteNaCara")
 sair_inspecionar_trigger = NodePath("Mesa/NaCaraDoJogador/ClicarParaSair")
+texto_carta_holder = NodePath("Mesa/NaCaraDoJogador/RefCarta/HolderTexto")
+texto_carta_label = NodePath("Mesa/NaCaraDoJogador/RefCarta/HolderTexto/PapelDaCarta/MeshInstance3D/Label3D")
+descanso_caixa_p = NodePath("Mesa/CentroDaMesa/CaixaParadaAoAbrir/P")
+descanso_caixa_m = NodePath("Mesa/CentroDaMesa/CaixaParadaAoAbrir/M")
+descanso_caixa_g = NodePath("Mesa/CentroDaMesa/CaixaParadaAoAbrir/G")
 pos_meio_mesa = NodePath("Mesa/CentroDaMesa/Meio")
 pos_receber_proximo = NodePath("Mesa/ProximoAVir")
 pos_postit_cara = NodePath("Mesa/NaCaraDoJogador/RefPostIt")
@@ -304,16 +313,36 @@ shape = SubResource("BoxShape3D_m8bj5")
 [node name="Holder" type="Node3D" parent="Mesa/NaCaraDoJogador/RefCarta" unique_id=2072858372]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.024479687, 0.035221577)
 
-[node name="TotalmenteNaCara" type="Node3D" parent="Mesa/NaCaraDoJogador/RefCarta" unique_id=1920476582]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.9604645e-08, 0.29294252)
+[node name="HolderTexto" type="Node3D" parent="Mesa/NaCaraDoJogador/RefCarta" unique_id=1476975691]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.24302237, -0.065515764)
+visible = false
+
+[node name="PapelDaCarta" parent="Mesa/NaCaraDoJogador/RefCarta/HolderTexto" unique_id=1444546175 instance=ExtResource("8_xxvmt")]
 
 [node name="RefPacote" type="Node3D" parent="Mesa/NaCaraDoJogador" unique_id=2109179412]
 
 [node name="VisaoPacote" type="Node3D" parent="Mesa/NaCaraDoJogador/RefPacote" unique_id=305228953]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.27042258, 0.03638935)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.3846256, 0.036389355)
+
+[node name="VisaoPacoteG" type="Node3D" parent="Mesa/NaCaraDoJogador/RefPacote/VisaoPacote" unique_id=718432098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.115)
+
+[node name="ItemNaCara" type="Node3D" parent="Mesa/NaCaraDoJogador/RefPacote" unique_id=1688325181]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, 0.013686301, 0.045571074)
+
+[node name="Clarim" parent="Mesa/NaCaraDoJogador/RefPacote/ItemNaCara" unique_id=2069523771 instance=ExtResource("9_dk51d")]
+transform = Transform3D(-0.83950436, 0.15557474, -0.5206041, 0.16083758, 0.986346, 0.035394814, 0.5190023, -0.054018594, -0.8530643, 0, 0, 0)
+visible = false
+
+[node name="Flauta" parent="Mesa/NaCaraDoJogador/RefPacote/ItemNaCara" unique_id=305434663 instance=ExtResource("10_e8h3a")]
+visible = false
+
+[node name="Ukulele" parent="Mesa/NaCaraDoJogador/RefPacote/ItemNaCara" unique_id=692242437 instance=ExtResource("11_hhygm")]
+transform = Transform3D(0.84548557, 0, -0.53399825, 0, 1, 0, 0.53399825, 0, 0.84548557, 0, 0, 0)
+visible = false
 
 [node name="PacoteAbrindo" type="Node3D" parent="Mesa/NaCaraDoJogador/RefPacote" unique_id=2079452648]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -1.3410648, 0.5734141)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -1.7505873, 0.5734141)
 
 [node name="RefPostIt" type="Node3D" parent="Mesa/NaCaraDoJogador" unique_id=1472136468]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36761755, 0)
@@ -352,6 +381,18 @@ mesh = SubResource("ArrayMesh_ncxsn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa/CentroDaMesa/MeshInstance3D/StaticBody3D" unique_id=1395620120]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019981742, 0)
 shape = SubResource("BoxShape3D_msc56")
+
+[node name="CaixaParadaAoAbrir" type="Node3D" parent="Mesa/CentroDaMesa" unique_id=275374961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6085757)
+
+[node name="P" type="Node3D" parent="Mesa/CentroDaMesa/CaixaParadaAoAbrir" unique_id=710267919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24405622, 0.14323986, 0.7511955)
+
+[node name="M" type="Node3D" parent="Mesa/CentroDaMesa/CaixaParadaAoAbrir" unique_id=2134531699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2352936, 0.46438575, 0.50617194)
+
+[node name="G" type="Node3D" parent="Mesa/CentroDaMesa/CaixaParadaAoAbrir" unique_id=1844589493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21371508, 0.688, 0.6601419)
 
 [node name="Chair" type="MeshInstance3D" parent="Mesa" unique_id=1321028306]
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, -0.19740738, 0.7466959)
@@ -559,4 +600,5 @@ metadata/_custom_type_script = "uid://bvtixto24md7m"
 [connection signal="pressed" from="UI/InspecionarElementos/BotoesHorizontais/BotaoDireita" to="." method="_on_botao_girar_direita"]
 [connection signal="pressed" from="UI/SairDoJogo" to="." method="sair"]
 
+[editable path="Mesa/NaCaraDoJogador/RefCarta/HolderTexto/PapelDaCarta"]
 [editable path="Mesa/Relogio/Relogio_Digital"]

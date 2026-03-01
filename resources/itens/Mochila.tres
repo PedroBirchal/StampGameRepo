@@ -9,4 +9,5 @@ offset_pos = Vector3(0.008514315, 0.012540646, -0.010012984)
 offset_rot = Vector3(-0.737454, -0.82838565, 0)
 mesh = ExtResource("1_ta4f7")
 cabe_em = 1
+offset_rot_mostrar = Vector3(0, -0.62133723, 0)
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

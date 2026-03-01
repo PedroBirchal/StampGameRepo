@@ -8,4 +8,5 @@ script = ExtResource("1_0twvj")
 offset_pos = Vector3(0, -0.022, 0)
 mesh = ExtResource("1_wbors")
 categorias = PackedStringArray("maquiagem")
+offset_rot_mostrar = Vector3(0.43633232, -0.49741885, 0)
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

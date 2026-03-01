@@ -10,9 +10,8 @@ extends Encomenda
 @export var pode_abrir := false
 @export var carta_aberta := false
 
-@export_group("Texto")
-@export var textos : Array[Label3D]
 var caracter_max : int = 1900
+var carta_res: CartaResource
 
 func _ready() -> void:
 	super._ready() # Chama a função _ready da classe Encomenda
@@ -46,6 +45,7 @@ func recebe_valores(carta: CartaResource) -> void:
 	#texto_meio.text = carta.conteudo
 	indo_para = carta.indo_para
 	mudar_cor_da_carta(indo_para)
+	carta_res = carta
 
 func abrir_carta() -> void:
 	if not pode_abrir or estado_atual != EstadoEncomenda.INSPECIONANDO:

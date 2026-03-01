@@ -4,40 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://cvyw2wtxjq15y" path="res://Models/Carta.fbx" id="2_p1hlb"]
 [ext_resource type="Script" uid="uid://bvtixto24md7m" path="res://Scripts/rotacao/rotacionavel.gd" id="2_vrd47"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6fjtb"]
-animation = &"LetterArmature|CloseLetter"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vrd47"]
 animation = &"LetterArmature|Still - ClosedLetter"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p1hlb"]
-animation = &"LetterArmature|OpenLetter"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wv6mw"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dn5tf"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l5sd5"]
-advance_mode = 2
-advance_expression = "carta_aberta == true"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bair8"]
-switch_mode = 2
-advance_mode = 2
-advance_expression = "carta_aberta == false"
-
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_myi1h"]
-states/LetterArmature|CloseLetter/node = SubResource("AnimationNodeAnimation_6fjtb")
-states/LetterArmature|CloseLetter/position = Vector2(404, 35)
 states/LetterArmature|ClosedLetter/node = SubResource("AnimationNodeAnimation_vrd47")
 states/LetterArmature|ClosedLetter/position = Vector2(397, 109)
-states/LetterArmature|OpenLetter/node = SubResource("AnimationNodeAnimation_p1hlb")
-states/LetterArmature|OpenLetter/position = Vector2(687, 35)
-transitions = ["Start", "LetterArmature|ClosedLetter", SubResource("AnimationNodeStateMachineTransition_wv6mw"), "LetterArmature|CloseLetter", "LetterArmature|ClosedLetter", SubResource("AnimationNodeStateMachineTransition_dn5tf"), "LetterArmature|ClosedLetter", "LetterArmature|OpenLetter", SubResource("AnimationNodeStateMachineTransition_l5sd5"), "LetterArmature|OpenLetter", "LetterArmature|CloseLetter", SubResource("AnimationNodeStateMachineTransition_bair8")]
-graph_offset = Vector2(-42, -37)
+transitions = ["Start", "LetterArmature|ClosedLetter", SubResource("AnimationNodeStateMachineTransition_wv6mw")]
+graph_offset = Vector2(-75, 2)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6fjtb"]
 points = PackedVector3Array(0, -0.5, -0.5, 0, 0, 0, 0, 0.5, -0.5, 0.05, -0.5, -0.5, 0.05, 0, 0, 0.05, 0.5, -0.5)
@@ -45,12 +22,11 @@ points = PackedVector3Array(0, -0.5, -0.5, 0, 0, 0, 0, 0.5, -0.5, 0.05, -0.5, -0
 [sub_resource type="BoxShape3D" id="BoxShape3D_vrd47"]
 size = Vector3(1, 0.058807373, 0.6135254)
 
-[node name="Carta" type="RigidBody3D" unique_id=1512388856 node_paths=PackedStringArray("mesh_carta", "textos", "rotacionavel")]
+[node name="Carta" type="RigidBody3D" unique_id=1512388856 node_paths=PackedStringArray("mesh_carta", "rotacionavel")]
 freeze = true
 script = ExtResource("1_vrd47")
 mesh_carta = NodePath("CartaModel/Carta/LetterArmature/Skeleton3D/Letter")
 pode_abrir = true
-textos = [NodePath("CartaModel/Carta/LetterArmature/Skeleton3D/TopAttachment/LabelTop"), NodePath("CartaModel/Carta/LetterArmature/Skeleton3D/MidAttachment/LabelMid"), NodePath("CartaModel/Carta/LetterArmature/Skeleton3D/BottomAttachment/LabelBot")]
 rotacionavel = NodePath("Rotacionavel")
 
 [node name="CartaModel" type="Node3D" parent="." unique_id=1640209984]
@@ -64,7 +40,7 @@ anim_player = NodePath("../Carta/AnimationPlayer")
 
 [node name="Carta" parent="CartaModel" unique_id=301992124 instance=ExtResource("2_p1hlb")]
 
-[node name="Skeleton3D" parent="CartaModel/Carta/LetterArmature" parent_id_path=PackedInt32Array(301992124, 113184188) index="0" unique_id=841702555]
+[node name="Skeleton3D" parent="CartaModel/Carta/LetterArmature" parent_id_path=PackedInt32Array(301992124, 1114081494) index="0" unique_id=479749309]
 bones/0/position = Vector3(0.12191519, 0.008553147, 0.008030638)
 bones/0/rotation = Quaternion(0.00855616, -0.008556163, 0.70705503, 0.70705503)
 bones/1/position = Vector3(-0.25650677, 0.123577766, 0.011027608)
@@ -93,71 +69,10 @@ bones/14/position = Vector3(-3.2264744e-10, 0.22105157, 2.8794949e-15)
 bones/14/rotation = Quaternion(0.0366533, 0.00031837128, 0.012785896, 0.9992462)
 bones/14/scale = Vector3(1, 1, 1)
 
-[node name="TopAttachment" type="BoneAttachment3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D" index="0" unique_id=1351468578]
-transform = Transform3D(-1.8459764e-07, -0.9999999, 3.662282e-08, -0.9999537, 2.3710336e-07, -0.0096205175, 0.009620517, 1.5074197e-09, -0.99995375, 0.121915214, 0.065028325, 0.028176116)
-bone_name = "MainTop"
-bone_idx = 7
-
-[node name="LabelTop" type="Label3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D/TopAttachment" unique_id=944469129]
-transform = Transform3D(-4.371138e-09, 0.1, 1.1641532e-10, -0.1, -4.371139e-09, 2.4980018e-16, 0, 0, 0.099999994, 0.19800012, 0.6165245, 0.018)
-layers = 2
-shaded = true
-double_sided = false
-modulate = Color(0, 0, 0, 1)
-outline_modulate = Color(0, 0, 0, 0)
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet lacus in lorem suscipit mollis. Maecenas in ex dapibus, tristique dolor sed, maximus orci. Nam erat orci, finibus ac arcu ac, convallis hendrerit libero. Suspendisse sed velit libero. Aliquam semper nunc non ex consectetur sollicitudin. Donec consectetur turpis nibh, eget fringilla mauris varius sit amet. Donec ornare magna vitae quam dignissim tincidunt vel quis urna. Nam et sollicitudin neque. Nulla laoreet, nibh ac tincidunt euismod, augue magna iaculis nulla, et pulvinar leo nisl ac enim. Sed ut tortor accumsan, laoreet augue placerat, pretium nibh. Morbi sit amet nunc nec nibh facilisis gravida non nec felis. Pellentesque condimentum, leo vitae eleifend lobortis, nulla leo sollicitudin ligula, vel congue tortor quam id magna.
-
-Sed aliquet sed mi eu laoreet. In a lorem nunc. Mauris ultricies lacus eu velit ultricies pellentesque. Nam eu tortor sed odio vestibulum egestas eu ac ligula. Duis vitae erat quis odio efficitur hendrerit in at orci. Aliquam aliquam neque nec metus varius egestas. Nulla facilisi. Cras mattis nulla ut risus mattis, in posuere lacus lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet lacus in lorem suscipit mollis. Maecenas in ex dapibus, tristique dolor sed, maximus orci. Nam erat orci, finibus ac arcu ac, convallis hendrerit libero. Suspendisse sed velit libero. Aliquam semper nunc non ex consectetur sollicitudin. Donec consectetur turpis nibh, eget fringilla mauris varius sit amet. Donec ornare magna vitae quam dignissim tincidunt vel quis urna. Nam et sollicitudin neque. Nulla laoreet, nibh ac tincidunt euismod, augue magna iaculis nulla, et pulvinar leo nisl ac enim. Sed ut tortor accumsan, laoreet augue placerat, pretium nibh. Morbi sit amet nunc nec nibh facilisis gravida non nec felis. Pellentesque condimentum, leo vitae eleifend lobortis, nulla leo sollicitudin ligula, vel congue tortor quam id magna, nulla leo soll
-"
-font_size = 36
-horizontal_alignment = 0
-vertical_alignment = 0
-autowrap_mode = 3
-width = 2048.0
-
-[node name="MidAttachment" type="BoneAttachment3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D" index="1" unique_id=819663697]
+[node name="MidAttachment" type="BoneAttachment3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D" index="0" unique_id=819663697]
 transform = Transform3D(0, -0.99999994, -4.656613e-09, 0.99970716, 0, -0.024198707, 0.024198705, -4.6566124e-09, 0.99970716, 0.12191519, 0.008553147, 0.008030638)
 bone_name = "Main"
 bone_idx = 0
-
-[node name="LabelMid" type="Label3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D/MidAttachment" unique_id=1441027318]
-transform = Transform3D(-4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, 1.6543611e-22, 1.6543611e-22, 7.231442e-30, 0.1, 0.26719037, 0.13355087, 0.012210658)
-layers = 2
-shaded = true
-double_sided = false
-modulate = Color(0, 0, 0, 1)
-outline_modulate = Color(0, 0, 0, 0)
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet lacus in lorem suscipit mollis. Maecenas in ex dapibus, tristique dolor sed, maximus orci. Nam erat orci, finibus ac arcu ac, convallis hendrerit libero. Suspendisse sed velit libero. Aliquam semper nunc non ex consectetur sollicitudin. Donec consectetur turpis nibh, eget fringilla mauris varius sit amet. Donec ornare magna vitae quam dignissim tincidunt vel quis urna. Nam et sollicitudin neque. Nulla laoreet, nibh ac tincidunt euismod, augue magna iaculis nulla, et pulvinar leo nisl ac enim. Sed ut tortor accumsan, laoreet augue placerat, pretium nibh. Morbi sit amet nunc nec nibh facilisis gravida non nec felis. Pellentesque condimentum, leo vitae eleifend lobortis, nulla leo sollicitudin ligula, vel congue tortor quam id magna.
-
-Sed aliquet sed mi eu laoreet. In a lorem nunc. Mauris ultricies lacus eu velit ultricies pellentesque. Nam eu tortor sed odio vestibulum egestas eu ac ligula. Duis vitae erat quis odio efficitur hendrerit in at orci. Aliquam aliquam neque nec metus varius egestas. Nulla facilisi. Cras mattis nulla ut risus mattis, in posuere lacus lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet lacus in lorem suscipit mollis. Maecenas in ex dapibus, tristique dolor sed, maximus orci. Nam erat orci, finibus ac arcu ac, convallis hendrerit libero. Suspendisse sed velit libero. Aliquam semper nunc non ex consectetur sollicitudin. Donec consectetur turpis nibh, eget fringilla mauris varius sit amet. Donec ornare magna vitae quam dignissim tincidunt vel quis urna. Nam et sollicitudin neque. Nulla laoreet, nibh ac tincidunt euismod, augue magna iaculis nulla, et pulvinar leo nisl ac enim. Sed ut tortor accumsan, laoreet augue placerat, pretium nibh. Morbi sit amet nunc nec nibh facilisis gravida non nec felis. Pellentesque condimentum, leo vitae eleifend lobortis, nulla leo sollicitudin ligula, vel congue tortor quam id magna.
-
-Sed aliquet sed mi eu laoreet. In a lorem nunc. Mauris ultricies lacus eu velit ultricies pellentesque. Nam eu tortor sed odio vestibulum egestas eu ac ligula. Duis vitae erat quis odio efficitur hendrerit in at orci. Aliquam aliquam neque nec metus varius egestas. Nulla facilisi. Cras mattis nulla ut risus mattis, in posuere lacus lacinia."
-font_size = 36
-vertical_alignment = 0
-autowrap_mode = 3
-width = 2048.0
-
-[node name="BottomAttachment" type="BoneAttachment3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D" index="2" unique_id=363187556]
-transform = Transform3D(0.00031457876, -0.9999989, 0.0014026023, -0.9999201, -0.0003322523, -0.012630105, 0.012630552, -0.0013984964, -0.9999192, 0.12001441, -0.052109405, 0.041946795)
-bone_name = "MainBot"
-bone_idx = 3
-
-[node name="LabelBot" type="Label3D" parent="CartaModel/Carta/LetterArmature/Skeleton3D/BottomAttachment" unique_id=1283384243]
-transform = Transform3D(-4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -1.693286e-17, -1.693286e-17, -7.4015875e-25, 0.1, 0.21797639, 0.10931256, 0.007523536)
-layers = 2
-shaded = true
-double_sided = false
-modulate = Color(0, 0, 0, 1)
-outline_modulate = Color(0, 0, 0, 0)
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet lacus in lorem suscipit mollis. Maecenas in ex dapibus, tristique dolor sed, maximus orci. Nam erat orci, finibus ac arcu ac, convallis hendrerit libero. Suspendisse sed velit libero. Aliquam semper nunc non ex consectetur sollicitudin. Donec consectetur turpis nibh, eget fringilla mauris varius sit amet. Donec ornare magna vitae quam dignissim tincidunt vel quis urna. Nam et sollicitudin neque. Nulla laoreet, nibh ac tincidunt euismod, augue magna iaculis nulla, et pulvinar leo nisl ac enim. Sed ut tortor accumsan, laoreet augue placerat, pretium nibh. Morbi sit amet nunc nec nibh facilisis gravida non nec felis. Pellentesque condimentum, leo vitae eleifend lobortis, nulla leo sollicitudin ligula, vel congue tortor quam id magna.
-
-Sed aliquet sed mi eu laoreet. In a lorem nunc. Mauris ultricies lacus eu velit ultricies pellentesque. Nam eu tortor sed odio vestibulum egestas eu ac ligula. Duis vitae erat quis odio efficitur hendrerit in at orci. Aliquam aliquam neque nec metus varius egestas. Nulla facilisi. Cras mattis nulla ut risus mattis, in posuere lacus lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet lacus in lorem suscipit mollis. Maecenas in ex dapibus, tristique dolor sed, maximus orci. Nam erat orci, finibus ac arcu ac, convallis hendrerit libero. Suspendisse sed velit libero. Aliquam semper nunc non ex consectetur sollicitudin. Donec consectetur turpis nibh, eget fringilla mauris varius sit amet. Donec ornare magna vitae quam dignissim tincidunt vel quis urna. Nam et sollicitudin neque. Nulla laoreet, nibh ac tincidunt euismod, augue magna iaculis nulla, et pulvinar leo nisl ac enim. Sed ut tortor accumsan, laoreet augue placerat, pretium nibh. Morbi sit amet nunc nec nibh facilisis gravida non nec felis. Pellentesque condimentum, leo vitae eleifend lobortis, nulla leo sollicitudin ligula, vel congue tortor quam id magna.
-
-Sed aliquet sed mi eu laoreet. In a lorem nunc. Mauris ultricies lacus eu velit ultricies pellentesque. Nam eu tortor sed odio vestibulum egestas eu ac ligula. Duis vitae erat quis odio efficitur hendrerit in at orci. Aliquam aliquam neque nec metus varius egestas. Nulla facilisi. Cras mattis nulla ut risus mattis, in posuere lacus lacinia."
-font_size = 36
-vertical_alignment = 0
-autowrap_mode = 3
-width = 2048.0
 
 [node name="AreaClicavelParaAbrir" type="Area3D" parent="CartaModel" unique_id=1059428069]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.035073668, 0.1836243)
