@@ -376,7 +376,7 @@ area_de_interacao = NodePath("../AreaDeInteracao")
 jogavel = NodePath("../../LetterGame")
 
 [node name="LetterGame" parent="NavigationRegion3D/CenarioBonito/Wardrobe" unique_id=1734937759 node_paths=PackedStringArray("desativar_colisor_on_jogar") instance=ExtResource("9_b256n")]
-desativar_colisor_on_jogar = [NodePath("../StaticBody3D/CollisionShape3D"), null]
+desativar_colisor_on_jogar = [NodePath("../StaticBody3D/CollisionShape3D")]
 
 [node name="Quadro" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=683740204 node_paths=PackedStringArray("camera", "jogavel_ui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3651748, 2.508537, 5.850582)
