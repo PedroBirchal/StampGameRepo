@@ -43,7 +43,7 @@
 [ext_resource type="Resource" uid="uid://so3ah50d3syy" path="res://resources/decretos/decreto_15.tres" id="18_q2yap"]
 [ext_resource type="Script" path="res://Scenes/quarto/play_music.gd" id="19_80gip"]
 [ext_resource type="PackedScene" uid="uid://bjkfs4qbiqqv3" path="res://Scenes/UILetterThrowing.tscn" id="23_873pr"]
-[ext_resource type="Script" path="res://Scenes/quarto/fade_in_out.gd" id="43_873pr"]
+[ext_resource type="Script" uid="uid://tokhtvkxhalt" path="res://Scenes/quarto/fade_in_out.gd" id="43_873pr"]
 
 [sub_resource type="GDScript" id="GDScript_js386"]
 script/source = "extends TextureButton
@@ -256,6 +256,7 @@ script = ExtResource("1_js386")
 jogador = NodePath("../Jogador")
 decretos = NodePath("../DecretosController")
 camera_principal = NodePath("../OlhoDeDeus/Camera3D")
+fade = NodePath("../Transicao")
 quarto_ui = NodePath("../UI_Jogo")
 dialogo = NodePath("../DialogManager/TextBox")
 ui_timer_pontuacao = NodePath("../UiLetterThrowing")
