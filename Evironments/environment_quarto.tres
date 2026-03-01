@@ -1,6 +1,8 @@
 [gd_resource type="Environment" format=3 uid="uid://bkjgsgidwn0ig"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_apgse"]
+ground_bottom_color = Color(0.6011848, 0.5328885, 0.45652562, 1)
+energy_multiplier = 2.0
 
 [sub_resource type="Sky" id="Sky_t8t8l"]
 sky_material = SubResource("ProceduralSkyMaterial_apgse")

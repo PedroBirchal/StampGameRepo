@@ -36,11 +36,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06418705, 0.5, 1.9300897)
 cor_piscante = Color(1, 0.483204, 0.56509703, 1)
 
 [node name="CartaController" parent="." unique_id=596546558 instance=ExtResource("1_7c6ev")]
-transform = Transform3D(1, 0, 0, 0, 0.8211492, -0.5707136, 0, 0.5707136, 0.8211492, 0, 0.2329953, 2.4502163)
+transform = Transform3D(1, 0, 0, 0, 0.8211492, -0.5707136, 0, 0.5707136, 0.8211492, 0, 0.2329953, 1.4577866)
 force = 20.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1641170020]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0829953, 4.2002163)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0829953, 3.2077866)
 environment = ExtResource("7_gxcc0")
 
 [node name="Armario" parent="." unique_id=1048102438 groups=["esquerda_quarto", "sumivel"] instance=ExtResource("6_yr8a5")]

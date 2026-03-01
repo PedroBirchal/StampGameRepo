@@ -41,7 +41,7 @@
 [ext_resource type="Resource" uid="uid://ch3707yuqkkm7" path="res://resources/decretos/decreto_13.tres" id="16_bwit0"]
 [ext_resource type="Resource" uid="uid://dcvryfdkkkjn6" path="res://resources/decretos/decreto_14.tres" id="17_fg000"]
 [ext_resource type="Resource" uid="uid://so3ah50d3syy" path="res://resources/decretos/decreto_15.tres" id="18_q2yap"]
-[ext_resource type="Script" path="res://Scenes/quarto/play_music.gd" id="19_80gip"]
+[ext_resource type="Script" uid="uid://dtp8atbvuxhby" path="res://Scenes/quarto/play_music.gd" id="19_80gip"]
 
 [sub_resource type="GDScript" id="GDScript_js386"]
 script/source = "extends TextureButton
@@ -369,9 +369,9 @@ navigation_mesh = SubResource("NavigationMesh_t12d2")
 [node name="MainRoom2" parent="NavigationRegion3D/CenarioBonito" unique_id=1392424320 instance=ExtResource("2_a0bhh")]
 transform = Transform3D(-1.49, 0, -1.355053e-07, 0, 2, 0, 1.3025993e-07, 0, -1.55, 0.06823909, 0.05798039, 0.048100412)
 
-[node name="Janela" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="0" unique_id=1730109776 groups=["frente_quarto", "sumivel"]]
+[node name="Janela" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="0" unique_id=930112789 groups=["frente_quarto", "sumivel"]]
 
-[node name="MainRoom" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="1" unique_id=955432246]
+[node name="MainRoom" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="1" unique_id=576208453]
 transform = Transform3D(0.9999999, 0, -7.1054274e-15, 0, 1, 0, 7.1054274e-15, 0, 0.9999999, 0.013425991, 1.4463149, -0.0046143737)
 
 [node name="Wardrobe" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=599994622]
@@ -510,7 +510,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8990483, 0)
 [node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone" unique_id=1970361200 instance=ExtResource("10_v11ly")]
 transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, 0, 0, 0)
 
-[node name="Skeleton3D" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone" parent_id_path=PackedInt32Array(1970361200, 848642459) index="0" unique_id=711747211]
+[node name="Skeleton3D" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone" parent_id_path=PackedInt32Array(1970361200, 523486360) index="0" unique_id=2109237668]
 bones/1/rotation = Quaternion(0.03847624, -0.3147961, -0.70605934, 0.63316923)
 bones/1/scale = Vector3(1.0000001, 1.0000001, 1.0000001)
 bones/2/position = Vector3(7.000676e-09, 0.07513497, -8.085988e-09)
@@ -519,7 +519,7 @@ bones/2/scale = Vector3(0.9999998, 0.99999964, 0.99999964)
 bones/6/position = Vector3(-0.08571863, 0.042231128, 0.12213573)
 bones/6/rotation = Quaternion(-6.2726606e-08, 3.8261172e-10, -0.70710677, 0.7071069)
 
-[node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone/Skeleton3D" index="0" unique_id=1558519973 groups=["frente_quarto", "sumivel"]]
+[node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone/Skeleton3D" index="0" unique_id=1938451684 groups=["frente_quarto", "sumivel"]]
 
 [node name="AnimationTree" type="AnimationTree" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio" unique_id=1701253788]
 tree_root = SubResource("AnimationNodeStateMachine_theeu")
@@ -729,7 +729,7 @@ transform = Transform3D(1, 0, 0, 0, 0.64099437, 0.76754564, 0, -0.76754564, 0.64
 shadow_enabled = true
 
 [node name="parede_sombra" type="MeshInstance3D" parent="Luzes" unique_id=1807667519]
-transform = Transform3D(7.3545012, 0, 0, 0, 7.97041, 0, 0, 0, 0.35818362, 2.324537, 3.6788337, 5.865266)
+transform = Transform3D(7.3545012, 0, 0, 0, 7.97041, 0, 0, 0, 0.35818362, 2.3252354, 3.6744874, 6.026844)
 cast_shadow = 3
 mesh = SubResource("BoxMesh_w0kyf")
 
@@ -752,6 +752,15 @@ mesh = SubResource("BoxMesh_w0kyf")
 transform = Transform3D(7.3545012, 0, 0, 0, 2.7587967, 0, 0, 0, 0.35818362, -2.112131, 4.876276, 5.865266)
 cast_shadow = 3
 mesh = SubResource("BoxMesh_w0kyf")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Luzes" unique_id=923032939]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5.5790563, 0)
+light_color = Color(1, 1, 0.8862745, 1)
+light_energy = 7.967
+light_specular = 8.266
+spot_range = 8.292016
+spot_attenuation = 2.0
+spot_angle = 85.66703
 
 [connection signal="chamar" from="UI_Jogo/TextureButton" to="OlhoDeDeus/Rotacionavel" method="girar"]
 [connection signal="pressed" from="UI_Jogo/TextureButton" to="UI_Jogo/TextureButton" method="mandar_para"]
