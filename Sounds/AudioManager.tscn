@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bqhfsdr8qil6s" path="res://Sounds/CloseLetter.mp3" id="4_a0otx"]
 [ext_resource type="AudioStream" uid="uid://ilq2w3nxiw2y" path="res://Sounds/crank_ringtone.mp3" id="5_8h7yy"]
 [ext_resource type="AudioStream" uid="uid://cl1joyoapl5np" path="res://Sounds/Carimbo.mp3" id="6_a0otx"]
+[ext_resource type="AudioStream" uid="uid://dhdloropdy3cx" path="res://Sounds/Stop_telephoning_me.mp3" id="7_mpslv"]
 
 [node name="AudioManager" type="Node3D" unique_id=515608230]
 script = ExtResource("1_ru5fw")
@@ -35,3 +36,9 @@ parameters/looping = true
 [node name="Carimbo" type="AudioStreamPlayer" parent="." unique_id=1234036742]
 stream = ExtResource("6_a0otx")
 bus = &"SFX"
+
+[node name="crank_ringtone2" type="AudioStreamPlayer" parent="." unique_id=654180070]
+stream = ExtResource("7_mpslv")
+volume_db = -10.0
+bus = &"SFX"
+parameters/looping = true
