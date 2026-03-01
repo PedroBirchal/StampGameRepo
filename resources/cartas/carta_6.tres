@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://m6slax5yi5la"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_ubnu6"]
+
+[resource]
+script = ExtResource("1_ubnu6")
+conteudo = "Prezado senhor Capetilde,
+Sinto falta de seu fogo e ardor. Por anos, isso era tudo que eu precisava. Nessa cidade submersa, onde só peixes andam, seus chifres coçaram uma coceira que não passava a anos. Seu grande RABO se enroscou em mim e no meu coração, e seu calor se impregnou em mim.
+Mal posso esperar para te ver novamente.
+Com amor, Seu senhor Aquoso."
+indo_para = 2
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

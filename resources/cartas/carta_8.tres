@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://ypokmc57e7lp"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_ih2m1"]
+
+[resource]
+script = ExtResource("1_ih2m1")
+conteudo = "Prezado senhor ReideFogo:
+
+aaaAAAAAAAAAAAAAaaAAaA  AAAAAA aaAAAAAAAAAaaaaaaaaaaaa
+
+Atenciosamente: Uma árvore pegando fogo."
+vindo_de = 1
+indo_para = 2
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://cl7fx38vcllcb"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_h3egc"]
+
+[resource]
+script = ExtResource("1_h3egc")
+conteudo = "Ao senhor e Senhora Netunio.
+ Nosso reino tem enfrentado uma escassez abundante, meu povo morre enquanto o de vocês regorgiza na tão cristalina água de todo o continente. Eu os peço, deixando de lado meu orgulho e rezando pela consciência de vocês, não deixem mais os arbóreos sofrerem da falta e do anseio.
+Atenciosamente, Reino Arbóreo."
+vindo_de = 1
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

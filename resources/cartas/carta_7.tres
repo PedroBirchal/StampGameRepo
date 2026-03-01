@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://cnk3owaxqwucd"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_hbf3m"]
+
+[resource]
+script = ExtResource("1_hbf3m")
+conteudo = "Pai.
+ Eu sei que você está preocupado que eu tenha feito a escolha errada, e eu sei que fugir assim parece piorar tudo, mas eu preciso que você entenda, eu o amor MUITO.
+Tudo dentro de mim grita para que eu volte para ele. Esse é o chamado da minha paixão, e nosso amor proibido entre Eu, um ser de fogo, e ele, um ser de água, nunca vai interferir nisso.
+ Espero que o senhor me perdoe por isso, e aceite esse fardo. Quando você estiver pronto, me escreva, vou estar esperando sua volta na minha vida.
+Com Saudades, futuro senhor Aquoso-Capetilde."
+vindo_de = 2
+indo_para = 2
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

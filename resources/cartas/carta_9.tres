@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://bwv7f17vltem4"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_84ycd"]
+
+[resource]
+script = ExtResource("1_84ycd")
+conteudo = "Caro Senhor Peixio.
+Hoje na escola, falaram que vamos precisar começar a enviar cartas para vocês para conhecer as culturas de outros lugares.
+Eu tenho algumas perguntas que eu gostaria que me respondesse. É verdade que vocês tem escamas? Vocês vivem debaixo d'água?
+Minha professora falou que vocês comem principalmente peixes, isso não seria canibalismo?
+Atenciosamente, Chapinha Jr."
+vindo_de = 2
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

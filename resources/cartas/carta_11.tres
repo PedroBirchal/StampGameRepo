@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://cogtysy65oh0r"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_l6ak2"]
+
+[resource]
+script = ExtResource("1_l6ak2")
+conteudo = "Querido irmão,
+ O desgosto no resto de nossa mãe ao ver que na sua casa agora abriga um ser de fogo. Você sabe o quanto ela lutou e se esforçou por você, seu ingrato? Volte a sua consciência e volte para casa. Arrependa-se de uma vez. Ou enfrente as consequências.
+ Atenciosamente, Aguado Aquoso"
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://b6na247dku6gn"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_ghq7y"]
+
+[resource]
+script = ExtResource("1_ghq7y")
+conteudo = "Cidadãos de Aqualândia!
+ Aqui estou desafiando QUALQUER UM que se ache digno de comparecer ao embate mortal da forma de combate mais violenta de todos: O Xadrez. Venham me vencer, se forem capazes, e recebem prêmios jamais imaginados pela cabecinha de aquário de vocês.
+ Atenciosamente, Torresmo."
+vindo_de = 3
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

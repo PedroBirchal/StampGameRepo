@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://cka8j6bkcx6yy"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_37wsh"]
+
+[resource]
+script = ExtResource("1_37wsh")
+conteudo = "Prezado senhora satania,
+ Espero que essa carta o encontre bem. Tenho o prazer de anunciar sua tão aguardada aprovação na Universidade de Torres. Compareça no Campus até 33 de Dozembro, com a seguinte Documentação:
+- Carteira Identitadária
+- Compravação de conclusão de escolinha
+- Aprovação parental
+- Um chocolatinho (Entregar para Seu Madrugada)
+
+Estamos ansiosos para vê-lo conosco pelos próximos quatro anos.
+
+Atenciosamente,
+Universidade Estadual de Torres."
+vindo_de = 3
+indo_para = 2
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

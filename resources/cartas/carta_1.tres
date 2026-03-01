@@ -4,6 +4,11 @@
 
 [resource]
 script = ExtResource("1_bfudr")
-conteudo = "vugnaes sreo endalgi agrumit"
-indo_para = 2
+conteudo = "Caro Senhor Arvoroso.
+O senhor tem sido meu maior ídolo por anos, e agora, graças a seu apoio, finalmente fui aprovado na Universidade que eu sempre quis. Envio essa carta, pois tenho medo do futuro, poderia me mandar algumas palavras de conforto, por favor?
+
+Atenciosamente,
+Folinha de Oliveira."
+vindo_de = 1
+indo_para = 1
 metadata/_custom_type_script = "uid://dy8u3p287gkos"

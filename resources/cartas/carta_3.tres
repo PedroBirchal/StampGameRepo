@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://dcukf046egn0d"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_3ilcj"]
+
+[resource]
+script = ExtResource("1_3ilcj")
+conteudo = "Seu filho de uma noz.
+Quero ver você ter coragem de pisar em Infernópolis denovo.
+Não volte mais.
+Atenciosamente, Capitão Tinho."
+vindo_de = 2
+indo_para = 1
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

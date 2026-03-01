@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://cvs8e5hcjxc7f"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_kvk65"]
+
+[resource]
+script = ExtResource("1_kvk65")
+conteudo = "Caro Participante
+ Sua peculiar apresentação foi um tanto peculiar. É verdade que as folhas que balançavam nos chamou mais a atenção do que o espetáculo em si, mas mais ainda foi a queda delas, que revelou seus \"Galhos\" a todo o público.
+ Por essa razão, o senhor está expulso por tempo indeterminado do teatro de Aqualantida.
+Passar bem,
+ Reino de Aqualantida."
+indo_para = 1
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://n3eqxsjn327g"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_ldcus"]
+
+[resource]
+script = ExtResource("1_ldcus")
+conteudo = "Meu caro senhor Orvalho,
+Desde a fundação da cidade Torre, nossas famílias se ligaram por tijolos e raízes. Muito me assusta seu subto ataque à minha família, a tanto tempo irmã à sua. Somos ligados muito mais que por culturas, e contratos. Nossa imobilidade e \"casca grossa\" sempre foi, por muito uma das razões por termos nos dado tão bem. Eu entendo caso seja inevitável a sua partida, mas saiba que sempre será bem vindo nessa cidade, em minha casa e em meu coração.
+Com amor, T. Torres."
+vindo_de = 3
+indo_para = 1
+metadata/_custom_type_script = "uid://dy8u3p287gkos"
