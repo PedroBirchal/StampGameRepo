@@ -43,7 +43,7 @@
 [ext_resource type="Resource" uid="uid://so3ah50d3syy" path="res://resources/decretos/decreto_15.tres" id="18_q2yap"]
 [ext_resource type="Script" uid="uid://dtp8atbvuxhby" path="res://Scenes/quarto/play_music.gd" id="19_80gip"]
 [ext_resource type="PackedScene" uid="uid://bjkfs4qbiqqv3" path="res://Scenes/UILetterThrowing.tscn" id="23_873pr"]
-[ext_resource type="Script" uid="uid://tokhtvkxhalt" path="res://Scenes/quarto/fade_in_out.gd" id="43_873pr"]
+[ext_resource type="Script" path="res://Scenes/quarto/fade_in_out.gd" id="43_873pr"]
 
 [sub_resource type="GDScript" id="GDScript_js386"]
 script/source = "extends TextureButton
@@ -287,16 +287,17 @@ lista_decretos = Array[ExtResource("2_p5cr7")]([ExtResource("3_r6doe"), ExtResou
 jogo_carimbar = NodePath("../NavigationRegion3D/Cubiculo/JogoCarimbar")
 telefone = NodePath("../NavigationRegion3D/CenarioBonito/Telefone")
 
-[node name="Jogo" type="Node" parent="." unique_id=510473093 node_paths=PackedStringArray("jogador", "decretos", "camera_principal", "quarto_ui", "dialogo", "ui_timer_pontuacao", "timer")]
+[node name="Jogo" type="Node" parent="." unique_id=510473093 node_paths=PackedStringArray("jogador", "decretos", "camera_principal", "quarto_ui", "dialogo", "ui_timer_pontuacao", "relogio_mesa", "timer")]
 script = ExtResource("1_js386")
 jogador = NodePath("../Jogador")
 decretos = NodePath("../DecretosController")
 camera_principal = NodePath("../OlhoDeDeus/Camera3D")
-fade = NodePath("../Transicao")
 quarto_ui = NodePath("../UI_Jogo")
 dialogo = NodePath("../DialogManager/TextBox")
 ui_timer_pontuacao = NodePath("../UiLetterThrowing")
+relogio_mesa = NodePath("../NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa/Relogio")
 timer = NodePath("TimerDoJogo")
+duracao_do_dia = 60.0
 metadata/_custom_type_script = "uid://d4j65a74tvcye"
 
 [node name="TimerDoJogo" type="Timer" parent="Jogo" unique_id=34987187]
@@ -800,6 +801,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
+[connection signal="timeout" from="Jogo/TimerDoJogo" to="DecretosController" method="_on_timer_do_jogo_timeout"]
+[connection signal="timeout" from="Jogo/TimerDoJogo" to="Jogo" method="_on_timer_do_jogo_timeout"]
 [connection signal="chamar" from="UI_Jogo/TextureButton" to="OlhoDeDeus/Rotacionavel" method="girar"]
 [connection signal="pressed" from="UI_Jogo/TextureButton" to="UI_Jogo/TextureButton" method="mandar_para"]
 [connection signal="chamar" from="UI_Jogo/TextureButton2" to="OlhoDeDeus/Rotacionavel" method="girar"]
@@ -813,5 +816,4 @@ color = Color(0, 0, 0, 0)
 [editable path="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio"]
 [editable path="NavigationRegion3D/Cubiculo/JogoCarimbar"]
 [editable path="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa/NaCaraDoJogador/RefCarta/HolderTexto/PapelDaCarta"]
-[editable path="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa/Relogio/Relogio_Digital"]
 [editable path="NavigationRegion3D/Cenario/Quadro"]

@@ -6,6 +6,9 @@ static var instance: Jogo
 
 enum Estado { QUARTO, JOGANDO }
 
+signal fim_de_jogo
+
+var pontuacao : int = 0
 var estado := Estado.QUARTO
 var jogavel_atual : Jogavel
 @export var jogador : Jogador
@@ -19,6 +22,7 @@ var jogavel_atual : Jogavel
 
 @export_group("Timer")
 @export var ui_timer_pontuacao : Control
+@export var relogio_mesa : Node3D
 @export var timer : Timer
 @export var duracao_do_dia : float = 300 # em segundos
 
@@ -29,13 +33,17 @@ func _init() -> void:
 func _ready() -> void:
 	atualizar_sumiveis()
 	if not timer.is_node_ready() :
-		print ("ta não 2")
 		await timer.ready
 	timer.start(duracao_do_dia)
 	if not ui_timer_pontuacao.is_node_ready() :
-		print("ta não 1")
 		await ui_timer_pontuacao.ready
 	ui_timer_pontuacao.setup_timer(timer)
+	relogio_mesa.set_timer(timer)
+
+func pontuar(pontos : int) -> void :
+	pontuacao += pontos
+	if pontuacao < 0 : pontuacao = 0
+	ui_timer_pontuacao.atualizar_pontuacao(pontuacao)
 
 func jogavel_iniciado(jogavel: Jogavel) -> void:
 	if jogavel_atual == jogavel:
@@ -81,8 +89,12 @@ func atualizar_sumiveis() -> void:
 			mat = mat.duplicate()
 			
 			if mat.transparency == 3 and not pode_sumir:
-				mat.transparency = 0
+				mat.transparency = 0 
 			if mat.transparency == 0 and pode_sumir:
 				mat.transparency = 3
 			
 			sumivel.set_surface_override_material(i, mat)
+
+# Fim de jogo
+func _on_timer_do_jogo_timeout() -> void:
+	fim_de_jogo.emit()

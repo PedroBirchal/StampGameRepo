@@ -5,10 +5,8 @@ extends Control
 @export var label_wiggle_intensity : float = 20
 
 @onready var pontuacao : Label = $Score/Pontuacao
-@onready var erros_label : Label = $Score/ErrosLabel
 @onready var timer_label : Label = $TimerLabel
 @onready var relogio : Control = $Relogio
-#@export var relogio : Control
 var milisegundos : int
 var segundos : int
 var minutos : int
@@ -23,9 +21,8 @@ func atualizar_pontuacao(pontos : int) -> void :
 		animar_pontuacao_aumentando()
 	else:
 		erros += 1
-		erros_label.text = "Erros : " + str(erros)
 		animar_pontuacao_diminuindo()
-	pontuacao.text = "$" + str(pontos)
+	pontuacao.text = "SALÁRIO : $" + str(pontos)
 	pontuacao_atual = pontos
 
 func animar_pontuacao_aumentando() -> void :

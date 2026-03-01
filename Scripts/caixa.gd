@@ -15,6 +15,7 @@ var hovered : bool
 
 func _ready() -> void:
 	mudar_cor_da_marca(Singleton.carimbos[destino])
+	if Jogo.instance : pontuar.connect(Jogo.instance.pontuar)
 
 func _on_area_3d_mouse_entered() -> void:
 	hovered = true

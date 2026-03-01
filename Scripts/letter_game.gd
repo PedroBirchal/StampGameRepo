@@ -8,19 +8,12 @@ var caixas : Array[Node]
 @onready var armario : Node = $Armario/Caixas
 @onready var indicador : Node = $Indicador
 @onready var carta_controller : Node = $CartaController
-@onready var ui : Node = $UiLetterThrowing
-@onready var timer : Timer = $Timer
 var pontuacao : int = 0
 
 
 func jogar() -> void:
 	super()
-
-	timer.start()
-	camera.make_current()
 	carta_controller.active = true
-	
-	
 
 func sair() -> void:
 	super()
@@ -37,15 +30,8 @@ func _ready() -> void:
 			caixa.box_clicked.connect(indicador.on_box_clicked)
 		if carta_controller != null :
 			caixa.box_clicked.connect(carta_controller.on_target_clicked)
-		caixa.pontuar.connect(pontuar)
-	timer.wait_time = max_time
-	ui.setup_timer(timer)
-
-func pontuar(pontos : int) -> void :
-	pontuacao += pontos
-	if pontuacao < 0 : pontuacao = 0
-	ui.atualizar_pontuacao(pontuacao)
-
+	if Jogo.instance :
+		Jogo.instance.fim_de_jogo.connect(_on_timer_timeout)
 
 func _on_timer_timeout() -> void:
 	if carta_controller != null :

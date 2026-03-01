@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://oqbb3beoscau" path="res://Scenes/CartaController.tscn" id="1_7c6ev"]
 [ext_resource type="Script" uid="uid://dupjfowwix60t" path="res://Scripts/letter_game.gd" id="1_cb1fc"]
-[ext_resource type="PackedScene" uid="uid://bjkfs4qbiqqv3" path="res://Scenes/UILetterThrowing.tscn" id="2_yr8a5"]
 [ext_resource type="PackedScene" uid="uid://bvpi8dar6jail" path="res://Scenes/Indicador.tscn" id="3_386f2"]
 [ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="3_l1y7j"]
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="4_gxcc0"]
@@ -14,22 +13,15 @@ script = ExtResource("1_cb1fc")
 camera = NodePath("Camera3D")
 max_time = 30.0
 ativar_on_jogar = [NodePath("CartaController")]
-jogavel_ui = NodePath("UiLetterThrowing")
+jogavel_ui = NodePath("")
 
-[node name="UiLetterThrowing" parent="." unique_id=777879673 instance=ExtResource("2_yr8a5")]
-mouse_filter = 2
-
-[node name="SairDoJogo" type="TextureButton" parent="UiLetterThrowing" unique_id=1574623770]
-layout_mode = 0
+[node name="SairDoJogo" type="TextureButton" parent="." unique_id=1574623770]
 offset_left = 15.0
 offset_top = 15.0
 offset_right = 75.0
 offset_bottom = 75.0
 texture_normal = ExtResource("3_l1y7j")
 texture_hover = ExtResource("4_gxcc0")
-
-[node name="Timer" type="Timer" parent="." unique_id=1126168839]
-one_shot = true
 
 [node name="Indicador" parent="." unique_id=17110399 instance=ExtResource("3_386f2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06418705, 0.5, 1.9300897)
@@ -46,5 +38,4 @@ environment = ExtResource("7_gxcc0")
 [node name="Armario" parent="." unique_id=1048102438 groups=["esquerda_quarto", "sumivel"] instance=ExtResource("6_yr8a5")]
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, -1.003, -2)
 
-[connection signal="pressed" from="UiLetterThrowing/SairDoJogo" to="." method="sair"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="SairDoJogo" to="." method="sair"]
