@@ -11,6 +11,7 @@ var caixas : Array[Node]
 var pontuacao : int = 0
 
 
+
 func jogar() -> void:
 	super()
 	camera.make_current()
@@ -43,3 +44,8 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	if carta_controller != null :
 		carta_controller.active = false
+
+
+func _on_carta_controller_sem_cartas() -> void:
+	#disclamer_sem_cartas.visible = not carta_controller.tem_cartas()
+	pass

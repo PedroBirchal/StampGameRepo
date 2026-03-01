@@ -92,13 +92,13 @@ func setar_tamanho(tamanho: ItemResource.TamanhoPacote) -> void:
 func instanciar_selos() -> void:
 	var pacote_ativo: Node3D = null
 	
-	if pacote_pequeno.visible: 
+	if item_res.cabe_em == ItemResource.TamanhoPacote.PEQUENO: 
 		gerar_um_selo(markersP[0], "Remetente", vindo_de)
 		gerar_um_selo(markersP[1], "Destinatário", indo_para)
-	elif pacote_medio.visible: 
+	elif item_res.cabe_em == ItemResource.TamanhoPacote.MEDIO: 
 		gerar_um_selo(markersM[0], "Remetente", vindo_de)
 		gerar_um_selo(markersM[1], "Destinatário", indo_para)
-	elif pacote_grande.visible: 
+	elif item_res.cabe_em == ItemResource.TamanhoPacote.GRANDE: 
 		gerar_um_selo(markersG[0], "Remetente", vindo_de)
 		gerar_um_selo(markersG[1], "Destinatário", indo_para)
 		

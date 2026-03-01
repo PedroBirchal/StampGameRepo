@@ -43,7 +43,7 @@
 [ext_resource type="Resource" uid="uid://so3ah50d3syy" path="res://resources/decretos/decreto_15.tres" id="18_q2yap"]
 [ext_resource type="Script" path="res://Scenes/quarto/play_music.gd" id="19_80gip"]
 [ext_resource type="PackedScene" uid="uid://bjkfs4qbiqqv3" path="res://Scenes/UILetterThrowing.tscn" id="23_873pr"]
-[ext_resource type="Script" path="res://Scenes/quarto/fade_in_out.gd" id="43_873pr"]
+[ext_resource type="Script" uid="uid://tokhtvkxhalt" path="res://Scenes/quarto/fade_in_out.gd" id="43_873pr"]
 
 [sub_resource type="GDScript" id="GDScript_js386"]
 script/source = "extends TextureButton
@@ -348,9 +348,9 @@ navigation_mesh = SubResource("NavigationMesh_t12d2")
 [node name="MainRoom2" parent="NavigationRegion3D/CenarioBonito" unique_id=1392424320 instance=ExtResource("2_a0bhh")]
 transform = Transform3D(-1.49, 0, -1.355053e-07, 0, 2, 0, 1.3025993e-07, 0, -1.55, 0.06823909, 0.05798039, 0.048100412)
 
-[node name="Janela" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="0" unique_id=531587960 groups=["frente_quarto", "sumivel"]]
+[node name="Janela" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="0" unique_id=1730109776 groups=["frente_quarto", "sumivel"]]
 
-[node name="MainRoom" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="1" unique_id=2042590549]
+[node name="MainRoom" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="1" unique_id=955432246]
 transform = Transform3D(0.9999999, 0, -7.1054274e-15, 0, 1, 0, 7.1054274e-15, 0, 0.9999999, 0.013425991, 1.4463149, -0.0046143737)
 
 [node name="Wardrobe" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=599994622]
@@ -378,9 +378,6 @@ jogavel = NodePath("../../LetterGame")
 
 [node name="LetterGame" parent="NavigationRegion3D/CenarioBonito/Wardrobe" unique_id=1734937759 node_paths=PackedStringArray("desativar_colisor_on_jogar") instance=ExtResource("9_b256n")]
 desativar_colisor_on_jogar = [NodePath("../StaticBody3D/CollisionShape3D")]
-reativar_ao_sair = true
-desativar_ao_sair = true
-sumir_jogador = true
 
 [node name="Quadro" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=683740204 node_paths=PackedStringArray("camera", "jogavel_ui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3651748, 2.508537, 5.850582)
@@ -484,7 +481,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8990483, 0)
 [node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone" unique_id=1970361200 instance=ExtResource("10_v11ly")]
 transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, 0, 0, 0)
 
-[node name="Skeleton3D" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone" parent_id_path=PackedInt32Array(1970361200, 507011726) index="0" unique_id=862432555]
+[node name="Skeleton3D" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone" parent_id_path=PackedInt32Array(1970361200, 848642459) index="0" unique_id=711747211]
 bones/1/rotation = Quaternion(0.03847624, -0.3147961, -0.70605934, 0.63316923)
 bones/1/scale = Vector3(1.0000001, 1.0000001, 1.0000001)
 bones/2/position = Vector3(7.000676e-09, 0.07513497, -8.085988e-09)
@@ -493,7 +490,7 @@ bones/2/scale = Vector3(0.9999998, 0.99999964, 0.99999964)
 bones/6/position = Vector3(-0.08571863, 0.042231128, 0.12213573)
 bones/6/rotation = Quaternion(-6.2726606e-08, 3.8261172e-10, -0.70710677, 0.7071069)
 
-[node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone/Skeleton3D" index="0" unique_id=547416150 groups=["frente_quarto", "sumivel"]]
+[node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone/Skeleton3D" index="0" unique_id=1558519973 groups=["frente_quarto", "sumivel"]]
 
 [node name="AnimationTree" type="AnimationTree" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio" unique_id=1701253788]
 tree_root = SubResource("AnimationNodeStateMachine_theeu")
@@ -574,12 +571,6 @@ offset_left = -22.5
 offset_top = 0.0
 offset_right = 22.5
 offset_bottom = 45.0
-
-[node name="BotaoBaixo" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/UI/InspecionarElementos/BotoesVerticais" parent_id_path=PackedInt32Array(1766737732, 474447867) index="1" unique_id=1568934407]
-offset_left = -22.5
-offset_top = -45.0
-offset_right = 22.5
-offset_bottom = 0.0
 
 [node name="BotaoEsquerda" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/UI/InspecionarElementos/BotoesHorizontais" parent_id_path=PackedInt32Array(1766737732, 1242856022) index="0" unique_id=1353989929]
 offset_left = 0.0

@@ -9,6 +9,9 @@ var active = true
 signal sem_cartas
 
 
+func tem_cartas() -> bool:
+	return Jogo.instance.jogo_carimbo.cesto.tem_carta()
+
 func on_target_clicked(target_position) -> void:
 	if not active : return
 	if rb == null:

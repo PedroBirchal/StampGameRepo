@@ -311,15 +311,13 @@ size = Vector3(2.5888672, 4.8238525, 1.6745064)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2p7p1"]
 size = Vector3(16.76648, 8.341797, 0.1)
 
-[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("camera", "spawner", "ui_girar", "ui_girar_horizontal", "ui_girar_vertical", "botao_gira_cima", "botao_gira_baixo", "pos_pacote_na_cara", "pos_pacote_g_na_cara", "pos_item_na_cara", "pos_carta_na_cara", "sair_inspecionar_trigger", "texto_carta_holder", "texto_carta_label", "descanso_caixa_p", "descanso_caixa_m", "descanso_caixa_g", "pos_meio_mesa", "pos_receber_proximo", "pos_postit_cara", "postits_pin_list", "cesto", "lixo", "estoque", "jogavel_ui")]
+[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("camera", "spawner", "ui_girar", "ui_girar_horizontal", "botao_abrir_cima", "pos_pacote_na_cara", "pos_pacote_g_na_cara", "pos_item_na_cara", "pos_carta_na_cara", "sair_inspecionar_trigger", "texto_carta_holder", "texto_carta_label", "descanso_caixa_p", "descanso_caixa_m", "descanso_caixa_g", "pos_meio_mesa", "pos_receber_proximo", "pos_postit_cara", "postits_pin_list", "cesto", "lixo", "estoque", "jogavel_ui")]
 script = ExtResource("1_yf8ht")
 camera = NodePath("CameraHolder/Camera3D")
 spawner = NodePath("EncomendaSpawner")
 ui_girar = NodePath("UI/InspecionarElementos")
 ui_girar_horizontal = NodePath("UI/InspecionarElementos/BotoesHorizontais")
-ui_girar_vertical = NodePath("UI/InspecionarElementos/BotoesVerticais")
-botao_gira_cima = NodePath("UI/InspecionarElementos/BotoesVerticais/BotaoCima")
-botao_gira_baixo = NodePath("UI/InspecionarElementos/BotoesVerticais/BotaoBaixo")
+botao_abrir_cima = NodePath("UI/InspecionarElementos/BotoesVerticais/BotaoCima")
 pos_pacote_na_cara = NodePath("Mesa/NaCaraDoJogador/RefPacote/VisaoPacote")
 pos_pacote_g_na_cara = NodePath("Mesa/NaCaraDoJogador/RefPacote/VisaoPacote/VisaoPacoteG")
 pos_item_na_cara = NodePath("Mesa/NaCaraDoJogador/RefPacote/ItemNaCara")
@@ -571,7 +569,6 @@ mouse_filter = 1
 mouse_behavior_recursive = 1
 
 [node name="InspecionarElementos" type="Control" parent="UI" unique_id=1211449723]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -606,26 +603,6 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("11_fxi00")
 ignore_texture_size = true
 stretch_mode = 0
-
-[node name="BotaoBaixo" type="TextureButton" parent="UI/InspecionarElementos/BotoesVerticais" unique_id=1568934407]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -45.5
-offset_top = -141.0
-offset_right = -0.5
-offset_bottom = -96.0
-grow_horizontal = 2
-grow_vertical = 0
-mouse_behavior_recursive = 2
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("11_fxi00")
-ignore_texture_size = true
-stretch_mode = 5
-flip_v = true
 
 [node name="BotoesHorizontais" type="Control" parent="UI/InspecionarElementos" unique_id=1242856022]
 custom_minimum_size = Vector2(0, 250)
@@ -748,8 +725,7 @@ shape = SubResource("BoxShape3D_2p7p1")
 [connection signal="clicado" from="Mesa/AreaDoCesto/Cesto" to="." method="_on_cesto_carta_clicado"]
 [connection signal="hover" from="Mesa/AreaDoCesto/Cesto" to="." method="preview_hover_cesto"]
 [connection signal="unhover" from="Mesa/AreaDoCesto/Cesto" to="." method="preview_unhover_cesto"]
-[connection signal="pressed" from="UI/InspecionarElementos/BotoesVerticais/BotaoCima" to="." method="_on_botao_girar_cima"]
-[connection signal="pressed" from="UI/InspecionarElementos/BotoesVerticais/BotaoBaixo" to="." method="_on_botao_girar_baixo"]
+[connection signal="pressed" from="UI/InspecionarElementos/BotoesVerticais/BotaoCima" to="." method="tentar_abrir_caixa"]
 [connection signal="pressed" from="UI/InspecionarElementos/BotoesHorizontais/BotaoEsquerda" to="." method="_on_botao_girar_esquerda"]
 [connection signal="pressed" from="UI/InspecionarElementos/BotoesHorizontais/BotaoDireita" to="." method="_on_botao_girar_direita"]
 [connection signal="pressed" from="UI/SairDoJogo" to="." method="sair"]

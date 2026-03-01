@@ -9,9 +9,7 @@ var encomenda_atual_ultimo_estado: Encomenda.EstadoEncomenda
 @export var rotacionavel: Rotacionavel
 @export var ui_girar: Control
 @export var ui_girar_horizontal: Control
-@export var ui_girar_vertical: Control
-@export var botao_gira_cima: Control
-@export var botao_gira_baixo: Control
+@export var botao_abrir_cima: Control
 
 @export_group("Inspecionar Encomendas")
 @export var pos_pacote_na_cara: Node3D
@@ -138,8 +136,6 @@ func encomenda_atual_mudou_estado(estado: Encomenda.EstadoEncomenda) -> void:
 			pacote.position = Vector3.ZERO
 			pacote.pacote_aberto = true
 			
-		if rotacionavel != null:
-			rotacionavel.giro_vertical_mudou.disconnect(refresh_modo_giro_vertical)
 		rotacionavel = null
 		setar_modo_girando(false)
 		
@@ -147,16 +143,16 @@ func encomenda_atual_mudou_estado(estado: Encomenda.EstadoEncomenda) -> void:
 		if encomenda_atual is Carta:
 			texto_carta_holder.hide()
 			texto_carta_label.text = ""
+			botao_abrir_cima.hide()
 		else:
 			var pacote = encomenda_atual as Pacote
 			pacote.item_holder.reparent(pacote.conteudo_holder)
 			pacote.item_holder.position = Vector3.ZERO
 			pacote.item.rotation = pacote.item_res.offset_rot
 			pacote.pacote_aberto = false
+			botao_abrir_cima.show()
 		
 		rotacionavel = encomenda_atual.rotacionavel
-		refresh_modo_giro_vertical()
-		rotacionavel.giro_vertical_mudou.connect(refresh_modo_giro_vertical)
 		setar_modo_girando(true)
 		
 		var pos_na_cara = pos_carta_na_cara if encomenda_atual is Carta else (pos_pacote_g_na_cara if (encomenda_atual as Pacote).item_res.cabe_em == ItemResource.TamanhoPacote.GRANDE else pos_pacote_na_cara)
@@ -165,8 +161,7 @@ func encomenda_atual_mudou_estado(estado: Encomenda.EstadoEncomenda) -> void:
 		tween.tween_property(encomenda_atual, "rotation", Vector3.ZERO, 0.25)
 		tween.tween_property(encomenda_atual, "position", Vector3.ZERO, 0.25)
 	else:
-		if rotacionavel != null:
-			rotacionavel.giro_vertical_mudou.disconnect(refresh_modo_giro_vertical)
+
 			
 		rotacionavel = null
 		setar_modo_girando(false)
@@ -200,36 +195,9 @@ func _on_botao_girar_direita() -> void:
 	if rotacionavel != null:
 		rotacionavel.girar(1)
 
-func _on_botao_girar_cima() -> void:
-	if rotacionavel != null:
-		rotacionavel.girar_vertical(1)
-
-
-func _on_botao_girar_baixo() -> void:
-	if rotacionavel != null:
-		rotacionavel.girar_vertical(-1)
-
 func setar_modo_girando(girando: bool) -> void:
 	ui_girar.visible = girando
 
-func refresh_modo_giro_vertical(_aux := 0) -> void:
-	ui_girar_vertical.visible = rotacionavel.rotaciona_na_vertical
-	
-	if rotacionavel.rot_vertical == 0:
-		botao_gira_cima.visible = rotacionavel.pode_rot_cima
-		botao_gira_baixo.visible = rotacionavel.pode_rot_baixo
-		ui_girar_horizontal.visible = true
-	elif rotacionavel.rot_vertical == 1:
-		botao_gira_cima.visible = false
-		botao_gira_baixo.visible = true
-		ui_girar_horizontal.visible = false
-	elif rotacionavel.rot_vertical == -1:
-		botao_gira_cima.visible = true
-		botao_gira_baixo.visible = false
-		ui_girar_horizontal.visible = false
-	else:
-		ui_girar_horizontal.visible = true
-		
 
 func gerar_post_it(decreto_res: DecretoResource) -> PostIt:
 	postits_pin_idx += 1
@@ -361,3 +329,7 @@ func _on_cesto_carta_clicado() -> void:
 	
 	await Jogo.instance.decretos.apos_checar_corretude
 	
+
+func tentar_abrir_caixa() -> void:
+	if encomenda_atual.estado_atual == Encomenda.EstadoEncomenda.INSPECIONANDO and encomenda_atual is Pacote:
+		encomenda_atual.abrir_pacote()

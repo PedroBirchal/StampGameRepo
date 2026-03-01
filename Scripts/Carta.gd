@@ -15,7 +15,7 @@ var carta_res: CartaResource
 
 func _ready() -> void:
 	super._ready() # Chama a função _ready da classe Encomenda
-	recebe_valores(load("res://resources/cartas/carta_1.tres"))
+	recebe_valores(load("res://resources/cartas/outros1.tres"))
 	fechando.connect(fechar_carta)
 	
 	caracteristicas.append("carta")

@@ -12,10 +12,7 @@
 script = ExtResource("1_cb1fc")
 camera = NodePath("Camera3D")
 max_time = 30.0
-reativar_ao_sair = null
 ativar_on_jogar = [NodePath("CartaController")]
-desativar_ao_sair = null
-sumir_jogador = null
 
 [node name="SairDoJogo" type="TextureButton" parent="." unique_id=1574623770]
 offset_left = 15.0
@@ -41,3 +38,4 @@ environment = ExtResource("7_gxcc0")
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, -1.003, -2)
 
 [connection signal="pressed" from="SairDoJogo" to="." method="sair"]
+[connection signal="sem_cartas" from="CartaController" to="." method="_on_carta_controller_sem_cartas"]

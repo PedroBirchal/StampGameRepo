@@ -11,6 +11,9 @@ signal clicado
 
 func ainda_cabe() -> bool:
 	return prox_carta_idx < len(area_das_cartas)
+	
+func tem_carta() -> bool:
+	return prox_carta_idx > 0
 
 func _pegar_nova_area_carta() -> Node3D:
 	var area = area_das_cartas[prox_carta_idx]

@@ -184,7 +184,7 @@ markersP = [NodePath("Mesh/Pacote_Generico_P/Remetentepos"), NodePath("Mesh/Paco
 rotacionavel = NodePath("Rotacionavel")
 
 [node name="ColisorP" type="CollisionShape3D" parent="." unique_id=1888587168]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0028167516, -0.0019481555, -0.0028320253)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0058282167, -0.0019481598, 0.006260395)
 shape = SubResource("BoxShape3D_dchw8")
 
 [node name="ColisorM" type="CollisionShape3D" parent="." unique_id=1928850750]
@@ -203,7 +203,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03613381, 0)
 
 [node name="PacoteGN_P" parent="Mesh/Pacote_Generico_P" unique_id=1278761663 instance=ExtResource("2_dchw8")]
 
-[node name="Skeleton3D" parent="Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P" parent_id_path=PackedInt32Array(1278761663, 1153002218) index="0" unique_id=1394539810]
+[node name="Skeleton3D" parent="Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P" parent_id_path=PackedInt32Array(1278761663, 633383849) index="0" unique_id=1662425764]
 bones/1/rotation = Quaternion(-1.8662506e-08, -0.14015305, 0.99012995, 1.3184379e-07)
 bones/1/scale = Vector3(1, 1, 1)
 bones/3/rotation = Quaternion(1.3184376e-07, 0.9901298, -0.1401532, -1.8662519e-08)
@@ -231,11 +231,11 @@ advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("../PacoteGN_P/AnimationPlayer")
 
 [node name="Remetentepos" type="Marker3D" parent="Mesh/Pacote_Generico_P" unique_id=1824507798]
-transform = Transform3D(-4.3711385e-08, -1, 0, -4.3711385e-08, 1.9106855e-15, -0.99999994, 0.99999994, -4.371139e-08, -4.3711385e-08, -0.0060963333, 0.088087305, 0.17707694)
+transform = Transform3D(-4.3711385e-08, 1, 4.3711385e-08, 0, -4.371139e-08, 0.99999994, 0.99999994, 4.371139e-08, 1.9106853e-15, -0.0060963333, 0.088087305, 0.17707694)
 gizmo_extents = 0.01
 
 [node name="Destinatariopos" type="Marker3D" parent="Mesh/Pacote_Generico_P" unique_id=2036762577]
-transform = Transform3D(1, 0, 0, 0, -0.0037873134, -0.9999927, 0, 0.9999927, -0.0037873134, -0.022332042, 0.088268995, -0.11495794)
+transform = Transform3D(-4.371139e-08, -0.9999999, -4.3711385e-08, 0, -4.3711385e-08, 0.9999999, -1, 4.3711385e-08, 1.9106853e-15, -0.022332042, 0.088268995, -0.11495794)
 gizmo_extents = 0.01
 
 [node name="Pacote_Generico_M" type="Node3D" parent="Mesh" unique_id=1262567056]
@@ -243,7 +243,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19668353, 0)
 
 [node name="PacoteGN_M" parent="Mesh/Pacote_Generico_M" unique_id=1679340880 instance=ExtResource("3_1eue7")]
 
-[node name="Skeleton3D" parent="Mesh/Pacote_Generico_M/PacoteGN_M/Arm_PacoteGN_M" parent_id_path=PackedInt32Array(1679340880, 347101966) index="0" unique_id=805558720]
+[node name="Skeleton3D" parent="Mesh/Pacote_Generico_M/PacoteGN_M/Arm_PacoteGN_M" parent_id_path=PackedInt32Array(1679340880, 2137022330) index="0" unique_id=251913970]
 bones/1/rotation = Quaternion(1.866251e-08, -0.14015305, 0.99012995, -1.3184379e-07)
 bones/1/scale = Vector3(1, 1, 1)
 bones/3/rotation = Quaternion(-1.3184375e-07, 0.9901298, -0.1401532, 1.8662524e-08)
@@ -253,7 +253,7 @@ bones/5/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(-0.50000006, 0.5, 0.5, 0.50000006)
 bones/7/scale = Vector3(1, 1, 1)
 
-[node name="PacoteNG_M" parent="Mesh/Pacote_Generico_M/PacoteGN_M/Arm_PacoteGN_M/Skeleton3D" index="0" unique_id=629355520]
+[node name="PacoteNG_M" parent="Mesh/Pacote_Generico_M/PacoteGN_M/Arm_PacoteGN_M/Skeleton3D" index="0" unique_id=1856450590]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, -1.4210855e-14, 0, 1.4210855e-14, 1.0000001, 0, 0, 0)
 
 [node name="AreaClicavelParaAbrir" type="Area3D" parent="Mesh/Pacote_Generico_M" unique_id=924040768]
@@ -278,7 +278,7 @@ transform = Transform3D(-0.048309393, -0.009884239, 0.99878335, -8.796317e-08, 0
 gizmo_extents = 0.01
 
 [node name="Destinatariopos" type="Marker3D" parent="Mesh/Pacote_Generico_M" unique_id=1839709469]
-transform = Transform3D(0.99986625, 8.741108e-08, 0.016352907, 8.742278e-08, -0.9999999, 1.1292835e-22, 0.01635291, 1.4296097e-09, -0.99986625, -0.23573622, 0.28199047, 0.029145375)
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 0.9999999, 0, 0.99999994, 0, -4.3711385e-08, -0.23573622, 0.28199047, 0.029145375)
 gizmo_extents = 0.01
 
 [node name="Pacote_Generico_G" type="Node3D" parent="Mesh" unique_id=1506890398]
@@ -286,7 +286,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29993355, 0)
 
 [node name="PacoteGN_G" parent="Mesh/Pacote_Generico_G" unique_id=1741681493 instance=ExtResource("4_5tdmu")]
 
-[node name="Skeleton3D" parent="Mesh/Pacote_Generico_G/PacoteGN_G/Arm_PacoteGN_G" parent_id_path=PackedInt32Array(1741681493, 2014575167) index="0" unique_id=266719577]
+[node name="Skeleton3D" parent="Mesh/Pacote_Generico_G/PacoteGN_G/Arm_PacoteGN_G" parent_id_path=PackedInt32Array(1741681493, 995602992) index="0" unique_id=1532019096]
 bones/1/rotation = Quaternion(1.866251e-08, -0.14015307, 0.9901299, -1.3184378e-07)
 bones/1/scale = Vector3(1, 0.9999997, 0.99999994)
 bones/3/rotation = Quaternion(-1.3184378e-07, 0.99012995, -0.14015304, 1.8662517e-08)
@@ -319,7 +319,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9999911, 0.004206285, 0, -0.004206285, 0.9
 gizmo_extents = 0.01
 
 [node name="Destinatariopos" type="Marker3D" parent="Mesh/Pacote_Generico_G" unique_id=1823807596]
-transform = Transform3D(-0.9995552, -8.738389e-08, -0.02982329, 8.742278e-08, -1, 0, -0.02982329, -2.6072349e-09, 0.9995552, -0.34807032, 0.28199047, 0.029145375)
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -0.34807032, 0.28199047, 0.029145375)
 gizmo_extents = 0.01
 
 [node name="Conteudo" type="Node3D" parent="." unique_id=1129233226]
