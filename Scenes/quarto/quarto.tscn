@@ -42,6 +42,7 @@
 [ext_resource type="Resource" uid="uid://dcvryfdkkkjn6" path="res://resources/decretos/decreto_14.tres" id="17_fg000"]
 [ext_resource type="Resource" uid="uid://so3ah50d3syy" path="res://resources/decretos/decreto_15.tres" id="18_q2yap"]
 [ext_resource type="Script" uid="uid://dtp8atbvuxhby" path="res://Scenes/quarto/play_music.gd" id="19_80gip"]
+[ext_resource type="PackedScene" uid="uid://ckynw7akie4ml" path="res://Scenes/TextoFimDeJogo.tscn" id="21_yp1q3"]
 [ext_resource type="PackedScene" uid="uid://bjkfs4qbiqqv3" path="res://Scenes/UILetterThrowing.tscn" id="23_873pr"]
 [ext_resource type="Script" path="res://Scenes/quarto/fade_in_out.gd" id="43_873pr"]
 
@@ -251,7 +252,7 @@ lista_decretos = Array[ExtResource("2_p5cr7")]([ExtResource("3_r6doe"), ExtResou
 jogo_carimbar = NodePath("../NavigationRegion3D/Cubiculo/JogoCarimbar")
 telefone = NodePath("../NavigationRegion3D/CenarioBonito/Telefone")
 
-[node name="Jogo" type="Node" parent="." unique_id=510473093 node_paths=PackedStringArray("jogador", "decretos", "camera_principal", "jogo_carimbo", "jogo_cartas", "fade", "quarto_ui", "dialogo", "ui_timer_pontuacao", "relogio_mesa", "timer")]
+[node name="Jogo" type="Node" parent="." unique_id=510473093 node_paths=PackedStringArray("jogador", "decretos", "camera_principal", "jogo_carimbo", "jogo_cartas", "fade", "quarto_ui", "dialogo", "texto_fim_de_jogo", "ui_timer_pontuacao", "relogio_mesa", "timer")]
 script = ExtResource("1_js386")
 jogador = NodePath("../Jogador")
 decretos = NodePath("../DecretosController")
@@ -261,15 +262,18 @@ jogo_cartas = NodePath("../NavigationRegion3D/CenarioBonito/Wardrobe/LetterGame"
 fade = NodePath("../Transicao")
 quarto_ui = NodePath("../UI_Jogo")
 dialogo = NodePath("../DialogManager/TextBox")
+texto_fim_de_jogo = NodePath("../TextoFimDeJogo")
 ui_timer_pontuacao = NodePath("../UiLetterThrowing")
 relogio_mesa = NodePath("../NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa/Relogio")
 timer = NodePath("TimerDoJogo")
-duracao_do_dia = 900.0
+duracao_do_dia = 5.0
 metadata/_custom_type_script = "uid://d4j65a74tvcye"
 
 [node name="TimerDoJogo" type="Timer" parent="Jogo" unique_id=34987187]
 wait_time = 5.0
 one_shot = true
+
+[node name="TextoFimDeJogo" parent="." unique_id=1285358852 instance=ExtResource("21_yp1q3")]
 
 [node name="DialogManager" type="Control" parent="." unique_id=1819112143]
 layout_mode = 3

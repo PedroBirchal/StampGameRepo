@@ -25,6 +25,7 @@ var jogavel_atual : Jogavel
 @export var fade : FadeController
 @export var quarto_ui : Control
 @export var dialogo : Dialogo
+@export var texto_fim_de_jogo : Control
 
 @export_group("Timer")
 @export var ui_timer_pontuacao : Control
@@ -106,6 +107,8 @@ func atualizar_sumiveis() -> void:
 # Fim de jogo
 func _on_timer_do_jogo_timeout() -> void:
 	fim_de_jogo.emit()
+	texto_fim_de_jogo.mostrar_fim_de_jogo()
+	await get_tree().create_timer(2.0).timeout
 	carimbos_incorretos = decretos.entregas_incorretas
 	saldo_final = pontuacao - aluguel
 	get_tree().change_scene_to_file("res://Scenes/c_ena_final.tscn")
