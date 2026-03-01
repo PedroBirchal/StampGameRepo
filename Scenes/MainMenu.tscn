@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://uk6ar6pt6uet" path="res://Fonts/kindergarten.ttf" id="3_df05h"]
 [ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="3_ghw46"]
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="4_df05h"]
-[ext_resource type="Script" uid="uid://dmyqgnmew7j4j" path="res://Scenes/audio_controller.gd" id="6_xim88"]
+[ext_resource type="Script" path="res://Scenes/audio_controller.gd" id="6_xim88"]
 [ext_resource type="FontFile" uid="uid://bbb8aiguwfggd" path="res://Fonts/Mory.ttf" id="7_koqhg"]
 [ext_resource type="Script" path="res://Scenes/quarto/play_music.gd" id="7_xim88"]
 [ext_resource type="Shader" uid="uid://72r7mi5v1ouy" path="res://materials/Blur.gdshader" id="10_loo7a"]

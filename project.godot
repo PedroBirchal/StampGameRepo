@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="StampGame"
-run/main_scene="uid://dxegpb20kq7ku"
+run/main_scene="uid://b0vww556a3ldo"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cos077ndo24qa"
 
 [audio]
 
