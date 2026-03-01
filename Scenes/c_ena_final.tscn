@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://disc5cftp8vsu"]
+
+[ext_resource type="Texture2D" uid="uid://donwbyv24lqfg" path="res://Sprites/Captura de tela 2026-02-28 121146.png" id="1_wa250"]
+[ext_resource type="FontFile" uid="uid://bbb8aiguwfggd" path="res://Fonts/Mory.ttf" id="2_4pwo7"]
+[ext_resource type="Texture2D" uid="uid://dq0cn7sx1unji" path="res://Scripts/TextSystem/TextBox.png" id="3_lh7cp"]
+[ext_resource type="FontFile" uid="uid://coqq13tin3swc" path="res://Fonts/ZeroCool.ttf" id="4_7qs34"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_i50t5"]
+size = Vector3(0.8, 0.9, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opyts"]
+albedo_color = Color(0.66616714, 0.4597906, 0.39528087, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v24ff"]
+size = Vector3(1.2, 0.2, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pg8x6"]
+albedo_color = Color(0.5921569, 0.5372549, 0.48235294, 1)
+
+[node name="cENA FINAL" type="Node3D" unique_id=1916520499]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2016127958]
+mesh = SubResource("BoxMesh_i50t5")
+surface_material_override/0 = SubResource("StandardMaterial3D_opyts")
+
+[node name="Sprite3D" type="Sprite3D" parent="MeshInstance3D" unique_id=464978495]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0.053669572)
+texture = ExtResource("1_wa250")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1672424398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5932438, 0)
+mesh = SubResource("BoxMesh_v24ff")
+surface_material_override/0 = SubResource("StandardMaterial3D_pg8x6")
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D2" unique_id=212491032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0071803033, 0.008003354, 0.062723935)
+outline_modulate = Color(1, 1, 1, 1)
+text = "Funcionário do mês"
+font = ExtResource("2_4pwo7")
+font_size = 20
+outline_size = 2
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1742704871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8937972, 0, -2.2715447)
+modulate = Color(0.6181335, 0.72042245, 0.85683024, 1)
+texture = ExtResource("3_lh7cp")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=572829897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5428627, 0.04403755, 0)
+text = "OBRIGADO POR JOGAR '-'"
+font = ExtResource("4_7qs34")
+font_size = 100
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1478304287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5957031, 0, 3.246338)
