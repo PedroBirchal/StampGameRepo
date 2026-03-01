@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://f15rhliv23nb"]
+
+[ext_resource type="Script" uid="uid://c5opvmu5s5ni3" path="res://Scenes/carimbar/cesto.gd" id="1_1n4uw"]
+[ext_resource type="PackedScene" uid="uid://c55srgxe1cda2" path="res://Models/Cenário/Cesta_Cartas.fbx" id="2_cpm3t"]
+[ext_resource type="FontFile" uid="uid://bbb8aiguwfggd" path="res://Fonts/Mory.ttf" id="2_rc7ef"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u5q8s"]
+size = Vector3(1.5, 1.25, 1)
+
+[node name="Cesto" type="Node3D" unique_id=1005011971 node_paths=PackedStringArray("informativo_cheio", "area_das_cartas")]
+script = ExtResource("1_1n4uw")
+informativo_cheio = NodePath("Informativo/Label3D")
+area_das_cartas = [NodePath("Cartas/AreaCarta1"), NodePath("Cartas/AreaCarta2"), NodePath("Cartas/AreaCarta3"), NodePath("Cartas/AreaCarta4"), NodePath("Cartas/AreaCarta5"), NodePath("Cartas/AreaCarta6"), NodePath("Cartas/AreaCarta7"), NodePath("Cartas/AreaCarta8"), NodePath("Cartas/AreaCarta9"), NodePath("Cartas/AreaCarta10")]
+
+[node name="Cesta_Cartas" parent="." unique_id=1363481543 instance=ExtResource("2_cpm3t")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Cartas" type="Node3D" parent="." unique_id=52848361]
+
+[node name="AreaCarta1" type="Node3D" parent="Cartas" unique_id=12751042]
+transform = Transform3D(0.13225642, 0.99121547, 0, -0.99121547, 0.13225642, 0, 0, 0, 1, -0.69476295, 0.63652396, 0)
+
+[node name="AreaCarta2" type="Node3D" parent="Cartas" unique_id=650556511]
+transform = Transform3D(0.15444216, 0.98714846, -0.04105606, -0.9879815, 0.15457249, 0, 0.006346136, 0.04056262, 0.99915683, -0.63223016, 0.62729204, 0)
+
+[node name="AreaCarta3" type="Node3D" parent="Cartas" unique_id=900784004]
+transform = Transform3D(0.21975368, 0.9734601, -0.063905284, -0.9754539, 0.22020379, 0, 0.014072185, 0.06233666, 0.997956, -0.51088035, 0.62729204, 0)
+
+[node name="AreaCarta4" type="Node3D" parent="Cartas" unique_id=717413575]
+transform = Transform3D(0.25771043, 0.9619899, -0.09033708, -0.96593934, 0.25876847, 0, 0.023376394, 0.08726016, 0.99591124, -0.40398204, 0.62729204, 0)
+
+[node name="AreaCarta5" type="Node3D" parent="Cartas" unique_id=776369352]
+transform = Transform3D(0.32669547, 0.9206188, -0.21384884, -0.94242, 0.33443195, 8.153023e-09, 0.07151788, 0.20153537, 0.9768667, -0.26808465, 0.62729204, 0)
+
+[node name="AreaCarta6" type="Node3D" parent="Cartas" unique_id=1110069091]
+transform = Transform3D(0.429762, 0.86240244, -0.26751947, -0.89843744, 0.43797672, -0.031407356, 0.090081505, 0.25384718, 0.96304035, -0.11772418, 0.62729204, 0)
+
+[node name="AreaCarta7" type="Node3D" parent="Cartas" unique_id=1773064528]
+transform = Transform3D(0.45152155, 0.8746989, -0.17615464, -0.89087546, 0.45294166, -0.034412894, 0.049686834, 0.17246999, 0.9837607, -0.012662768, 0.6007358, 0)
+
+[node name="AreaCarta8" type="Node3D" parent="Cartas" unique_id=889762820]
+transform = Transform3D(0.5275519, 0.8318295, -0.17247899, -0.84806824, 0.5275547, -0.049655907, 0.049686816, 0.17246996, 0.9837607, 0.11334014, 0.6007358, 0)
+
+[node name="AreaCarta9" type="Node3D" parent="Cartas" unique_id=1559266361]
+transform = Transform3D(0.52198595, 0.8156257, -0.24957117, -0.8480682, 0.52755463, -0.049655896, 0.09116176, 0.237573, 0.9670824, 0.22357035, 0.6007358, 0)
+
+[node name="AreaCarta10" type="Node3D" parent="Cartas" unique_id=1427517784]
+transform = Transform3D(0.4800993, 0.85882825, -0.17865975, -0.8756899, 0.48121938, -0.03992651, 0.051684473, 0.17561913, 0.9831004, 0.3674866, 0.5424005, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=776727837]
+collision_layer = 2147483648
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1026168892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64331055, 0)
+shape = SubResource("BoxShape3D_u5q8s")
+
+[node name="Informativo" type="Node3D" parent="." unique_id=1419719253]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6158795, 0)
+
+[node name="Label3D" type="Label3D" parent="Informativo" unique_id=974425644]
+visible = false
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "Cesto cheio :("
+font = ExtResource("2_rc7ef")
+font_size = 52
+
+[connection signal="input_event" from="StaticBody3D" to="." method="_on_static_body_3d_input_event"]
+[connection signal="mouse_entered" from="StaticBody3D" to="." method="_on_static_body_3d_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody3D" to="." method="_on_static_body_3d_mouse_exited"]

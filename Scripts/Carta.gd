@@ -63,3 +63,22 @@ func _on_area_clicavel_para_abrir_input_event(_camera: Node, event: InputEvent, 
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			abrir_carta()
+
+
+func _on_area_clicavel_para_abrir_mouse_entered() -> void:
+	if estado_atual == Encomenda.EstadoEncomenda.INSPECIONANDO:
+		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+
+func _on_area_clicavel_para_abrir_mouse_exited() -> void:
+	#if estado_atual == Encomenda.EstadoEncomenda.INSPECIONANDO:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+
+func _on_mouse_entered() -> void:
+	if estado_atual == Encomenda.EstadoEncomenda.PARADA:
+		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+
+func _on_mouse_exited() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)

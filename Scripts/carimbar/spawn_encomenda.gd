@@ -31,5 +31,3 @@ func spawn() -> Encomenda:
 func get_item_aleatorio() -> ItemResource:
 	var item_name = lista_itens.get(randi_range(0, lista_itens.size()-1))
 	return ResourceLoader.load(PASTA_ITENS + "/" + item_name)
-	
-	

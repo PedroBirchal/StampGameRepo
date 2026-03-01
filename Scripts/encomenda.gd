@@ -48,7 +48,7 @@ func set_estado(estado: EstadoEncomenda) -> void:
 		abrindo.emit()
 	elif estado_atual == EstadoEncomenda.PARADA:
 		gravity_scale = 1
-		freeze = false
+		freeze = true
 	
 	estado_mudado.emit(estado_atual)
 

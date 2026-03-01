@@ -41,6 +41,11 @@ var proxima_encomenda: Encomenda
 @export var postits_pin_list: Array[Node3D]
 var postits_pin_idx = 0
 
+@export_group("Colocadores")
+@export var cesto: CestoCarta
+@export var lixo: Lixo
+@export var estoque: EstoqueCaixa
+
 
 var ja_comecou = false
 
@@ -96,30 +101,6 @@ func mandar_encomenda_nova_ao_centro() -> void:
 	
 	proxima_encomenda = gerar_nova_encomenda()
 	pos_receber_proximo.add_child(proxima_encomenda)
-
-
-func _on_mandar_pra_la(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			mandar_encomenda_atual_para_destino()
-
-
-func mandar_encomenda_atual_para_destino() -> void:
-	if not tem_encomenda_no_meio() or encomenda_atual.estado_atual != Encomenda.EstadoEncomenda.PARADA:
-		return
-	
-	encomenda_atual.estado_entregue = Encomenda.EstadoEntregue.ENTREGUE
-	encomenda_despachada.emit(encomenda_atual)
-	
-	await Jogo.instance.decretos.apos_checar_corretude
-	
-	encomenda_atual.clicando.disconnect(encomenda_atual_selecionada)
-	encomenda_atual.estado_mudado.disconnect(encomenda_atual_mudou_estado)
-	encomenda_atual.queue_free()
-	encomenda_atual = null
-	
-	mudou_encomenda.emit(null)
-
 
 func gerar_nova_encomenda() -> Node3D:
 	var encomenda = spawner.spawn()
@@ -276,3 +257,107 @@ func clicou_post_it(postit: PostIt) -> void:
 		postit.reparent(pos_postit_cara)
 		var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(postit, "position", Vector3.ZERO, 0.6)
+
+var previewing_no_lixo = false
+func preview_hover_lixo() -> void:
+	if encomenda_atual != null and encomenda_atual.estado_atual == Encomenda.EstadoEncomenda.PARADA:
+		encomenda_atual.freeze = true
+		encomenda_atual.reparent(lixo.deletar_holder)
+		encomenda_atual.position = Vector3.ZERO
+		previewing_no_lixo = true
+
+func preview_unhover_lixo() -> void:
+	if encomenda_atual != null and encomenda_atual.estado_atual == Encomenda.EstadoEncomenda.PARADA and previewing_no_lixo:
+		encomenda_atual.freeze = encomenda_atual is Carta
+		encomenda_atual.reparent(pos_meio_mesa)
+		encomenda_atual.position = Vector3.ZERO
+		previewing_no_lixo = false
+
+func clicou_encomenda_lixo() -> void:
+	if encomenda_atual != null and encomenda_atual.estado_atual == Encomenda.EstadoEncomenda.PARADA and previewing_no_lixo:
+		var encomenda = encomenda_atual
+		_encomenda_mandada_pro_lixo()
+		lixo.excluir(encomenda)
+
+func encomenda_lixada(encomenda: Encomenda) -> void:
+	print("lixooo")
+
+func _encomenda_mandada_pro_lixo() -> void:
+	encomenda_atual.estado_entregue = Encomenda.EstadoEntregue.DESCARTADA
+	encomenda_despachada.emit(encomenda_atual)
+	
+	encomenda_atual.clicando.disconnect(encomenda_atual_selecionada)
+	encomenda_atual.estado_mudado.disconnect(encomenda_atual_mudou_estado)
+	encomenda_atual = null
+	mudou_encomenda.emit(null)
+
+
+var previewing_caixa_estoque = false
+func preview_hover_estoque() -> void:
+	if encomenda_atual != null and encomenda_atual is Pacote and encomenda_atual.estado_atual == Encomenda.EstadoEncomenda.PARADA:
+		encomenda_atual.freeze = true
+		encomenda_atual.reparent(estoque.area_preview_caixa)
+		encomenda_atual.position = Vector3.ZERO
+		previewing_caixa_estoque = true
+
+func preview_unhover_estoque() -> void:
+	if encomenda_atual != null and encomenda_atual is Pacote and encomenda_atual.estado_atual == Encomenda.EstadoEncomenda.PARADA and previewing_caixa_estoque:
+		encomenda_atual.freeze = false
+		encomenda_atual.reparent(pos_meio_mesa)
+		encomenda_atual.position = Vector3.ZERO
+		previewing_caixa_estoque = false
+
+func clicou_estocar() -> void:
+	if encomenda_atual != null and encomenda_atual is Pacote and encomenda_atual.estado_atual == Encomenda.EstadoEncomenda.PARADA and previewing_caixa_estoque:
+		_mandar_caixa_para_estoque()
+
+func _mandar_caixa_para_estoque() -> void:
+	print("mandaaar")
+	encomenda_atual.estado_entregue = Encomenda.EstadoEntregue.ENTREGUE
+	encomenda_despachada.emit(encomenda_atual)
+	
+	encomenda_atual.clicando.disconnect(encomenda_atual_selecionada)
+	encomenda_atual.estado_mudado.disconnect(encomenda_atual_mudou_estado)
+	
+	mudou_encomenda.emit(null)
+	
+	encomenda_atual.freeze = false
+	encomenda_atual = null
+	
+	
+	await Jogo.instance.decretos.apos_checar_corretude
+
+
+var previewing_guarda_carta = false
+func preview_hover_cesto() -> void:
+	if encomenda_atual != null and encomenda_atual is Carta and encomenda_atual.estado_atual == Encomenda.EstadoEncomenda.PARADA:
+		cesto.preview_carta(encomenda_atual)
+		previewing_guarda_carta = true
+
+func preview_unhover_cesto() -> void:
+	if encomenda_atual != null and encomenda_atual is Carta and encomenda_atual.estado_atual == Encomenda.EstadoEncomenda.PARADA and previewing_guarda_carta:
+		encomenda_atual.reparent(pos_meio_mesa)
+		encomenda_atual.position = Vector3.ZERO
+		encomenda_atual.rotation = Vector3.ZERO
+		previewing_guarda_carta = false
+
+func _on_cesto_carta_clicado() -> void:
+	if not cesto.ainda_cabe():
+		return
+		
+	if not tem_encomenda_no_meio() or encomenda_atual.estado_atual != Encomenda.EstadoEncomenda.PARADA:
+		return
+	
+	if encomenda_atual is not Carta:
+		return
+	
+	encomenda_atual.estado_entregue = Encomenda.EstadoEntregue.ENTREGUE
+	encomenda_despachada.emit(encomenda_atual)
+	encomenda_atual.clicando.disconnect(encomenda_atual_selecionada)
+	encomenda_atual.estado_mudado.disconnect(encomenda_atual_mudou_estado)
+	cesto.adicionar_carta(encomenda_atual)
+	encomenda_atual = null
+	mudou_encomenda.emit(null)
+	
+	await Jogo.instance.decretos.apos_checar_corretude
+	

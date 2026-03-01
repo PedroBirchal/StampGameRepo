@@ -4,6 +4,9 @@
 
 [sub_resource type="QuadMesh" id="QuadMesh_vdjlu"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vq1wb"]
+size = Vector3(1, 1.3, 0.05)
+
 [node name="PapelDaCarta" type="Node3D" unique_id=1444546175]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=109782283]
@@ -12,6 +15,7 @@ mesh = SubResource("QuadMesh_vdjlu")
 
 [node name="Label3D" type="Label3D" parent="MeshInstance3D" unique_id=509017105]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.41832682, 0.47616154, 0.005)
+double_sided = false
 modulate = Color(0, 0, 0, 1)
 text = "1. Caro senhor carteiro
 
@@ -31,3 +35,8 @@ vertical_alignment = 0
 autowrap_mode = 3
 autowrap_trim_flags = 0
 width = 1700.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=976987264]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=252936080]
+shape = SubResource("BoxShape3D_vq1wb")

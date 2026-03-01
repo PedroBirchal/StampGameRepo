@@ -8,12 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://clxa6n1kxee0y" path="res://Scenes/ArmarioDeCartas.tscn" id="6_yr8a5"]
 [ext_resource type="Environment" uid="uid://bkjgsgidwn0ig" path="res://Evironments/environment_quarto.tres" id="7_gxcc0"]
 
-[node name="LetterGame" type="Node3D" unique_id=1734937759 node_paths=PackedStringArray("camera", "ativar_on_jogar", "jogavel_ui")]
+[node name="LetterGame" type="Node3D" unique_id=1734937759 node_paths=PackedStringArray("camera", "ativar_on_jogar")]
 script = ExtResource("1_cb1fc")
 camera = NodePath("Camera3D")
 max_time = 30.0
 ativar_on_jogar = [NodePath("CartaController")]
-jogavel_ui = NodePath("")
 
 [node name="SairDoJogo" type="TextureButton" parent="." unique_id=1574623770]
 offset_left = 15.0

@@ -38,6 +38,7 @@ func gerar_localidades() -> void:
 	vindo_de = locais[0]
 	indo_para = locais[1]
 	
+	
 	caracteristicas.append("vem_" + Singleton.sigla_cidade[vindo_de])
 	caracteristicas.append("indo_" + Singleton.sigla_cidade[indo_para])
 	
