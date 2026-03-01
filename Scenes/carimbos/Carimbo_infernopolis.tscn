@@ -10,22 +10,22 @@
 height = 1.8388672
 radius = 0.3930664
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vbpbb"]
-atlas = ExtResource("3_oj1nn")
-region = Rect2(0, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pydgl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb4on"]
 atlas = ExtResource("3_oj1nn")
 region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd42p"]
+atlas = ExtResource("3_oj1nn")
+region = Rect2(0, 128, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3nvcy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vbpbb")
+"texture": SubResource("AtlasTexture_tb4on")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pydgl")
+"texture": SubResource("AtlasTexture_cd42p")
 }],
 "loop": true,
 "name": &"default",
@@ -75,12 +75,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lqcl0")
 
-[node name="Carimbo Infernopolis" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray")]
+[node name="Carimbo Infernopolis" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray", "sprite_fumaca")]
 script = ExtResource("1_bshui")
 previsao = NodePath("Sprite3D")
 Carimbada = ExtResource("2_cd42p")
 ray = NodePath("RayCast3D")
 carimbo_id = "inferno"
+sprite_fumaca = NodePath("AnimatedSprite3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103]
 transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, -0.16179219, 0)
@@ -101,12 +102,12 @@ hit_back_faces = false
 collide_with_areas = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1513099941]
-transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0)
+transform = Transform3D(0.35500002, 0, 0, 0, -0.061645113, -0.34960675, 0, 0.34960675, -0.061645113, 0, 0.034804016, 0)
 visible = false
 layers = 2
 sprite_frames = SubResource("SpriteFrames_3nvcy")
 autoplay = "default"
-frame_progress = 0.10540429
+frame_progress = 0.85979205
 
 [node name="Sinete" type="MeshInstance3D" parent="." unique_id=871180052 groups=["costas_quarto", "sumivel"]]
 transform = Transform3D(200, 0, 0, 0, -8.742278e-06, 200, 0, -200, -8.742278e-06, 0, 0, 0)

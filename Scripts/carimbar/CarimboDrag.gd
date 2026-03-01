@@ -10,6 +10,7 @@ static var holding : bool = false
 static var ehCaixa : bool = false
 static var decal_size : Vector3 = Vector3(0.5, 0.04, 0.5)
 var animando : bool = false
+@export var sprite_fumaca : AnimatedSprite3D
 
 @export var carimbo_id : String
 
@@ -78,6 +79,7 @@ func _carimbar():
 	if not ray.is_colliding() or animando:
 		return
 		
+	animando = true
 	var collider = ray.get_collider()
 	var ponto = ray.get_collision_point()
 	var normal = ray.get_collision_normal()
@@ -98,9 +100,26 @@ func _carimbar():
 	# TWEEN
 	var tween = create_tween()
 	var posicao_no_mouse = global_position
-	tween.tween_property(self, "global_position", ponto, 0.1)
+	sprite_fumaca.scale = Vector3(0.1, 0.1, 0.1)
+	sprite_fumaca.global_position.y = ponto.y + 0.3
+	sprite_fumaca.visible = false
+	
+	tween.tween_property(self, "global_position", ponto, 0.1) #desce
+	
+	tween.tween_callback(func(): 
+		sprite_fumaca.visible = true
+	)
+	
+	tween.parallel().tween_property(sprite_fumaca, "scale", Vector3(0.3, 0.3, 0.3), 0.1)
+	tween.tween_interval(0.2) #espera
+	sprite_fumaca.visible = false
+	
+	
 	tween.tween_property(self, "global_position", posicao_no_mouse, 0.1)
+	tween.tween_interval(0.1) #espera
+	
 	await tween.finished
+	sprite_fumaca.visible = false
 	animando = false
 
 func get_encomenda_colidida(collider) -> Encomenda:

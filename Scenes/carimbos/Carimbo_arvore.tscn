@@ -9,22 +9,22 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_oj1nn"]
 size = Vector3(0.6, 0.75, 0.3)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vbpbb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dncf"]
 atlas = ExtResource("3_1dncf")
-region = Rect2(0, 128, 128, 128)
+region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pydgl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcvay"]
 atlas = ExtResource("3_1dncf")
-region = Rect2(128, 128, 128, 128)
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3nvcy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vbpbb")
+"texture": SubResource("AtlasTexture_1dncf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pydgl")
+"texture": SubResource("AtlasTexture_hcvay")
 }],
 "loop": true,
 "name": &"default",
@@ -75,12 +75,13 @@ bind/3/name = &"Base"
 bind/3/bone = -1
 bind/3/pose = Transform3D(1.4210855e-14, 1, 1.1920929e-07, -1, -1.4210855e-14, 1.1920929e-07, 1.1920929e-07, -1.1920929e-07, 1, -1.6397731e-09, 0.0039951, -0.0006658451)
 
-[node name="Carimbo Arvore" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray")]
+[node name="Carimbo Arvore" type="Node3D" unique_id=56766804 node_paths=PackedStringArray("previsao", "ray", "sprite_fumaca")]
 script = ExtResource("1_1tqss")
 previsao = NodePath("Sprite3D")
 Carimbada = ExtResource("2_hcvay")
 ray = NodePath("RayCast3D")
 carimbo_id = "arvoro"
+sprite_fumaca = NodePath("AnimatedSprite3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103]
 transform = Transform3D(0.03, 0, 0, 0, 0.025, 0, 0, 0, 0.04, 0, -0.1984055, 0)
@@ -100,12 +101,12 @@ hit_back_faces = false
 collide_with_areas = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1513099941]
-transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0)
+transform = Transform3D(0.281, 0, 0, 0, -0.04514853, -0.27673095, 0, 0.25605, -0.04879514, 0, -0.021343842, 0)
 visible = false
 layers = 2
 sprite_frames = SubResource("SpriteFrames_3nvcy")
 autoplay = "default"
-frame_progress = 0.10540429
+frame_progress = 0.05112482
 
 [node name="Carimbo1_Armature" type="Node3D" parent="." unique_id=853287785]
 transform = Transform3D(4.5, 0, 0, 0, -1.9670125e-07, 4.5, 0, -4.5, -1.9670125e-07, 0, 0, 0)
