@@ -14,6 +14,7 @@ var jogavel_atual : Jogavel
 @export var jogador : Jogador
 @export var decretos : DecretosController
 @export var camera_principal : Camera3D
+@export var jogo_carimbo : JogoCarimbar
 
 @export_group("UI")
 @export var fade : FadeController

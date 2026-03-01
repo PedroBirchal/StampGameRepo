@@ -12,7 +12,10 @@
 script = ExtResource("1_cb1fc")
 camera = NodePath("Camera3D")
 max_time = 30.0
+reativar_ao_sair = null
 ativar_on_jogar = [NodePath("CartaController")]
+desativar_ao_sair = null
+sumir_jogador = null
 
 [node name="SairDoJogo" type="TextureButton" parent="." unique_id=1574623770]
 offset_left = 15.0

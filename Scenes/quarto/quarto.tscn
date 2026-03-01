@@ -251,11 +251,12 @@ lista_decretos = Array[ExtResource("2_p5cr7")]([ExtResource("3_r6doe"), ExtResou
 jogo_carimbar = NodePath("../NavigationRegion3D/Cubiculo/JogoCarimbar")
 telefone = NodePath("../NavigationRegion3D/CenarioBonito/Telefone")
 
-[node name="Jogo" type="Node" parent="." unique_id=510473093 node_paths=PackedStringArray("jogador", "decretos", "camera_principal", "fade", "quarto_ui", "dialogo", "ui_timer_pontuacao", "relogio_mesa", "timer")]
+[node name="Jogo" type="Node" parent="." unique_id=510473093 node_paths=PackedStringArray("jogador", "decretos", "camera_principal", "jogo_carimbo", "fade", "quarto_ui", "dialogo", "ui_timer_pontuacao", "relogio_mesa", "timer")]
 script = ExtResource("1_js386")
 jogador = NodePath("../Jogador")
 decretos = NodePath("../DecretosController")
 camera_principal = NodePath("../OlhoDeDeus/Camera3D")
+jogo_carimbo = NodePath("../NavigationRegion3D/Cubiculo/JogoCarimbar")
 fade = NodePath("../Transicao")
 quarto_ui = NodePath("../UI_Jogo")
 dialogo = NodePath("../DialogManager/TextBox")
@@ -377,6 +378,9 @@ jogavel = NodePath("../../LetterGame")
 
 [node name="LetterGame" parent="NavigationRegion3D/CenarioBonito/Wardrobe" unique_id=1734937759 node_paths=PackedStringArray("desativar_colisor_on_jogar") instance=ExtResource("9_b256n")]
 desativar_colisor_on_jogar = [NodePath("../StaticBody3D/CollisionShape3D")]
+reativar_ao_sair = true
+desativar_ao_sair = true
+sumir_jogador = true
 
 [node name="Quadro" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=683740204 node_paths=PackedStringArray("camera", "jogavel_ui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3651748, 2.508537, 5.850582)
@@ -774,6 +778,8 @@ color = Color(0, 0, 0, 0)
 [connection signal="terminou_girar" from="OlhoDeDeus/Rotacionavel" to="OlhoDeDeus" method="_on_rotacionavel_terminou_girar"]
 
 [editable path="NavigationRegion3D/CenarioBonito/MainRoom2"]
+[editable path="NavigationRegion3D/CenarioBonito/Wardrobe/LetterGame"]
+[editable path="NavigationRegion3D/CenarioBonito/Wardrobe/LetterGame/CartaController"]
 [editable path="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio"]
 [editable path="NavigationRegion3D/Cubiculo/JogoCarimbar"]
 [editable path="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa/NaCaraDoJogador/RefCarta/HolderTexto/PapelDaCarta"]

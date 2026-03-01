@@ -24,6 +24,15 @@ func adicionar_carta(carta: Carta) -> void:
 	carta.rotation = Vector3.ZERO
 
 
+func remover_ultima_carta() -> Carta:
+	if prox_carta_idx != 0:
+		prox_carta_idx -= 1
+		if area_das_cartas[prox_carta_idx].get_child_count() > 0:
+			var carta = area_das_cartas[prox_carta_idx].get_child(0) as Carta
+			area_das_cartas[prox_carta_idx].remove_child(carta)
+			return carta
+	return null
+
 func preview_carta(carta: Carta) -> void:
 	if not ainda_cabe():
 		return

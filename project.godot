@@ -27,8 +27,8 @@ DialogManager="*uid://bh3y4ynh43gnk"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="viewport"
 
 [editor]
@@ -62,6 +62,7 @@ costas_quarto=""
 direita_quarto=""
 esquerda_quarto=""
 frente_quarto=""
+colisao_da_carta="Gambiarra pq o tempo ta curto amg"
 
 [input]
 

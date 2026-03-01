@@ -22,8 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://duk6815hya8cu" path="res://Scenes/carimbar/RelogioDeMesa.tscn" id="12_xxvmt"]
 [ext_resource type="Script" uid="uid://bvtixto24md7m" path="res://Scripts/rotacao/rotacionavel.gd" id="13_iapwp"]
 [ext_resource type="PackedScene" uid="uid://f15rhliv23nb" path="res://Scenes/carimbar/cesto.tscn" id="17_u5q8s"]
-[ext_resource type="Script" uid="uid://s5k2j34gfegy" path="res://Scenes/carimbar/lixo.gd" id="23_uc7dw"]
-[ext_resource type="Script" uid="uid://daipb07pofwhf" path="res://Scenes/carimbar/estoque_caixa.gd" id="24_d888d"]
+[ext_resource type="Script" path="res://Scenes/carimbar/lixo.gd" id="23_uc7dw"]
+[ext_resource type="Script" path="res://Scenes/carimbar/estoque_caixa.gd" id="24_d888d"]
 [ext_resource type="PackedScene" uid="uid://c5r18jksadxot" path="res://Models/PlacaPapelao.fbx" id="24_yuepw"]
 [ext_resource type="Texture2D" uid="uid://kf1t80oowtkf" path="res://materials/Papelao.png" id="25_d888d"]
 
@@ -722,7 +722,7 @@ area_preview_caixa = NodePath("CaixaSpawnAqui")
 [node name="PlacaPapelao" parent="Estoque" unique_id=661794333 instance=ExtResource("24_yuepw")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.30773258, -0.57849646, 0)
 
-[node name="CaixaIndicador" parent="Estoque/PlacaPapelao" index="0" unique_id=1276822800]
+[node name="CaixaIndicador" parent="Estoque/PlacaPapelao" index="0" unique_id=1589661665]
 mesh = SubResource("ArrayMesh_o2fhn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Estoque" unique_id=1658370593]

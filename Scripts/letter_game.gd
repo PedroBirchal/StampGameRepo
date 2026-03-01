@@ -14,11 +14,17 @@ var pontuacao : int = 0
 func jogar() -> void:
 	super()
 	camera.make_current()
+	carta_controller.instantiate_new_carta()
 	carta_controller.active = true
 
 func sair() -> void:
 	super()
 	camera.clear_current()
+	
+	carta_controller.retornar_carta()
+
+func mudar_cartas(ativar: bool) -> void:
+	var cartas = get_tree().get_nodes_in_group("colisao_da_carta")
 
 
 func _ready() -> void:
