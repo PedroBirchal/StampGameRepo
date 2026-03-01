@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://dyppr216l1agf"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_8dr5u"]
+
+[resource]
+script = ExtResource("1_8dr5u")
+conteudo = "Prezado Secretário Geral do Estado,
+  Algo perturbante me comove a mente ao pensar que o senhor, de tamanha importância estaria usando I.A. para gerir uma carta sobre os cuidados de minha cidade, a capital de nosso grande estado, em vez de se preocupar com a qualidade da conversa para solucionar os nossos problemas.
+  Espero maior preocupação e seriedade em se tratando de assuntos oficiais.
+Passar bem, 
+                Prefeitura de Torres"
+vindo_de = 3
+indo_para = 3
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

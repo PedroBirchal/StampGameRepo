@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://cpxmbcchx0duq"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_0d0d0"]
+
+[resource]
+script = ExtResource("1_0d0d0")
+conteudo = "Cara senhora Dália.
+  Sinto me esvair os últimos momentos de meus suspiros. Minha cordialidade não me permite partir antes de um último adeus. Mesmo que efêmero, nosso tempo junto me tornou algo diferente, para o bom. Você me mostrou a facilidade que é amar, e a devaneidade de um mundo inóspito como o nosso, na nossa cidade Aqualantida.
+  Meu último desejo era o de criar um Universo ao seu lado, mas infelizmente minhas forças se esvão. Seu carinho me permitiu criar raízes uma última vez nesse mundo que por tanto tempo detestei. Agora, minha pena é o de não poder te dar o que tante sonhou, mesmo me dando tudo que nunca sequer pensei em sonhar.
+  Espero que essa carta a encontre bem, e que possa acalentar seu coração ao saber que, mesmo nos meus últimos momentos, meus pensamentos eram inteirinos em você.
+  Eu te amo, minha cara senhora Dália.
+                       Lucas."
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

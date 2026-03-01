@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://bhsvjap67m121"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_1fxwu"]
+
+[resource]
+script = ExtResource("1_1fxwu")
+conteudo = "Caro senhor Gonza-Madeira.
+  É com desfortúnio que venho, por meio desta, proclamar de uma vez por todas, a sua expulsão do clube dos amigos. 
+  Sua petulância e imprópria matemática nos deixou de queixos caídos, em um disparate incognitivo de sua pessoa a um de nossos funcionários na tarde da última sexta-feira, às 21h do horário oficial. Sua ignobilidade em uma simples conta matemática nos deixou inebriados ao ver que uma subtração simples de $20.000 para pagar $3.300, o fez contornar o nosso ambiente um vexame ignominioso, escandaloso e oprobrioso.
+  Devido a sua perda das faculdades mentais, o lembramos que, se o senhor nos deu $20.000 para pagar $3.300, seu troco é de $16.700. Nada mais, nada menos. Espero que na sobriedade de um dia desconfortante e ensolarado, o senhor seja capaz de decifrar essa incógnita estupefata espalhafatosa que sua mente débil criou.
+Passar bem,
+
+                  Clube das árvores.
+                  Rua 29, Troco."
+vindo_de = 1
+indo_para = 1
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

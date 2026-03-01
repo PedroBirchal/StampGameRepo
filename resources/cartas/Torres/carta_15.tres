@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://ewgqy2v5pdpa"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_50faa"]
+
+[resource]
+script = ExtResource("1_50faa")
+conteudo = "Senhor Teófilotorres,
+ Será um prazer ir para sua casa jogar Xadrez,
+ Te vejo em breve, senhor Torresmo."
+vindo_de = 3
+indo_para = 3
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://c00kgn8i6yq2a"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_bi7v1"]
+
+[resource]
+script = ExtResource("1_bi7v1")
+conteudo = "Prezado senhor,
+ EU NÃO VOU PARTICIPAR DO SEU TORNEIO DE XADREZ, PARE DE INSISTIR.
+ Atenciosamente, Todo o povo de Aqualantida."
+indo_para = 3
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

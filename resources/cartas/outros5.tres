@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://dvithjvf22s37"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_7cv4a"]
+
+[resource]
+script = ExtResource("1_7cv4a")
+conteudo = "Caro Prefeito,
+  Neste sentido, a consulta aos diversos militantes oferece uma interessante oportunidade para verificação da fluidez dos cenários contemporâneos. Desta maneira, o julgamento imparcial das eventualidades instiga a construção de consensos estratégicos do sistema de formação de quadros que corresponde às necessidades. É claro que a constante divulgação das informações ainda não demonstrou convincentemente que vai participar na mudança dos índices pretendidos. Não obstante, a adoção de políticas descentralizadoras ilustra as tensões entre tradição e inovação das variáveis críticas de sucesso organizacional.
+  Caros amigos, a revolução dos costumes ressignifica os padrões de intervenção pública das direções preferenciais no sentido do progresso.
+Atenciosamente,
+             Secretário Geral da cidade Torres"
+vindo_de = 3
+indo_para = 3
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://ha6hfraro2xm"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_bms5w"]
+
+[resource]
+script = ExtResource("1_bms5w")
+conteudo = "EU NÃO VOU BRINCAR DE XADREZ COM VOCÊ.
+
+VAMOS JOGAR POKER VALENDO A ALMA?"
+vindo_de = 2
+indo_para = 3
+metadata/_custom_type_script = "uid://dy8u3p287gkos"

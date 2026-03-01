@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CartaResource" format=3 uid="uid://bwvj0cpesb0vl"]
+
+[ext_resource type="Script" uid="uid://dy8u3p287gkos" path="res://Scripts/cartas/carta_res.gd" id="1_jdfx7"]
+
+[resource]
+script = ExtResource("1_jdfx7")
+conteudo = "Prezada pessoa de pouca fé,
+
+Eu mal consigo conter o tremor de indignação nas minhas mãos (que são feitas de carne, osso e café, eu juro!) ao ler sua insinuação. Perguntar se minha última carta foi gerada por uma I.A. é o ápice do absurdo tecnológico.
+
+Será que chegamos a um ponto em que escrever um parágrafo sem erros de digitação e com uma pontuação minimamente aceitável já nos torna suspeitos de sermos um amontoado de códigos? Se eu fosse um robô, eu teria respondido em 0,2 segundos e não teria gastado dez minutos escolhendo o adjetivo certo para expressar minha profunda — e puramente humana — perplexidade.
+
+Honestamente, a próxima etapa será você me pedir para selecionar todas as imagens que contenham faixas de pedestres ou hidrantes antes de abrirmos o próximo e-mail?
+
+Por favor, não me obrigue a provar minha humanidade com um teste de Turing ou postando uma foto segurando o jornal de hoje. Minha criatividade não veio de um banco de dados, veio de anos de boletos pagos e crises existenciais, coisas que nenhum processador conseguiria simular com tanta precisão.
+
+Com um riso nervoso (e 100% orgânico),
+
+O Remetente, Torres
+
+Gerado pelo Chat GeminiPT"
+vindo_de = 3
+indo_para = 3
+metadata/_custom_type_script = "uid://dy8u3p287gkos"
