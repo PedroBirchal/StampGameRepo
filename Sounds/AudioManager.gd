@@ -5,3 +5,4 @@ extends Node3D
 @onready var close_letter = $CloseLetter
 @onready var telephone = $crank_ringtone2
 @onready var carimbo = $Carimbo
+@onready var gibberish = $Gibberish

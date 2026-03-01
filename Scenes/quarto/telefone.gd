@@ -28,11 +28,13 @@ func atender_telefone() -> void:
 		Jogo.instance.dialogo.display_texts(textos)
 		telefone_atendido.emit()
 		AudioManager.telephone.stop()
+		AudioManager.gibberish.play()
 		await Jogo.instance.dialogo.finished_multiple_texts
 		textos = []
 		sair()
 		estado = Estado.PARADO
 		chamada_encerrada.emit()
+		AudioManager.gibberish.stop()
 
 
 func jogar() -> void:
