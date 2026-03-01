@@ -7,7 +7,8 @@ extends Control
 @onready var pontuacao : Label = $Score/Pontuacao
 @onready var erros_label : Label = $Score/ErrosLabel
 @onready var timer_label : Label = $TimerLabel
-@onready var relogio = $Relogio
+@onready var relogio : Control = $Relogio
+#@export var relogio : Control
 var milisegundos : int
 var segundos : int
 var minutos : int
@@ -51,11 +52,3 @@ func animar_pontuacao_diminuindo() -> void :
 
 func setup_timer(timer : Timer) -> void :
 	relogio.set_timer(timer)
-
-"""
-func atualizar_timer(tempo_restante) -> void:
-	minutos = int(tempo_restante) / 60
-	segundos = int(tempo_restante) % 60
-	milisegundos = int(tempo_restante * 100) % 100
-	timer_label.text = "%02d:%02d:%02d" % [minutos, segundos, milisegundos]
-"""

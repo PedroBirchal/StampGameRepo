@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://duk6815hya8cu"]
+
+[ext_resource type="Script" uid="uid://c8tt6uwfq7b3s" path="res://Scripts/relogio_de_mesa.gd" id="1_2fy4b"]
+[ext_resource type="PackedScene" uid="uid://dtb8ut1ed3i5e" path="res://Models/Cenário/Relogio_Digital.fbx" id="1_kg1xj"]
+[ext_resource type="FontFile" uid="uid://dlp5ty2d6cime" path="res://Fonts/Jersey10-Regular.ttf" id="3_x2ptf"]
+
+[node name="Relogio" type="Node3D" unique_id=1259196084]
+script = ExtResource("1_2fy4b")
+
+[node name="Relogio_Digital" parent="." unique_id=859385945 instance=ExtResource("1_kg1xj")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="RelogioDisplay" type="Label3D" parent="Relogio_Digital" unique_id=2037423736]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.056003325, 0.02154477)
+modulate = Color(0.4509804, 1, 0.2901961, 1)
+text = "00:00"
+font = ExtResource("3_x2ptf")
+font_size = 150
+outline_size = 0
+
+[node name="RelogioTimer" type="Timer" parent="." unique_id=1790568464]
+
+[connection signal="timeout" from="RelogioTimer" to="." method="_on_relogio_timer_timeout"]
+
+[editable path="Relogio_Digital"]

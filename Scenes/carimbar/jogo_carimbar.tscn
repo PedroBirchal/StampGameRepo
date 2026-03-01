@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ddle7tbchbgep" path="res://Models/Objetos_Caixa/Itens_Instrumentos/Ukulele.fbx" id="11_hhygm"]
 [ext_resource type="PackedScene" uid="uid://c680xhh36ufi5" path="res://Scenes/pacotes/Pacote.tscn" id="12_ncxsn"]
 [ext_resource type="PackedScene" uid="uid://d1fk0a5qcg4w0" path="res://Scenes/postit/post_it.tscn" id="12_roixi"]
+[ext_resource type="PackedScene" uid="uid://duk6815hya8cu" path="res://Scenes/carimbar/RelogioDeMesa.tscn" id="12_xxvmt"]
 [ext_resource type="Script" uid="uid://bvtixto24md7m" path="res://Scripts/rotacao/rotacionavel.gd" id="13_iapwp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1nvq"]
@@ -403,13 +404,8 @@ transform = Transform3D(2.049661, -2.1906369, -1.3081876e-07, 8.274044e-08, -1.0
 visible = false
 mesh = SubResource("ArrayMesh_5f1bj")
 
-[node name="Relogio" type="Node3D" parent="Mesa" unique_id=1428879714]
+[node name="Relogio" parent="Mesa" unique_id=1259196084 instance=ExtResource("12_xxvmt")]
 transform = Transform3D(0.81576425, 0, -0.5783846, 0, 1, 0, 0.5783846, 0, 0.81576425, 1.6317453, 1, -3.0529714)
-
-[node name="Relogio_Digital" parent="Mesa/Relogio" unique_id=683875174 instance=ExtResource("10_fxi00")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
-
-[node name="Relogio_Digital" parent="Mesa/Relogio/Relogio_Digital" index="0" unique_id=1443153367 groups=["costas_quarto", "sumivel"]]
 
 [node name="PostIts" type="Node3D" parent="Mesa" unique_id=529964465]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3.4673114)

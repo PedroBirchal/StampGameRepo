@@ -17,12 +17,25 @@ var jogavel_atual : Jogavel
 @export var quarto_ui : Control
 @export var dialogo : Dialogo
 
+@export_group("Timer")
+@export var ui_timer_pontuacao : Control
+@export var timer : Timer
+@export var duracao_do_dia : float = 300 # em segundos
+
 
 func _init() -> void:
 	instance = self
 
 func _ready() -> void:
 	atualizar_sumiveis()
+	if not timer.is_node_ready() :
+		print ("ta não 2")
+		await timer.ready
+	timer.start(duracao_do_dia)
+	if not ui_timer_pontuacao.is_node_ready() :
+		print("ta não 1")
+		await ui_timer_pontuacao.ready
+	ui_timer_pontuacao.setup_timer(timer)
 
 func jogavel_iniciado(jogavel: Jogavel) -> void:
 	if jogavel_atual == jogavel:

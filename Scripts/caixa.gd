@@ -31,7 +31,7 @@ func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Ve
 
 func _on_area_caxa_body_entered(body: Node3D) -> void:
 	if body is Carta :
-		if body.destino == destino:
+		if body.indo_para == destino:
 			pontuar.emit(body.valor)
 		else :
 			pontuar.emit(-body.valor)
