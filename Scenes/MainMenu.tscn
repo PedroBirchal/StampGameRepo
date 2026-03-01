@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Scenes/audio_controller.gd" id="6_xim88"]
 [ext_resource type="FontFile" uid="uid://bbb8aiguwfggd" path="res://Fonts/Mory.ttf" id="7_koqhg"]
 [ext_resource type="Script" uid="uid://dtp8atbvuxhby" path="res://Scenes/quarto/play_music.gd" id="7_xim88"]
-[ext_resource type="Shader" uid="uid://72r7mi5v1ouy" path="res://Scenes/Blur.gdshader" id="10_loo7a"]
+[ext_resource type="Shader" uid="uid://72r7mi5v1ouy" path="res://materials/Blur.gdshader" id="10_loo7a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8saeu"]
 bg_color = Color(0, 0.6929749, 0.63965076, 1)
