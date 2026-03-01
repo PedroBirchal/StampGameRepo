@@ -11,6 +11,8 @@ static var ehCaixa : bool = false
 static var decal_size : Vector3 = Vector3(0.5, 0.04, 0.5)
 var animando : bool = false
 
+@export var carimbo_id : String
+
 func _selecionar_novo_objeto(alvo):
 	holding = true
 	posInicial = alvo.global_position
@@ -89,6 +91,10 @@ func _carimbar():
 	novo_decalque.global_position = ponto
 	_alinhar_decalque(novo_decalque, normal)
 	
+	var encomenda = get_encomenda_colidida(collider)
+	if encomenda != null:
+		encomenda.recebeu_carimbo(carimbo_id)
+	
 	# TWEEN
 	var tween = create_tween()
 	var posicao_no_mouse = global_position
@@ -96,6 +102,11 @@ func _carimbar():
 	tween.tween_property(self, "global_position", posicao_no_mouse, 0.1)
 	await tween.finished
 	animando = false
+
+func get_encomenda_colidida(collider) -> Encomenda:
+	while collider != null and collider is not Pacote:
+		collider = collider.get_parent()
+	return collider
 
 func _alinhar_decalque(decal, normal):
 	decal.global_rotation = Vector3.ZERO 

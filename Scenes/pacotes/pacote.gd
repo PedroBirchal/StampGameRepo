@@ -52,11 +52,26 @@ func _ready() -> void:
 	super._ready() # Chama a função _ready da classe Encomenda
 	fechando.connect(fechar_pacote)
 	
+	caracteristicas.append("item")
+
+func gerar_localidades() -> void:
+	var locais = Singleton.Cidades.values()
+	locais.shuffle()
+	vindo_de = locais[0]
+	indo_para = locais[1]
+	
+	caracteristicas.append("vem_" + Singleton.sigla_cidade[vindo_de])
+	caracteristicas.append("indo_" + Singleton.sigla_cidade[indo_para])
+	
 
 func setar_pacote(item_resource: ItemResource) -> void:
 	var tamanho: ItemResource.TamanhoPacote = item_resource.cabe_em
 	item = item_resource.mesh.instantiate()
 	item_res = item_resource
+	
+	gerar_localidades()
+	
+	caracteristicas.append_array(item_res.categorias)
 	
 	item_holder.reparent(conteudo_holder)
 	item_holder.add_child(item)
@@ -64,6 +79,8 @@ func setar_pacote(item_resource: ItemResource) -> void:
 	
 	item.position = item_resource.offset_pos
 	item.rotation = item_resource.offset_rot
+	
+	#print(caracteristicas)
 	
 	setar_tamanho(tamanho)
 

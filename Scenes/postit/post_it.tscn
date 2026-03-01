@@ -14,6 +14,8 @@ mesh = NodePath("Mesh/PostIt/Post-It")
 label = NodePath("Texto")
 duracao_piscada_in = 0.2
 duracao_piscada_out = 2.0
+cor_correta = Color(0.24750006, 0.54, 0.18900003, 1)
+cor_errada = Color(0.77918315, 0.21897325, 0.21727979, 1)
 
 [node name="Mesh" type="Node3D" parent="." unique_id=402564819]
 

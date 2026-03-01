@@ -5,25 +5,25 @@
 
 [sub_resource type="Resource" id="Resource_tw1ue"]
 script = ExtResource("1_tw1ue")
-requer_caracteristicas = PackedStringArray("vem_torre")
+requer_caracteristicas = PackedStringArray("vem_torre", "indo_aqua")
 carimbo = "torre"
 metadata/_custom_type_script = "uid://bt8c7yltftk8r"
 
 [sub_resource type="Resource" id="Resource_ohdii"]
 script = ExtResource("1_tw1ue")
-requer_caracteristicas = PackedStringArray("vem_inferno")
+requer_caracteristicas = PackedStringArray("vem_inferno", "indo_aqua", "caixa")
 carimbo = "inferno"
 metadata/_custom_type_script = "uid://bt8c7yltftk8r"
 
 [sub_resource type="Resource" id="Resource_84mnk"]
 script = ExtResource("1_tw1ue")
-requer_caracteristicas = PackedStringArray("vem_arvoro")
+requer_caracteristicas = PackedStringArray("vem_arvoro", "indo_aqua", "caixa")
 carimbo = "arvoro"
 metadata/_custom_type_script = "uid://bt8c7yltftk8r"
 
 [sub_resource type="Resource" id="Resource_78ai5"]
 script = ExtResource("1_tw1ue")
-requer_caracteristicas = PackedStringArray("vem_aqua")
+requer_caracteristicas = PackedStringArray("vem_aqua", "indo_aqua", "caixa")
 carimbo = "aqua"
 metadata/_custom_type_script = "uid://bt8c7yltftk8r"
 

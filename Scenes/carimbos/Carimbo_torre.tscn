@@ -77,6 +77,7 @@ script = ExtResource("1_f0h1s")
 previsao = NodePath("Sprite3D")
 Carimbada = ExtResource("2_f0h1s")
 ray = NodePath("RayCast3D")
+carimbo_id = "torre"
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103]
 transform = Transform3D(0.03, 0, 0, 0, 0.025, 0, 0, 0, 0.04, 0, -0.18350771, 0)

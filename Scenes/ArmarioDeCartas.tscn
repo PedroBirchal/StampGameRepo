@@ -87,7 +87,7 @@ destino = 2
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.474, 0.016, 1.526)
 destino = 3
 
-[node name="Colisão" type="StaticBody3D" parent="." unique_id=1457063483]
+[node name="Colisão" type="StaticBody3D" parent="." unique_id=1457063483 groups=["esquerda_quarto"]]
 
 [node name="colisor_base" type="CollisionShape3D" parent="Colisão" unique_id=127102454]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.27090454)

@@ -19,10 +19,22 @@ func _ready() -> void:
 	recebe_valores(load("res://resources/cartas/carta_1.tres"))
 	fechando.connect(fechar_carta)
 	
+	caracteristicas.append("carta")
+	
 	randomize()
-	destino = randi_range(0, 3) as Singleton.Cidades
-	mudar_cor_da_carta(destino)
+	gerar_localidades()
+	mudar_cor_da_carta(indo_para)
 	#caracter_max = textos[0].text.length()
+
+# Temporario
+func gerar_localidades() -> void:
+	var locais = Singleton.Cidades.values()
+	locais.shuffle()
+	vindo_de = locais[0]
+	indo_para = locais[1]
+	
+	caracteristicas.append("vem_" + Singleton.sigla_cidade[vindo_de])
+	caracteristicas.append("indo_" + Singleton.sigla_cidade[indo_para])
 
 func mudar_cor_da_carta(valor : int) -> void:
 	var material = mesh_carta.get_active_material(0)
@@ -32,8 +44,8 @@ func mudar_cor_da_carta(valor : int) -> void:
 
 func recebe_valores(carta: CartaResource) -> void:
 	#texto_meio.text = carta.conteudo
-	destino = carta.indo_para
-	mudar_cor_da_carta(destino)
+	indo_para = carta.indo_para
+	mudar_cor_da_carta(indo_para)
 
 func abrir_carta() -> void:
 	if not pode_abrir or estado_atual != EstadoEncomenda.INSPECIONANDO:

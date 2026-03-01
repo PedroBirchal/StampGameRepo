@@ -13,13 +13,19 @@ class Decreto:
 var decretos: Array[Decreto]
 var decreto_a_ser_incluido: Decreto
 
+@export var tempo_checagem_postit := 0.5
+
 @export_group("Referências")
 @export var jogo_carimbar: JogoCarimbar
 @export var telefone: Telefone
 
+signal apos_checar_corretude
+
 func _ready() -> void:
 	var t = get_tree().create_timer(1)
 	t.timeout.connect(gerar_novo_decreto)
+	
+	jogo_carimbar.encomenda_despachada.connect(checar_corretude)
 
 
 func gerar_novo_decreto() -> void:
@@ -51,3 +57,18 @@ func criar_ligacao(decreto: Decreto) -> void:
 	
 	var t = get_tree().create_timer(30)
 	t.timeout.connect(gerar_novo_decreto)
+
+
+func checar_corretude(encomenda: Encomenda) -> void:
+	var tween = get_tree().create_tween()
+	
+	var certo = true
+	for decreto in decretos:
+		var valido = decreto.resource.checar_encomenda_valida(encomenda)
+		decreto.postit.piscar_estado(valido)
+		certo = certo and valido
+		await get_tree().create_timer(tempo_checagem_postit).timeout
+	
+	print("A encomenda estava: " + ("correta" if certo else "errada"))
+	
+	apos_checar_corretude.emit()

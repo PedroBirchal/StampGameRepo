@@ -5,7 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_j2pnm"]
 script = ExtResource("1_j2pnm")
-requer_caracteristicas = PackedStringArray("indo_aqua", "ferramenta")
+requer_caracteristicas = PackedStringArray("indo_aqua", "ferramenta", "item")
 limite = 3
 metadata/_custom_type_script = "uid://bt8c7yltftk8r"
 

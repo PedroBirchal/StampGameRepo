@@ -3,6 +3,8 @@ extends RigidBody3D
 
 enum EstadoEncomenda { PARADA, INSPECIONANDO, ABERTA }
 
+enum EstadoEntregue { EM_ANALISE, ENTREGUE, DESCARTADA }
+
 @export var estado_atual := EstadoEncomenda.PARADA
 var rotating : bool = false
 var selecionado : bool = false
@@ -12,13 +14,17 @@ signal fechando
 signal clicando
 signal estado_mudado(estado: EstadoEncomenda)
 
+var carimbos: Array[String]
 
 @export var rotacionavel : Rotacionavel
 
+@export var caracteristicas : PackedStringArray
 
 
-var destino : Singleton.Cidades
+var vindo_de : Singleton.Cidades
+var indo_para : Singleton.Cidades
 
+var estado_entregue = EstadoEntregue.EM_ANALISE
 
 func _ready() -> void:
 	input_event.connect(_on_input_event)
@@ -51,3 +57,7 @@ func _on_input_event(_camera: Node, event: InputEvent, _event_position: Vector3,
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			clicando.emit()
+
+
+func recebeu_carimbo(carimbo: String) -> void:
+	carimbos.append(carimbo)

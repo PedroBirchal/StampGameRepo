@@ -9,6 +9,7 @@ enum Estado { QUARTO, JOGANDO }
 var estado := Estado.QUARTO
 var jogavel_atual : Jogavel
 @export var jogador : Jogador
+@export var decretos : DecretosController
 @export var camera_principal : Camera3D
 
 @export_group("UI")

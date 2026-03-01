@@ -5,7 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_0tqj7"]
 script = ExtResource("1_0tqj7")
-requer_caracteristicas = PackedStringArray("indo_arvoro", "qualidade_ruim")
+requer_caracteristicas = PackedStringArray("indo_arvoro", "qualidade_ruim", "item")
 limite = 3
 metadata/_custom_type_script = "uid://bt8c7yltftk8r"
 

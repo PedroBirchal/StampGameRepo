@@ -53,7 +53,7 @@ func raycastar() -> void:
 	if ultimo_raycast_achado != null and ultimo_raycast_achado != col:
 		if ultimo_raycast_achado is InteragivelHover:
 			(ultimo_raycast_achado as InteragivelHover).saiu_de_cima.emit()
-		
+	
 	if col == null:
 		ultimo_raycast_achado = null
 		interagivel_atual = null

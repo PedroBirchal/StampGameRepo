@@ -36,6 +36,8 @@ var ja_comecou = false
 ## Sempre que muda a encomenda_atual, chama o sinal com o valor dela
 signal mudou_encomenda(encomenda: Encomenda)
 
+signal encomenda_despachada(encomenda: Encomenda)
+
 
 func jogar() -> void:
 	super()
@@ -93,6 +95,11 @@ func _on_mandar_pra_la(_camera: Node, event: InputEvent, _event_position: Vector
 func mandar_encomenda_atual_para_destino() -> void:
 	if not tem_encomenda_no_meio() or encomenda_atual.estado_atual != Encomenda.EstadoEncomenda.PARADA:
 		return
+	
+	encomenda_atual.estado_entregue = Encomenda.EstadoEntregue.ENTREGUE
+	encomenda_despachada.emit(encomenda_atual)
+	
+	await Jogo.instance.decretos.apos_checar_corretude
 	
 	encomenda_atual.clicando.disconnect(encomenda_atual_selecionada)
 	encomenda_atual.estado_mudado.disconnect(encomenda_atual_mudou_estado)
@@ -162,7 +169,6 @@ func sair_inspecionar() -> void:
 		var tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(encomenda_atual, "position", Vector3.ZERO, 0.25)
 		tween.tween_property(encomenda_atual, "rotation", Vector3.ZERO, 0.25)
-		#encomenda_atual.position = Vector3.ZERO
 		encomenda_atual.set_estado(Encomenda.EstadoEncomenda.PARADA)
 		sair_inspecionar_trigger.hide()
 

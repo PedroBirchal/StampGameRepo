@@ -23,3 +23,11 @@ var direcao_grupo = {
 	Direcao.COSTAS: "costas_quarto",
 	Direcao.DIREITA: "direita_quarto",
 }
+
+
+var sigla_cidade = {
+	Cidades.AQUA: "aqua",
+	Cidades.ARVORE: "arvoro",
+	Cidades.INFERNOPOLIS: "inferno",
+	Cidades.TORRE: "torre"
+}
