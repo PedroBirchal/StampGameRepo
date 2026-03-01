@@ -31,3 +31,44 @@ var sigla_cidade = {
 	Cidades.INFERNOPOLIS: "inferno",
 	Cidades.TORRE: "torre"
 }
+
+var cartas_dir_path : Array[StringName] = [
+"res://resources/cartas/", 
+"res://resources/cartas/Aqualantida/", 
+"res://resources/cartas/Arvorosa/",
+"res://resources/cartas/Infernópolis/",
+"res://resources/cartas/Torres/"]
+var cartas : Array[CartaResource]
+var cartas_acesadas : Array[int]
+
+func _init() -> void :
+	for diretorio in cartas_dir_path :
+		var dir := DirAccess.open(diretorio)
+		if dir :
+			var file_names := dir.get_files()
+			for file in file_names :
+				var resource_path = diretorio.path_join(file)
+				var resource_loaded = load(resource_path)
+				if resource_loaded :
+					cartas.append(resource_loaded)
+				else:
+					print ("vixe rapaz, n deu pra carragar uma carta aqui nn")
+		else :
+			print ("Não foi possivel abrir o diretorio")
+	var i = 1
+	for carta in cartas :
+		print (i)
+		i += 1
+
+func _ready() -> void:
+	print( get_rand_carta().conteudo)
+
+func get_rand_carta() -> CartaResource :
+	if cartas_acesadas.size() >= 22 :
+		cartas_acesadas.clear()
+	var index = randi_range(0, cartas.size() - 1)
+	if cartas_acesadas.has(index) :
+		return get_rand_carta()
+	else :
+		cartas_acesadas.append(index)
+		return cartas[index]

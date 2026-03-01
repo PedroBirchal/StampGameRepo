@@ -12,6 +12,7 @@ class Decreto:
 	var postit: PostIt
 var decretos: Array[Decreto]
 var decreto_a_ser_incluido: Decreto
+var entregas_incorretas = 0
 
 @export var tempo_checagem_postit := 0.5
 
@@ -70,5 +71,6 @@ func checar_corretude(encomenda: Encomenda) -> void:
 		await get_tree().create_timer(tempo_checagem_postit).timeout
 	
 	print("A encomenda estava: " + ("correta" if certo else "errada"))
+	if not certo : entregas_incorretas += 1
 	
 	apos_checar_corretude.emit()

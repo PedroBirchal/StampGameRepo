@@ -699,7 +699,7 @@ area_preview_caixa = NodePath("CaixaSpawnAqui")
 [node name="PlacaPapelao" parent="Estoque" unique_id=661794333 instance=ExtResource("24_yuepw")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.30773258, -0.57849646, 0)
 
-[node name="CaixaIndicador" parent="Estoque/PlacaPapelao" index="0" unique_id=1589661665]
+[node name="CaixaIndicador" parent="Estoque/PlacaPapelao" index="0" unique_id=214110008]
 mesh = SubResource("ArrayMesh_o2fhn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Estoque" unique_id=1658370593]

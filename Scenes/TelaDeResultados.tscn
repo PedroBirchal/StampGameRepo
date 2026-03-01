@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://ckynw7akie4ml"]
+
+[ext_resource type="Script" uid="uid://d2u1m1stpds41" path="res://Scripts/tela_de_resultados.gd" id="1_54gax"]
+[ext_resource type="FontFile" uid="uid://bbb8aiguwfggd" path="res://Fonts/Mory.ttf" id="2_uiv2x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vrp45"]
+font = ExtResource("2_uiv2x")
+font_size = 80
+
+[node name="TelaDeResultados" type="Control" unique_id=1285358852]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_54gax")
+
+[node name="LabelCarimbos" type="Label" parent="." unique_id=1227982668]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -551.0
+offset_top = -347.0
+offset_right = 551.0
+offset_bottom = -218.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Carimbos incorretos : 0"
+label_settings = SubResource("LabelSettings_vrp45")
+
+[node name="LabelEnvios" type="Label" parent="." unique_id=1201261402]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -551.0
+offset_top = -62.0
+offset_right = 551.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Envios incorretos : 0"
+label_settings = SubResource("LabelSettings_vrp45")
+
+[node name="LabelSaldo" type="Label" parent="." unique_id=721216177]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -551.0
+offset_top = 178.0
+offset_right = 551.0
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Saldo final : 0"
+label_settings = SubResource("LabelSettings_vrp45")
