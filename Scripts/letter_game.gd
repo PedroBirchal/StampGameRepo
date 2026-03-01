@@ -13,6 +13,7 @@ var pontuacao : int = 0
 
 func jogar() -> void:
 	super()
+	camera.make_current()
 	carta_controller.active = true
 
 func sair() -> void:

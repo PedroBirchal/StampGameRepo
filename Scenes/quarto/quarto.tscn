@@ -758,6 +758,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
+[node name="LightmapGI" type="LightmapGI" parent="." unique_id=346357970]
+
 [connection signal="timeout" from="Jogo/TimerDoJogo" to="DecretosController" method="_on_timer_do_jogo_timeout"]
 [connection signal="timeout" from="Jogo/TimerDoJogo" to="Jogo" method="_on_timer_do_jogo_timeout"]
 [connection signal="chamar" from="UI_Jogo/TextureButton" to="OlhoDeDeus/Rotacionavel" method="girar"]
