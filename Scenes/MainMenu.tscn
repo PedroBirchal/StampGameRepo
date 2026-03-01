@@ -9,8 +9,7 @@
 [ext_resource type="Script" path="res://Scenes/audio_controller.gd" id="6_xim88"]
 [ext_resource type="FontFile" uid="uid://bbb8aiguwfggd" path="res://Fonts/Mory.ttf" id="7_koqhg"]
 [ext_resource type="Script" uid="uid://dtp8atbvuxhby" path="res://Scenes/quarto/play_music.gd" id="7_xim88"]
-
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_cmrfp"]
+[ext_resource type="Shader" uid="uid://72r7mi5v1ouy" path="res://Scenes/Blur.gdshader" id="10_loo7a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8saeu"]
 bg_color = Color(0, 0.6929749, 0.63965076, 1)
@@ -40,26 +39,17 @@ thickness = 13
 color = Color(0.9999998, 0.2247948, 0.5679053, 1)
 thickness = 13
 
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_cmrfp"]
+file = "res://resources/Video/MenuAnim.ogv"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_if7li"]
+shader = ExtResource("10_loo7a")
+shader_parameter/blur_amount = 1.5
+
 [node name="MainMenu" type="Node2D" unique_id=1637582694 node_paths=PackedStringArray("creditsTela", "opcoesTela")]
 script = ExtResource("1_8saeu")
 creditsTela = NodePath("Telas/Créditos")
 opcoesTela = NodePath("Telas/Opções")
-
-[node name="Background" type="ColorRect" parent="." unique_id=29128835]
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0.9372549, 0.627451, 0.5254902, 0)
-
-[node name="Camera2D" type="Camera2D" parent="Background" unique_id=1664650288]
-position = Vector2(967, 539)
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Background" unique_id=1804025689]
-layout_mode = 0
-offset_left = -4.0
-offset_top = -10.0
-offset_right = 1928.0
-offset_bottom = 1076.0
-stream = SubResource("VideoStreamTheora_cmrfp")
 
 [node name="Title" type="Label" parent="." unique_id=1203621451]
 offset_left = 746.0
@@ -397,6 +387,27 @@ text = "Sair"
 
 [node name="PlayMusic" type="Node" parent="." unique_id=757560477]
 script = ExtResource("7_xim88")
+
+[node name="Main" type="Node" parent="." unique_id=507325774]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Main" unique_id=747525070]
+z_index = -2
+offset_right = 1995.0
+offset_bottom = 1127.0
+stream = SubResource("VideoStreamTheora_cmrfp")
+autoplay = true
+loop = true
+
+[node name="Camera2D" type="Camera2D" parent="Main" unique_id=1470247749]
+position = Vector2(986.00006, 550)
+scale = Vector2(2.6400023, 6.2529874)
+zoom = Vector2(0.65, 0.65)
+
+[node name="ColorRect" type="ColorRect" parent="Main" unique_id=1367331201]
+z_index = -1
+material = SubResource("ShaderMaterial_if7li")
+offset_right = 1977.0
+offset_bottom = 1103.0
 
 [connection signal="pressed" from="Telas/Créditos/Panel/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Telas/Opções/Panel/TextureButton" to="." method="_on_texture_button_pressed"]
