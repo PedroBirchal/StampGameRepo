@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bbg7wgt1gvano"]
 
 [ext_resource type="PackedScene" uid="uid://byx3526yxeier" path="res://Models/Objetos_Caixa/Itens_Gerais/Maquiagem_Sombras.fbx" id="1_vfd6n"]
+[ext_resource type="PackedScene" uid="uid://diyp5b6i1imxl" path="res://Models/Objetos_Caixa/Itens_Danificados/Gerais/Maquiagem_Sombras_Ruim.fbx" id="2_qu7m5"]
 [ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_te1dq"]
 
 [resource]
@@ -9,4 +10,6 @@ offset_pos = Vector3(0, -0.023, 0)
 mesh = ExtResource("1_vfd6n")
 categorias = PackedStringArray("maquiagem")
 offset_rot_mostrar = Vector3(0.45029494, -0.5061455, 0)
+offset_rot_defeito = Vector3(0.45029494, -0.5061455, 0)
+mesh_defeito = ExtResource("2_qu7m5")
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

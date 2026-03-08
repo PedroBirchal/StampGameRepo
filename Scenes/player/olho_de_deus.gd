@@ -21,7 +21,7 @@ func _ready() -> void:
 	
 	carimbo.on_chegou.connect(func(interagivel: Interagivel): interagivel.interagir())
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	raycastar()
 	
 func raycastar() -> void:
@@ -83,6 +83,10 @@ func _on_rotacionavel_comecou_girar(direcao: int, dir_antiga: int) -> void:
 	for mesh in meshs:
 		setar_alpha_dos_materiais(mesh, 0.0)
 	
+	var sprites = nodes.filter(func(node): return node is Sprite3D)
+	for sprite in sprites:
+		setar_alpha_do_sprite(sprite, 0.0)
+	
 	if dir_antiga == direcao or dir_antiga < 0:
 		return
 	
@@ -91,6 +95,10 @@ func _on_rotacionavel_comecou_girar(direcao: int, dir_antiga: int) -> void:
 	
 	for mesh in meshs_antigas:
 		setar_alpha_dos_materiais(mesh, 1.0)
+	
+	var sprites_antigos = nodes_antigos.filter(func(node): return node is Sprite3D)
+	for sprite in sprites_antigos:
+		setar_alpha_do_sprite(sprite, 1.0)
 
 func setar_alpha_dos_materiais(mesh: MeshInstance3D, alpha: float) -> void:
 	for i in range(0, mesh.get_surface_override_material_count()):
@@ -107,6 +115,14 @@ func setar_alpha_dos_materiais(mesh: MeshInstance3D, alpha: float) -> void:
 		var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(mat, "albedo_color", albedo, 0.2)
 
+func setar_alpha_do_sprite(sprite: Sprite3D, alpha: float) -> void:
+	var mod = sprite.modulate
+	if mod.a == alpha:
+		return
+		
+	mod.a = alpha
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(sprite, "modulate", mod, 0.2)
 
-func _on_rotacionavel_terminou_girar(direcao: int) -> void:
+func _on_rotacionavel_terminou_girar(_direcao: int) -> void:
 	pass # Replace with function body.

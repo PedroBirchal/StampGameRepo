@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dlmyi0l7mw844" path="res://Models/Objetos_Caixa/Itens_Instrumentos/Flauta.fbx" id="1_bkntr"]
 [ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_6frwd"]
+[ext_resource type="PackedScene" uid="uid://co4dofynb8jfk" path="res://Models/Objetos_Caixa/Itens_Danificados/Instrumentos/Flauta_Ruim.fbx" id="2_83k4a"]
 
 [resource]
 script = ExtResource("2_6frwd")
@@ -11,4 +12,6 @@ mesh = ExtResource("1_bkntr")
 cabe_em = 2
 categorias = PackedStringArray("instrumento")
 offset_pos_mostrar = Vector3(-0.1, 0, 0)
+offset_rot_defeito = Vector3(0, 0.7853982, 0)
+mesh_defeito = ExtResource("2_83k4a")
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

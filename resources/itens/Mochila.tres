@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://b2vmcel8c4s4r"]
 
 [ext_resource type="PackedScene" uid="uid://byb3ipiqbxchs" path="res://Models/Objetos_Caixa/Itens_Gerais/Mochila.fbx" id="1_ta4f7"]
+[ext_resource type="PackedScene" uid="uid://jybqv1epmui6" path="res://Models/Objetos_Caixa/Itens_Danificados/Gerais/Mochila_Ruim.fbx" id="2_jhsnb"]
 [ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_sf0t3"]
 
 [resource]
@@ -10,4 +11,6 @@ offset_rot = Vector3(-0.737454, -0.82838565, 0)
 mesh = ExtResource("1_ta4f7")
 cabe_em = 1
 offset_rot_mostrar = Vector3(0, -0.62133723, 0)
+offset_rot_defeito = Vector3(0, 0.62133723, 0)
+mesh_defeito = ExtResource("2_jhsnb")
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

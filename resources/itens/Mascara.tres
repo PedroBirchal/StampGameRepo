@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bac5ewn4cordh" path="res://Models/Objetos_Caixa/Itens_Gerais/Maquiagem_MascaraC.fbx" id="1_rleb2"]
 [ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_bhn3n"]
+[ext_resource type="PackedScene" uid="uid://b18lq7gb2e1v7" path="res://Models/Objetos_Caixa/Itens_Danificados/Gerais/Maquiagem_MascaraC_Ruim.fbx" id="2_xt8bl"]
 
 [resource]
 script = ExtResource("2_bhn3n")
@@ -9,4 +10,5 @@ offset_pos = Vector3(0, -0.012, 0)
 offset_rot = Vector3(1.5707964, 0, 0)
 mesh = ExtResource("1_rleb2")
 categorias = PackedStringArray("maquiagem")
+mesh_defeito = ExtResource("2_xt8bl")
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

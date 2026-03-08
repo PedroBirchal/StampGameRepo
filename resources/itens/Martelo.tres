@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://buuo15uk5m160" path="res://Models/Objetos_Caixa/Itens_Ferramenta/Martelo.fbx" id="1_xq2ot"]
 [ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_070rn"]
+[ext_resource type="PackedScene" uid="uid://btipteljf58i7" path="res://Models/Objetos_Caixa/Itens_Danificados/Ferramentas/Martelo_Ruim.fbx" id="2_detjh"]
 
 [resource]
 script = ExtResource("2_070rn")
@@ -9,4 +10,6 @@ offset_pos = Vector3(-0.007, 0, 0.087)
 mesh = ExtResource("1_xq2ot")
 categorias = PackedStringArray("ferramenta")
 offset_rot_mostrar = Vector3(1.43117, 0, 0)
+offset_rot_defeito = Vector3(1.5707964, 0, 0)
+mesh_defeito = ExtResource("2_detjh")
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

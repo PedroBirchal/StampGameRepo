@@ -38,10 +38,10 @@
 [ext_resource type="Resource" uid="uid://ch3707yuqkkm7" path="res://resources/decretos/decreto_13.tres" id="16_bwit0"]
 [ext_resource type="Resource" uid="uid://dcvryfdkkkjn6" path="res://resources/decretos/decreto_14.tres" id="17_fg000"]
 [ext_resource type="Resource" uid="uid://so3ah50d3syy" path="res://resources/decretos/decreto_15.tres" id="18_q2yap"]
-[ext_resource type="Script" uid="uid://dtp8atbvuxhby" path="res://Scenes/quarto/play_music.gd" id="19_80gip"]
-[ext_resource type="PackedScene" uid="uid://ckynw7akie4ml" path="res://Scenes/TextoFimDeJogo.tscn" id="21_yp1q3"]
+[ext_resource type="Script" path="res://Scenes/quarto/play_music.gd" id="19_80gip"]
+[ext_resource type="PackedScene" uid="uid://iifgv6n7t771" path="res://Scenes/TextoFimDeJogo.tscn" id="21_yp1q3"]
 [ext_resource type="PackedScene" uid="uid://bjkfs4qbiqqv3" path="res://Scenes/UILetterThrowing.tscn" id="23_873pr"]
-[ext_resource type="Script" path="res://Scenes/quarto/fade_in_out.gd" id="43_873pr"]
+[ext_resource type="Script" uid="uid://tokhtvkxhalt" path="res://Scenes/quarto/fade_in_out.gd" id="43_873pr"]
 
 [sub_resource type="GDScript" id="GDScript_js386"]
 script/source = "extends TextureButton
@@ -350,9 +350,9 @@ navigation_mesh = SubResource("NavigationMesh_t12d2")
 [node name="MainRoom2" parent="NavigationRegion3D/CenarioBonito" unique_id=1392424320 instance=ExtResource("2_a0bhh")]
 transform = Transform3D(-1.49, 0, -1.355053e-07, 0, 2, 0, 1.3025993e-07, 0, -1.55, 0.06823909, 0.05798039, 0.048100412)
 
-[node name="Janela" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="0" unique_id=930112789 groups=["frente_quarto", "sumivel"]]
+[node name="Janela" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="0" unique_id=1730109776 groups=["frente_quarto", "sumivel"]]
 
-[node name="MainRoom" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="1" unique_id=576208453]
+[node name="MainRoom" parent="NavigationRegion3D/CenarioBonito/MainRoom2" index="1" unique_id=955432246]
 transform = Transform3D(0.9999999, 0, -7.1054274e-15, 0, 1, 0, 7.1054274e-15, 0, 0.9999999, 0.013425991, 1.4463149, -0.0046143737)
 
 [node name="Wardrobe" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=599994622]
@@ -411,7 +411,7 @@ material_outline = ExtResource("2_kupag")
 area_de_interacao = NodePath("../AreaDeInteracao")
 jogavel = NodePath("../../..")
 
-[node name="Mapa" type="Sprite3D" parent="NavigationRegion3D/CenarioBonito/Quadro" unique_id=909151204]
+[node name="Mapa" type="Sprite3D" parent="NavigationRegion3D/CenarioBonito/Quadro" unique_id=909151204 groups=["frente_quarto"]]
 transform = Transform3D(-0.19, 0, -1.6610327e-08, 0, 0.19, 0, 1.6610327e-08, 0, -0.19, 0, 0, -0.10899353)
 double_sided = false
 texture = ExtResource("6_nfdy7")
@@ -484,7 +484,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8990483, 0)
 [node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone" unique_id=1970361200 instance=ExtResource("10_v11ly")]
 transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, 0, 0, 0)
 
-[node name="Skeleton3D" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone" parent_id_path=PackedInt32Array(1970361200, 523486360) index="0" unique_id=2109237668]
+[node name="Skeleton3D" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone" parent_id_path=PackedInt32Array(1970361200, 848642459) index="0" unique_id=711747211]
 bones/1/rotation = Quaternion(0.03847624, -0.3147961, -0.70605934, 0.63316923)
 bones/1/scale = Vector3(1.0000001, 1.0000001, 1.0000001)
 bones/2/position = Vector3(7.000676e-09, 0.07513497, -8.085988e-09)
@@ -493,7 +493,7 @@ bones/2/scale = Vector3(0.9999998, 0.99999964, 0.99999964)
 bones/6/position = Vector3(-0.08571863, 0.042231128, 0.12213573)
 bones/6/rotation = Quaternion(-6.2726606e-08, 3.8261172e-10, -0.70710677, 0.7071069)
 
-[node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone/Skeleton3D" index="0" unique_id=1938451684 groups=["frente_quarto", "sumivel"]]
+[node name="Telefone_Fio" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio/Arm_Telefone/Skeleton3D" index="0" unique_id=1558519973 groups=["frente_quarto", "sumivel"]]
 
 [node name="AnimationTree" type="AnimationTree" parent="NavigationRegion3D/CenarioBonito/Telefone/Telefone/Telefone_Fio" unique_id=1701253788]
 tree_root = SubResource("AnimationNodeStateMachine_theeu")
@@ -539,7 +539,7 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.51375246, 1.2140979, 
 transform = Transform3D(1.2512765, 0, 0.82722855, 0, 1.5, 0, -0.82722855, 0, 1.2512765, 0.56865263, -0.03554131, 2.5068283)
 
 [node name="PacoteGN_P" parent="NavigationRegion3D/CenarioBonito/Caixas" unique_id=1079664930 instance=ExtResource("12_yribc")]
-transform = Transform3D(-0.119271874, 1.9010075, -0.6098725, 0.086475596, 0.6153058, 1.9010315, 1.9945669, 0.08700028, -0.11888972, 1.4327102, 0.56826144, 0.8978677)
+transform = Transform3D(-0.119271874, 1.9010075, -0.6098725, 0.086475596, 0.6153058, 1.9010315, 1.9945669, 0.08700028, -0.11888972, 1.4326329, 0.56826144, 0.86826086)
 
 [node name="PacoteGN_P2" parent="NavigationRegion3D/CenarioBonito/Caixas" unique_id=950163776 instance=ExtResource("12_yribc")]
 transform = Transform3D(1.8477064, -0.06689287, -0.7625668, -0.15412411, 1.9190401, -0.5417834, 0.74981934, 0.5592932, 1.7677566, 0.5778909, 1.1382285, 2.2069912)
@@ -550,9 +550,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.058513045, -2.1361601)
 [node name="JogoCarimbar" parent="NavigationRegion3D/Cubiculo" unique_id=1766737732 node_paths=PackedStringArray("desativar_colisor_on_jogar") instance=ExtResource("3_kupag")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 desativar_colisor_on_jogar = [NodePath("../StaticBody3D/CollisionShape3D")]
-
-[node name="EncomendaSpawner" parent="NavigationRegion3D/Cubiculo/JogoCarimbar" index="0" unique_id=1223402288]
-chance_pacote = 1.0
 
 [node name="Cubicule" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa" parent_id_path=PackedInt32Array(1766737732, 643817367) index="0" unique_id=456207740 groups=["costas_quarto", "sumivel"]]
 
@@ -570,25 +567,21 @@ collision_mask = 2
 visible = false
 
 [node name="BotaoCima" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/UI/InspecionarElementos/BotoesVerticais" parent_id_path=PackedInt32Array(1766737732, 474447867) index="0" unique_id=854078339]
-offset_left = -22.5
 offset_top = 0.0
-offset_right = 22.5
 offset_bottom = 45.0
 
 [node name="BotaoEsquerda" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/UI/InspecionarElementos/BotoesHorizontais" parent_id_path=PackedInt32Array(1766737732, 1242856022) index="0" unique_id=1353989929]
-offset_left = 0.0
 offset_top = -45.5
-offset_right = 91.00003
 offset_bottom = 45.5
 
 [node name="BotaoDireita" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/UI/InspecionarElementos/BotoesHorizontais" parent_id_path=PackedInt32Array(1766737732, 1242856022) index="1" unique_id=596839425]
-offset_left = -91.0
 offset_top = -45.5
-offset_right = 0.0
 offset_bottom = 45.5
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Cubiculo" unique_id=1132764725 groups=["costas_quarto"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9766319)
+collision_layer = 2147483648
+collision_mask = 0
 script = ExtResource("10_ej8o8")
 
 [node name="AreaDeInteracao" type="Node3D" parent="NavigationRegion3D/Cubiculo/StaticBody3D" unique_id=296463841]

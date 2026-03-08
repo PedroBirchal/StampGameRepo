@@ -13,6 +13,7 @@ var encomenda_atual_ultimo_estado: Encomenda.EstadoEncomenda
 
 @export_group("Inspecionar Encomendas")
 @export var pos_pacote_na_cara: Node3D
+@export var pos_pacote_p_na_cara: Node3D
 @export var pos_pacote_g_na_cara: Node3D
 @export var pos_item_na_cara: Node3D
 @export var pos_carta_na_cara: Node3D
@@ -130,9 +131,13 @@ func encomenda_atual_mudou_estado(estado: Encomenda.EstadoEncomenda) -> void:
 			texto_carta_label.text = (encomenda_atual as Carta).carta_res.conteudo
 		else:
 			var pacote = encomenda_atual as Pacote
+			var pos_off = pacote.item_res.offset_pos_mostrar if not pacote.com_defeito else pacote.item_res.offset_pos_defeito
+			var rot_off = pacote.item_res.offset_rot_mostrar if not pacote.com_defeito else pacote.item_res.offset_rot_defeito
+			
 			pacote.item_holder.reparent(pos_item_na_cara)
-			pacote.item_holder.position = pacote.item_res.offset_pos_mostrar
-			pacote.item.rotation = pacote.item_res.offset_rot_mostrar
+			pacote.item_holder.position = pos_off
+			pacote.item_holder.rotation = Vector3.ZERO
+			pacote.item.rotation = rot_off
 			
 			if pacote.tamanho_pacote == ItemResource.TamanhoPacote.PEQUENO:
 				pacote.reparent(descanso_caixa_p)
@@ -141,6 +146,7 @@ func encomenda_atual_mudou_estado(estado: Encomenda.EstadoEncomenda) -> void:
 			else:
 				pacote.reparent(descanso_caixa_g)
 			pacote.position = Vector3.ZERO
+			pacote.rotation = Vector3.ZERO
 			pacote.pacote_aberto = true
 			
 		rotacionavel = null
@@ -162,7 +168,18 @@ func encomenda_atual_mudou_estado(estado: Encomenda.EstadoEncomenda) -> void:
 		rotacionavel = encomenda_atual.rotacionavel
 		setar_modo_girando(true)
 		
-		var pos_na_cara = pos_carta_na_cara if encomenda_atual is Carta else (pos_pacote_g_na_cara if (encomenda_atual as Pacote).item_res.cabe_em == ItemResource.TamanhoPacote.GRANDE else pos_pacote_na_cara)
+		var pos_na_cara = pos_carta_na_cara
+		if encomenda_atual is Pacote:
+			var pac = encomenda_atual as Pacote
+			match pac.item_res.cabe_em:
+				ItemResource.TamanhoPacote.GRANDE:
+					pos_na_cara = pos_pacote_g_na_cara
+				ItemResource.TamanhoPacote.MEDIO:
+					pos_na_cara = pos_pacote_na_cara
+				ItemResource.TamanhoPacote.PEQUENO:
+					pos_na_cara = pos_pacote_p_na_cara
+	
+		
 		encomenda_atual.reparent(pos_na_cara)
 		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property(encomenda_atual, "rotation", Vector3.ZERO, 0.25)
@@ -261,7 +278,7 @@ func clicou_encomenda_lixo() -> void:
 		_encomenda_mandada_pro_lixo()
 		lixo.excluir(encomenda)
 
-func encomenda_lixada(encomenda: Encomenda) -> void:
+func encomenda_lixada(_encomenda: Encomenda) -> void:
 	print("lixooo")
 
 func _encomenda_mandada_pro_lixo() -> void:

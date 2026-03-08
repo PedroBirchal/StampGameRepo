@@ -15,6 +15,8 @@ area_das_cartas = [NodePath("Cartas/AreaCarta1"), NodePath("Cartas/AreaCarta2"),
 [node name="Cesta_Cartas" parent="." unique_id=1363481543 instance=ExtResource("2_cpm3t")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 
+[node name="Cesta_Cartas" parent="Cesta_Cartas" index="0" unique_id=1610898263 groups=["costas_quarto", "sumivel"]]
+
 [node name="Cartas" type="Node3D" parent="." unique_id=52848361]
 
 [node name="AreaCarta1" type="Node3D" parent="Cartas" unique_id=12751042]
@@ -69,3 +71,5 @@ font_size = 52
 [connection signal="input_event" from="StaticBody3D" to="." method="_on_static_body_3d_input_event"]
 [connection signal="mouse_entered" from="StaticBody3D" to="." method="_on_static_body_3d_mouse_entered"]
 [connection signal="mouse_exited" from="StaticBody3D" to="." method="_on_static_body_3d_mouse_exited"]
+
+[editable path="Cesta_Cartas"]

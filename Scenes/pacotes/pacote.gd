@@ -6,6 +6,7 @@ extends Encomenda
 @export var conteudo_holder : Node3D
 var item : Node3D
 var item_res: ItemResource
+var com_defeito := false
 
 @export var pode_abrir := false
 @export var pacote_aberto := false
@@ -48,16 +49,20 @@ func gerar_localidades() -> void:
 	caracteristicas.append("indo_" + Singleton.sigla_cidade[indo_para])
 	
 
-func setar_pacote(item_resource: ItemResource) -> void:
+func setar_pacote(item_resource: ItemResource, defeituoso: bool) -> void:
 	var tamanho: ItemResource.TamanhoPacote = item_resource.cabe_em
-	item = item_resource.mesh.instantiate()
+	item = (item_resource.mesh if not defeituoso else item_resource.mesh_defeito).instantiate()
 	item_res = item_resource
+	com_defeito = defeituoso
 	
 	gerar_localidades()
 	
 	caracteristicas.append_array(item_res.categorias)
+	caracteristicas.append("qualidade_boa" if not com_defeito else "qualidade_ruim")
 	
-	item_holder.reparent(conteudo_holder)
+	if item_holder.get_parent() != conteudo_holder:
+		item_holder.reparent(conteudo_holder)
+	
 	item_holder.add_child(item)
 	item_holder.position = Vector3.ZERO
 	
@@ -72,17 +77,23 @@ func setar_pacote(item_resource: ItemResource) -> void:
 func setar_tamanho(tamanho: ItemResource.TamanhoPacote) -> void:
 	if tamanho == ItemResource.TamanhoPacote.PEQUENO:
 		animator = pacote_pequeno.get_node("AnimationPlayer")
+		pacote_pequeno.show()
 		pacote_medio.queue_free()
 		colisor_medio.queue_free()
 		pacote_grande.queue_free()
 		colisor_grande.queue_free()
+		rotacionavel.rot_x_y = false
+		rotacionavel.rot_x_z = true
+		rotacionavel.offset_rot_deg *= -1
 	elif tamanho == ItemResource.TamanhoPacote.MEDIO:
+		pacote_medio.show()
 		pacote_pequeno.queue_free()
 		colisor_pequeno.queue_free()
 		animator = pacote_medio.get_node("AnimationPlayer")
 		pacote_grande.queue_free()
 		colisor_grande.queue_free()
 	else:
+		pacote_grande.show()
 		pacote_pequeno.queue_free()
 		colisor_pequeno.queue_free()
 		pacote_medio.queue_free()
@@ -92,16 +103,25 @@ func setar_tamanho(tamanho: ItemResource.TamanhoPacote) -> void:
 func instanciar_selos() -> void:
 	var pacote_ativo: Node3D = null
 	
-	if item_res.cabe_em == ItemResource.TamanhoPacote.PEQUENO: 
-		gerar_um_selo(markersP[0], "Remetente", vindo_de)
-		gerar_um_selo(markersP[1], "Destinatário", indo_para)
+	var remetente
+	var destinatario
+	
+	if item_res.cabe_em == ItemResource.TamanhoPacote.PEQUENO:
+		markersP.shuffle()
+		remetente = markersP[0]
+		destinatario = markersP[1]
 	elif item_res.cabe_em == ItemResource.TamanhoPacote.MEDIO: 
-		gerar_um_selo(markersM[0], "Remetente", vindo_de)
-		gerar_um_selo(markersM[1], "Destinatário", indo_para)
+		markersM.shuffle()
+		remetente = markersM[0]
+		destinatario = markersM[1]
 	elif item_res.cabe_em == ItemResource.TamanhoPacote.GRANDE: 
-		gerar_um_selo(markersG[0], "Remetente", vindo_de)
-		gerar_um_selo(markersG[1], "Destinatário", indo_para)
-		
+		markersG.shuffle()
+		remetente = markersG[0]
+		destinatario = markersG[1]
+	
+	gerar_um_selo(remetente, "Remetente", vindo_de)
+	gerar_um_selo(destinatario, "Destinatário", indo_para)
+
 func gerar_um_selo(alvo: Node3D, tipo: String, cidade_index: int) -> void:
 	var novo_selo = selo_scene.instantiate()
 	
@@ -114,7 +134,7 @@ func gerar_um_selo(alvo: Node3D, tipo: String, cidade_index: int) -> void:
 	var tex = texturas_cidades.get(sigla)
 	
 	novo_selo.configurar(tipo, sigla, tex)
-	novo_selo.scale = Vector3(0.1,0.1,0.1)
+	novo_selo.scale = Vector3.ONE
 	
 
 func _on_area_clicavel_para_abrir_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:

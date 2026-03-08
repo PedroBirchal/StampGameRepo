@@ -178,9 +178,9 @@ texturas_cidades = Dictionary[String, Texture2D]({
 "inferno": ExtResource("5_janfm"),
 "torre": ExtResource("6_ngy0j")
 })
-markersG = [NodePath("Mesh/Pacote_Generico_G/Remetentepos"), NodePath("Mesh/Pacote_Generico_G/Destinatariopos")]
-markersM = [NodePath("Mesh/Pacote_Generico_M/Remetentepos"), NodePath("Mesh/Pacote_Generico_M/Destinatariopos")]
-markersP = [NodePath("Mesh/Pacote_Generico_P/Remetentepos"), NodePath("Mesh/Pacote_Generico_P/Destinatariopos")]
+markersG = [NodePath("Mesh/Pacote_Generico_G/LocaisDeSelo/SeloPos"), NodePath("Mesh/Pacote_Generico_G/LocaisDeSelo/SeloPos2"), NodePath("Mesh/Pacote_Generico_G/LocaisDeSelo/SeloPos3"), NodePath("Mesh/Pacote_Generico_G/LocaisDeSelo/SeloPos4"), NodePath("Mesh/Pacote_Generico_G/LocaisDeSelo/SeloPos5"), NodePath("Mesh/Pacote_Generico_G/LocaisDeSelo/SeloPos6"), NodePath("Mesh/Pacote_Generico_G/LocaisDeSelo/SeloPos7"), NodePath("Mesh/Pacote_Generico_G/LocaisDeSelo/SeloPos8"), NodePath("Mesh/Pacote_Generico_G/LocaisDeSelo/SeloPos9"), NodePath("Mesh/Pacote_Generico_G/LocaisDeSelo/SeloPos10"), NodePath("Mesh/Pacote_Generico_G/LocaisDeSelo/SeloPos11"), NodePath("Mesh/Pacote_Generico_G/LocaisDeSelo/SeloPos12")]
+markersM = [NodePath("Mesh/Pacote_Generico_M/LocaisDeSelo/PosSelo"), NodePath("Mesh/Pacote_Generico_M/LocaisDeSelo/PosSelo2"), NodePath("Mesh/Pacote_Generico_M/LocaisDeSelo/PosSelo3"), NodePath("Mesh/Pacote_Generico_M/LocaisDeSelo/PosSelo4"), NodePath("Mesh/Pacote_Generico_M/LocaisDeSelo/PosSelo5"), NodePath("Mesh/Pacote_Generico_M/LocaisDeSelo/PosSelo6"), NodePath("Mesh/Pacote_Generico_M/LocaisDeSelo/PosSelo7"), NodePath("Mesh/Pacote_Generico_M/LocaisDeSelo/PosSelo8"), NodePath("Mesh/Pacote_Generico_M/LocaisDeSelo/PosSelo9"), NodePath("Mesh/Pacote_Generico_M/LocaisDeSelo/PosSelo10"), NodePath("Mesh/Pacote_Generico_M/LocaisDeSelo/PosSelo11"), NodePath("Mesh/Pacote_Generico_M/LocaisDeSelo/PosSelo12")]
+markersP = [NodePath("Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P/Skeleton3D/BoneR/PosSelo"), NodePath("Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P/Skeleton3D/BoneR/PosSelo2"), NodePath("Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P/Skeleton3D/BoneR/PosSelo3"), NodePath("Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P/Skeleton3D/BoneL/PosSelo4"), NodePath("Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P/Skeleton3D/BoneL/PosSelo5"), NodePath("Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P/Skeleton3D/BoneL/PosSelo6"), NodePath("Mesh/Pacote_Generico_P/LocaisDeSelo/PosSelo7"), NodePath("Mesh/Pacote_Generico_P/LocaisDeSelo/PosSelo8"), NodePath("Mesh/Pacote_Generico_P/LocaisDeSelo/PosSelo9"), NodePath("Mesh/Pacote_Generico_P/LocaisDeSelo/PosSelo10"), NodePath("Mesh/Pacote_Generico_P/LocaisDeSelo/PosSelo11"), NodePath("Mesh/Pacote_Generico_P/LocaisDeSelo/PosSelo12")]
 rotacionavel = NodePath("Rotacionavel")
 
 [node name="ColisorP" type="CollisionShape3D" parent="." unique_id=1888587168]
@@ -213,8 +213,44 @@ bones/5/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(-0.5, 0.5, 0.49999997, 0.50000006)
 bones/7/scale = Vector3(1, 1, 1)
 
+[node name="BoneL" type="BoneAttachment3D" parent="Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P/Skeleton3D" index="1" unique_id=78213419]
+transform = Transform3D(-5.9604645e-08, 1, -1.9841906e-09, -5.2108035e-15, 2.7818132e-08, -1, -1, -8.940697e-08, 0, -0.0014005095, 1.946534e-05, 0.00080329867)
+bone_name = "Aba_L"
+bone_idx = 7
+
+[node name="PosSelo4" type="Marker3D" parent="Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P/Skeleton3D/BoneL" unique_id=1797492879]
+transform = Transform3D(-5.9604675e-11, 2.2847774e-11, -0.00050000014, 6.4574984e-11, -0.0005, -7.946635e-12, -0.00050000014, -7.9476176e-11, 5.9604675e-11, -9.1525435e-06, 0.00074389495, -0.002385305)
+gizmo_extents = 0.01
+
+[node name="PosSelo5" type="Marker3D" parent="Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P/Skeleton3D/BoneL" unique_id=123565833]
+transform = Transform3D(-5.9604675e-11, 2.2847774e-11, -0.00050000014, 6.4574984e-11, -0.0005, -7.946635e-12, -0.00050000014, -7.9476176e-11, 5.9604675e-11, -9.152311e-06, 0.00074389466, -0.00040796582)
+gizmo_extents = 0.01
+
+[node name="PosSelo6" type="Marker3D" parent="Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P/Skeleton3D/BoneL" unique_id=1261748464]
+transform = Transform3D(-5.9604675e-11, 2.2847774e-11, -0.00050000014, 6.4574984e-11, -0.0005, -7.946635e-12, -0.00050000014, -7.9476176e-11, 5.9604675e-11, -9.152049e-06, 0.0007438944, 0.0016824071)
+gizmo_extents = 0.01
+
+[node name="BoneR" type="BoneAttachment3D" parent="Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P/Skeleton3D" index="2" unique_id=1473559813]
+transform = Transform3D(0.012604833, -0.9999205, -9.1391165e-08, 6.07066e-08, 3.1793462e-08, -0.9999999, 0.9999205, 0.012604922, 1.1920929e-07, 0.00140051, 1.9465806e-05, 0.00079312426)
+bone_name = "Aba_R"
+bone_idx = 5
+
+[node name="PosSelo" type="Marker3D" parent="Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P/Skeleton3D/BoneR" unique_id=1824507798]
+transform = Transform3D(-1.1889935e-10, 3.030096e-06, 0.0004999909, -2.534062e-11, -0.00049999094, 3.030051e-06, 0.00050000014, 5.752624e-12, 9.019552e-11, -5.386246e-07, 0.00075327774, 0.0025054454)
+gizmo_extents = 0.01
+
+[node name="PosSelo2" type="Marker3D" parent="Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P/Skeleton3D/BoneR" unique_id=1996645314]
+transform = Transform3D(-1.1889935e-10, 3.030096e-06, 0.0004999909, -2.534062e-11, -0.00049999094, 3.030051e-06, 0.00050000014, 5.752624e-12, 9.019552e-11, -5.380716e-07, 0.000753278, 0.00015869252)
+gizmo_extents = 0.01
+
+[node name="PosSelo3" type="Marker3D" parent="Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P/Skeleton3D/BoneR" unique_id=1218828772]
+transform = Transform3D(-1.1889935e-10, 3.030096e-06, 0.0004999909, -2.534062e-11, -0.00049999094, 3.030051e-06, 0.00050000014, 5.752624e-12, 9.019552e-11, -5.3760596e-07, 0.00075327803, -0.0018600504)
+gizmo_extents = 0.01
+
 [node name="AreaClicavelParaAbrir" type="Area3D" parent="Mesh/Pacote_Generico_P" unique_id=117356702]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.035073668, 0.1836243)
+visible = false
 collision_layer = 2
 collision_mask = 2
 monitoring = false
@@ -230,12 +266,30 @@ tree_root = SubResource("AnimationNodeStateMachine_ngy0j")
 advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("../PacoteGN_P/AnimationPlayer")
 
-[node name="Remetentepos" type="Marker3D" parent="Mesh/Pacote_Generico_P" unique_id=1824507798]
-transform = Transform3D(-4.3711385e-08, 1, 4.3711385e-08, 0, -4.371139e-08, 0.99999994, 0.99999994, 4.371139e-08, 1.9106853e-15, -0.0060963333, 0.088087305, 0.17707694)
+[node name="LocaisDeSelo" type="Node3D" parent="Mesh/Pacote_Generico_P" unique_id=1073829108]
+
+[node name="PosSelo7" type="Marker3D" parent="Mesh/Pacote_Generico_P/LocaisDeSelo" unique_id=52683641]
+transform = Transform3D(6.5567085e-09, 0.05, 2.1855695e-09, 1.9106861e-16, 2.1855695e-09, -0.05, -0.05, 6.5567085e-09, 9.5534245e-17, 0.06472886, -0.000778147, 0.18094635)
 gizmo_extents = 0.01
 
-[node name="Destinatariopos" type="Marker3D" parent="Mesh/Pacote_Generico_P" unique_id=2036762577]
-transform = Transform3D(-4.371139e-08, -0.9999999, -4.3711385e-08, 0, -4.3711385e-08, 0.9999999, -1, 4.3711385e-08, 1.9106853e-15, -0.022332042, 0.088268995, -0.11495794)
+[node name="PosSelo8" type="Marker3D" parent="Mesh/Pacote_Generico_P/LocaisDeSelo" unique_id=613932267]
+transform = Transform3D(6.5567085e-09, 0.05, 2.1855695e-09, 1.9106861e-16, 2.1855695e-09, -0.05, -0.05, 6.5567085e-09, 9.5534245e-17, 0.06472887, -0.000778147, -0.053728886)
+gizmo_extents = 0.01
+
+[node name="PosSelo9" type="Marker3D" parent="Mesh/Pacote_Generico_P/LocaisDeSelo" unique_id=1328761203]
+transform = Transform3D(6.5567085e-09, 0.05, 2.1855695e-09, 1.9106861e-16, 2.1855695e-09, -0.05, -0.05, 6.5567085e-09, 9.5534245e-17, 0.064728886, -0.000778147, -0.25560313)
+gizmo_extents = 0.01
+
+[node name="PosSelo10" type="Marker3D" parent="Mesh/Pacote_Generico_P/LocaisDeSelo" unique_id=567304246]
+transform = Transform3D(-1.0927847e-08, -0.05, -6.5567085e-09, 7.642743e-16, 6.5567085e-09, -0.05, 0.05, -1.0927847e-08, -6.687401e-16, -0.0656615, -0.000778147, -0.17873845)
+gizmo_extents = 0.01
+
+[node name="PosSelo11" type="Marker3D" parent="Mesh/Pacote_Generico_P/LocaisDeSelo" unique_id=1608301884]
+transform = Transform3D(-1.0927847e-08, -0.05, -6.5567085e-09, 7.642743e-16, 6.5567085e-09, -0.05, 0.05, -1.0927847e-08, -6.687401e-16, -0.06566152, -0.000778147, 0.018995414)
+gizmo_extents = 0.01
+
+[node name="PosSelo12" type="Marker3D" parent="Mesh/Pacote_Generico_P/LocaisDeSelo" unique_id=182355183]
+transform = Transform3D(-1.0927847e-08, -0.05, -6.5567085e-09, 7.642743e-16, 6.5567085e-09, -0.05, 0.05, -1.0927847e-08, -6.687401e-16, -0.06566155, -0.000778147, 0.22803265)
 gizmo_extents = 0.01
 
 [node name="Pacote_Generico_M" type="Node3D" parent="Mesh" unique_id=1262567056]
@@ -257,7 +311,9 @@ bones/7/scale = Vector3(1, 1, 1)
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, -1.4210855e-14, 0, 1.4210855e-14, 1.0000001, 0, 0, 0)
 
 [node name="AreaClicavelParaAbrir" type="Area3D" parent="Mesh/Pacote_Generico_M" unique_id=924040768]
+process_mode = 4
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.41632718, -0.041811734)
+visible = false
 collision_layer = 2
 collision_mask = 2
 monitoring = false
@@ -273,12 +329,58 @@ tree_root = SubResource("AnimationNodeStateMachine_dasle")
 advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("../PacoteGN_M/AnimationPlayer")
 
-[node name="Remetentepos" type="Marker3D" parent="Mesh/Pacote_Generico_M" unique_id=1143100003]
-transform = Transform3D(-0.048309393, -0.009884239, 0.99878335, -8.796317e-08, 0.99995095, 0.0098957885, -0.99883235, 0.0004779708, -0.048307024, 0.23061994, 0.28199047, -0.041258633)
-gizmo_extents = 0.01
-
 [node name="Destinatariopos" type="Marker3D" parent="Mesh/Pacote_Generico_M" unique_id=1839709469]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 0.9999999, 0, 0.99999994, 0, -4.3711385e-08, -0.23573622, 0.28199047, 0.029145375)
+gizmo_extents = 0.01
+
+[node name="LocaisDeSelo" type="Node3D" parent="Mesh/Pacote_Generico_M" unique_id=1350343889]
+
+[node name="PosSelo" type="Marker3D" parent="Mesh/Pacote_Generico_M/LocaisDeSelo" unique_id=1143100003]
+transform = Transform3D(-2.1855695e-09, -1.9225905e-16, 0.05, -4.3983746e-09, 0.05, 0, -0.05, -4.3983746e-09, -2.1855695e-09, 0.21867487, 0.34409764, -0.14028072)
+gizmo_extents = 0.01
+
+[node name="PosSelo2" type="Marker3D" parent="Mesh/Pacote_Generico_M/LocaisDeSelo" unique_id=361475912]
+transform = Transform3D(-2.1855695e-09, -1.9225905e-16, 0.05, -4.3983746e-09, 0.05, 0, -0.05, -4.3983746e-09, -2.1855695e-09, 0.21937224, 0.08594869, -0.021850176)
+gizmo_extents = 0.01
+
+[node name="PosSelo3" type="Marker3D" parent="Mesh/Pacote_Generico_M/LocaisDeSelo" unique_id=1372313037]
+transform = Transform3D(-2.1855695e-09, -1.9225905e-16, 0.05, -4.3983746e-09, 0.05, 0, -0.05, -4.3983746e-09, -2.1855695e-09, 0.21895441, 0.2607984, 0.07901926)
+gizmo_extents = 0.01
+
+[node name="PosSelo4" type="Marker3D" parent="Mesh/Pacote_Generico_M/LocaisDeSelo" unique_id=2088584279]
+transform = Transform3D(0.05, 0, 0, 0, 0.050000004, 4.409711e-09, 0, -4.409711e-09, 0.050000004, 0.14577085, 0.21084222, 0.21998559)
+gizmo_extents = 0.01
+
+[node name="PosSelo5" type="Marker3D" parent="Mesh/Pacote_Generico_M/LocaisDeSelo" unique_id=163344284]
+transform = Transform3D(0.05, 0, 0, 0, 0.050000004, 4.409711e-09, 0, -4.409711e-09, 0.050000004, -0.08280642, 0.3473063, 0.21903421)
+gizmo_extents = 0.01
+
+[node name="PosSelo6" type="Marker3D" parent="Mesh/Pacote_Generico_M/LocaisDeSelo" unique_id=1354452201]
+transform = Transform3D(0.05, 0, 0, 0, 0.050000004, 4.409711e-09, 0, -4.409711e-09, 0.050000004, 0.011581287, 0.07437813, 0.21870734)
+gizmo_extents = 0.01
+
+[node name="PosSelo7" type="Marker3D" parent="Mesh/Pacote_Generico_M/LocaisDeSelo" unique_id=1146573533]
+transform = Transform3D(-2.1855695e-09, 1.9536701e-16, -0.050000004, 4.469476e-09, 0.05000001, 0, 0.050000004, -4.4694763e-09, -2.1855695e-09, -0.22022368, 0.07896091, 0.13703698)
+gizmo_extents = 0.01
+
+[node name="PosSelo8" type="Marker3D" parent="Mesh/Pacote_Generico_M/LocaisDeSelo" unique_id=399011953]
+transform = Transform3D(-2.1855695e-09, 1.9536701e-16, -0.050000004, 4.469476e-09, 0.05000001, 0, 0.050000004, -4.4694763e-09, -2.1855695e-09, -0.218437, 0.2203311, 0.003466547)
+gizmo_extents = 0.01
+
+[node name="PosSelo9" type="Marker3D" parent="Mesh/Pacote_Generico_M/LocaisDeSelo" unique_id=1850916293]
+transform = Transform3D(-2.1855695e-09, 1.9536701e-16, -0.050000004, 4.469476e-09, 0.05000001, 0, 0.050000004, -4.4694763e-09, -2.1855695e-09, -0.21847804, 0.35390162, -0.09793005)
+gizmo_extents = 0.01
+
+[node name="PosSelo10" type="Marker3D" parent="Mesh/Pacote_Generico_M/LocaisDeSelo" unique_id=1696199933]
+transform = Transform3D(-0.050000004, 3.920722e-16, 4.3711395e-09, 0, 0.050000012, -4.4847828e-09, -4.371139e-09, -4.484783e-09, -0.05000001, -0.16976637, 0.35459492, -0.21897018)
+gizmo_extents = 0.01
+
+[node name="PosSelo11" type="Marker3D" parent="Mesh/Pacote_Generico_M/LocaisDeSelo" unique_id=766381069]
+transform = Transform3D(-0.050000004, 3.920722e-16, 4.3711395e-09, 0, 0.050000012, -4.4847828e-09, -4.371139e-09, -4.484783e-09, -0.05000001, 0.0853922, 0.24648976, -0.2183295)
+gizmo_extents = 0.01
+
+[node name="PosSelo12" type="Marker3D" parent="Mesh/Pacote_Generico_M/LocaisDeSelo" unique_id=1169149496]
+transform = Transform3D(-0.050000004, 3.920722e-16, 4.3711395e-09, 0, 0.050000012, -4.4847828e-09, -4.371139e-09, -4.484783e-09, -0.05000001, -0.093349874, 0.062482208, -0.21978685)
 gizmo_extents = 0.01
 
 [node name="Pacote_Generico_G" type="Node3D" parent="Mesh" unique_id=1506890398]
@@ -298,7 +400,9 @@ bones/7/rotation = Quaternion(-0.50000006, 0.5, 0.5, 0.50000006)
 bones/7/scale = Vector3(1, 1, 1)
 
 [node name="AreaClicavelParaAbrir" type="Area3D" parent="Mesh/Pacote_Generico_G" unique_id=519262367]
+process_mode = 4
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.6166247, -0.041811734)
+visible = false
 collision_layer = 2
 collision_mask = 2
 monitoring = false
@@ -314,16 +418,59 @@ tree_root = SubResource("AnimationNodeStateMachine_0ukxd")
 advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("../PacoteGN_G/AnimationPlayer")
 
-[node name="Remetentepos" type="Marker3D" parent="Mesh/Pacote_Generico_G" unique_id=1432555222]
-transform = Transform3D(1, 0, 0, 0, 0.9999911, 0.004206285, 0, -0.004206285, 0.9999911, -0.0060963333, 0.28199047, 0.32327187)
+[node name="LocaisDeSelo" type="Node3D" parent="Mesh/Pacote_Generico_G" unique_id=446807338]
+
+[node name="SeloPos" type="Marker3D" parent="Mesh/Pacote_Generico_G/LocaisDeSelo" unique_id=1432555222]
+transform = Transform3D(0.05, 0, 0, 0, 0.050000004, 0, 0, 0, 0.050000004, -0.1663669, 0.10542382, 0.32401454)
 gizmo_extents = 0.01
 
-[node name="Destinatariopos" type="Marker3D" parent="Mesh/Pacote_Generico_G" unique_id=1823807596]
-transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -0.34807032, 0.28199047, 0.029145375)
+[node name="SeloPos2" type="Marker3D" parent="Mesh/Pacote_Generico_G/LocaisDeSelo" unique_id=2100000287]
+transform = Transform3D(0.05, 0, 0, 0, 0.050000004, 0, 0, 0, 0.050000004, 0.22361803, 0.23414724, 0.32347304)
+gizmo_extents = 0.01
+
+[node name="SeloPos3" type="Marker3D" parent="Mesh/Pacote_Generico_G/LocaisDeSelo" unique_id=147915953]
+transform = Transform3D(0.05, 0, 0, 0, 0.050000004, 0, 0, 0, 0.050000004, -0.14095762, 0.5004589, 0.32235283)
+gizmo_extents = 0.01
+
+[node name="SeloPos4" type="Marker3D" parent="Mesh/Pacote_Generico_G/LocaisDeSelo" unique_id=2116006934]
+transform = Transform3D(-2.1855695e-09, -2.3744914e-11, -0.05, 0, 0.05, -2.3744914e-11, 0.05, -1.0379232e-18, -2.1855695e-09, -0.31626508, 0.49909672, 0.23846066)
+gizmo_extents = 0.01
+
+[node name="SeloPos5" type="Marker3D" parent="Mesh/Pacote_Generico_G/LocaisDeSelo" unique_id=733282892]
+transform = Transform3D(-2.1855695e-09, -2.3744914e-11, -0.05, 0, 0.05, -2.3744914e-11, 0.05, -1.0379232e-18, -2.1855695e-09, -0.31626508, 0.10018968, -0.17669883)
+gizmo_extents = 0.01
+
+[node name="SeloPos6" type="Marker3D" parent="Mesh/Pacote_Generico_G/LocaisDeSelo" unique_id=1414901169]
+transform = Transform3D(-2.1855695e-09, -2.3744914e-11, -0.05, 0, 0.05, -2.3744914e-11, 0.05, -1.0379232e-18, -2.1855695e-09, -0.31626508, 0.48405445, -0.17288676)
+gizmo_extents = 0.01
+
+[node name="SeloPos7" type="Marker3D" parent="Mesh/Pacote_Generico_G/LocaisDeSelo" unique_id=1841488420]
+transform = Transform3D(-0.049999997, -4.3656134e-11, 7.54979e-09, -4.3656134e-11, 0.049999997, 0, -7.549789e-09, -6.5918933e-18, -0.05, -0.21626507, 0.5138165, -0.3251034)
+gizmo_extents = 0.01
+
+[node name="SeloPos8" type="Marker3D" parent="Mesh/Pacote_Generico_G/LocaisDeSelo" unique_id=1815772938]
+transform = Transform3D(-0.049999997, -4.3656134e-11, 7.54979e-09, -4.3656134e-11, 0.049999997, 0, -7.549789e-09, -6.5918933e-18, -0.05, -0.020473495, 0.07480618, -0.32326654)
+gizmo_extents = 0.01
+
+[node name="SeloPos9" type="Marker3D" parent="Mesh/Pacote_Generico_G/LocaisDeSelo" unique_id=2035833190]
+transform = Transform3D(-0.049999997, -4.3656134e-11, 7.54979e-09, -4.3656134e-11, 0.049999997, 0, -7.549789e-09, -6.5918933e-18, -0.05, 0.18170261, 0.35480982, -0.32441828)
+gizmo_extents = 0.01
+
+[node name="SeloPos10" type="Marker3D" parent="Mesh/Pacote_Generico_G/LocaisDeSelo" unique_id=1042195966]
+transform = Transform3D(3.7748946e-09, -5.6682877e-11, 0.049999997, 0, 0.049999993, 5.6682884e-11, -0.049999997, -4.2794383e-18, 3.7748946e-09, 0.32358414, 0.29122177, -0.19723822)
+gizmo_extents = 0.01
+
+[node name="SeloPos11" type="Marker3D" parent="Mesh/Pacote_Generico_G/LocaisDeSelo" unique_id=2013928367]
+transform = Transform3D(3.7748946e-09, -5.6682877e-11, 0.049999997, 0, 0.049999993, 5.6682884e-11, -0.049999997, -4.2794383e-18, 3.7748946e-09, 0.32358414, 0.48034146, 0.13709839)
+gizmo_extents = 0.01
+
+[node name="SeloPos12" type="Marker3D" parent="Mesh/Pacote_Generico_G/LocaisDeSelo" unique_id=1366170485]
+transform = Transform3D(3.7748946e-09, -5.6682877e-11, 0.049999997, 0, 0.049999993, 5.6682884e-11, -0.049999997, -4.2794383e-18, 3.7748946e-09, 0.32358414, 0.09197065, 0.15398403)
 gizmo_extents = 0.01
 
 [node name="Conteudo" type="Node3D" parent="." unique_id=1129233226]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+visible = false
 
 [node name="ItemHolder" type="Node3D" parent="Conteudo" unique_id=1684731705]
 

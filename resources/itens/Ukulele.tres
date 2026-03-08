@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ddle7tbchbgep" path="res://Models/Objetos_Caixa/Itens_Instrumentos/Ukulele.fbx" id="1_5i3fc"]
 [ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_emq78"]
+[ext_resource type="PackedScene" uid="uid://c61bhsghx855u" path="res://Models/Objetos_Caixa/Itens_Danificados/Instrumentos/Ukulele_Ruim.fbx" id="2_rpv0r"]
 
 [resource]
 script = ExtResource("2_emq78")
@@ -12,4 +13,7 @@ cabe_em = 2
 categorias = PackedStringArray("instrumento")
 offset_rot_mostrar = Vector3(0, -0.5633225, 0)
 offset_pos_mostrar = Vector3(0, 0.03, -0.1)
+offset_rot_defeito = Vector3(0, 0.49473104, 0)
+offset_pos_defeito = Vector3(0, 0.04, 0)
+mesh_defeito = ExtResource("2_rpv0r")
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

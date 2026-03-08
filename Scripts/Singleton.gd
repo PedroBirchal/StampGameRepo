@@ -43,18 +43,19 @@ var cartas_acesadas : Array[int]
 
 func _init() -> void :
 	for diretorio in cartas_dir_path :
-		var dir := DirAccess.open(diretorio)
-		if dir :
-			var file_names := dir.get_files()
-			for file in file_names :
-				var resource_path = diretorio.path_join(file)
-				var resource_loaded = load(resource_path)
-				if resource_loaded :
-					cartas.append(resource_loaded)
-				else:
-					print ("vixe rapaz, n deu pra carragar uma carta aqui nn")
-		else :
-			print ("Não foi possivel abrir o diretorio")
+		for res in ResourceLoader.list_directory(diretorio):
+			# Ignora pastas
+			if res.ends_with("/"):
+				continue
+				
+			var resource_path = diretorio.path_join(res)
+			var resource_loaded = ResourceLoader.load(resource_path)
+			print ("Carregando o " + resource_path)
+			if resource_loaded :
+				cartas.append(resource_loaded)
+			else:
+				print ("vixe rapaz, n deu pra carragar uma carta aqui nn")
+
 	var i = 1
 	for carta in cartas :
 		print (i)

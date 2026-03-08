@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bujsnlhvx8a1b"]
 
 [ext_resource type="PackedScene" uid="uid://daeldk7u07157" path="res://Models/Objetos_Caixa/Itens_Gerais/Espelho.fbx" id="1_suj7n"]
+[ext_resource type="PackedScene" uid="uid://cc3j3hv3wv60a" path="res://Models/Objetos_Caixa/Itens_Danificados/Gerais/Espelho_Ruim.fbx" id="2_6cb6v"]
 [ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_cvpo0"]
 
 [resource]
@@ -11,4 +12,7 @@ mesh = ExtResource("1_suj7n")
 cabe_em = 1
 offset_rot_mostrar = Vector3(1.43117, 0, 0)
 offset_pos_mostrar = Vector3(-0.02, 0, 0)
+offset_rot_defeito = Vector3(1.5707964, 0, 0)
+offset_pos_defeito = Vector3(0, -0.02, 0)
+mesh_defeito = ExtResource("2_6cb6v")
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

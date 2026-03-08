@@ -8,4 +8,5 @@ conteudo = "Cidadãos de Aqualândia!
  Aqui estou desafiando QUALQUER UM que se ache digno de comparecer ao embate mortal da forma de combate mais violenta de todos: O Xadrez. Venham me vencer, se forem capazes, e recebem prêmios jamais imaginados pela cabecinha de aquário de vocês.
  Atenciosamente, Torresmo."
 vindo_de = 3
+caracteristicas = PackedStringArray("xadrez")
 metadata/_custom_type_script = "uid://dy8u3p287gkos"

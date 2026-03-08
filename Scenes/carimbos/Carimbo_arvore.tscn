@@ -95,7 +95,7 @@ modulate = Color(1, 1, 1, 0.42745098)
 billboard = 1
 texture = ExtResource("2_hcvay")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1154506103 groups=["costas_quarto"]]
 transform = Transform3D(0.03, 0, 0, 0, 0.025, 0, 0, 0, 0.04, 0, -0.1984055, 0)
 layers = 2
 modulate = Color(1, 1, 1, 0.45882353)

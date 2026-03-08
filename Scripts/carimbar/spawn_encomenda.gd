@@ -1,8 +1,9 @@
 extends Node
 
 @export_range(0,1,0.05) var chance_pacote := 0.5
+@export_range(0,1,0.05) var chance_defeito := 0.5
 
-const PASTA_ITENS := "resources/itens"
+const PASTA_ITENS := "res://resources/itens"
 @export var lugar_de_spawn: Node3D
 
 @export_group("Spawn Encomendas")
@@ -19,9 +20,11 @@ func _ready() -> void:
 func spawn() -> Encomenda:
 	var probabilidade = randf()
 	
-	if probabilidade < 0.5:
+	if probabilidade < chance_pacote:
 		var pacote: Pacote = pacote_prefab.instantiate()
-		pacote.setar_pacote(get_item_aleatorio())
+		var probabilidade_defeito = randf()
+		
+		pacote.setar_pacote(get_item_aleatorio(), probabilidade_defeito < chance_defeito)
 		return pacote
 	
 	var carta: Carta = carta_prefab.instantiate()
@@ -29,5 +32,6 @@ func spawn() -> Encomenda:
 
 
 func get_item_aleatorio() -> ItemResource:
+	print(lista_itens)
 	var item_name = lista_itens.get(randi_range(0, lista_itens.size()-1))
 	return ResourceLoader.load(PASTA_ITENS + "/" + item_name)

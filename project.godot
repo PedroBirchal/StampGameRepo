@@ -40,15 +40,16 @@ version_control/autoload_on_startup=true
 
 folder_colors={
 "res://Blend/": "red",
-"res://Fonts/": "orange",
-"res://Models/": "green",
-"res://Scenes/": "blue",
-"res://Scripts/": "purple",
+"res://Evironments/": "orange",
+"res://Fonts/": "yellow",
+"res://Models/": "teal",
+"res://Scenes/": "purple",
+"res://Scripts/": "pink",
 "res://Sounds/": "red",
-"res://Sprites/": "pink",
+"res://Sprites/": "orange",
 "res://addons/": "gray",
-"res://materials/": "yellow",
-"res://resources/": "teal"
+"res://materials/": "green",
+"res://resources/": "blue"
 }
 
 [filesystem]

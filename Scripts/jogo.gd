@@ -7,9 +7,9 @@ static var instance: Jogo
 enum Estado { QUARTO, JOGANDO }
 
 signal fim_de_jogo
-var carimbos_incorretos
-var envios_incorretos
-var saldo_final
+var carimbos_incorretos = 0
+var envios_incorretos = 0
+var saldo_final = 0
 
 var pontuacao : int = 0
 var aluguel : int = 800
@@ -89,7 +89,9 @@ func atualizar_sumiveis() -> void:
 	var sumiveis = get_tree().get_nodes_in_group("sumivel")
 	var pode_sumir = estado == Estado.QUARTO
 	
-	for sumivel: MeshInstance3D in sumiveis:
+	var mesh_sumivel = sumiveis.filter(func(x): return x is MeshInstance3D)
+	
+	for sumivel: MeshInstance3D in mesh_sumivel:
 		for i in range(0, sumivel.get_surface_override_material_count()):
 			var mat: StandardMaterial3D = sumivel.get_active_material(i)
 			if mat == null:
@@ -103,6 +105,7 @@ func atualizar_sumiveis() -> void:
 				mat.transparency = 3 as BaseMaterial3D.Transparency
 			
 			sumivel.set_surface_override_material(i, mat)
+	
 
 # Fim de jogo
 func _on_timer_do_jogo_timeout() -> void:

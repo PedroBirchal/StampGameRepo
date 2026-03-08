@@ -2,13 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://dcelan5teqtcu" path="res://Models/Objetos_Caixa/Itens_Ferramenta/Alicate.fbx" id="1_324oo"]
 [ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_tcqqi"]
+[ext_resource type="PackedScene" uid="uid://cvtrlm6gvk78u" path="res://Models/Objetos_Caixa/Itens_Danificados/Ferramentas/Alicate_Ruim.fbx" id="2_tlhoe"]
 
 [resource]
 script = ExtResource("2_tcqqi")
 offset_pos = Vector3(0, -0.0052597485, 0.06995511)
 offset_rot = null
 mesh = ExtResource("1_324oo")
-cabe_em = null
 categorias = PackedStringArray("ferramenta")
 offset_rot_mostrar = Vector3(1.43117, 0, 0)
+offset_rot_defeito = Vector3(1.43117, 0, 0)
+offset_pos_defeito = Vector3(-0.042884827, 0.028366089, 0)
+mesh_defeito = ExtResource("2_tlhoe")
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"

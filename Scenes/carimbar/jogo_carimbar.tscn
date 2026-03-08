@@ -9,14 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://c6mdtx25j1ean" path="res://Scenes/carimbos/Carimbo_arvore.tscn" id="8_iapwp"]
 [ext_resource type="PackedScene" uid="uid://kgd7gt2nbvct" path="res://Scenes/PapelDaCarta.tscn" id="8_xxvmt"]
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="9_dgb7d"]
-[ext_resource type="PackedScene" uid="uid://dk2f63qul2twf" path="res://Models/Objetos_Caixa/Itens_Instrumentos/Clarim.fbx" id="9_dk51d"]
 [ext_resource type="PackedScene" uid="uid://d0ujbbr3ehgt" path="res://Scenes/carimbos/Carimbo_torre.tscn" id="9_ncxsn"]
 [ext_resource type="PackedScene" uid="uid://0cfc55nxafqe" path="res://Scenes/carimbos/Carimbo_aqua.tscn" id="10_33jh8"]
-[ext_resource type="PackedScene" uid="uid://dlmyi0l7mw844" path="res://Models/Objetos_Caixa/Itens_Instrumentos/Flauta.fbx" id="10_e8h3a"]
 [ext_resource type="Script" uid="uid://d36v0h2e11jsd" path="res://Scripts/carimbar/spawn_encomenda.gd" id="10_gqmlt"]
 [ext_resource type="Texture2D" uid="uid://rq1cuj01lbe2" path="res://Sprites/ui/pro_lado.png" id="10_ncxsn"]
 [ext_resource type="Texture2D" uid="uid://b5nl5mib51l2p" path="res://Sprites/ui/pra_cima.png" id="11_fxi00"]
-[ext_resource type="PackedScene" uid="uid://ddle7tbchbgep" path="res://Models/Objetos_Caixa/Itens_Instrumentos/Ukulele.fbx" id="11_hhygm"]
 [ext_resource type="PackedScene" uid="uid://c680xhh36ufi5" path="res://Scenes/pacotes/Pacote.tscn" id="12_ncxsn"]
 [ext_resource type="PackedScene" uid="uid://d1fk0a5qcg4w0" path="res://Scenes/postit/post_it.tscn" id="12_roixi"]
 [ext_resource type="PackedScene" uid="uid://duk6815hya8cu" path="res://Scenes/carimbar/RelogioDeMesa.tscn" id="12_xxvmt"]
@@ -78,7 +75,7 @@ size = Vector3(5.6, 1.204, 3)
 size = Vector3(0.75, 0.75, 0.75)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m8bj5"]
-size = Vector3(9, 0.001, 9)
+size = Vector3(20, 0.001, 9)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ncef"]
 resource_name = "ColorMap"
@@ -311,7 +308,7 @@ size = Vector3(2.5888672, 4.8238525, 1.6745064)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2p7p1"]
 size = Vector3(16.76648, 8.341797, 0.1)
 
-[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("camera", "spawner", "ui_girar", "ui_girar_horizontal", "botao_abrir_cima", "pos_pacote_na_cara", "pos_pacote_g_na_cara", "pos_item_na_cara", "pos_carta_na_cara", "sair_inspecionar_trigger", "texto_carta_holder", "texto_carta_label", "descanso_caixa_p", "descanso_caixa_m", "descanso_caixa_g", "pos_meio_mesa", "pos_receber_proximo", "pos_postit_cara", "postits_pin_list", "cesto", "lixo", "estoque", "jogavel_ui")]
+[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("camera", "spawner", "ui_girar", "ui_girar_horizontal", "botao_abrir_cima", "pos_pacote_na_cara", "pos_pacote_p_na_cara", "pos_pacote_g_na_cara", "pos_item_na_cara", "pos_carta_na_cara", "sair_inspecionar_trigger", "texto_carta_holder", "texto_carta_label", "descanso_caixa_p", "descanso_caixa_m", "descanso_caixa_g", "pos_meio_mesa", "pos_receber_proximo", "pos_postit_cara", "postits_pin_list", "cesto", "lixo", "estoque", "jogavel_ui")]
 script = ExtResource("1_yf8ht")
 camera = NodePath("CameraHolder/Camera3D")
 spawner = NodePath("EncomendaSpawner")
@@ -319,6 +316,7 @@ ui_girar = NodePath("UI/InspecionarElementos")
 ui_girar_horizontal = NodePath("UI/InspecionarElementos/BotoesHorizontais")
 botao_abrir_cima = NodePath("UI/InspecionarElementos/BotoesVerticais/BotaoCima")
 pos_pacote_na_cara = NodePath("Mesa/NaCaraDoJogador/RefPacote/VisaoPacote")
+pos_pacote_p_na_cara = NodePath("Mesa/NaCaraDoJogador/RefPacote/VisaoPacote/VisaoPacoteP")
 pos_pacote_g_na_cara = NodePath("Mesa/NaCaraDoJogador/RefPacote/VisaoPacote/VisaoPacoteG")
 pos_item_na_cara = NodePath("Mesa/NaCaraDoJogador/RefPacote/ItemNaCara")
 pos_carta_na_cara = NodePath("Mesa/NaCaraDoJogador/RefCarta/Holder")
@@ -391,6 +389,14 @@ monitorable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.10193943, 0)
 shape = SubResource("BoxShape3D_m8bj5")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesa/NaCaraDoJogador/ClicarParaSair" unique_id=1981361634]
+transform = Transform3D(1, 0, 0, 0, 0.649448, -0.7604059, 0, 0.7604059, 0.649448, 9.536743e-07, 3.200432, -7.1556945)
+shape = SubResource("BoxShape3D_m8bj5")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Mesa/NaCaraDoJogador/ClicarParaSair" unique_id=63965126]
+transform = Transform3D(1, 0, 0, 0, 0.7604059, 0.649448, 0, -0.649448, 0.7604059, 9.536743e-07, 2.3833797, 4.006424)
+shape = SubResource("BoxShape3D_m8bj5")
+
 [node name="RefCarta" type="Node3D" parent="Mesa/NaCaraDoJogador" unique_id=24380973]
 
 [node name="Holder" type="Node3D" parent="Mesa/NaCaraDoJogador/RefCarta" unique_id=2072858372]
@@ -410,19 +416,11 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -
 [node name="VisaoPacoteG" type="Node3D" parent="Mesa/NaCaraDoJogador/RefPacote/VisaoPacote" unique_id=718432098]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.115)
 
+[node name="VisaoPacoteP" type="Node3D" parent="Mesa/NaCaraDoJogador/RefPacote/VisaoPacote" unique_id=2068621968]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
 [node name="ItemNaCara" type="Node3D" parent="Mesa/NaCaraDoJogador/RefPacote" unique_id=1688325181]
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, 0.013686301, 0.045571074)
-
-[node name="Clarim" parent="Mesa/NaCaraDoJogador/RefPacote/ItemNaCara" unique_id=2069523771 instance=ExtResource("9_dk51d")]
-transform = Transform3D(-0.83950436, 0.15557474, -0.5206041, 0.16083758, 0.986346, 0.035394814, 0.5190023, -0.054018594, -0.8530643, 0, 0, 0)
-visible = false
-
-[node name="Flauta" parent="Mesa/NaCaraDoJogador/RefPacote/ItemNaCara" unique_id=305434663 instance=ExtResource("10_e8h3a")]
-visible = false
-
-[node name="Ukulele" parent="Mesa/NaCaraDoJogador/RefPacote/ItemNaCara" unique_id=692242437 instance=ExtResource("11_hhygm")]
-transform = Transform3D(0.84548557, 0, -0.53399825, 0, 1, 0, 0.53399825, 0, 0.84548557, 0, 0, 0)
-visible = false
 
 [node name="PacoteAbrindo" type="Node3D" parent="Mesa/NaCaraDoJogador/RefPacote" unique_id=2079452648]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -1.7505873, 0.5734141)
@@ -584,20 +582,26 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = -475.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
 [node name="BotaoCima" type="TextureButton" parent="UI/InspecionarElementos/BotoesVerticais" unique_id=854078339]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -45.5
-offset_top = 50.0
-offset_right = -0.5
-offset_bottom = 95.0
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -22.5
+offset_right = 22.5
+offset_bottom = 22.5
 grow_horizontal = 2
+grow_vertical = 2
 mouse_behavior_recursive = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("11_fxi00")
@@ -607,24 +611,28 @@ stretch_mode = 0
 [node name="BotoesHorizontais" type="Control" parent="UI/InspecionarElementos" unique_id=1242856022]
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -125.0
+offset_right = 400.0
+offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(400, 0)
 mouse_filter = 1
 
 [node name="BotaoEsquerda" type="TextureButton" parent="UI/InspecionarElementos/BotoesHorizontais" unique_id=1353989929]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 300.0
-offset_top = -8.0
-offset_right = 391.00003
-offset_bottom = 83.0
-grow_vertical = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -91.0
+offset_right = 91.0
+grow_vertical = 0
 mouse_behavior_recursive = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("10_ncxsn")
@@ -633,17 +641,15 @@ stretch_mode = 5
 
 [node name="BotaoDireita" type="TextureButton" parent="UI/InspecionarElementos/BotoesHorizontais" unique_id=596839425]
 layout_mode = 1
-anchors_preset = 6
+anchors_preset = 3
 anchor_left = 1.0
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -391.0
-offset_top = -8.0
-offset_right = -300.0
-offset_bottom = 83.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -91.0
 grow_horizontal = 0
-grow_vertical = 2
+grow_vertical = 0
 mouse_behavior_recursive = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("10_ncxsn")
@@ -673,7 +679,7 @@ deletar_pos = NodePath("EmCimaLixo")
 deletar_holder = NodePath("EmCimaLixo/DelecaoHolder")
 ate_fundo = NodePath("Fundo")
 
-[node name="TrashCan" type="MeshInstance3D" parent="Lixo" unique_id=1208519858 groups=["esquerda_quarto", "sumivel"]]
+[node name="TrashCan" type="MeshInstance3D" parent="Lixo" unique_id=1208519858 groups=["costas_quarto", "sumivel"]]
 transform = Transform3D(1.4142132, 1.4142132, 6.181718e-08, 1.4210855e-14, -8.7422755e-08, 1.9999995, 1.4142134, -1.4142132, -6.1817225e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_uc7dw")
 
@@ -699,7 +705,7 @@ area_preview_caixa = NodePath("CaixaSpawnAqui")
 [node name="PlacaPapelao" parent="Estoque" unique_id=661794333 instance=ExtResource("24_yuepw")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.30773258, -0.57849646, 0)
 
-[node name="CaixaIndicador" parent="Estoque/PlacaPapelao" index="0" unique_id=1589661665]
+[node name="CaixaIndicador" parent="Estoque/PlacaPapelao" index="0" unique_id=1589661665 groups=["costas_quarto", "sumivel"]]
 mesh = SubResource("ArrayMesh_o2fhn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Estoque" unique_id=1658370593]

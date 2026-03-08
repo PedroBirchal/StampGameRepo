@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://xmuqb4135jt5" path="res://Models/Objetos_Caixa/Itens_Ferramenta/Chave_Fenda.fbx" id="1_2ksr1"]
 [ext_resource type="Script" uid="uid://b6uhx2btqgj5s" path="res://Scripts/cartas/item_res.gd" id="2_8sxi0"]
+[ext_resource type="PackedScene" uid="uid://cf0f5nxyg475g" path="res://Models/Objetos_Caixa/Itens_Danificados/Ferramentas/Chave_Fenda_Ruim.fbx" id="2_jrpju"]
 
 [resource]
 script = ExtResource("2_8sxi0")
@@ -10,4 +11,7 @@ mesh = ExtResource("1_2ksr1")
 categorias = PackedStringArray("ferramenta")
 offset_rot_mostrar = Vector3(1.43117, 0, 0)
 offset_pos_mostrar = Vector3(0, -0.1, 0)
+offset_rot_defeito = Vector3(1.5707964, 0, 0)
+offset_pos_defeito = Vector3(0, 0.064, 0)
+mesh_defeito = ExtResource("2_jrpju")
 metadata/_custom_type_script = "uid://b6uhx2btqgj5s"
