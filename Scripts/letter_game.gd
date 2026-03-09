@@ -17,6 +17,9 @@ func jogar() -> void:
 	camera.make_current()
 	carta_controller.instantiate_new_carta()
 	carta_controller.active = true
+	
+	if not carta_controller.tem_cartas():
+		Jogo.instance.criar_impedimento(Jogo.instance.impedir_sem_cartas)
 
 func sair() -> void:
 	super()

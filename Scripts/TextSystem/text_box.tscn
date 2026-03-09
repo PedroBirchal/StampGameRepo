@@ -815,6 +815,7 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+mouse_behavior_recursive = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_o1v03")
 ignore_texture_size = true

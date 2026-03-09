@@ -13,6 +13,7 @@ signal saindo
 @export var desativar_ao_sair := true
 
 @export var sumir_jogador := true
+@export var pode_sair := true
 
 @export var jogavel_ui : Control
 

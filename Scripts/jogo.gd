@@ -3,6 +3,7 @@ class_name Jogo
 extends Node
 
 static var instance: Jogo
+var comecou := false
 
 enum Estado { QUARTO, JOGANDO }
 
@@ -20,18 +21,29 @@ var jogavel_atual : Jogavel
 @export var camera_principal : Camera3D
 @export var jogo_carimbo : JogoCarimbar
 @export var jogo_cartas : Node3D
+@export var telefone : Telefone
 
 @export_group("UI")
 @export var fade : FadeController
 @export var quarto_ui : Control
 @export var dialogo : Dialogo
 @export var texto_fim_de_jogo : Control
+@export var sair_jogavel_btn : TextureButton
+@export var texto_impedimento : Label
+@export var impedimento_tela : Control
 
 @export_group("Timer")
 @export var ui_timer_pontuacao : Control
 @export var relogio_mesa : Node3D
 @export var timer : Timer
 @export var duracao_do_dia : float = 300 # em segundos
+
+@export_group("Impedimentos")
+@export_multiline var impedir_por_ligacao : String
+@export_multiline var impedir_por_ligacao_comeco : String
+@export_multiline var impedir_sem_cartas : String
+var ta_impedido := false
+
 
 
 func _init() -> void:
@@ -58,6 +70,7 @@ func jogavel_iniciado(jogavel: Jogavel) -> void:
 	if jogavel_atual == jogavel:
 		return
 	
+	sair_jogavel_btn.visible = jogavel.pode_sair
 	jogavel_atual = jogavel
 	jogavel_atual.saindo.connect(jogavel_encerrado)
 	mudar_estado(Estado.JOGANDO)
@@ -65,9 +78,15 @@ func jogavel_iniciado(jogavel: Jogavel) -> void:
 func jogavel_encerrado() -> void:
 	jogavel_atual.saindo.disconnect(jogavel_encerrado)
 	camera_principal.make_current()
+	sair_jogavel_btn.hide()
+	limpar_impedimento()
 	mudar_estado(Estado.QUARTO)
 	jogavel_atual = null
 
+func _handle_sair_jogavel() -> void:
+	if jogavel_atual == null:
+		return
+	jogavel_atual.sair()
 
 func mudar_estado(std: Estado) -> void:
 	if estado == std:
@@ -115,3 +134,35 @@ func _on_timer_do_jogo_timeout() -> void:
 	carimbos_incorretos = decretos.entregas_incorretas
 	saldo_final = pontuacao - aluguel
 	get_tree().change_scene_to_file("res://Scenes/c_ena_final.tscn")
+
+
+
+func criar_impedimento(texto: String) -> void:
+	texto_impedimento.text = texto
+	impedimento_tela.visible = true
+	ta_impedido = true
+
+func limpar_impedimento() -> void:
+	texto_impedimento.text = ""
+	impedimento_tela.visible = false
+	ta_impedido = false
+
+
+func _on_telefone_tocando() -> void:
+	if jogavel_atual == jogo_carimbo:
+		jogo_carimbo.checar_impedimento_ligacao()
+
+func impedir_por_chamada() -> void:
+	if not comecou:
+		criar_impedimento(impedir_por_ligacao_comeco)
+	else:
+		criar_impedimento(impedir_por_ligacao)
+
+
+func _on_telefone_chamada_encerrada() -> void:
+	if not comecou:
+		comecou = true
+
+
+func _on_telefone_atendido() -> void:
+	limpar_impedimento()

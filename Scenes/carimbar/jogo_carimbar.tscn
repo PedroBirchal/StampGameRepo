@@ -5,10 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bw1ojqtg63gsa" path="res://Scenes/carimbos/Carimbo_infernopolis.tscn" id="3_g6dvo"]
 [ext_resource type="Script" uid="uid://cgohyllorbxkj" path="res://Scripts/camera/camera_tilt.gd" id="3_i71g1"]
 [ext_resource type="Texture2D" uid="uid://djda65x1gkvo8" path="res://materials/ColorMap.png" id="4_2thi0"]
-[ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="8_5f1bj"]
 [ext_resource type="PackedScene" uid="uid://c6mdtx25j1ean" path="res://Scenes/carimbos/Carimbo_arvore.tscn" id="8_iapwp"]
 [ext_resource type="PackedScene" uid="uid://kgd7gt2nbvct" path="res://Scenes/PapelDaCarta.tscn" id="8_xxvmt"]
-[ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="9_dgb7d"]
 [ext_resource type="PackedScene" uid="uid://d0ujbbr3ehgt" path="res://Scenes/carimbos/Carimbo_torre.tscn" id="9_ncxsn"]
 [ext_resource type="PackedScene" uid="uid://0cfc55nxafqe" path="res://Scenes/carimbos/Carimbo_aqua.tscn" id="10_33jh8"]
 [ext_resource type="Script" uid="uid://d36v0h2e11jsd" path="res://Scripts/carimbar/spawn_encomenda.gd" id="10_gqmlt"]
@@ -657,17 +655,6 @@ ignore_texture_size = true
 stretch_mode = 5
 flip_h = true
 
-[node name="SairDoJogo" type="TextureButton" parent="UI" unique_id=974350490]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 15.0
-offset_right = 75.0
-offset_bottom = 75.0
-mouse_behavior_recursive = 2
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("8_5f1bj")
-texture_hover = ExtResource("9_dgb7d")
-
 [node name="Rotacionavel" type="Node" parent="." unique_id=11386785]
 script = ExtResource("13_iapwp")
 metadata/_custom_type_script = "uid://bvtixto24md7m"
@@ -734,7 +721,6 @@ shape = SubResource("BoxShape3D_2p7p1")
 [connection signal="pressed" from="UI/InspecionarElementos/BotoesVerticais/BotaoCima" to="." method="tentar_abrir_caixa"]
 [connection signal="pressed" from="UI/InspecionarElementos/BotoesHorizontais/BotaoEsquerda" to="." method="_on_botao_girar_esquerda"]
 [connection signal="pressed" from="UI/InspecionarElementos/BotoesHorizontais/BotaoDireita" to="." method="_on_botao_girar_direita"]
-[connection signal="pressed" from="UI/SairDoJogo" to="." method="sair"]
 [connection signal="clicado" from="Lixo" to="." method="clicou_encomenda_lixo"]
 [connection signal="excluido" from="Lixo" to="." method="encomenda_lixada"]
 [connection signal="hover" from="Lixo" to="." method="preview_hover_lixo"]

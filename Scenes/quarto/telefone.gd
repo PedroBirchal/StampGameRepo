@@ -8,6 +8,18 @@ enum Estado { PARADO, TOCANDO, EM_CHAMADA}
 @export var estado := Estado.PARADO
 @export var textos : Array[String]
 
+var tocando:
+	get:
+		return estado == Estado.TOCANDO
+
+var parado:
+	get:
+		return estado == Estado.PARADO
+
+var em_chamada:
+	get:
+		return estado == Estado.EM_CHAMADA
+
 signal telefone_tocando
 signal telefone_atendido
 signal chamada_encerrada

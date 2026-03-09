@@ -39,9 +39,14 @@
 [ext_resource type="Resource" uid="uid://dcvryfdkkkjn6" path="res://resources/decretos/decreto_14.tres" id="17_fg000"]
 [ext_resource type="Resource" uid="uid://so3ah50d3syy" path="res://resources/decretos/decreto_15.tres" id="18_q2yap"]
 [ext_resource type="Script" path="res://Scenes/quarto/play_music.gd" id="19_80gip"]
+[ext_resource type="FontFile" uid="uid://uk6ar6pt6uet" path="res://Fonts/kindergarten.ttf" id="20_873pr"]
 [ext_resource type="PackedScene" uid="uid://iifgv6n7t771" path="res://Scenes/TextoFimDeJogo.tscn" id="21_yp1q3"]
 [ext_resource type="PackedScene" uid="uid://bjkfs4qbiqqv3" path="res://Scenes/UILetterThrowing.tscn" id="23_873pr"]
 [ext_resource type="Script" uid="uid://tokhtvkxhalt" path="res://Scenes/quarto/fade_in_out.gd" id="43_873pr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fowkp"]
+font = ExtResource("20_873pr")
+font_size = 42
 
 [sub_resource type="GDScript" id="GDScript_js386"]
 script/source = "extends TextureButton
@@ -249,28 +254,93 @@ lista_decretos = Array[ExtResource("2_p5cr7")]([ExtResource("3_r6doe"), ExtResou
 jogo_carimbar = NodePath("../NavigationRegion3D/Cubiculo/JogoCarimbar")
 telefone = NodePath("../NavigationRegion3D/CenarioBonito/Telefone")
 
-[node name="Jogo" type="Node" parent="." unique_id=510473093 node_paths=PackedStringArray("jogador", "decretos", "camera_principal", "jogo_carimbo", "jogo_cartas", "fade", "quarto_ui", "dialogo", "texto_fim_de_jogo", "ui_timer_pontuacao", "relogio_mesa", "timer")]
+[node name="Jogo" type="Node" parent="." unique_id=510473093 node_paths=PackedStringArray("jogador", "decretos", "camera_principal", "jogo_carimbo", "jogo_cartas", "telefone", "fade", "quarto_ui", "dialogo", "texto_fim_de_jogo", "sair_jogavel_btn", "texto_impedimento", "impedimento_tela", "ui_timer_pontuacao", "relogio_mesa", "timer")]
 script = ExtResource("1_js386")
 jogador = NodePath("../Jogador")
 decretos = NodePath("../DecretosController")
 camera_principal = NodePath("../OlhoDeDeus/Camera3D")
 jogo_carimbo = NodePath("../NavigationRegion3D/Cubiculo/JogoCarimbar")
 jogo_cartas = NodePath("../NavigationRegion3D/CenarioBonito/Wardrobe/LetterGame")
+telefone = NodePath("../NavigationRegion3D/CenarioBonito/Telefone")
 fade = NodePath("../Transicao")
 quarto_ui = NodePath("../UI_Jogo")
 dialogo = NodePath("../DialogManager/TextBox")
 texto_fim_de_jogo = NodePath("../TextoFimDeJogo")
+sair_jogavel_btn = NodePath("CanvasLayer/JogavelUI/SairDoJogo")
+texto_impedimento = NodePath("CanvasLayer/JogavelUI/Impedido/Label")
+impedimento_tela = NodePath("CanvasLayer/JogavelUI/Impedido")
 ui_timer_pontuacao = NodePath("../UiLetterThrowing")
 relogio_mesa = NodePath("../NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa/Relogio")
 timer = NodePath("TimerDoJogo")
 duracao_do_dia = 900.0
+impedir_por_ligacao = "Eu devia atender o telefone
+antes de continuar o trabalho."
+impedir_por_ligacao_comeco = "Eu devia atender o telefone
+antes de começar o trabalho."
+impedir_sem_cartas = "O cesto de cartas está vazio."
 metadata/_custom_type_script = "uid://d4j65a74tvcye"
 
 [node name="TimerDoJogo" type="Timer" parent="Jogo" unique_id=34987187]
 wait_time = 5.0
 one_shot = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Jogo" unique_id=1874856062]
+layer = 2
+
+[node name="JogavelUI" type="Control" parent="Jogo/CanvasLayer" unique_id=1355838150]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_behavior_recursive = 1
+
+[node name="Impedido" type="ColorRect" parent="Jogo/CanvasLayer/JogavelUI" unique_id=2064911652]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 2
+color = Color(0, 0, 0, 0.49803922)
+
+[node name="Label" type="Label" parent="Jogo/CanvasLayer/JogavelUI/Impedido" unique_id=1926801793]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -505.5
+offset_top = -73.5
+offset_right = 505.5
+offset_bottom = 73.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Eu devia atender o telefone
+antes de continuar o trabalho."
+label_settings = SubResource("LabelSettings_fowkp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SairDoJogo" type="TextureButton" parent="Jogo/CanvasLayer/JogavelUI" unique_id=1959132422]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 75.0
+offset_bottom = 75.0
+mouse_behavior_recursive = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_2hbw0")
+texture_hover = ExtResource("9_v11ly")
+
 [node name="TextoFimDeJogo" parent="." unique_id=1285358852 instance=ExtResource("21_yp1q3")]
+mouse_filter = 1
+mouse_behavior_recursive = 1
 
 [node name="DialogManager" type="Control" parent="." unique_id=1819112143]
 layout_mode = 3
@@ -279,6 +349,7 @@ anchor_right = 1.0
 offset_bottom = 273.0
 grow_horizontal = 2
 mouse_filter = 1
+mouse_behavior_recursive = 1
 
 [node name="TextBox" parent="DialogManager" unique_id=1361892390 instance=ExtResource("1_7meqa")]
 visible = false
@@ -302,6 +373,7 @@ offset_top = -134.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
+mouse_behavior_recursive = 1
 
 [node name="TextureButton" type="TextureButton" parent="UI_Jogo" unique_id=380968004]
 layout_mode = 1
@@ -313,6 +385,7 @@ offset_top = -112.0
 offset_right = 170.0
 offset_bottom = -20.0
 grow_vertical = 0
+mouse_behavior_recursive = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("10_j7gex")
 ignore_texture_size = true
@@ -333,6 +406,7 @@ offset_right = -20.0
 offset_bottom = -20.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_behavior_recursive = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("10_j7gex")
 ignore_texture_size = true
@@ -473,6 +547,7 @@ camera = NodePath("Camera/Camera3D")
 textos = Array[String](["Vugnaes sreo", "Endalgi agrummit", "A Aqualantida requer que todas as caixas que entrem no país tenham o selo do país que enviou, além do selo de Aqualântida.", "eita!"])
 desativar_on_jogar = [NodePath("../../../UiLetterThrowing")]
 sumir_jogador = false
+pode_sair = false
 
 [node name="Estante" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito/Telefone" unique_id=2121307540 groups=["frente_quarto", "sumivel"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4251685, 0)
@@ -758,11 +833,15 @@ color = Color(0, 0, 0, 0)
 
 [connection signal="timeout" from="Jogo/TimerDoJogo" to="DecretosController" method="_on_timer_do_jogo_timeout"]
 [connection signal="timeout" from="Jogo/TimerDoJogo" to="Jogo" method="_on_timer_do_jogo_timeout"]
+[connection signal="pressed" from="Jogo/CanvasLayer/JogavelUI/SairDoJogo" to="Jogo" method="_handle_sair_jogavel"]
 [connection signal="chamar" from="UI_Jogo/TextureButton" to="OlhoDeDeus/Rotacionavel" method="girar"]
 [connection signal="pressed" from="UI_Jogo/TextureButton" to="UI_Jogo/TextureButton" method="mandar_para"]
 [connection signal="chamar" from="UI_Jogo/TextureButton2" to="OlhoDeDeus/Rotacionavel" method="girar"]
 [connection signal="pressed" from="UI_Jogo/TextureButton2" to="UI_Jogo/TextureButton2" method="mandar_para"]
 [connection signal="pressed" from="NavigationRegion3D/CenarioBonito/Quadro/UI/SairDoJogo" to="NavigationRegion3D/CenarioBonito/Quadro" method="sair"]
+[connection signal="chamada_encerrada" from="NavigationRegion3D/CenarioBonito/Telefone" to="Jogo" method="_on_telefone_chamada_encerrada"]
+[connection signal="telefone_atendido" from="NavigationRegion3D/CenarioBonito/Telefone" to="Jogo" method="_on_telefone_atendido"]
+[connection signal="telefone_tocando" from="NavigationRegion3D/CenarioBonito/Telefone" to="Jogo" method="_on_telefone_tocando"]
 [connection signal="mudou_encomenda" from="NavigationRegion3D/Cubiculo/JogoCarimbar" to="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa/CentroDaMesa/Carimbo Infernopolis" method="_on_jogo_carimbar_mudou_encomenda"]
 [connection signal="comecou_girar" from="OlhoDeDeus/Rotacionavel" to="OlhoDeDeus" method="_on_rotacionavel_comecou_girar"]
 [connection signal="terminou_girar" from="OlhoDeDeus/Rotacionavel" to="OlhoDeDeus" method="_on_rotacionavel_terminou_girar"]

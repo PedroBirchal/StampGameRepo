@@ -62,6 +62,8 @@ func jogar() -> void:
 		proxima_encomenda = gerar_nova_encomenda()
 		pos_receber_proximo.add_child(proxima_encomenda)
 	
+	checar_impedimento_ligacao()
+	
 	setar_modo_girando(false)
 	
 	camera.make_current()
@@ -289,6 +291,7 @@ func _encomenda_mandada_pro_lixo() -> void:
 	encomenda_atual.estado_mudado.disconnect(encomenda_atual_mudou_estado)
 	encomenda_atual = null
 	mudou_encomenda.emit(null)
+	checar_impedimento_ligacao()
 
 
 var previewing_caixa_estoque = false
@@ -322,7 +325,7 @@ func _mandar_caixa_para_estoque() -> void:
 	
 	encomenda_atual.freeze = false
 	encomenda_atual = null
-	
+	checar_impedimento_ligacao()
 	
 	await Jogo.instance.decretos.apos_checar_corretude
 
@@ -357,6 +360,7 @@ func _on_cesto_carta_clicado() -> void:
 	cesto.adicionar_carta(encomenda_atual)
 	encomenda_atual = null
 	mudou_encomenda.emit(null)
+	checar_impedimento_ligacao()
 	
 	await Jogo.instance.decretos.apos_checar_corretude
 	
@@ -364,3 +368,7 @@ func _on_cesto_carta_clicado() -> void:
 func tentar_abrir_caixa() -> void:
 	if encomenda_atual != null and encomenda_atual.estado_atual == Encomenda.EstadoEncomenda.INSPECIONANDO and encomenda_atual is Pacote:
 		encomenda_atual.abrir_pacote()
+
+func checar_impedimento_ligacao() -> void:
+	if Jogo.instance.telefone.tocando and encomenda_atual == null:
+		Jogo.instance.impedir_por_chamada()
