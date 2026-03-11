@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://6betkl7l52nr"]
+
+[sub_resource type="GDScript" id="GDScript_csl45"]
+script/source = "extends Control
+
+@onready var window: Window = get_window()
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	Abertura.aparecer()
+	Abertura.sumiu.connect(ao_sumir)
+	Abertura.sumindo.connect(sumindo)
+	
+	window.mode = Window.MODE_MINIMIZED
+	window.unfocusable = true
+
+func sumindo() -> void:
+	Abertura.sumindo.disconnect(sumindo)
+	
+	window.mode = Window.MODE_FULLSCREEN
+	window.unfocusable = false
+
+func ao_sumir() -> void:
+	Abertura.sumiu.disconnect(ao_sumir)
+	window.grab_focus()
+	get_tree().change_scene_to_file(\"res://Scenes/MainMenu.tscn\")
+"
+
+[node name="PreAbertura" type="Control" unique_id=1259706182]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_csl45")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=550320529]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

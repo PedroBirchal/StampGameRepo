@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="StampGame"
-run/main_scene="uid://b0vww556a3ldo"
+run/main_scene="uid://6betkl7l52nr"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://cos077ndo24qa"
 
@@ -24,12 +24,16 @@ buses/default_bus_layout="uid://cjm6ugp1fj2py"
 Singleton="*uid://c7obwei6oy624"
 AudioManager="*uid://bvaff8scei3ag"
 DialogManager="*uid://bh3y4ynh43gnk"
+Abertura="*uid://d0bwfibyv1vkn"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/subwindows/embed_subwindows=false
 window/stretch/mode="viewport"
+window/per_pixel_transparency/allowed=true
 
 [editor]
 

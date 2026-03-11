@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://uk6ar6pt6uet" path="res://Fonts/kindergarten.ttf" id="3_df05h"]
 [ext_resource type="Texture2D" uid="uid://buoef7tm325ba" path="res://Sprites/ui/x.png" id="3_ghw46"]
 [ext_resource type="Texture2D" uid="uid://rghhvon4n4ce" path="res://Sprites/ui/x_torto.png" id="4_df05h"]
-[ext_resource type="Script" uid="uid://dmyqgnmew7j4j" path="res://Scenes/audio_controller.gd" id="6_xim88"]
+[ext_resource type="Script" path="res://Scenes/audio_controller.gd" id="6_xim88"]
 [ext_resource type="FontFile" uid="uid://bbb8aiguwfggd" path="res://Fonts/Mory.ttf" id="7_koqhg"]
 [ext_resource type="Script" path="res://Scenes/quarto/play_music.gd" id="7_xim88"]
 [ext_resource type="Texture2D" uid="uid://bvqje2wlw71bt" path="res://Sprites/Captura de tela 2026-03-01 192600.png" id="10_if7li"]
@@ -51,14 +51,93 @@ thickness = 13
 color = Color(0.9999998, 0.2247948, 0.5679053, 1)
 thickness = 13
 
-[node name="MainMenu" type="Node2D" unique_id=1637582694 node_paths=PackedStringArray("creditsTela", "opcoesTela", "tutorialTela", "buttonManager")]
-script = ExtResource("1_8saeu")
-creditsTela = NodePath("Telas/Créditos")
-opcoesTela = NodePath("Telas/Opções")
-tutorialTela = NodePath("Telas/Tutorial")
-buttonManager = NodePath("Button Manager")
+[sub_resource type="Animation" id="Animation_7467j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
-[node name="Title" type="Label" parent="." unique_id=1203621451]
+[sub_resource type="Animation" id="Animation_2x1g0"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_riqfo"]
+_data = {
+&"RESET": SubResource("Animation_7467j"),
+&"fade_out": SubResource("Animation_2x1g0")
+}
+
+[node name="MainMenu" type="Node2D" unique_id=1637582694 node_paths=PackedStringArray("creditsTela", "opcoesTela", "tutorialTela", "buttonManager", "fade_animation", "fade_panel")]
+script = ExtResource("1_8saeu")
+creditsTela = NodePath("CanvasLayer2/Telas/Créditos")
+opcoesTela = NodePath("CanvasLayer2/Telas/Opções")
+tutorialTela = NodePath("CanvasLayer2/Telas/Tutorial")
+buttonManager = NodePath("CanvasLayer2/Button Manager")
+fade_animation = NodePath("CanvasLayer2/FadeAnimacao")
+fade_panel = NodePath("CanvasLayer2/Fade")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=252497776]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1958.0
+offset_bottom = 1118.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.08, 0.08, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1802166571]
+
+[node name="Main" type="Control" parent="CanvasLayer" unique_id=1690622049]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer/Main" unique_id=747525070]
+z_index = -2
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1127.0
+stream = SubResource("VideoStreamTheora_cmrfp")
+autoplay = true
+loop = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Main" unique_id=1367331201]
+z_index = -1
+material = SubResource("ShaderMaterial_if7li")
+layout_mode = 0
+offset_right = 1977.0
+offset_bottom = 1103.0
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=758580966]
+layer = 2
+
+[node name="Title" type="Label" parent="CanvasLayer2" unique_id=1203621451]
 offset_left = 746.0
 offset_top = 299.0
 offset_right = 1893.0
@@ -67,34 +146,13 @@ theme_override_fonts/font = ExtResource("2_cmrfp")
 theme_override_font_sizes/font_size = 150
 text = "Aviário Postal"
 
-[node name="Main" type="Node" parent="." unique_id=507325774]
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Main" unique_id=747525070]
-z_index = -2
-offset_right = 1995.0
-offset_bottom = 1127.0
-stream = SubResource("VideoStreamTheora_cmrfp")
-autoplay = true
-loop = true
-
-[node name="Camera2D" type="Camera2D" parent="Main" unique_id=1470247749]
-position = Vector2(986.00006, 550)
-scale = Vector2(2.6400023, 6.2529874)
-zoom = Vector2(0.65, 0.65)
-
-[node name="ColorRect" type="ColorRect" parent="Main" unique_id=1367331201]
-z_index = -1
-material = SubResource("ShaderMaterial_if7li")
-offset_right = 1977.0
-offset_bottom = 1103.0
-
-[node name="Telas" type="Control" parent="." unique_id=1270679616]
+[node name="Telas" type="Control" parent="CanvasLayer2" unique_id=1270679616]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="Créditos" type="Panel" parent="Telas" unique_id=273809255]
+[node name="Créditos" type="Panel" parent="CanvasLayer2/Telas" unique_id=273809255]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -110,24 +168,25 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8saeu")
 
-[node name="Panel" type="Panel" parent="Telas/Créditos" unique_id=1732898781]
+[node name="Panel" type="Panel" parent="CanvasLayer2/Telas/Créditos" unique_id=1732898781]
 layout_mode = 0
 offset_top = -2.0
 offset_right = 1078.0
 offset_bottom = 940.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ghw46")
 
-[node name="TextureButton" type="TextureButton" parent="Telas/Créditos/Panel" unique_id=2072567029]
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer2/Telas/Créditos/Panel" unique_id=2072567029]
 modulate = Color(0, 0.69411767, 0.6392157, 1)
 layout_mode = 0
 offset_left = 47.0
 offset_top = 26.0
 offset_right = 107.0
 offset_bottom = 86.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_ghw46")
 texture_hover = ExtResource("4_df05h")
 
-[node name="titulo" type="Label" parent="Telas/Créditos/Panel" unique_id=1978964728]
+[node name="titulo" type="Label" parent="CanvasLayer2/Telas/Créditos/Panel" unique_id=1978964728]
 layout_mode = 0
 offset_left = 343.0
 offset_top = 16.0
@@ -140,7 +199,7 @@ text = "CRÉDITOS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cargo" type="Label" parent="Telas/Créditos/Panel" unique_id=131334101]
+[node name="Cargo" type="Label" parent="CanvasLayer2/Telas/Créditos/Panel" unique_id=131334101]
 layout_mode = 0
 offset_left = 355.0
 offset_top = 112.0
@@ -153,7 +212,7 @@ text = "Programação"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Nomes" type="Label" parent="Telas/Créditos/Panel" unique_id=637640240]
+[node name="Nomes" type="Label" parent="CanvasLayer2/Telas/Créditos/Panel" unique_id=637640240]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 181.0
@@ -168,7 +227,7 @@ Pedro de Lima Birchal"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cargo3" type="Label" parent="Telas/Créditos/Panel" unique_id=1929151884]
+[node name="Cargo3" type="Label" parent="CanvasLayer2/Telas/Créditos/Panel" unique_id=1929151884]
 layout_mode = 0
 offset_left = 374.0
 offset_top = 385.0
@@ -181,7 +240,7 @@ text = "Artistas"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Nomes3" type="Label" parent="Telas/Créditos/Panel" unique_id=259586271]
+[node name="Nomes3" type="Label" parent="CanvasLayer2/Telas/Créditos/Panel" unique_id=259586271]
 layout_mode = 0
 offset_left = 42.0
 offset_top = 445.0
@@ -195,7 +254,7 @@ Maria Fernanda Rodrigues Macêdo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="titulo2" type="Label" parent="Telas/Créditos/Panel" unique_id=2068262881]
+[node name="titulo2" type="Label" parent="CanvasLayer2/Telas/Créditos/Panel" unique_id=2068262881]
 layout_mode = 0
 offset_left = 285.0
 offset_top = 614.0
@@ -208,7 +267,7 @@ text = "Conteúdo externo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="titulo2" type="Label" parent="Telas/Créditos/Panel/titulo2" unique_id=1962739881]
+[node name="titulo2" type="Label" parent="CanvasLayer2/Telas/Créditos/Panel/titulo2" unique_id=1962739881]
 visible = false
 layout_mode = 0
 offset_left = 7.0
@@ -222,7 +281,7 @@ text = "OpenGameArt.org"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Nomes2" type="Label" parent="Telas/Créditos/Panel" unique_id=1186151326]
+[node name="Nomes2" type="Label" parent="CanvasLayer2/Telas/Créditos/Panel" unique_id=1186151326]
 layout_mode = 0
 offset_left = -543.0
 offset_top = 677.0
@@ -237,7 +296,7 @@ omfgdude"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Cargo2" type="Label" parent="Telas/Créditos/Panel" unique_id=277332297]
+[node name="Cargo2" type="Label" parent="CanvasLayer2/Telas/Créditos/Panel" unique_id=277332297]
 layout_mode = 0
 offset_left = 478.0
 offset_top = 657.0
@@ -251,7 +310,7 @@ Cartas abrindo e fechando
 Música de background"
 vertical_alignment = 1
 
-[node name="Opções" type="Panel" parent="Telas" unique_id=971155951]
+[node name="Opções" type="Panel" parent="CanvasLayer2/Telas" unique_id=971155951]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -268,24 +327,25 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8saeu")
 script = ExtResource("6_xim88")
 
-[node name="Panel" type="Panel" parent="Telas/Opções" unique_id=1821935718]
+[node name="Panel" type="Panel" parent="CanvasLayer2/Telas/Opções" unique_id=1821935718]
 layout_mode = 0
 offset_top = -2.0
 offset_right = 1078.0
 offset_bottom = 940.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ghw46")
 
-[node name="TextureButton" type="TextureButton" parent="Telas/Opções/Panel" unique_id=52468757]
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer2/Telas/Opções/Panel" unique_id=52468757]
 modulate = Color(0, 0.69411767, 0.6392157, 1)
 layout_mode = 0
 offset_left = 47.0
 offset_top = 26.0
 offset_right = 107.0
 offset_bottom = 86.0
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("CompressedTexture2D_xim88")
 texture_hover = SubResource("CompressedTexture2D_koqhg")
 
-[node name="titulo" type="Label" parent="Telas/Opções/Panel" unique_id=132031864]
+[node name="titulo" type="Label" parent="CanvasLayer2/Telas/Opções/Panel" unique_id=132031864]
 layout_mode = 0
 offset_left = 343.0
 offset_top = 16.0
@@ -298,7 +358,7 @@ text = "Opções"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Music" type="Label" parent="Telas/Opções/Panel" unique_id=1556413969]
+[node name="Music" type="Label" parent="CanvasLayer2/Telas/Opções/Panel" unique_id=1556413969]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -318,7 +378,7 @@ text = "Música"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="music" type="HSlider" parent="Telas/Opções/Panel/Music" unique_id=1031943176]
+[node name="music" type="HSlider" parent="CanvasLayer2/Telas/Opções/Panel/Music" unique_id=1031943176]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -337,7 +397,7 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="SFX" type="Label" parent="Telas/Opções/Panel" unique_id=1685558378]
+[node name="SFX" type="Label" parent="CanvasLayer2/Telas/Opções/Panel" unique_id=1685558378]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -357,7 +417,7 @@ text = "Efeito sonoro"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="sfx" type="HSlider" parent="Telas/Opções/Panel/SFX" unique_id=357333354]
+[node name="sfx" type="HSlider" parent="CanvasLayer2/Telas/Opções/Panel/SFX" unique_id=357333354]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -376,7 +436,7 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="Tutorial" type="Panel" parent="Telas" unique_id=256329509]
+[node name="Tutorial" type="Panel" parent="CanvasLayer2/Telas" unique_id=256329509]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -392,24 +452,25 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8saeu")
 
-[node name="Panel" type="Panel" parent="Telas/Tutorial" unique_id=1644434341]
+[node name="Panel" type="Panel" parent="CanvasLayer2/Telas/Tutorial" unique_id=1644434341]
 layout_mode = 0
 offset_top = -2.0
 offset_right = 1620.0
 offset_bottom = 940.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ghw46")
 
-[node name="TextureButton" type="TextureButton" parent="Telas/Tutorial/Panel" unique_id=921592350]
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer2/Telas/Tutorial/Panel" unique_id=921592350]
 modulate = Color(0, 0.69411767, 0.6392157, 1)
 layout_mode = 0
 offset_left = 47.0
 offset_top = 26.0
 offset_right = 107.0
 offset_bottom = 86.0
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("CompressedTexture2D_xim88")
 texture_hover = SubResource("CompressedTexture2D_koqhg")
 
-[node name="titulo" type="Label" parent="Telas/Tutorial/Panel" unique_id=1445937758]
+[node name="titulo" type="Label" parent="CanvasLayer2/Telas/Tutorial/Panel" unique_id=1445937758]
 layout_mode = 0
 offset_left = 609.0
 offset_top = 12.5
@@ -422,7 +483,7 @@ text = "Tutorial"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Nomes2" type="Label" parent="Telas/Tutorial/Panel" unique_id=1581391772]
+[node name="Nomes2" type="Label" parent="CanvasLayer2/Telas/Tutorial/Panel" unique_id=1581391772]
 visible = false
 layout_mode = 0
 offset_left = 57.0
@@ -437,17 +498,17 @@ text = "- Leia e siga os decretos
 - Organize a encomenda por área"
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=794485791]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer2/Telas/Tutorial/Panel" unique_id=794485791]
 visible = false
 position = Vector2(1118, 228.5)
 texture = ExtResource("10_if7li")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=1233373107]
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer2/Telas/Tutorial/Panel" unique_id=1233373107]
 position = Vector2(606.00006, 363.50006)
 scale = Vector2(0.7384868, 0.7384868)
 texture = ExtResource("11_8e205")
 
-[node name="Nomes3" type="Label" parent="Telas/Tutorial/Panel" unique_id=972173736]
+[node name="Nomes3" type="Label" parent="CanvasLayer2/Telas/Tutorial/Panel" unique_id=972173736]
 layout_mode = 0
 offset_left = 717.0
 offset_top = 236.5
@@ -461,14 +522,14 @@ theme_override_font_sizes/font_size = 50
 text = "Clique para trazer a encomenda ao meio"
 vertical_alignment = 1
 
-[node name="Sprite2D3" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=1221273918]
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer2/Telas/Tutorial/Panel" unique_id=1221273918]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(1147, 392.49997)
 rotation = -0.8447394
 scale = Vector2(0.7384868, 0.7384868)
 texture = ExtResource("12_7467j")
 
-[node name="Nomes4" type="Label" parent="Telas/Tutorial/Panel" unique_id=912991859]
+[node name="Nomes4" type="Label" parent="CanvasLayer2/Telas/Tutorial/Panel" unique_id=912991859]
 layout_mode = 0
 offset_left = 51.0
 offset_top = 94.5
@@ -482,26 +543,26 @@ theme_override_font_sizes/font_size = 50
 text = "Despache as encomendas"
 vertical_alignment = 1
 
-[node name="Sprite2D4" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=884307357]
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer2/Telas/Tutorial/Panel" unique_id=884307357]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(497, 295.5)
 rotation = -2.1118484
 scale = Vector2(0.7384868, 0.7384868)
 texture = ExtResource("12_7467j")
 
-[node name="Sprite2D5" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=1708151575]
+[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer2/Telas/Tutorial/Panel" unique_id=1708151575]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(432, 261.50006)
 rotation = -0.7749262
 scale = Vector2(0.208, 0.208)
 texture = ExtResource("13_2x1g0")
 
-[node name="Sprite2D6" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=314808466]
+[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer2/Telas/Tutorial/Panel" unique_id=314808466]
 position = Vector2(1321, 706.50006)
 scale = Vector2(0.7384868, 0.7384868)
 texture = ExtResource("14_7467j")
 
-[node name="Nomes5" type="Label" parent="Telas/Tutorial/Panel" unique_id=1435613003]
+[node name="Nomes5" type="Label" parent="CanvasLayer2/Telas/Tutorial/Panel" unique_id=1435613003]
 layout_mode = 0
 offset_left = 348.0
 offset_top = 810.5
@@ -515,7 +576,7 @@ theme_override_font_sizes/font_size = 50
 text = "Organize o armário de entrega"
 vertical_alignment = 1
 
-[node name="Sprite2D7" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=1424794543]
+[node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer2/Telas/Tutorial/Panel" unique_id=1424794543]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(1089.9791, 880.26575)
 rotation = -0.16231562
@@ -523,7 +584,7 @@ scale = Vector2(0.5453628, 0.68269336)
 texture = ExtResource("12_7467j")
 flip_h = true
 
-[node name="Nomes6" type="Label" parent="Telas/Tutorial/Panel" unique_id=1646271854]
+[node name="Nomes6" type="Label" parent="CanvasLayer2/Telas/Tutorial/Panel" unique_id=1646271854]
 layout_mode = 0
 offset_left = 151.0
 offset_top = 592.5
@@ -537,14 +598,14 @@ theme_override_font_sizes/font_size = 50
 text = "Carimbe de acordo com as informações"
 vertical_alignment = 1
 
-[node name="Sprite2D8" type="Sprite2D" parent="Telas/Tutorial/Panel" unique_id=1184185368]
+[node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer2/Telas/Tutorial/Panel" unique_id=1184185368]
 modulate = Color(0.9411765, 0, 0.6117647, 1)
 position = Vector2(615, 583.50006)
 rotation = -4.7193704
 scale = Vector2(0.208, 0.208)
 texture = ExtResource("13_2x1g0")
 
-[node name="Button Manager" type="Control" parent="." unique_id=242472087]
+[node name="Button Manager" type="Control" parent="CanvasLayer2" unique_id=242472087]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1282.0
@@ -552,15 +613,16 @@ offset_top = 163.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Button Manager" unique_id=131525075]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/Button Manager" unique_id=131525075]
 layout_mode = 0
 offset_left = 291.0
 offset_top = 361.0
 offset_right = 587.0
 offset_bottom = 822.0
 
-[node name="Start" type="Button" parent="Button Manager/VBoxContainer" unique_id=1789225840]
+[node name="Start" type="Button" parent="CanvasLayer2/Button Manager/VBoxContainer" unique_id=1789225840]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
@@ -570,8 +632,9 @@ text = "Início"
 icon_alignment = 1
 expand_icon = true
 
-[node name="Options" type="Button" parent="Button Manager/VBoxContainer" unique_id=2036442991]
+[node name="Options" type="Button" parent="CanvasLayer2/Button Manager/VBoxContainer" unique_id=2036442991]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
@@ -579,8 +642,9 @@ theme_override_fonts/font = ExtResource("7_koqhg")
 theme_override_font_sizes/font_size = 50
 text = "Opções"
 
-[node name="Credits" type="Button" parent="Button Manager/VBoxContainer" unique_id=1077045963]
+[node name="Credits" type="Button" parent="CanvasLayer2/Button Manager/VBoxContainer" unique_id=1077045963]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
@@ -588,8 +652,9 @@ theme_override_fonts/font = ExtResource("7_koqhg")
 theme_override_font_sizes/font_size = 50
 text = "Créditos"
 
-[node name="Tutorial" type="Button" parent="Button Manager/VBoxContainer" unique_id=1945799083]
+[node name="Tutorial" type="Button" parent="CanvasLayer2/Button Manager/VBoxContainer" unique_id=1945799083]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
@@ -597,8 +662,9 @@ theme_override_fonts/font = ExtResource("7_koqhg")
 theme_override_font_sizes/font_size = 50
 text = "Tutorial"
 
-[node name="Quit" type="Button" parent="Button Manager/VBoxContainer" unique_id=433771120]
+[node name="Quit" type="Button" parent="CanvasLayer2/Button Manager/VBoxContainer" unique_id=433771120]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
@@ -606,16 +672,31 @@ theme_override_fonts/font = ExtResource("7_koqhg")
 theme_override_font_sizes/font_size = 50
 text = "Sair"
 
+[node name="Fade" type="ColorRect" parent="CanvasLayer2" unique_id=1307312087]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_behavior_recursive = 1
+color = Color(0, 0, 0, 1)
+
+[node name="FadeAnimacao" type="AnimationPlayer" parent="CanvasLayer2" unique_id=1583353664]
+root_node = NodePath("../Fade")
+libraries/ = SubResource("AnimationLibrary_riqfo")
+
 [node name="PlayMusic" type="Node" parent="." unique_id=757560477]
 script = ExtResource("7_xim88")
 
-[connection signal="pressed" from="Telas/Créditos/Panel/TextureButton" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="Telas/Opções/Panel/TextureButton" to="." method="_on_texture_button_pressed"]
-[connection signal="value_changed" from="Telas/Opções/Panel/Music/music" to="Telas/Opções" method="_on_music_value_changed"]
-[connection signal="value_changed" from="Telas/Opções/Panel/SFX/sfx" to="Telas/Opções" method="_on_sfx_value_changed"]
-[connection signal="pressed" from="Telas/Tutorial/Panel/TextureButton" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="Button Manager/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Button Manager/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Button Manager/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="Button Manager/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="Button Manager/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Telas/Créditos/Panel/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Telas/Opções/Panel/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="value_changed" from="CanvasLayer2/Telas/Opções/Panel/Music/music" to="CanvasLayer2/Telas/Opções" method="_on_music_value_changed"]
+[connection signal="value_changed" from="CanvasLayer2/Telas/Opções/Panel/SFX/sfx" to="CanvasLayer2/Telas/Opções" method="_on_sfx_value_changed"]
+[connection signal="pressed" from="CanvasLayer2/Telas/Tutorial/Panel/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Button Manager/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Button Manager/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Button Manager/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Button Manager/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Button Manager/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

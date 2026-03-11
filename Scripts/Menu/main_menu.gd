@@ -5,6 +5,14 @@ extends Node2D
 @export var tutorialTela : Panel
 @export var buttonManager : Control
 
+
+@export var fade_animation : AnimationPlayer
+@export var fade_panel : Control
+
+func _ready() -> void:
+	fade_panel.show()
+	fade_animation.play("fade_out")
+
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/quarto/quarto.tscn")
 
