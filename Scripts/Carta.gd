@@ -21,30 +21,26 @@ func _ready() -> void:
 	caracteristicas.append("carta")
 	
 	randomize()
-	gerar_localidades()
-	mudar_cor_da_carta(indo_para)
 	#caracter_max = textos[0].text.length()
 
 # Temporario
-func gerar_localidades() -> void:
-	var locais = Singleton.Cidades.values()
-	locais.shuffle()
-	vindo_de = locais[0]
-	indo_para = locais[1]
+func recebe_localidades(carta_res: CartaResource) -> void:
+	vindo_de = carta_res.vindo_de
+	indo_para = carta_res.indo_para
 	
 	caracteristicas.append("vem_" + Singleton.sigla_cidade[vindo_de])
 	caracteristicas.append("indo_" + Singleton.sigla_cidade[indo_para])
 
-func mudar_cor_da_carta(valor : int) -> void:
+func mudar_cor_da_carta() -> void:
 	var material = mesh_carta.get_active_material(0)
 	var novo_material = material.duplicate()
+	var valor = randi_range(0, len(Singleton.cores)-1)
 	novo_material.albedo_color = Singleton.cores[valor]
 	mesh_carta.set_surface_override_material(0, novo_material)
 
 func recebe_valores(carta: CartaResource) -> void:
-	#texto_meio.text = carta.conteudo
-	indo_para = carta.indo_para
-	mudar_cor_da_carta(indo_para)
+	recebe_localidades(carta)
+	mudar_cor_da_carta()
 	carta_res = carta
 
 func abrir_carta() -> void:

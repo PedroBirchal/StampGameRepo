@@ -29,6 +29,6 @@ metadata/_custom_type_script = "uid://bt8c7yltftk8r"
 
 [resource]
 script = ExtResource("1_o34wf")
-informativo = "A Aqualantida requer que todas as caixas que entrem no país tenham o selo do país que enviou, além do selo de Aqualântida."
+informativo = "A Aqualantida requer que todas as entregas que entrem no país tenham o carimbo do país que enviou, além do carimbo de Aqualantida."
 decretacoes = Array[ExtResource("1_tw1ue")]([SubResource("Resource_tw1ue"), SubResource("Resource_ohdii"), SubResource("Resource_84mnk"), SubResource("Resource_78ai5")])
 metadata/_custom_type_script = "uid://ccx4dg86p2cxc"

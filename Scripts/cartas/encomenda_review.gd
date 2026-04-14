@@ -19,6 +19,9 @@ func copiar_base(encomenda: Encomenda) -> void:
 func adicionar_criterio(decreto_res: DecretoResource, corretude: bool) -> void:
 	criterios[decreto_res] = corretude
 
+func checar_criterio(decreto_res: DecretoResource) -> bool:
+	return criterios[decreto_res] if criterios.has(decreto_res) else false
+
 func print_review() -> void:
 	print("-------------------------")
 	print("Review de Encomenda")

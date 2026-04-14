@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DecretoResource" format=3 uid="uid://hgd8rsmtrhgt"]
+
+[ext_resource type="Script" uid="uid://bt8c7yltftk8r" path="res://Scripts/cartas/decreto_info.gd" id="1_4jdjs"]
+[ext_resource type="Script" uid="uid://ccx4dg86p2cxc" path="res://Scripts/cartas/decreto_res.gd" id="2_fyglb"]
+
+[resource]
+script = ExtResource("2_fyglb")
+informativo = "Depois de muita confusão, nem as próprias cidades sabem o que pode ou não entrar. Sem novos decretos até então."
+tem_postit = false
+metadata/_custom_type_script = "uid://ccx4dg86p2cxc"

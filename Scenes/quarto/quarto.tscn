@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://dkiqchyunj1rt" path="res://Models/Cenário/quadro_funcionario.tscn" id="16_7meqa"]
 [ext_resource type="Resource" uid="uid://ch3707yuqkkm7" path="res://resources/decretos/decreto_13.tres" id="16_bwit0"]
 [ext_resource type="Resource" uid="uid://dcvryfdkkkjn6" path="res://resources/decretos/decreto_14.tres" id="17_fg000"]
+[ext_resource type="Resource" uid="uid://hgd8rsmtrhgt" path="res://resources/decretos/decreto_final.tres" id="17_fowkp"]
 [ext_resource type="Resource" uid="uid://so3ah50d3syy" path="res://resources/decretos/decreto_15.tres" id="18_q2yap"]
 [ext_resource type="Script" path="res://Scenes/quarto/play_music.gd" id="19_80gip"]
 [ext_resource type="FontFile" uid="uid://uk6ar6pt6uet" path="res://Fonts/kindergarten.ttf" id="20_873pr"]
@@ -278,9 +279,10 @@ environment = ExtResource("15_w0kyf")
 
 [node name="DecretosController" type="Node" parent="." unique_id=319531080 node_paths=PackedStringArray("jogo_carimbar", "telefone")]
 script = ExtResource("1_eodgp")
-lista_decretos = Array[ExtResource("2_p5cr7")]([ExtResource("3_r6doe"), ExtResource("4_b256n"), ExtResource("6_l2idm"), ExtResource("7_873pr"), ExtResource("8_fowkp"), ExtResource("9_yp1q3"), ExtResource("10_gy2ex"), ExtResource("13_aittf"), ExtResource("14_ll5f4"), ExtResource("15_q17gq"), ExtResource("16_bwit0"), ExtResource("17_fg000"), ExtResource("18_q2yap")])
+lista_decretos = Array[ExtResource("2_p5cr7")]([ExtResource("3_r6doe"), ExtResource("4_b256n"), ExtResource("6_l2idm"), ExtResource("7_873pr"), ExtResource("8_fowkp"), ExtResource("9_yp1q3"), ExtResource("10_gy2ex"), ExtResource("13_aittf"), ExtResource("14_ll5f4"), ExtResource("15_q17gq"), ExtResource("16_bwit0"), ExtResource("17_fg000"), ExtResource("18_q2yap"), ExtResource("17_fowkp")])
 jogo_carimbar = NodePath("../NavigationRegion3D/Cubiculo/JogoCarimbar")
 telefone = NodePath("../NavigationRegion3D/CenarioBonito/Telefone")
+mins_para_proximo = 3
 
 [node name="Jogo" type="Node" parent="." unique_id=510473093 node_paths=PackedStringArray("jogador", "decretos", "camera_principal", "jogo_carimbo", "jogo_cartas", "telefone", "fade", "quarto_ui", "dialogo", "texto_fim_de_jogo", "sair_jogavel_btn", "texto_impedimento", "impedimento_tela", "ui_timer_pontuacao", "relogio_mesa", "timer")]
 script = ExtResource("1_js386")
@@ -775,9 +777,9 @@ desativar_colisor_on_jogar = [NodePath("../StaticBody3D/CollisionShape3D")]
 collision_layer = 2
 collision_mask = 2
 
-[node name="Chair" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa" parent_id_path=PackedInt32Array(1766737732, 643817367) index="4" unique_id=1321028306 groups=["costas_quarto", "sumivel"]]
+[node name="Chair" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa" parent_id_path=PackedInt32Array(1766737732, 643817367) index="5" unique_id=1321028306 groups=["costas_quarto", "sumivel"]]
 
-[node name="Lamp" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa" parent_id_path=PackedInt32Array(1766737732, 643817367) index="5" unique_id=2064069841 groups=["costas_quarto", "sumivel"]]
+[node name="Lamp" parent="NavigationRegion3D/Cubiculo/JogoCarimbar/Mesa" parent_id_path=PackedInt32Array(1766737732, 643817367) index="6" unique_id=2064069841 groups=["costas_quarto", "sumivel"]]
 
 [node name="DirectionalLight3D" parent="NavigationRegion3D/Cubiculo/JogoCarimbar" index="4" unique_id=1725576989]
 visible = false

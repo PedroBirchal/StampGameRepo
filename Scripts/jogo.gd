@@ -133,6 +133,10 @@ func _on_timer_do_jogo_timeout() -> void:
 	await get_tree().create_timer(2.0).timeout
 	carimbos_incorretos = decretos.entregas_incorretas
 	saldo_final = pontuacao - aluguel
+	
+	AudioManager.telephone.stop()
+	AudioManager.gibberish.stop()
+	
 	get_tree().change_scene_to_file("res://Scenes/c_ena_final.tscn")
 
 

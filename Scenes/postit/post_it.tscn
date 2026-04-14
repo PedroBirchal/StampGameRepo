@@ -12,8 +12,8 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_myq13")
 mesh = NodePath("Mesh/PostIt/Post-It")
 label = NodePath("Texto")
-duracao_piscada_in = 0.2
-duracao_piscada_out = 2.0
+duracao_piscada_in = 0.1
+duracao_piscada_out = 0.8
 cor_correta = Color(0.24750006, 0.54, 0.18900003, 1)
 cor_errada = Color(0.77918315, 0.21897325, 0.21727979, 1)
 

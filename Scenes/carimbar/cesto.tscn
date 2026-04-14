@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://bbb8aiguwfggd" path="res://Fonts/Mory.ttf" id="2_rc7ef"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u5q8s"]
-size = Vector3(1.5, 1.25, 1)
+size = Vector3(1.5, 0.6547241, 1)
 
 [node name="Cesto" type="Node3D" unique_id=1005011971 node_paths=PackedStringArray("informativo_cheio", "area_das_cartas")]
 script = ExtResource("1_1n4uw")
@@ -54,7 +54,7 @@ collision_layer = 2147483648
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1026168892]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64331055, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3456726, 0)
 shape = SubResource("BoxShape3D_u5q8s")
 
 [node name="Informativo" type="Node3D" parent="." unique_id=1419719253]

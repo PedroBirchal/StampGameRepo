@@ -32,6 +32,7 @@ func piscar_cor(cor: Color) -> void:
 	tween.tween_property(mat, "albedo_color", cor, duracao_piscada_in)
 	tween.tween_property(mat, "albedo_color", cor_padrao, duracao_piscada_out)
 	await tween.finished
+	mat.albedo_color = cor_padrao
 	piscada_finalizada.emit()
 
 

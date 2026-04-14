@@ -16,6 +16,7 @@ var entregas_incorretas = 0
 
 var review_entregues: Array[EncomendaReview]
 var entregues_nesse_decreto: Array[EncomendaReview]
+var ultimo_review: EncomendaReview
 
 @export var tempo_checagem_postit := 0.5
 
@@ -82,9 +83,12 @@ func checar_corretude(encomenda: Encomenda) -> void:
 	for decreto in decretos:
 		var valido = decreto.resource.checar_encomenda_valida(encomenda)
 		review.adicionar_criterio(decreto.resource, valido)
-		
-		decreto.postit.piscar_estado(valido)
 		certo = certo and valido
+	
+	# Se rolar o await enquanto checa, é possivel que a encomenda já não exista, por isso dois for
+	for decreto in decretos:
+		var valido = review.checar_criterio(decreto.resource)
+		decreto.postit.piscar_estado(valido)
 		await get_tree().create_timer(tempo_checagem_postit).timeout
 	
 	review.corretude = certo
@@ -98,4 +102,5 @@ func checar_corretude(encomenda: Encomenda) -> void:
 	if len(entregues_nesse_decreto) >= quant_para_proximo:
 		gerar_novo_decreto()
 	
+	ultimo_review = review
 	apos_checar_corretude.emit()

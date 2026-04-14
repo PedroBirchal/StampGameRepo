@@ -257,10 +257,12 @@ func clicou_post_it(postit: PostIt) -> void:
 		postit.reparent(postit.pin)
 		var tween = get_tree().create_tween()
 		tween.tween_property(postit, "position", Vector3.ZERO, 0.3)
+		tween.tween_property(postit, "rotation", Vector3.ZERO, 0.3)
 	elif postit.get_parent() == postit.pin:
 		postit.reparent(pos_postit_cara)
 		var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(postit, "position", Vector3.ZERO, 0.6)
+		tween.tween_property(postit, "rotation", Vector3.ZERO, 0.6)
 
 func force_postit_out() -> void:
 	if pos_postit_cara.get_child_count() > 0:
@@ -336,6 +338,10 @@ func _mandar_caixa_para_estoque() -> void:
 	checar_impedimento_ligacao()
 	
 	await Jogo.instance.decretos.apos_checar_corretude
+	
+	var review = Jogo.instance.decretos.ultimo_review
+	if review != null and review.tipo == Singleton.TipoEncomenda.CAIXA and review.corretude:
+		Jogo.instance.pontuar(2)
 
 
 var previewing_guarda_carta = false
