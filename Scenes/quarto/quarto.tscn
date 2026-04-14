@@ -48,6 +48,20 @@
 font = ExtResource("20_873pr")
 font_size = 42
 
+[sub_resource type="LabelSettings" id="LabelSettings_873pr"]
+font = ExtResource("20_873pr")
+font_size = 28
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fowkp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yp1q3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gy2ex"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xk7nm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eprvf"]
+
 [sub_resource type="GDScript" id="GDScript_js386"]
 script/source = "extends TextureButton
 
@@ -105,6 +119,20 @@ distance_fade_max_distance = 8.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lij7j"]
 size = Vector3(0.1, 1.25, 2)
+
+[sub_resource type="GDScript" id="GDScript_873pr"]
+script/source = "extends Jogavel
+
+@export var camera: Camera3D
+
+func jogar() -> void:
+	super()
+	camera.make_current()
+
+func sair() -> void:
+	super()
+	camera.clear_current()
+"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5q8s"]
 resource_name = "ColorMap"
@@ -327,7 +355,105 @@ label_settings = SubResource("LabelSettings_fowkp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SairEmExpediente" type="ColorRect" parent="Jogo/CanvasLayer/JogavelUI" unique_id=347695690]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 2
+color = Color(0, 0, 0, 0.49803922)
+
+[node name="Label" type="Label" parent="Jogo/CanvasLayer/JogavelUI/SairEmExpediente" unique_id=30064573]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -505.5
+offset_top = -73.5
+offset_right = 505.5
+offset_bottom = 73.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Encerrar o expediente mais cedo?
+
+"
+label_settings = SubResource("LabelSettings_fowkp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Jogo/CanvasLayer/JogavelUI/SairEmExpediente" unique_id=883371045]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -505.0
+offset_top = -84.0
+offset_right = 506.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "(P.S. isso vai acabar o jogo)"
+label_settings = SubResource("LabelSettings_873pr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Jogo/CanvasLayer/JogavelUI/SairEmExpediente" unique_id=935790944]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 32.0
+offset_right = 250.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 0)
+alignment = 1
+
+[node name="Button" type="Button" parent="Jogo/CanvasLayer/JogavelUI/SairEmExpediente/HBoxContainer" unique_id=1169030717]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("20_873pr")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fowkp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yp1q3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gy2ex")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xk7nm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eprvf")
+text = "Quero >:)"
+
+[node name="Control" type="Control" parent="Jogo/CanvasLayer/JogavelUI/SairEmExpediente/HBoxContainer" unique_id=252631284]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="Jogo/CanvasLayer/JogavelUI/SairEmExpediente/HBoxContainer" unique_id=1083978830]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("20_873pr")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fowkp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yp1q3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gy2ex")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xk7nm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eprvf")
+text = "Esquece :'("
+
 [node name="SairDoJogo" type="TextureButton" parent="Jogo/CanvasLayer/JogavelUI" unique_id=1959132422]
+visible = false
 layout_mode = 0
 offset_left = 15.0
 offset_top = 15.0
@@ -516,29 +642,44 @@ offset_bottom = 75.0
 texture_normal = ExtResource("8_2hbw0")
 texture_hover = ExtResource("9_v11ly")
 
-[node name="Door" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito" unique_id=193953055 groups=["direita_quarto", "sumivel"]]
-transform = Transform3D(-6.644131e-08, -1.52, -8.742278e-08, 0, -6.644131e-08, 2, -1.52, 6.644131e-08, 3.821371e-15, 5.754012, 1.5523577, 0.66908145)
+[node name="Door" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=1808773091 node_paths=PackedStringArray("camera", "jogavel_ui")]
+transform = Transform3D(-6.644132e-08, -1.52, -8.7422784e-08, -4.478052e-22, -6.644132e-08, 2, -1.52, 6.644132e-08, 3.8213714e-15, 5.754012, 1.5523577, 0.66908145)
+script = SubResource("GDScript_873pr")
+camera = NodePath("Camera/Camera3D")
+sumir_jogador = false
+pode_sair = false
+jogavel_ui = NodePath("../../../Jogo/CanvasLayer/JogavelUI/SairEmExpediente")
+
+[node name="Door" type="MeshInstance3D" parent="NavigationRegion3D/CenarioBonito/Door" unique_id=193953055 groups=["direita_quarto", "sumivel"]]
 mesh = SubResource("ArrayMesh_a0bhh")
 surface_material_override/0 = SubResource("StandardMaterial3D_80gip")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CenarioBonito/Door" unique_id=1249892608 groups=["direita_quarto"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/CenarioBonito/Door/Door" unique_id=1249892608 groups=["direita_quarto"]]
 transform = Transform3D(1, 0, 0, 0, 1, 8.351872e-23, 0, 8.351872e-23, 1, -0.5493424, 0, -0.75678945)
 script = ExtResource("10_ej8o8")
 
-[node name="AreaDeInteracao" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Door/StaticBody3D" unique_id=1910584560]
+[node name="AreaDeInteracao" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Door/Door/StaticBody3D" unique_id=1910584560]
 transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, -0.066391945, 0.36038232, 0)
 
-[node name="Interagivel" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Door/StaticBody3D" unique_id=2109076001 node_paths=PackedStringArray("area_clicavel", "mesh", "area_de_interacao")]
+[node name="Interagivel" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Door/Door/StaticBody3D" unique_id=2109076001 node_paths=PackedStringArray("area_clicavel", "mesh", "area_de_interacao", "jogavel")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1_5yl11")
 area_clicavel = NodePath("..")
 mesh = NodePath("../..")
 material_outline = ExtResource("2_kupag")
 area_de_interacao = NodePath("../AreaDeInteracao")
+jogavel = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CenarioBonito/Door/StaticBody3D" unique_id=879329463]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/CenarioBonito/Door/Door/StaticBody3D" unique_id=879329463]
 transform = Transform3D(1, 0, 0, 0, 1, 8.351872e-23, 0, 8.351872e-23, 1, 0, 0, 0.86962974)
 shape = SubResource("BoxShape3D_t12d2")
+
+[node name="Camera" type="Node3D" parent="NavigationRegion3D/CenarioBonito/Door" unique_id=663729297]
+transform = Transform3D(-0.99999994, -8.70901e-08, 7.619401e-09, 0, 0.0871558, 0.9961946, -8.742277e-08, 0.99619466, -0.0871558, -0.5186027, 1.4764681, 8.904908e-08)
+
+[node name="Camera3D" type="Camera3D" parent="NavigationRegion3D/CenarioBonito/Door/Camera" unique_id=210976761]
+current = true
+script = ExtResource("7_bjlr0")
 
 [node name="Telefone" type="Node3D" parent="NavigationRegion3D/CenarioBonito" unique_id=1650888016 node_paths=PackedStringArray("camera", "desativar_on_jogar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6351585, 0.09065652, 5.0458727)
@@ -773,7 +914,7 @@ cast_shadow = 3
 mesh = SubResource("BoxMesh_w0kyf")
 
 [node name="parede_sombra5" type="MeshInstance3D" parent="Luzes" unique_id=1008095254]
-transform = Transform3D(11.520066, 0, 0, 0, 1.2169641, 0, 0, 0, 11.776776, 0.08490729, 6.41814, 0.037129223)
+transform = Transform3D(11.520066, 0, 0, 0, 1.2169641, 0, 0, 0, 11.776776, 0.09275198, 6.4232464, 0.04574281)
 cast_shadow = 3
 mesh = SubResource("BoxMesh_w0kyf")
 
@@ -833,6 +974,9 @@ color = Color(0, 0, 0, 0)
 
 [connection signal="timeout" from="Jogo/TimerDoJogo" to="DecretosController" method="_on_timer_do_jogo_timeout"]
 [connection signal="timeout" from="Jogo/TimerDoJogo" to="Jogo" method="_on_timer_do_jogo_timeout"]
+[connection signal="pressed" from="Jogo/CanvasLayer/JogavelUI/SairEmExpediente/HBoxContainer/Button" to="Jogo" method="_on_timer_do_jogo_timeout"]
+[connection signal="pressed" from="Jogo/CanvasLayer/JogavelUI/SairEmExpediente/HBoxContainer/Button" to="NavigationRegion3D/CenarioBonito/Door" method="sair"]
+[connection signal="pressed" from="Jogo/CanvasLayer/JogavelUI/SairEmExpediente/HBoxContainer/Button2" to="NavigationRegion3D/CenarioBonito/Door" method="sair"]
 [connection signal="pressed" from="Jogo/CanvasLayer/JogavelUI/SairDoJogo" to="Jogo" method="_handle_sair_jogavel"]
 [connection signal="chamar" from="UI_Jogo/TextureButton" to="OlhoDeDeus/Rotacionavel" method="girar"]
 [connection signal="pressed" from="UI_Jogo/TextureButton" to="UI_Jogo/TextureButton" method="mandar_para"]

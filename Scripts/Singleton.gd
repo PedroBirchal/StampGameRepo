@@ -24,7 +24,6 @@ var direcao_grupo = {
 	Direcao.DIREITA: "direita_quarto",
 }
 
-
 var sigla_cidade = {
 	Cidades.AQUA: "aqua",
 	Cidades.ARVORE: "arvoro",
@@ -40,6 +39,13 @@ var cartas_dir_path : Array[StringName] = [
 "res://resources/cartas/Torres/"]
 var cartas : Array[CartaResource]
 var cartas_acesadas : Array[int]
+
+
+enum TipoEncomenda {
+	CARTA,
+	CAIXA
+}
+
 
 func _init() -> void :
 	for diretorio in cartas_dir_path :

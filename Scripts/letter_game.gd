@@ -15,10 +15,10 @@ var pontuacao : int = 0
 func jogar() -> void:
 	super()
 	camera.make_current()
-	carta_controller.instantiate_new_carta()
+	var carta = carta_controller.instantiate_new_carta()
 	carta_controller.active = true
 	
-	if not carta_controller.tem_cartas():
+	if not carta_controller.tem_cartas() and carta == null:
 		Jogo.instance.criar_impedimento(Jogo.instance.impedir_sem_cartas)
 
 func sair() -> void:

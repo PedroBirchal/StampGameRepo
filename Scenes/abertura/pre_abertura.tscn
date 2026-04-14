@@ -7,12 +7,17 @@ script/source = "extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Abertura.aparecer()
-	Abertura.sumiu.connect(ao_sumir)
-	Abertura.sumindo.connect(sumindo)
-	
-	window.mode = Window.MODE_MINIMIZED
-	window.unfocusable = true
+	if not DisplayServer.is_window_transparency_available():
+		ir_jogo()
+		Abertura.sumir()
+		return
+	else:
+		Abertura.aparecer()
+		Abertura.sumiu.connect(ao_sumir)
+		Abertura.sumindo.connect(sumindo)
+		
+		window.mode = Window.MODE_MINIMIZED
+		window.unfocusable = true
 
 func sumindo() -> void:
 	Abertura.sumindo.disconnect(sumindo)
@@ -23,7 +28,11 @@ func sumindo() -> void:
 func ao_sumir() -> void:
 	Abertura.sumiu.disconnect(ao_sumir)
 	window.grab_focus()
+	ir_jogo()
+
+func ir_jogo() -> void:
 	get_tree().change_scene_to_file(\"res://Scenes/MainMenu.tscn\")
+	
 "
 
 [node name="PreAbertura" type="Control" unique_id=1259706182]

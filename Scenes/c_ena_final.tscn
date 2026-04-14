@@ -82,9 +82,9 @@ font = ExtResource("5_4pwo7")
 font_size = 100
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1455009223]
-offset_left = 1198.0
+offset_left = 1842.0
 offset_top = 21.0
-offset_right = 1258.0
+offset_right = 1902.0
 offset_bottom = 81.0
 texture_normal = ExtResource("6_lh7cp")
 texture_hover = ExtResource("7_7qs34")

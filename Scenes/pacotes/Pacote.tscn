@@ -12,13 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://d0332rvcr7ujf" path="res://Sprites/Selo_torre.png" id="6_ngy0j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dchw8"]
-size = Vector3(0.27390748, 0.06431641, 0.6443359)
+size = Vector3(0.28050843, 0.07882324, 0.6498047)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1eue7"]
-size = Vector3(0.43, 0.4, 0.43)
+size = Vector3(0.43686768, 0.43098146, 0.43928713)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5tdmu"]
-size = Vector3(0.6194629, 0.5804688, 0.6194629)
+size = Vector3(0.6360669, 0.60871583, 0.6393018)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0qn1f"]
 size = Vector3(0.023046875, 0.1171875, 0.6159668)
@@ -184,15 +184,15 @@ markersP = [NodePath("Mesh/Pacote_Generico_P/PacoteGN_P/Arm_PacoteGN_P/Skeleton3
 rotacionavel = NodePath("Rotacionavel")
 
 [node name="ColisorP" type="CollisionShape3D" parent="." unique_id=1888587168]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0058282167, -0.0019481598, 0.006260395)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0007727295, 0.010048914, 0.0007916093)
 shape = SubResource("BoxShape3D_dchw8")
 
 [node name="ColisorM" type="CollisionShape3D" parent="." unique_id=1928850750]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.1900744e-05, 0.012871169, -0.0028320253)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.00029234588, 0.035991244, -0.0016894639)
 shape = SubResource("BoxShape3D_1eue7")
 
 [node name="ColisorG" type="CollisionShape3D" parent="." unique_id=1134925766]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.00059749186, -0.008417875, -0.00022950768)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0041790754, 0.019829184, 0.0032910407)
 shape = SubResource("BoxShape3D_5tdmu")
 
 [node name="Mesh" type="Node3D" parent="." unique_id=1671117450]

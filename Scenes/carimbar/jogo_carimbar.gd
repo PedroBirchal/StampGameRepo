@@ -32,6 +32,7 @@ var encomenda_atual_ultimo_estado: Encomenda.EstadoEncomenda
 @export_group("Sistema recebe e entrega")
 @export var pos_meio_mesa: Node3D
 @export var pos_receber_proximo: Node3D
+@export var pos_receber_proxima_carta: Node3D
 var proxima_encomenda: Encomenda
 
 @export_group("PostIts")
@@ -60,7 +61,10 @@ func jogar() -> void:
 	if not ja_comecou:
 		ja_comecou = true
 		proxima_encomenda = gerar_nova_encomenda()
-		pos_receber_proximo.add_child(proxima_encomenda)
+		if proxima_encomenda is Pacote:
+			pos_receber_proximo.add_child(proxima_encomenda)
+		else:
+			pos_receber_proxima_carta.add_child(proxima_encomenda)
 	
 	checar_impedimento_ligacao()
 	
@@ -108,7 +112,11 @@ func mandar_encomenda_nova_ao_centro() -> void:
 	mudou_encomenda.emit(encomenda_atual)
 	
 	proxima_encomenda = gerar_nova_encomenda()
-	pos_receber_proximo.add_child(proxima_encomenda)
+	
+	if proxima_encomenda is Pacote:
+		pos_receber_proximo.add_child(proxima_encomenda)
+	else:
+		pos_receber_proxima_carta.add_child(proxima_encomenda)
 
 func gerar_nova_encomenda() -> Node3D:
 	var encomenda = spawner.spawn()

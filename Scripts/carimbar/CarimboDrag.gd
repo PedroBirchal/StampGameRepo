@@ -125,7 +125,7 @@ func _carimbar():
 	animando = false
 
 func get_encomenda_colidida(collider) -> Encomenda:
-	while collider != null and collider is not Pacote:
+	while collider != null and collider is not Pacote and collider is not Carta:
 		collider = collider.get_parent()
 	return collider
 

@@ -24,7 +24,7 @@ func on_target_clicked(target_position) -> void:
 	rb = null
 	instantiate_new_carta()
 
-func instantiate_new_carta() -> void:
+func instantiate_new_carta() -> Carta:
 	carta_atual = Jogo.instance.jogo_carimbo.cesto.remover_ultima_carta()
 	if carta_atual != null:
 		if carta_atual.get_parent() != null:
@@ -39,6 +39,8 @@ func instantiate_new_carta() -> void:
 		rb.sleeping = false
 	else:
 		sem_cartas.emit()
+	
+	return carta_atual
 
 func retornar_carta() -> void:
 	if carta_atual != null:

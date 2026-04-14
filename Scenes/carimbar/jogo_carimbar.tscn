@@ -69,9 +69,6 @@ shadow_mesh = SubResource("ArrayMesh_pyn3w")
 [sub_resource type="BoxShape3D" id="BoxShape3D_hiyrm"]
 size = Vector3(5.6, 1.204, 3)
 
-[sub_resource type="BoxMesh" id="BoxMesh_m8bj5"]
-size = Vector3(0.75, 0.75, 0.75)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_m8bj5"]
 size = Vector3(20, 0.001, 9)
 
@@ -306,7 +303,7 @@ size = Vector3(2.5888672, 4.8238525, 1.6745064)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2p7p1"]
 size = Vector3(16.76648, 8.341797, 0.1)
 
-[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("camera", "spawner", "ui_girar", "ui_girar_horizontal", "botao_abrir_cima", "pos_pacote_na_cara", "pos_pacote_p_na_cara", "pos_pacote_g_na_cara", "pos_item_na_cara", "pos_carta_na_cara", "sair_inspecionar_trigger", "texto_carta_holder", "texto_carta_label", "descanso_caixa_p", "descanso_caixa_m", "descanso_caixa_g", "pos_meio_mesa", "pos_receber_proximo", "pos_postit_cara", "postits_pin_list", "cesto", "lixo", "estoque", "jogavel_ui")]
+[node name="JogoCarimbar" type="Node3D" unique_id=1766737732 node_paths=PackedStringArray("camera", "spawner", "ui_girar", "ui_girar_horizontal", "botao_abrir_cima", "pos_pacote_na_cara", "pos_pacote_p_na_cara", "pos_pacote_g_na_cara", "pos_item_na_cara", "pos_carta_na_cara", "sair_inspecionar_trigger", "texto_carta_holder", "texto_carta_label", "descanso_caixa_p", "descanso_caixa_m", "descanso_caixa_g", "pos_meio_mesa", "pos_receber_proximo", "pos_receber_proxima_carta", "pos_postit_cara", "postits_pin_list", "cesto", "lixo", "estoque", "jogavel_ui")]
 script = ExtResource("1_yf8ht")
 camera = NodePath("CameraHolder/Camera3D")
 spawner = NodePath("EncomendaSpawner")
@@ -326,6 +323,7 @@ descanso_caixa_m = NodePath("Mesa/CentroDaMesa/CaixaParadaAoAbrir/M")
 descanso_caixa_g = NodePath("Mesa/CentroDaMesa/CaixaParadaAoAbrir/G")
 pos_meio_mesa = NodePath("Mesa/CentroDaMesa/Meio")
 pos_receber_proximo = NodePath("Mesa/ProximoAVir")
+pos_receber_proxima_carta = NodePath("Mesa/ProximaCartaAVir")
 pos_postit_cara = NodePath("Mesa/NaCaraDoJogador/RefPostIt")
 postit_prefab = ExtResource("12_roixi")
 postits_pin_list = [NodePath("Mesa/PostIts/PinPostIt"), NodePath("Mesa/PostIts/PinPostIt2"), NodePath("Mesa/PostIts/PinPostIt3"), NodePath("Mesa/PostIts/PinPostIt4"), NodePath("Mesa/PostIts/PinPostIt5"), NodePath("Mesa/PostIts/PinPostIt6"), NodePath("Mesa/PostIts/PinPostIt7"), NodePath("Mesa/PostIts/PinPostIt8"), NodePath("Mesa/PostIts/PinPostIt9"), NodePath("Mesa/PostIts/PinPostIt10"), NodePath("Mesa/PostIts/PinPostIt11"), NodePath("Mesa/PostIts/PinPostIt12"), NodePath("Mesa/PostIts/PinPostIt13"), NodePath("Mesa/PostIts/PinPostIt14"), NodePath("Mesa/PostIts/PinPostIt15"), NodePath("Mesa/PostIts/PinPostIt16"), NodePath("Mesa/PostIts/PinPostIt17"), NodePath("Mesa/PostIts/PinPostIt18"), NodePath("Mesa/PostIts/PinPostIt19")]
@@ -361,13 +359,11 @@ transform = Transform3D(-1.8213077e-08, 0, -0.41666663, -0.41666663, -1.8213077e
 transform = Transform3D(1, 3.8116483e-20, -3.8116483e-20, -3.8116483e-20, 1, 0, 3.8116483e-20, 6.65807e-40, 1, 0, -0.10180664, 0)
 shape = SubResource("BoxShape3D_hiyrm")
 
+[node name="ProximaCartaAVir" type="Node3D" parent="Mesa" unique_id=2032750083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9538922, 0.99039924, -1.5396904)
+
 [node name="ProximoAVir" type="Node3D" parent="Mesa" unique_id=559523962]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9538922, 1.3559829, -1.5396904)
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesa/ProximoAVir" unique_id=1099073870]
-transform = Transform3D(0.7680935, 0, -0.64033765, 0, 1, 0, 0.64033765, 0, 0.7680935, 0, 0, 0)
-visible = false
-mesh = SubResource("BoxMesh_m8bj5")
 
 [node name="NaCaraDoJogador" type="Node3D" parent="Mesa" unique_id=558165658]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.3174038, 0.1808415)
